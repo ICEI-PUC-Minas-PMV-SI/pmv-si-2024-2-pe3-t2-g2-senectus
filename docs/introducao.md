@@ -22,7 +22,7 @@ O projeto Senectus busca solucionar esse problema de forma didática, sempre ins
 
 ## Objetivos
 
-### Objetivo geral
+### Objetivos gerais
 
 O projeto Senectus tem como objetivo desenvolver uma aplicação web voltada aos idosos, visando engajá-los em atividades físicas, reduzir o número de indivíduos sedentários no Brasil e melhorar a qualidade de vida dos usuários.
 
