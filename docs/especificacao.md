@@ -37,21 +37,35 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 
 ### 3.3.1 Requisitos Funcionais
 
-| Código | Requisito Funcional (Funcionalidade) | Descrição |
-|--------------------|------------------------------------|----------------------------------------|
-| RF1 | Gerenciar Curso de Aperfeiçoamento |	Processamento de Inclusão, Alteração, Exclusão e Consulta de Cursos de Aperfeiçoamento |
-| RF2 |	Gerenciar Professor	| Processamento de Inclusão, Alteração, Exclusão e Consulta de professores |
-| RF3	| Gerenciar Matrícula |	Processamento de Inclusão, Alteração, Exclusão e Consulta de Matrículas de alunos em Cursos de Aperfeiçoamento |
-| ... |	...	| ... |
+| Código |  Requisito Funcional (Funcionalidade) | Descrição |
+| ------ | --- | --- |
+| RF001 | Informações descritivos de exercícios | O sistema deve permitir que usuários tenham acesso a descrição informativa de exercícios. |
+| RF002 | Catalogo de exercícios | O sistema deve permitir que usuários sejam capazes de acessar o catálogo de exercícios e os selecionar. |
+| RF003 | Seleção de exercícios por categória |O sistema deve permitir a seleção de exercícios em forma de categórias. |
+| RF004 | Conteúdo de vídeo e imagem para exercícios | O sistema deve permitir que o usuário tenha acesso a algum vídeo ou imagem sobre como fazer o exercício. |
+| RF005 | Gerenciar profissional | O sistema deve permitir que um profissional se cadastre na plataforma, inserindo informações básicas. |
+| RF006 | Login de profissional | O sistema deve permitir que usuários profissionais, previamente cadastrados, façam login na aplicação. |
+| RF007 | Contato de profissional sem cadastro | O sistema deve permitir que usuários contactem profissionais sem ter um cadastro prévio. |
+| RF008 | Filtrar profissionais por especialidade | O sistema deve ser capaz de filtrar profissionais por especialidade. |
+| RF009 | Filtrar profissionais por palavra-chave | O sistema deve ser capaz de filtrar profissionais por palavra-chave. |
+| RF010 | Página inicial | O sistema deve ter uma página inicial informativa sobre o projeto e instruções de uso da plataforma |
+| RF011 | Contato de profissional por email | O sistema deve permitir que o usuário idoso marque uma consulta via email com o profissional da saúde. |
+| RF012 | Contato de profissional por telefone | O sistema deve permitir que o usuário idoso marque uma consulta via telefone com o profissional da saúde. |
+| RF013 | Definição de valor de serviço | O sistema deve permitir que usuários profissionais definam o valor de seus serviços |
+| RF014 | Desconectar da plataforma | O sistema deve permitir que usuários desloguem da plataforma |
 
-### 3.3.2 Requisitos Não Funcionais
+
+### 3.3.2 Requisitos Não Funcional
 
 | Código | Requisito Não Funcional (Restrição) |
 |--------------------|------------------------------------|
-| RNF1 | O ambiente operacional a ser utilizado é o Windows XP. |
-| RNF2 | O sistema deverá executar em um computador configurado com uma impressora de tecnologia laser ou de jato de tinta, a ser usada para impressão dos relatórios. |
-| RNF3 |	Segurança	O produto deve restringir o acesso por meio de senhas individuais para o usuário. |
-| ... |	... |	... |
+| RNF001 | O sistema deve seguir boas práticas de desenvolvimento de sistemas com relação a usabilidade. |
+| RNF002 | O sistema deve ser responsivo em diversas telas com base no público-alvo |
+| RNF003 | O sistema deve seguir boas práticas de segurança da informação sempre que possível |
+| RNF004 | O sistema deve ser de fácil entendimento para o público idoso |
+| RNF005 | O sistema deve ser desenvolvido utilizando a linguagem de programação Javascript |
+| RNF006 | O sistema deve respeitar as normas da LGPD |
+
 
 ### 3.3.3 Usuários 
 
