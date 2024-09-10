@@ -39,20 +39,16 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 
 | Código |  Requisito Funcional (Funcionalidade) | Descrição |
 | ------ | --- | --- |
-| RF001 | Informações descritivos de exercícios | O sistema deve permitir que usuários tenham acesso a descrição informativa de exercícios. |
-| RF002 | Catalogo de exercícios | O sistema deve permitir que usuários sejam capazes de acessar o catálogo de exercícios e os selecionar. |
-| RF003 | Seleção de exercícios por categória |O sistema deve permitir a seleção de exercícios em forma de categórias. |
-| RF004 | Conteúdo de vídeo e imagem para exercícios | O sistema deve permitir que o usuário tenha acesso a algum vídeo ou imagem sobre como fazer o exercício. |
-| RF005 | Gerenciar profissional | O sistema deve permitir que um profissional se cadastre na plataforma, inserindo informações básicas. |
-| RF006 | Login de profissional | O sistema deve permitir que usuários profissionais, previamente cadastrados, façam login na aplicação. |
-| RF007 | Contato de profissional sem cadastro | O sistema deve permitir que usuários contactem profissionais sem ter um cadastro prévio. |
-| RF008 | Filtrar profissionais por especialidade | O sistema deve ser capaz de filtrar profissionais por especialidade. |
-| RF009 | Filtrar profissionais por palavra-chave | O sistema deve ser capaz de filtrar profissionais por palavra-chave. |
-| RF010 | Página inicial | O sistema deve ter uma página inicial informativa sobre o projeto e instruções de uso da plataforma |
-| RF011 | Contato de profissional por email | O sistema deve permitir que o usuário idoso marque uma consulta via email com o profissional da saúde. |
-| RF012 | Contato de profissional por telefone | O sistema deve permitir que o usuário idoso marque uma consulta via telefone com o profissional da saúde. |
-| RF013 | Definição de valor de serviço | O sistema deve permitir que usuários profissionais definam o valor de seus serviços |
-| RF014 | Desconectar da plataforma | O sistema deve permitir que usuários desloguem da plataforma |
+| RF001 | Acessar instruções de execução de exercício | O sistema deve permitir que os usuário sejam capazes de acessar instruções de como executar os exercícios |
+| RF002 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios |
+| RF003 | Filtrar exercícios | O sistema deve permitir que usuários sejam capazes de filtrar os exercícios |
+| RF004 | Gerenciar perfil | O sistema deve permitir que um profissional gerencie seu perfil na plataforma |
+| RF005 | Pesquisar profissional | O sistema deve ser capaz de permitir que o usuário pesquise por profissionais |
+| RF006 | Filtrar profissionais | O sistema deve ser capaz de filtrar profissionais. |
+| RF007 | Contatar profissional | O sistema deve permitir que o usuário idoso acesse as informações de contato do profissional |
+| RF008 | Gerenciar serviços | O sistema deve permitir que usuários profissionais gerenciem os seus serviços |
+| RF009 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma |
+| RF010 | Desconectar da plataforma | O sistema deve permitir que usuários desloguem da plataforma |
 
 
 ### 3.3.2 Requisitos Não Funcional
