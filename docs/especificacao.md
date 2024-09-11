@@ -16,7 +16,11 @@ O produto que será criado neste projeto será denominado "Senectus" que da trad
 - **Página de blog**: componente dedicado a fornecer conteúdos e recomendações sobre saúde e bem estar para o grupo da terceira idade;
 
 ### 3.2.2 Missão do produto
-Senectus visa fornecer informações e ferramentas para o melhorar a qualidade de vida dos idosos. Trazendo assim, novos meios de contato com profissionais da saúde, uma coletânea de informações sobre exercícios físicos adequados para o público e uma série de eventos das quais os usuários podem participar.
+Senectus tem como missão aumentar o engajamento em atividades físicas e promover o bem-estar de idosos através de uma plataforma digital que oferece:
+Biblioteca personalizada de exercícios: Vídeos com instruções claras e seguras, adaptados a diferentes níveis de condicionamento físico.
+Conexão com profissionais da saúde: Facilidade para encontrar e agendar consultas com especialistas.
+Eventos e atividades: Uma agenda de eventos presenciais e online, promovendo a socialização e o aprendizado.
+Conteúdo informativo: Artigos e dicas sobre saúde, nutrição e bem-estar, escritos por profissionais da área.
 
 ### 3.2.3 Limites do produto
 Senectus apesar de fornecer os meios de contatos e informações de eventos, não é responsável por promover nenhum meio de comunicação ou pagamento dentro da plataforma, utilizando-se assim, de sistemas externos, como, por exemplo, os clientes de email e telefone responsáveis para estabelecer um meio de comunicação entre o idoso e o profissional, ou links de formulários externos para permitir que os organizadores de eventos coletem informações dos participantes. Além disso, Senectus não armazena os vídeos de instruções de exercícios, necessitando, assim, de uma plataforma externa para tal.
