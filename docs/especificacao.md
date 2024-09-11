@@ -47,15 +47,20 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | RF006 | Filtrar profissionais | O sistema deve ser capaz de filtrar profissionais. |
 | RF007 | Contatar profissional | O sistema deve permitir que o usuário idoso acesse as informações de contato do profissional |
 | RF008 | Gerenciar serviços | O sistema deve permitir que usuários profissionais gerenciem os seus serviços |
-| RF009 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma |
-| RF010 | Desconectar da plataforma | O sistema deve permitir que usuários desloguem da plataforma |
-| RF011 | Gerenciar artigos | O sistema deve permitir que profissionais gerenciem seus artigos de seus respectivos blogs |
-| RF012 | Pesquisar artigo | O sistema deve permitir que qualquer usuário pesquise por artigos de blog |
-| RF013 | Filtrar artigo | O sistema deve permitir que qualquer usuário filtre os artigos de blog |
-| RF014 | Comentar no artigo | O sistema deve permitir que o usuário comente no artigo |
-| RF015 | Gerenciar eventos | O sistema deve permitir que gestores de eventos gerenciem eventos, tanto remoto, quanto presencial |
-| RF016 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos |
-| RF017 | Filtrar eventos | O sistema deve permitir que qualquer usuário filtre a categória dos eventos |
+| RF009 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma | (vai ter cadastro de idosos?)
+| RF010 | Desconectar da plataforma | O sistema deve permitir que usuários desloguem da plataforma | (vai ter cadastro de idosos?)
+| RF011 | Gerenciar artigos | O sistema deve permitir que profissionais gerenciem seus artigos de seus respectivos blogs | (a ideia do blog nao concordo muito)
+| RF012 | Pesquisar artigo | O sistema deve permitir que qualquer usuário pesquise por artigos de blog | (a ideia do blog nao concordo muito)
+| RF013 | Filtrar artigo | O sistema deve permitir que qualquer usuário filtre os artigos de blog | (a ideia do blog nao concordo muito)
+| RF014 | Gerenciar eventos | O sistema deve permitir que gestores de eventos gerenciem eventos, tanto remoto, quanto presencial |
+| RF015 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos |
+| RF016 | Filtrar eventos | O sistema deve permitir que qualquer usuário filtre a categória dos eventos |
+| RF017 | Criar aulas | O sistema deve permitir que o usuário personal crie aulas remotas ou presenciais | (novo)
+| RF018 | Acessar aulas | O sistema deve permitir que o usuário idoso acesse aulas remotas ou presenciais | (novo)
+| RF019 | Criar aulas | O sistema deve permitir que o usuário personal gerencie suas aulas remotas ou presenciais | (novo)
+| RF020 | Gerenciar alunos | O sistema deve permitir que o usuário personal gerencie seus alunos | (novo)
+| RF019 | Listar aulas programadas | O sistema deve permitir que os usuários consigam ver as aulas programadas por dia, horário e personal | (novo)
+
 
 ### 3.3.2 Requisitos Não Funcional
 
