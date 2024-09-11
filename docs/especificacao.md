@@ -49,7 +49,12 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | RF008 | Gerenciar serviços | O sistema deve permitir que usuários profissionais gerenciem os seus serviços |
 | RF009 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma |
 | RF010 | Desconectar da plataforma | O sistema deve permitir que usuários desloguem da plataforma |
-
+| RF011 | Gerenciar artigos | O sistema deve permitir que profissionais gerenciem seus artigos de seus respectivos blogs |
+| RF012 | Pesquisar artigo | O sistema deve permitir que qualquer usuário pesquise por artigos de blog |
+| RF013 | Filtrar artigo | O sistema deve permitir que qualquer usuário filtre os artigos de blog |
+| RF014 | Gerenciar eventos | O sistema deve permitir que gestores de eventos gerenciem eventos, tanto remoto, quanto presencial |
+| RF015 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos |
+| RF016 | Filtrar eventos | O sistema deve permitir que qualquer usuário filtre a categória dos eventos |
 
 ### 3.3.2 Requisitos Não Funcional
 
