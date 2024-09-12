@@ -39,28 +39,23 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 
 | Código |  Requisito Funcional (Funcionalidade) | Descrição |
 | ------ | --- | --- |
-| RF001 | Acessar instruções de execução de exercício | O sistema deve permitir que os usuário sejam capazes de acessar instruções de como executar os exercícios |
+| RF001 | Acessar instruções de execução de exercício | O sistema deve permitir que os usuários sejam capazes de acessar instruções de como executar os exercícios na plataforma |
 | RF002 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios |
 | RF003 | Filtrar exercícios | O sistema deve permitir que usuários sejam capazes de filtrar os exercícios |
-| RF004 | Gerenciar perfil | O sistema deve permitir que um profissional gerencie seu perfil na plataforma |
+| RF004 | Gerenciar perfil do profissional | O sistema deve permitir que um profissional gerencie seu perfil na plataforma |
 | RF005 | Pesquisar profissional | O sistema deve ser capaz de permitir que o usuário pesquise por profissionais |
 | RF006 | Filtrar profissionais | O sistema deve ser capaz de filtrar profissionais. |
-| RF007 | Contatar profissional | O sistema deve permitir que o usuário idoso acesse as informações de contato do profissional |
+| RF007 | Acessar contatos do profissional | O sistema deve permitir que o usuário idoso acesse as informações de contato do profissional |
 | RF008 | Gerenciar serviços | O sistema deve permitir que usuários profissionais gerenciem os seus serviços |
-| RF009 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma | (vai ter cadastro de idosos?)
-| RF010 | Desconectar da plataforma | O sistema deve permitir que usuários desloguem da plataforma | (vai ter cadastro de idosos?)
-| RF011 | Gerenciar artigos | O sistema deve permitir que profissionais gerenciem seus artigos de seus respectivos blogs | (a ideia do blog nao concordo muito)
-| RF012 | Pesquisar artigo | O sistema deve permitir que qualquer usuário pesquise por artigos de blog | (a ideia do blog nao concordo muito)
-| RF013 | Filtrar artigo | O sistema deve permitir que qualquer usuário filtre os artigos de blog | (a ideia do blog nao concordo muito)
-| RF014 | Gerenciar eventos | O sistema deve permitir que gestores de eventos gerenciem eventos, tanto remoto, quanto presencial |
-| RF015 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos |
-| RF016 | Filtrar eventos | O sistema deve permitir que qualquer usuário filtre a categória dos eventos |
-| RF017 | Criar aulas | O sistema deve permitir que o usuário personal crie aulas remotas ou presenciais | (novo)
-| RF018 | Acessar aulas | O sistema deve permitir que o usuário idoso acesse aulas remotas ou presenciais | (novo)
-| RF019 | Criar aulas | O sistema deve permitir que o usuário personal gerencie suas aulas remotas ou presenciais | (novo)
-| RF020 | Gerenciar alunos | O sistema deve permitir que o usuário personal gerencie seus alunos | (novo)
-| RF019 | Listar aulas programadas | O sistema deve permitir que os usuários consigam ver as aulas programadas por dia, horário e personal | (novo)
-
+| RF009 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma |
+| RF010 | Desconectar da plataforma | O sistema deve permitir que usuários desloguem da plataforma |
+| RF011 | Gerenciar eventos | O sistema deve permitir que gestores de eventos gerenciem eventos, tanto remoto, quanto presencial |
+| RF012 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos |
+| RF013 | Filtrar eventos | O sistema deve permitir que qualquer usuário filtre a categoria dos eventos |
+| RF014 | Gerenciar perfil de idoso | O sistema deve permitir que o idoso gerencie seu perfil |
+| RF015 | Acessar roteiro de exercícios | O sistema deve permitir que qualquer usuário acesse o roteiro de exercícios |
+| RF016 | Gerenciar roteiro | O sistema deve permitir que qualquer usuário gerencie seus roteiros dinamicamente |
+| RF017 | Realizar avaliação prévia | O sistema deve permitir que o usuário realize uma avaliação prévia para saber qual o roteiro de exercícios mais indicado |
 
 ### 3.3.2 Requisitos Não Funcional
 
