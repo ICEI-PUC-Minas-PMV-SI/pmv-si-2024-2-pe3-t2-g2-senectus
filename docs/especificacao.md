@@ -56,6 +56,8 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | RF015 | Acessar roteiro de exercícios | O sistema deve permitir que qualquer usuário acesse o roteiro de exercícios |
 | RF016 | Gerenciar roteiro | O sistema deve permitir que qualquer usuário gerencie seus roteiros dinamicamente |
 | RF017 | Realizar avaliação prévia | O sistema deve permitir que o usuário realize uma avaliação prévia para saber qual o roteiro de exercícios mais indicado |
+| RF018 | Pesquisar artigo | O sistema deve permitir que qualquer usuário pesquise por artigos de blog |
+| RF019 | Filtrar artigo | O sistema deve permitir que qualquer usuário filtre os artigos de blog |
 
 ### 3.3.2 Requisitos Não Funcional
 
