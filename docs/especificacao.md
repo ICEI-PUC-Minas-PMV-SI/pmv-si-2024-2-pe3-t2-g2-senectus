@@ -41,21 +41,39 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 
 ### 3.3.1 Requisitos Funcionais
 
-| Código | Requisito Funcional (Funcionalidade) | Descrição |
-|--------------------|------------------------------------|----------------------------------------|
-| RF1 | Gerenciar Curso de Aperfeiçoamento |	Processamento de Inclusão, Alteração, Exclusão e Consulta de Cursos de Aperfeiçoamento |
-| RF2 |	Gerenciar Professor	| Processamento de Inclusão, Alteração, Exclusão e Consulta de professores |
-| RF3	| Gerenciar Matrícula |	Processamento de Inclusão, Alteração, Exclusão e Consulta de Matrículas de alunos em Cursos de Aperfeiçoamento |
-| ... |	...	| ... |
+| Código |  Requisito Funcional (Funcionalidade) | Descrição |
+| ------ | --- | --- |
+| RF001 | Acessar instruções de execução de exercício | O sistema deve permitir que os usuários sejam capazes de acessar instruções de como executar os exercícios na plataforma |
+| RF002 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios |
+| RF003 | Filtrar exercícios | O sistema deve permitir que usuários sejam capazes de filtrar os exercícios |
+| RF004 | Gerenciar perfil do profissional | O sistema deve permitir que um profissional gerencie seu perfil na plataforma |
+| RF005 | Pesquisar profissional | O sistema deve ser capaz de permitir que o usuário pesquise por profissionais |
+| RF006 | Filtrar profissionais | O sistema deve ser capaz de filtrar profissionais. |
+| RF007 | Acessar contatos do profissional | O sistema deve permitir que o usuário idoso acesse as informações de contato do profissional |
+| RF008 | Gerenciar serviços | O sistema deve permitir que usuários profissionais gerenciem os seus serviços |
+| RF009 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma |
+| RF010 | Desconectar da plataforma | O sistema deve permitir que usuários desloguem da plataforma |
+| RF011 | Gerenciar eventos | O sistema deve permitir que gestores de eventos gerenciem eventos, tanto remoto, quanto presencial |
+| RF012 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos |
+| RF013 | Filtrar eventos | O sistema deve permitir que qualquer usuário filtre a categoria dos eventos |
+| RF014 | Gerenciar perfil de idoso | O sistema deve permitir que o idoso gerencie seu perfil |
+| RF015 | Acessar roteiro de exercícios | O sistema deve permitir que qualquer usuário acesse o roteiro de exercícios |
+| RF016 | Gerenciar roteiro | O sistema deve permitir que qualquer usuário gerencie seus roteiros dinamicamente |
+| RF017 | Realizar avaliação prévia | O sistema deve permitir que o usuário realize uma avaliação prévia para saber qual o roteiro de exercícios mais indicado |
+| RF018 | Pesquisar artigo | O sistema deve permitir que qualquer usuário pesquise por artigos de blog |
+| RF019 | Filtrar artigo | O sistema deve permitir que qualquer usuário filtre os artigos de blog |
 
-### 3.3.2 Requisitos Não Funcionais
+### 3.3.2 Requisitos Não Funcional
 
 | Código | Requisito Não Funcional (Restrição) |
 |--------------------|------------------------------------|
-| RNF1 | O ambiente operacional a ser utilizado é o Windows XP. |
-| RNF2 | O sistema deverá executar em um computador configurado com uma impressora de tecnologia laser ou de jato de tinta, a ser usada para impressão dos relatórios. |
-| RNF3 |	Segurança	O produto deve restringir o acesso por meio de senhas individuais para o usuário. |
-| ... |	... |	... |
+| RNF001 | O sistema deve seguir boas práticas de desenvolvimento de sistemas com relação a usabilidade. |
+| RNF002 | O sistema deve ser responsivo em diversas telas com base no público-alvo |
+| RNF003 | O sistema deve seguir boas práticas de segurança da informação sempre que possível |
+| RNF004 | O sistema deve ser de fácil entendimento para o público idoso |
+| RNF005 | O sistema deve ser desenvolvido utilizando a linguagem de programação Javascript |
+| RNF006 | O sistema deve respeitar as normas da LGPD |
+
 
 ### 3.3.3 Usuários 
 
