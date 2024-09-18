@@ -9,18 +9,18 @@ Esta especificação de requisitos tem como objetivo fornecer um guia completo e
 
 ### 3.2.1 Nome do produto e seus componentes principais
 O produto que será criado neste projeto será denominado "Senectus" que da tradução direta do latim para o português, significa idoso, referenciando o público alvo que o sistema visa atingir. Para que o sistema Senectus seja capaz de atingir seus objetivos, o mesmo terá os seguintes componentes:
-- **Biblioteca de Exercícios**: componente dedicado a exibir uma biblioteca de exercícios em formato de vídeo, fornecendo instruções de execução para os idosos;
-- **Gestor de cadastro de profissionais**: componente dedicado a gerenciar o fluxo de cadastro de novos profissionais no Senectus;
+- **Biblioteca de Exercícios**: componente dedicado a exibir uma biblioteca de exercícios e planos de treino para os usuários;
+- **Gestor de cadastro**: componente dedicado a gerenciar o fluxo de cadastro de usuários no Senectus;
 - **Gestor de eventos remotos e presenciais**: componente dedicado a fornecer meios de cadastro de novos eventos relacionados a saúde e exercícios por profissionais. Além disso, o componente também é responsável por permitir a pesquisa destes eventos e fornecer informações sobre como participar;
 - **Gestor de pesquisa de profissionais**: componente dedicado a gerenciar o fluxo de pesquisa de profissionais da área da saúde, fornecendo os meios de contato mais adequados do mesmo.
-- **Página de blog**: componente dedicado a fornecer conteúdos e recomendações sobre saúde e bem estar para o grupo da terceira idade;
+- **Gestor de blog**: componente dedicado a permitir o gerenciamento de postagens de blogs referente a temas da sáude e a pesquisa adequada dos mesmos;
 
 ### 3.2.2 Missão do produto
 Senectus tem como missão aumentar o engajamento em atividades físicas e promover o bem-estar de idosos através de uma plataforma digital que oferece:
-Biblioteca personalizada de exercícios: Vídeos com instruções claras e seguras, adaptados a diferentes níveis de condicionamento físico.
-Conexão com profissionais da saúde: Facilidade para encontrar e agendar consultas com especialistas.
-Eventos e atividades: Uma agenda de eventos presenciais e online, promovendo a socialização e o aprendizado.
-Conteúdo informativo: Artigos e dicas sobre saúde, nutrição e bem-estar, escritos por profissionais da área.
+- Biblioteca de exercícios: planos de treino e informações com instruções claras e seguras para a execução dos exercícios em si.
+- Conexão com profissionais da saúde: facilidade para encontrar e agendar consultas com especialistas.
+- Eventos e atividades: uma agenda de eventos presenciais e online, promovendo a socialização e o aprendizado.
+- Conteúdo informativo: artigos e dicas sobre saúde, nutrição e bem-estar, escritos por profissionais da área.
 
 ### 3.2.3 Limites do produto
 Senectus apesar de fornecer os meios de contatos e informações de eventos, não é responsável por promover nenhum meio de comunicação ou pagamento dentro da plataforma, utilizando-se assim, de sistemas externos, como, por exemplo, os clientes de email e telefone responsáveis para estabelecer um meio de comunicação entre o idoso e o profissional, ou links de formulários externos para permitir que os organizadores de eventos coletem informações dos participantes. Além disso, Senectus não armazena os vídeos de instruções de exercícios, necessitando, assim, de uma plataforma externa para tal.
@@ -31,37 +31,29 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 |--------------------|------------------------------------|----------------------------------------|
 | 1 | Facilidade no acesso de um amplo catalogo de exercícios variados | Essencial |
 | 2 | Acessibilidade para idosos com pouca experiência digital | Essencial |
-| 3 | Acesso rápido e sem necessidade de cadastro | Essencial |
-| 4 | Facilidade na busca por profissionais | Essencial |
-| 5 | Facilidade em cadastrar profissionais | Essencial |
-| 6 | Acesso ao blog de conteúdos | Recomendável |
-| 7 | Conexão entre eventos físicos e virtuais | Recomendável |
+| 3 | Facilidade na busca por profissionais | Essencial |
+| 4 | Facilidade em cadastrar profissionais | Essencial |
+| 5 | Acesso ao blog de conteúdos | Recomendável |
+| 6 | Conexão entre eventos físicos e virtuais | Recomendável |
 
 ## 3.3 Descrição geral do produto
 
 ### 3.3.1 Requisitos Funcionais
 
-| Código |  Requisito Funcional (Funcionalidade) | Descrição |
+| Código | Requisito Funcional (Funcionalidade) | Descrição |
 | ------ | --- | --- |
-| RF001 | Acessar instruções de execução de exercício | O sistema deve permitir que os usuários sejam capazes de acessar instruções de como executar os exercícios na plataforma |
-| RF002 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios |
-| RF003 | Filtrar exercícios | O sistema deve permitir que usuários sejam capazes de filtrar os exercícios |
-| RF004 | Gerenciar perfil do profissional | O sistema deve permitir que um profissional gerencie seu perfil na plataforma |
-| RF005 | Pesquisar profissional | O sistema deve ser capaz de permitir que o usuário pesquise por profissionais |
-| RF006 | Filtrar profissionais | O sistema deve ser capaz de filtrar profissionais. |
-| RF007 | Acessar contatos do profissional | O sistema deve permitir que o usuário idoso acesse as informações de contato do profissional |
-| RF008 | Gerenciar serviços | O sistema deve permitir que usuários profissionais gerenciem os seus serviços |
-| RF009 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma |
-| RF010 | Desconectar da plataforma | O sistema deve permitir que usuários desloguem da plataforma |
-| RF011 | Gerenciar eventos | O sistema deve permitir que gestores de eventos gerenciem eventos, tanto remoto, quanto presencial |
-| RF012 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos |
-| RF013 | Filtrar eventos | O sistema deve permitir que qualquer usuário filtre a categoria dos eventos |
-| RF014 | Gerenciar perfil de idoso | O sistema deve permitir que o idoso gerencie seu perfil |
-| RF015 | Acessar roteiro de exercícios | O sistema deve permitir que qualquer usuário acesse o roteiro de exercícios |
-| RF016 | Gerenciar roteiro | O sistema deve permitir que qualquer usuário gerencie seus roteiros dinamicamente |
-| RF017 | Realizar avaliação prévia | O sistema deve permitir que o usuário realize uma avaliação prévia para saber qual o roteiro de exercícios mais indicado |
-| RF018 | Pesquisar artigo | O sistema deve permitir que qualquer usuário pesquise por artigos de blog |
-| RF019 | Filtrar artigo | O sistema deve permitir que qualquer usuário filtre os artigos de blog |
+| RF001 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma |
+| RF002 | Desconectar da plataforma | O sistema deve permitir que usuários se desconectem da plataforma |
+| RF003 | Gerenciar perfil de usuário | O sistema deve permitir que o usuário gerencie seu perfil |
+| RF004 | Gerenciar perfil do profissional | O sistema deve permitir que um profissional crie, atualize, leia e exclua o seu perfil na plataforma |
+| RF005 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios |
+| RF006 | Gerenciar plano de treino | O sistema deve permitir que o usuário não profissional crie, atualize, leia e exclua seus planos de treino |
+| RF007 | Realizar avaliação prévia | O sistema deve permitir que o usuário não profissional realize uma avaliação prévia por formulário para saber qual o plano de treino mais indicado |
+| RF008 | Pesquisar profissional | O sistema deve ser capaz de permitir que o usuário pesquise por profissionais da saúde |
+| RF009 | Gerenciar eventos | O sistema deve permitir que os profissionais criem, atualizem, leiam e excluam seus eventos relacionados a área da saúde |
+| RF010 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos relacionados a área da saúde |
+| RF011 | Gerenciar postagens | O sistema deve permitir que o profissional crie, edite, exclua e leias as suas postagens de seu blog |
+| RF012 | Pesquisar postagens | O sistema deve permitir que qualquer usuário pesquise as postagens dos blogs |
 
 ### 3.3.2 Requisitos Não Funcional
 
@@ -80,9 +72,7 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | Ator | Descrição |
 |--------------------|------------------------------------|
 | Profissional da Saúde |	Usuário profissional da saúde que deseja encontrar novas formas de divulgação do seu trabalho com idosos. |
-| Familiar de Idoso |	Familiar que necessita contratar um profissional para auxiliar seu parente. |
 | Idoso |	Usuário da terceira idade com compreensão das tecnologias e que deseja encontrar um profissional de saúde ou instruções para realizar exercícios em casa, como alongamentos. |	
-| Organizador de Evento | Usuário que deseja divulgar melhor o evento com foco no público de terceira idade em que é responsável. |
 
 ## 3.4 Modelagem do Sistema
 
