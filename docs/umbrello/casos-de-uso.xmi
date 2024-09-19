@@ -104,7 +104,7 @@
       </packagedElement>
       <xmi:Extension extender="umbrello">
         <diagrams resolution="96">
-          <diagram xmi.id="uWIr8XUNJe4WQ" name="senectus-use-case" type="2" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" griddotcolor="#d3d3d3" linecolor="#990000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="71.3" canvasheight="800" canvaswidth="1100" isopen="1">
+          <diagram xmi.id="uWIr8XUNJe4WQ" name="senectus-use-case" type="2" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" griddotcolor="#d3d3d3" linecolor="#990000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="71" canvasheight="800" canvaswidth="1100" isopen="1">
             <widgets>
               <usecasewidget xmi.id="uF6ifh87JkK3k" localid="u4o4Qiaqq1zFJ" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" autoresize="0" x="-142.213" y="14.1527" width="204.698" height="52.8417" isinstance="0" showstereotype="2"/>
               <usecasewidget xmi.id="uQ9wG12ZPPYCh" localid="u4e2cXMpX0MlD" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" autoresize="0" x="519.135" y="496.933" width="186.686" height="50.4025" isinstance="0" showstereotype="2"/>
@@ -163,6 +163,8 @@
                 <linepath layout="Direct">
                   <startpoint startx="194.18" starty="155.029"/>
                   <endpoint endx="-17.0024" endy="122.287"/>
+                  <point x="194.18" y="138.658"/>
+                  <point x="-17.0024" y="138.658"/>
                 </linepath>
               </assocwidget>
               <assocwidget xmi.id="ub54LApexR64e" localid="uzOLFfs43uxsb" textcolor="none" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Sans Serif,9,-1,5,50,0,0,0,0,0" autoresize="1" seqnum="" type="503" widgetaid="uMeyQ8qpnKSoO" widgetbid="uQ9wG12ZPPYCh" indexa="0" totalcounta="0" indexb="0" totalcountb="0">
