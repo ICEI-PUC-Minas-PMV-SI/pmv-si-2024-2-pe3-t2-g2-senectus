@@ -44,16 +44,15 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | ------ | --- | --- |
 | RF001 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma |
 | RF002 | Desconectar da plataforma | O sistema deve permitir que usuários se desconectem da plataforma |
-| RF003 | Gerenciar perfil de usuário | O sistema deve permitir que o usuário gerencie seu perfil |
-| RF004 | Gerenciar perfil do profissional | O sistema deve permitir que um profissional crie, atualize, leia e exclua o seu perfil na plataforma |
-| RF005 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios |
-| RF006 | Gerenciar plano de treino | O sistema deve permitir que o usuário não profissional crie, atualize, leia e exclua seus planos de treino |
-| RF007 | Realizar avaliação prévia | O sistema deve permitir que o usuário não profissional realize uma avaliação prévia por formulário para saber qual o plano de treino mais indicado |
-| RF008 | Pesquisar profissional | O sistema deve ser capaz de permitir que o usuário pesquise por profissionais da saúde |
-| RF009 | Gerenciar eventos | O sistema deve permitir que os profissionais criem, atualizem, leiam e excluam seus eventos relacionados a área da saúde |
-| RF010 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos relacionados a área da saúde |
-| RF011 | Gerenciar postagens | O sistema deve permitir que o profissional crie, edite, exclua e leias as suas postagens de seu blog |
-| RF012 | Pesquisar postagens | O sistema deve permitir que qualquer usuário pesquise as postagens dos blogs |
+| RF003 | Gerenciar perfil de usuário | O sistema deve permitir que o usuário crie, edite, leia e exclua seu perfil |
+| RF004 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios |
+| RF005 | Gerenciar plano de treino | O sistema deve permitir que o usuário não profissional crie, atualize, leia e exclua seus planos de treino |
+| RF006 | Realizar avaliação prévia | O sistema deve permitir que o usuário não profissional realize uma avaliação prévia por formulário para saber qual o plano de treino mais indicado |
+| RF007 | Pesquisar profissional | O sistema deve ser capaz de permitir que o usuário pesquise por profissionais da saúde |
+| RF008 | Gerenciar eventos | O sistema deve permitir que os profissionais criem, atualizem, leiam e excluam seus eventos relacionados a área da saúde |
+| RF009 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos relacionados a área da saúde |
+| RF010 | Gerenciar postagens | O sistema deve permitir que o profissional crie, edite, exclua e leias as suas postagens de seu blog |
+| RF011 | Pesquisar postagens | O sistema deve permitir que qualquer usuário pesquise as postagens dos blogs |
 
 ### 3.3.2 Requisitos Não Funcional
 
