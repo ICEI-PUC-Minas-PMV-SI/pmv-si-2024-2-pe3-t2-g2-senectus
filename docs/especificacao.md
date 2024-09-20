@@ -86,14 +86,15 @@ Como observado no diagrama de casos de uso da Figura 1, a secretária poderá ge
 
 | Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
 |-------------|--------|---------|---------------|-----------------|
-| CSU01 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma. | Profissional da Saúde | Idoso |
+| CSU01 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma. | Profissional da Saúde e Idoso | Sistema |
 
-#### Pré-condições: O usuário deve possuir uma conta na plataforma e não deve estar logado.
+#### Pré-condições: O usuário não deve estar logado.
 
 #### Fluxo Principal:
 1. O usuário acessa a plataforma Senectus e clica em “Conectar”.
-2. O sistema verifica se o usuário possui conta na plataforma.
-3. O sistema redireciona o usuário para a biblioteca de exercícios com o seu perfil já logado na plataforma.
+2. O usuário preenche as suas informações.
+3. O sistema verifica se o usuário possui conta na plataforma.
+4. O sistema redireciona o usuário para a biblioteca de exercícios com o seu perfil já logado na plataforma.
 
 #### Fluxo Alternativo (1a):
 1. O usuário acessa a plataforma Senectus e clica em “Conectar”.
@@ -119,43 +120,34 @@ Como observado no diagrama de casos de uso da Figura 1, a secretária poderá ge
 ***
 | Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
 |-------------|--------|---------|---------------|-----------------|
-| CSU03 | Gerenciar perfil de usuário | O sistema deve permitir que usuários se crie, remova ou edite o seu perfil na plataforma configurando seu login de acesso, nome, idade, local de moradia e documentos. | Profissional da Saúde | Idoso |
+| CSU03 | Gerenciar perfil de usuário | O sistema deve permitir que usuários se crie, remova ou edite o seu perfil. | Profissional da Saúde e Idoso |  |
 
 #### Fluxo Principal:
-1. O profissional de saúde acessa a plataforma e navega até a seção "Cadastrar usuário".
-2. O profissional da saúde seleciona a opção "Quero oferecer cuidado".
-3. O sistema solicita informações como nome, área de atuação, certificações e experiência.
-4. O profissional preenche o formulário e envia os dados.
-5. O sistema valida as informações e cria o perfil do profissional.
-6. O profissional pode gerenciar seu perfil, adicionar serviços e definir disponibilidade para consultas.
+1. O Usuário acessa a plataforma e navega até a seção "Cadastrar usuário".
+2. O Usuário seleciona a categoria do seu perfil.
+3. O sistema solicita as informações do usuário.
+4. O Usuário preenche o formulário e envia os dados.
+5. O sistema valida as informações e cria o perfil do usuário.
+
 
 #### Fluxo Alternativo (2a):
-1. O idoso acessa a plataforma e navega até a seção "Cadastrar usuário".
-2. O idoso seleciona a opção "Preciso de cuidado"
-3. O sistema solicita informações como nome, data de nascimento, local de moradia, documentos etc.
-4. O usuário preenche o formulário e envia os dados.
-5. O sistema valida as informações e cria o perfil do usuário.
-6. O usuário pode gerenciar seu perfil, adicionando outras informações que sejam relevantes para a utilização da plataforma
-
-#### Fluxo Alternativo (2b):
 1. O usuário acessa a plataforma e realiza o login.
 2. O usuário navega até a seção "Perfil" ou "Configurações de Conta".
 3. O sistema exibe as informações atuais do perfil.
 4. O usuário seleciona a opção "Editar" para modificar os dados desejados.
-5. O usuário altera informações como nome, idade, local de moradia ou documentos.
-6. O usuário confirma as alterações e envia os dados atualizados.
-7. O sistema valida as novas informações e atualiza o perfil.
-8. O usuário visualiza a mensagem de confirmação de que o perfil foi atualizado com sucesso.
+5. O usuário confirma as alterações e envia os dados atualizados.
+6. O sistema valida as novas informações e atualiza o perfil.
+7. O usuário visualiza a mensagem de confirmação de que o perfil foi atualizado com sucesso.
 
-#### Fluxo Alternativo (2c)l:
+#### Fluxo Alternativo (2b)l:
 1. O usuário acessa a plataforma e realiza o login.
 2. O usuário navega até a seção "Perfil" ou "Configurações de Conta".
 3. O sistema exibe as informações atuais do perfil.
-4. O usuário seleciona a opção "Excluir Conta" ou "Remover Perfil".
+4. O usuário seleciona a opção "Deletar Conta" 
 5. O sistema solicita uma confirmação para a exclusão da conta.
 6. O usuário confirma a exclusão do perfil.
 7. O sistema remove o perfil e todos os dados associados.
-8. O sistema exibe uma mensagem confirmando que o perfil foi removido com sucesso, e o usuário é desconectado da plataforma.
+8. O sistema exibe uma mensagem confirmando que o perfil foi deletado com sucesso, e o usuário é desconectado da plataforma.
 
 #### Pós-condições: O usuário foi cadastrado, editado ou removido com sucesso, conforme a ação escolhida
 
