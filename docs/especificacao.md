@@ -84,52 +84,261 @@ Como observado no diagrama de casos de uso da Figura 1, a secretária poderá ge
  
 ### 3.4.2 Descrições de Casos de Uso
 
-Cada caso de uso deve ter a sua descrição representada nesta seção. Exemplo:
+| Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
+|-------------|--------|---------|---------------|-----------------|
+| CSU01 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma. | Profissional da Saúde | Idoso |
 
-#### Gerenciar Professor (CSU01)
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e não deve estar logado.
 
-Sumário: A Secretária realiza a gestão (inclusão, remoção, alteração e consulta) dos dados sobre professores.
+#### Fluxo Principal:
+1. O usuário acessa a plataforma Senectus e clica em “Conectar”.
+2. O sistema verifica se o usuário possui conta na plataforma.
+3. O sistema redireciona o usuário para a biblioteca de exercícios com o seu perfil já logado na plataforma.
 
-Ator Primário: Secretária.
+#### Fluxo Alternativo (1a):
+1. O usuário acessa a plataforma Senectus e clica em “Conectar”.
+2. O sistema verifica se o usuário possui conta na plataforma.
+3. O usuário não possui uma conta cadastrada, então o sistema redireciona o usuário para a página de “Cadastrar usuário ”
 
-Ator Secundário: Coordenador.
+#### Pós-condições: O usuário foi cadastrado com sucesso e está disponível para utilizar a  plataforma.
 
-Pré-condições: A Secretária deve ser validada pelo Sistema.
+***
 
-Fluxo Principal:
+| Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
+|-------------|--------|---------|---------------|-----------------|
+| CSU02 | Desconectar da plataforma | O sistema deve permitir que usuários se desconectem da plataforma em qualquer momento. | Profissional da Saúde | Idoso |
 
-1) 	A Secretária requisita manutenção de professores.
-2) 	O Sistema apresenta as operações que podem ser realizadas: inclusão de um novo professor, alteração de um professor, a exclusão de um professor e a consulta de dados de um professor.
-3) 	A Secretária seleciona a operação desejada: Inclusão, Exclusão, Alteração ou Consulta, ou opta por finalizar o caso de uso.
-4) 	Se a Secretária desejar continuar com a gestão de professores, o caso de uso retorna ao passo 2; caso contrário o caso de uso termina.
+#### Pré-condições:O usuário deve possuir uma conta na plataforma e deve estar logado.
 
-Fluxo Alternativo (3): Inclusão
+#### Fluxo Principal:
+1. O profissional navega até a seção "Desconectar".
+2. O sistema desconecta o usuário e redireciona para a página de Home na plataforma Senectus
 
-a)	A Secretária requisita a inclusão de um professor. <br>
-b)	O Sistema apresenta uma janela solicitando o CPF do professor a ser cadastrado. <br>
-c)	A Secretária fornece o dado solicitado. <br>
-d)	O Sistema verifica se o professor já está cadastrado. Se sim, o Sistema reporta o fato e volta ao início; caso contrário, apresenta um formulário em branco para que os detalhes do professor (Código, Nome, Endereço, CEP, Estado, Cidade, Bairro, Telefone, Identidade, Sexo, Fax, CPF, Data do Cadastro e Observação) sejam incluídos. <br>
-e)	A Secretária fornece os detalhes do novo professor. <br>
-f)	O Sistema verifica a validade dos dados. Se os dados forem válidos, inclui o novo professor e a grade listando os professores cadastrados é atualizada; caso contrário, o Sistema reporta o fato, solicita novos dados e repete a verificação. <br>
+#### Pós-condições: O usuário foi desconectado da plataforma e não poderá acessar até o próximo login.
 
-Fluxo Alternativo (3): Remoção
+***
+| Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
+|-------------|--------|---------|---------------|-----------------|
+| CSU03 | Gerenciar perfil de usuário | O sistema deve permitir que usuários se crie, remova ou edite o seu perfil na plataforma configurando seu login de acesso, nome, idade, local de moradia e documentos. | Profissional da Saúde | Idoso |
 
-a)	A Secretária seleciona um professor e requisita ao Sistema que o remova. <br>
-b)	Se o professor pode ser removido, o Sistema realiza a remoção; caso contrário, o Sistema reporta o fato. <br>
+#### Fluxo Principal:
+1. O profissional de saúde acessa a plataforma e navega até a seção "Cadastrar usuário".
+2. O profissional da saúde seleciona a opção "Quero oferecer cuidado".
+3. O sistema solicita informações como nome, área de atuação, certificações e experiência.
+4. O profissional preenche o formulário e envia os dados.
+5. O sistema valida as informações e cria o perfil do profissional.
+6. O profissional pode gerenciar seu perfil, adicionar serviços e definir disponibilidade para consultas.
 
-Fluxo Alternativo (3): Alteração
+#### Fluxo Alternativo (2a):
+1. O idoso acessa a plataforma e navega até a seção "Cadastrar usuário".
+2. O idoso seleciona a opção "Preciso de cuidado"
+3. O sistema solicita informações como nome, data de nascimento, local de moradia, documentos etc.
+4. O usuário preenche o formulário e envia os dados.
+5. O sistema valida as informações e cria o perfil do usuário.
+6. O usuário pode gerenciar seu perfil, adicionando outras informações que sejam relevantes para a utilização da plataforma
 
-a)	A Secretária altera um ou mais dos detalhes do professor e requisita sua atualização. <br>
-b)	O Sistema verifica a validade dos dados e, se eles forem válidos, altera os dados na lista de professores, caso contrário, o erro é reportado. <br>
- 
-Fluxo Alternativo (3): Consulta
+#### Fluxo Alternativo (2b):
+1. O usuário acessa a plataforma e realiza o login.
+2. O usuário navega até a seção "Perfil" ou "Configurações de Conta".
+3. O sistema exibe as informações atuais do perfil.
+4. O usuário seleciona a opção "Editar" para modificar os dados desejados.
+5. O usuário altera informações como nome, idade, local de moradia ou documentos.
+6. O usuário confirma as alterações e envia os dados atualizados.
+7. O sistema valida as novas informações e atualiza o perfil.
+8. O usuário visualiza a mensagem de confirmação de que o perfil foi atualizado com sucesso.
 
-a)	A Secretária opta por pesquisar pelo nome ou código e solicita a consulta sobre a lista de professores. <br>
-b)	O Sistema apresenta uma lista professores. <br>
-c)	A Secretária seleciona o professor. <br>
-d)	O Sistema apresenta os detalhes do professor no formulário de professores. <br>
+#### Fluxo Alternativo (2c)l:
+1. O usuário acessa a plataforma e realiza o login.
+2. O usuário navega até a seção "Perfil" ou "Configurações de Conta".
+3. O sistema exibe as informações atuais do perfil.
+4. O usuário seleciona a opção "Excluir Conta" ou "Remover Perfil".
+5. O sistema solicita uma confirmação para a exclusão da conta.
+6. O usuário confirma a exclusão do perfil.
+7. O sistema remove o perfil e todos os dados associados.
+8. O sistema exibe uma mensagem confirmando que o perfil foi removido com sucesso, e o usuário é desconectado da plataforma.
 
-Pós-condições: Um professor foi inserido ou removido, seus dados foram alterados ou apresentados na tela.
+#### Pós-condições: O usuário foi cadastrado, editado ou removido com sucesso, conforme a ação escolhida
+
+***
+
+| Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
+|-------------|--------|---------|---------------|-----------------|
+| CSU04 | Pesquisar por exercícios | O idoso acessa a plataforma e navega para a “Biblioteca de exercícios”. | Idoso | NDA |
+
+#### Pré-condições: O idoso deve estar autenticado na plataforma, realizado a avaliação física e ter navegado até a biblioteca de exercícios .
+
+#### Fluxo Principal:
+1. O idoso faz login na plataforma.
+2. O sistema apresenta a opção de "Biblioteca de Exercícios".
+3. O idoso seleciona a biblioteca, onde vê uma lista de exercícios por tipo ou dificuldade.
+
+#### Fluxo Alternativo (4a):
+1. O idoso faz login na plataforma.
+2. O sistema apresenta a opção de "Biblioteca de Exercícios".
+3. O idoso seleciona a biblioteca, onde vê uma lista de exercícios por tipo ou dificuldade.
+4. O idoso utiliza o filtro para filtrar um exercício específico por tipo ou dificuldade.
+
+#### Pós-condições: O idoso teve acesso e/ou completou os exercícios.
+
+***
+
+| Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
+|-------------|--------|---------|---------------|-----------------|
+| CSU05 | Gerenciar plano de treino | O idoso acessa o seu plano de treino semanal, realiza os exercícios e marca como realizado, para que o treino seja marcado como “Realizado” após 100% dos exercícios completados. | Idoso | NDA |
+
+#### Pré-condições: O idoso deve estar autenticado na plataforma, realizado a avaliação física e ter navegado até a biblioteca de exercícios .
+
+#### Fluxo Principal:
+1. O idoso faz login na plataforma.
+2. O sistema apresenta a opção de "Biblioteca de Exercícios".
+3. O idoso seleciona a biblioteca, onde vê uma lista de vídeos.
+4. O idoso seleciona o treino de acordo com o seu roteiro de exercícios.
+5. O idoso realiza cada um dos exercícios e os marca como realizado.
+
+#### Fluxo Alternativo (5a):
+1. O idoso faz login na plataforma.
+2. O sistema apresenta a opção de "Biblioteca de Exercícios".
+3. O idoso seleciona a biblioteca, onde vê uma lista de vídeos.
+4. O sistema identifica que o idoso não realizou a avaliação física prévia, bloqueia a realização dos exercícios e leva o idoso a realizar a avaliação física.
+5. O idoso realiza a avaliação física.
+6  O sistema classifica o físico do idoso e leva ele para o 1 exercício em seu roteiro de exercícios. 
+7. O idoso realiza cada um dos exercícios e os marca como realizado.
+
+#### Pós-condições: O idoso teve acesso e/ou completou os exercícios.
+
+***
+
+| Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
+|-------------|--------|---------|---------------|-----------------|
+| CSU06 | Realizar avaliação prévia | O sistema requisitar que o idoso realiza uma avaliação de seu físico antes de acessar pela primeira vez quaisquer dos exercícios | Idoso |
+
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e não deve ter realizado a avaliação prévia.
+
+
+#### Fluxo Principal:
+1. O idoso faz login na plataforma.
+2. O sistema apresenta a opção de "Biblioteca de Exercícios".
+3. O idoso seleciona a biblioteca, onde vê uma lista de vídeos.
+4. O sistema identifica que o idoso não realizou a avaliação física prévia, bloqueia a realização dos exercícios e leva o idoso a realizar a avaliação física.
+5. O idoso realiza a avaliação física.
+6. O sistema classifica o físico do idoso e leva ele para o 1 exercício em seu roteiro de exercícios. 
+7. O idoso realiza cada um dos exercícios e os marca como realizado.
+
+#### Pós-condições: O idoso possui um roteiro de treino e pode realizar os exercícios.
+
+***
+
+| Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
+|-------------|--------|---------|---------------|-----------------|
+| CSU07 |Pesquisar Profissional|Permitir que o usuário pesquise por profissionais da saúde. | Idoso | Sistema|
+
+#### Pré-condições: O profissional da saúde deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O usuário acessa a opção "Pesquisar Profissional".
+2. O sistema exibe uma lista de profissionais da saúde cadastrados.
+3. O usuário pode aplicar filtros (especialidade, localização, etc.) para refinar a pesquisa.
+4. O usuário seleciona um profissional e visualiza suas informações de contato e especialidades.
+
+
+
+#### Fluxo Alternativo (3a):
+1. Nenhum profissional encontrado
+2. O usuário aplica filtros que resultam em nenhum profissional correspondente.  
+3. O sistema exibe uma mensagem informando que nenhum profissional foi encontrado com os critérios escolhidos.
+4. O usuário pode ajustar os filtros ou realizar uma nova pesquisa.
+
+#### O usuário visualiza as informações de um profissional ou foi informado que nenhum resultado correspondente foi encontrado.
+
+***
+
+| Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
+|-------------|--------|---------|---------------|-----------------|
+| CSU08 | Gerenciar Eventos| Permitir que os profissionais criem, editem, visualizem e excluam eventos relacionados à área da saúde. | Profissional da saúde | Sistema|
+
+#### Pré-condições: O profissional da saúde deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O profissional acessa a seção "Eventos" no menu principal.
+2. O sistema exibe os eventos atuais criados pelo profissional.
+3. O profissional pode criar um novo evento, editar um evento existente, ou excluir um evento.
+4. O sistema salva as alterações ou confirma a exclusão do evento.
+
+
+
+#### Fluxo Alternativo (4a):
+Falha na criação ou atualização
+1. O profissional tenta criar um novo evento ou atualizar um existente, mas o sistema detecta informações incompletas ou inconsistentes. 
+2. O sistema exibe uma mensagem de erro solicitando que o profissional revise as informações.
+3. O profissional pode corrigir os dados e tentar salvar novamente ou cancelar a operação.
+
+#### O evento foi criado, atualizado, ou excluído com sucesso, ou o profissional foi informado sobre a falha e orientado a tentar novamente.
+
+***
+| Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
+|-------------|--------|---------|---------------|-----------------|
+| CSU09 | Pesquisar Eventos | Permitir que qualquer usuário pesquise por eventos relacionados à área da saúde. | Idoso  | Sistema|
+
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O usuário acessa a opção "Pesquisar Eventos".
+2. O sistema exibe uma lista de eventos disponíveis.
+3. O usuário pode aplicar filtros para refinar a pesquisa (data, tipo de evento, localidade, etc.).
+4. O usuário seleciona um evento e visualiza os detalhes (data, local, descrição).
+
+
+
+
+#### Fluxo Alternativo (3a):
+Nenhum evento encontrado:
+1. O usuário aplica filtros que resultam em nenhum evento correspondente.
+2. O sistema exibe uma lista de eventos disponíveis.
+3. O usuário pode aplicar filtros para refinar a pesquisa (data, tipo de evento, localidade, etc.).
+4. O usuário seleciona um evento e visualiza os detalhes (data, local, descrição).
+
+#### Pós-condições: O usuário visualiza os detalhes de um evento ou foi informado que nenhum resultado correspondente foi encontrado.
+
+***
+| Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
+|-------------|--------|---------|---------------|-----------------|
+| CSU10 | Gerenciar Postagens | Permitir que os profissionais criem, editem, visualizem e excluam suas postagens no blog. | Profissional da Saúde | Idoso |
+
+#### Pré-condições: O profissional da saúde deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O profissional acessa a seção "Blog" no menu principal.
+2. O sistema exibe as postagens atuais do profissional.
+3. O profissional pode criar uma nova postagem, editar uma postagem existente, ou excluir uma postagem.
+4. O sistema salva as alterações ou confirma a exclusão da postagem.
+
+
+
+#### Fluxo Alternativo (3a):
+Falha na criação ou atualização
+1. O profissional tenta criar uma nova postagem ou atualizar uma existente, mas o sistema detecta informações incompletas ou inconsistentes. 
+2. O sistema exibe uma mensagem de erro solicitando que o profissional revise as informações.
+3. O profissional pode corrigir os dados e tentar salvar novamente ou cancelar a operação.
+
+#### Pós-condições: A postagem foi criada, atualizada, ou excluída conforme solicitado.
+
+***
+| Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
+|-------------|--------|---------|---------------|-----------------|
+| CSU11 | Pesquisar Postagens | O sistema deve permitir que qualquer usuário pesquise por postagens no blog. | Profissional da Saúde | Idoso |
+
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O profissional de saúde acessa a plataforma e navega até a seção "Cadastrar usuário".
+2. O profissional da saúde seleciona a opção "Quero oferecer cuidado"
+3. O sistema solicita informações como nome, área de atuação, certificações e experiência.
+4. O profissional preenche o formulário e envia os dados.
+
+
+#### Fluxo Alternativo (3a):
+1. Se nenhuma postagem correspondente aos filtros for encontrada, o sistema exibe uma mensagem informando o usuário.
+
 
 ### 3.4.3 Diagrama de Classes 
 
