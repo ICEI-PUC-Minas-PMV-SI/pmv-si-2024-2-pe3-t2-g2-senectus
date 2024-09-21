@@ -176,7 +176,7 @@ Como observado no diagrama de casos de uso da Figura 1, a secretária poderá ge
 
 | Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
 |-------------|--------|---------|---------------|-----------------|
-| CSU05 | Gerenciar plano de treino | O idoso acessa o seu plano de treino semanal, realiza os exercícios e marca como realizado, para que o treino seja marcado como “Realizado” após 100% dos exercícios completados. | Idoso | NDA |
+| CSU05 | Gerenciar plano de treino | O idoso acessa o seu plano de treino semanal e realiza os exercícios. | Idoso | Sistema |
 
 #### Pré-condições: O idoso deve estar autenticado na plataforma, realizado a avaliação física e ter navegado até a biblioteca de exercícios .
 
@@ -184,15 +184,14 @@ Como observado no diagrama de casos de uso da Figura 1, a secretária poderá ge
 1. O idoso faz login na plataforma.
 2. O sistema apresenta a opção de "Biblioteca de Exercícios".
 3. O idoso seleciona a biblioteca, onde vê uma lista de vídeos.
-4. O idoso seleciona o treino de acordo com o seu roteiro de exercícios.
-5. O idoso realiza cada um dos exercícios e os marca como realizado.
-
+4. O idoso seleciona o treino de acordo com o seu plano de treinamento.
+   
 #### Fluxo Alternativo (5a):
 1. O idoso faz login na plataforma.
 2. O sistema apresenta a opção de "Biblioteca de Exercícios".
 3. O idoso seleciona a biblioteca, onde vê uma lista de vídeos.
 4. O sistema identifica que o idoso não realizou a avaliação física prévia, bloqueia a realização dos exercícios e leva o idoso a realizar a avaliação física.
-5. O idoso realiza a avaliação física.
+5. O idoso preenche o formulário da avaliação física.
 6  O sistema classifica o físico do idoso e leva ele para o 1 exercício em seu roteiro de exercícios. 
 7. O idoso realiza cada um dos exercícios e os marca como realizado.
 
@@ -202,19 +201,16 @@ Como observado no diagrama de casos de uso da Figura 1, a secretária poderá ge
 
 | Caso de uso | Título | Sumário | Ator Primário | Ator Secundário |
 |-------------|--------|---------|---------------|-----------------|
-| CSU06 | Realizar avaliação prévia | O sistema requisitar que o idoso realiza uma avaliação de seu físico antes de acessar pela primeira vez quaisquer dos exercícios | Idoso |
+| CSU06 | Realizar avaliação prévia | O sistema requisita que o idoso realize uma avaliação de seu físico antes de acessar pela primeira vez quaisquer um dos exercícios | Idoso | Sistema |
 
 #### Pré-condições: O usuário deve possuir uma conta na plataforma e não deve ter realizado a avaliação prévia.
 
 
 #### Fluxo Principal:
 1. O idoso faz login na plataforma.
-2. O sistema apresenta a opção de "Biblioteca de Exercícios".
-3. O idoso seleciona a biblioteca, onde vê uma lista de vídeos.
-4. O sistema identifica que o idoso não realizou a avaliação física prévia, bloqueia a realização dos exercícios e leva o idoso a realizar a avaliação física.
-5. O idoso realiza a avaliação física.
-6. O sistema classifica o físico do idoso e leva ele para o 1 exercício em seu roteiro de exercícios. 
-7. O idoso realiza cada um dos exercícios e os marca como realizado.
+2. O sistema apresenta a opção de "Realizar avaliação física".
+3. O idoso preenche seus dados conforme solicitado.
+4. O sistema classifica o físico do idoso e leva ele para o 1 exercício em seu roteiro de exercícios. 
 
 #### Pós-condições: O idoso possui um roteiro de treino e pode realizar os exercícios.
 
@@ -224,7 +220,7 @@ Como observado no diagrama de casos de uso da Figura 1, a secretária poderá ge
 |-------------|--------|---------|---------------|-----------------|
 | CSU07 |Pesquisar Profissional|Permitir que o usuário pesquise por profissionais da saúde. | Idoso | Sistema|
 
-#### Pré-condições: O profissional da saúde deve possuir uma conta na plataforma e deve estar logado.
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
 
 #### Fluxo Principal:
 1. O usuário acessa a opção "Pesquisar Profissional".
