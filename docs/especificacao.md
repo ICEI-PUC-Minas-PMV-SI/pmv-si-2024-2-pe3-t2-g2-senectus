@@ -175,7 +175,7 @@ Como observado no diagrama de casos de uso da Figura 1, a secretária poderá ge
 
 #### Fluxo Principal:
 1. O idoso seleciona a seção de exercícios do sistema.
-2. O idoso seleciona o treino de acordo com o seu plano de treinamento e seus respectivos objetivos.
+2. O idoso seleciona o tipo de treino de acordo com o seus respectivos objetivos.
 3. O sistema cria um plano de treino na conta do usuário.
 4. O idoso inicia sua rotina de treino.
    
