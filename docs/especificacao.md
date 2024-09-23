@@ -76,7 +76,6 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 ## 3.4 Modelagem do Sistema
 
 ### 3.4.1 Diagrama de Casos de Uso
-Como observado no diagrama de casos de uso da Figura 1, a secretária poderá gerenciar as matrículas e professores no sistema, enquanto o coordenador, além dessas funções, poderá gerenciar os cursos de aperfeiçoamento.
 
 #### Figura 1: Diagrama de Casos de Uso do Sistema.
 
@@ -352,8 +351,6 @@ Como observado no diagrama de casos de uso da Figura 1, a secretária poderá ge
 4. O sistema retorna uma mensagem alertando que nenhuma postagem foi encontrada.
 
 ### 3.4.3 Diagrama de Classes 
-
-A Figura 2 mostra o diagrama de classes do sistema. A Matrícula deve conter a identificação do funcionário responsável pelo registro, bem com os dados do aluno e turmas. Para uma disciplina podemos ter diversas turmas, mas apenas um professor responsável por ela.
 
 #### Figura 2: Diagrama de Classes do Sistema.
  
