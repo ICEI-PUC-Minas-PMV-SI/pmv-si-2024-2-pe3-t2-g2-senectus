@@ -53,6 +53,10 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | RF009 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos relacionados a área da saúde |
 | RF010 | Gerenciar postagens | O sistema deve permitir que o profissional crie, edite, exclua e leias as suas postagens de seu blog |
 | RF011 | Pesquisar postagens | O sistema deve permitir que qualquer usuário pesquise as postagens dos blogs |
+| RF012 | Comentar em postagens | O sistema deve permitir que qualquer usuário comente nas postagens dos blogs |
+| RF013 | Gerenciar consultas | O sistema deve permitir que o profissional da saúde leia, exclua ou aceite solicitações de novas consultas médicas |
+| RF014 | Solicitar consultas | O sistema deve permitir que o usuário não profissional solicite consultas de profissionais da saúde |
+| RF015 | Cancelar consultas | O sistema deve permitir que o usuário não profissional cancele consultas marcadas com profissionais da saúde |
 
 ### 3.3.2 Requisitos Não Funcional
 
@@ -115,7 +119,7 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 #### Fluxo Principal:
 1. O usuário navega até a página de configurações.
 2. O usuário clica em "Desconectar".
-2. O sistema desconecta o usuário e redireciona para a página inicial na plataforma Senectus.
+3. O sistema desconecta o usuário e redireciona para a página inicial na plataforma Senectus.
 
 <br>
 
@@ -135,9 +139,9 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 1. O usuário acessa a plataforma e realiza o login.
 2. O usuário navega até a seção "Configurações".
 3. O sistema exibe as informações atuais do perfil.
-5. O usuário realiza alterações na sua conta.
-6. O sistema valida as novas informações e atualiza o perfil.
-7. O usuário visualiza a mensagem de confirmação de que o perfil foi atualizado com sucesso.
+4. O usuário realiza alterações na sua conta.
+5. O sistema valida as novas informações e atualiza o perfil.
+6. O usuário visualiza a mensagem de confirmação de que o perfil foi atualizado com sucesso.
 
 #### Fluxo Alternativo (3b):
 1. O usuário acessa a plataforma e realiza o login.
@@ -225,7 +229,7 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 2. O sistema exibe uma lista de profissionais da saúde cadastrados.
 3. O idoso insere informações referente ao profissional que ele busca, como o nome e sua profissão em forma de filtro.
 4. O sistema retorna uma lista de profissionais que estão de acordo com as informações fornecidas pelo idoso.
-4. O idoso seleciona um profissional e visualiza suas informações de contato e especialidades.
+5. O idoso seleciona um profissional e visualiza suas informações de contato e especialidades.
 
 
 #### Fluxo Alternativo (7a):
@@ -280,17 +284,17 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 1. O profissional acessa a seção "Eventos".
 2. O usuário acessa a opção "Pesquisar".
 3. O sistema exibe uma lista de eventos cadastrados.
-3. O usuário insere informações referente ao evento que deseja pesquisar.
-4. O sistema retorna uma lista de eventos que estão de acordo com as informações fornecidas pelo usuário.
-4. O usuário seleciona um evento e visualiza suas informações.
+4. O usuário insere informações referente ao evento que deseja pesquisar.
+5. O sistema retorna uma lista de eventos que estão de acordo com as informações fornecidas pelo usuário.
+6. O usuário seleciona um evento e visualiza suas informações.
 
 
 #### Fluxo Alternativo (9a):
 1. O profissional acessa a seção "Eventos".
 2. O usuário acessa a opção "Pesquisar".
 3. O sistema exibe uma lista de eventos cadastrados.
-3. O usuário insere informações referente ao evento que deseja pesquisar.
-4. O sistema retorna uma mensagem alertando que nenhum evento foi encontrado.
+4. O usuário insere informações referente ao evento que deseja pesquisar.
+5. O sistema retorna uma mensagem alertando que nenhum evento foi encontrado.
 
 <br>
 
@@ -340,15 +344,104 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 3. O sistema exibe uma lista de postagens cadastradas.
 3. O usuário insere informações referente a postagem que deseja pesquisar.
 4. O sistema retorna uma lista de postagens que estão de acordo com as informações fornecidas pelo usuário.
-4. O usuário seleciona uma postagem e visualiza suas informações.
+5. O usuário seleciona uma postagem e visualiza suas informações.
 
 
 #### Fluxo Alternativo (11a):
 1. O profissional acessa a seção "Blog".
 2. O usuário acessa a opção "Pesquisar".
 3. O sistema exibe uma lista de postagens cadastradas.
-3. O usuário insere informações referente a postagem que deseja pesquisar.
-4. O sistema retorna uma mensagem alertando que nenhuma postagem foi encontrada.
+4. O usuário insere informações referente a postagem que deseja pesquisar.
+5. O sistema retorna uma mensagem alertando que nenhuma postagem foi encontrada.
+
+<br>
+
+***
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU012 | Comentar em postagens | O sistema deve permitir que qualquer usuário comente nas postagens dos blogs | Idoso ou Profissional da saúde |
+
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O usuário acessa a seção "Blog".
+2. O usuário acessa a opção "Pesquisar".
+3. O sistema exibe uma lista de postagens cadastradas.
+4. O usuário insere informações referente a postagem que deseja pesquisar.
+5. O sistema retorna uma lista de postagens que estão de acordo com as informações fornecidas pelo usuário.
+6. O usuário seleciona uma postagem e visualiza suas informações.
+7. O usuário comenta na postagem.
+8. O sistema salva o comentário.
+
+<br>
+
+***
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU13 | Gerenciar Consultas | O sistema deve permitir que o profissional da saúde leia, exclua ou aceite solicitações de novas consultas médicas | Profissional da saúde |
+
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O profissional acessa a seção "Consultas".
+2. O sistema exibe uma lista de consultas cadastradas.
+3. O profissional acessa uma das consultas.
+4. O sistema exibe informações mais detalhadas desta consulta.
+5. O profissional aceita a consulta
+6. O sistema atualiza o status da consulta e informa os envolvidos.
+
+#### Fluxo Alternativo (13a):
+1. O profissional acessa a seção "Consultas".
+2. O sistema exibe uma lista de consultas cadastradas.
+3. O profissional acessa uma das consultas.
+4. O sistema exibe informações mais detalhadas desta consulta.
+5. O profissional recusa/remove a consulta
+6. O sistema atualiza o status da consulta e informa os envolvidos.
+
+<br>
+
+***
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU14 | Solicitar Consultas | O sistema deve permitir que o usuário não profissional solicite consultas de profissionais da saúde | Idoso |
+
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O idoso acessa a opção "Pesquisar Profissional".
+2. O sistema exibe uma lista de profissionais da saúde cadastrados.
+3. O idoso insere informações referente ao profissional.
+4. O sistema retorna uma lista de profissionais que estão de acordo com as informações fornecidas pelo idoso.
+5. O idoso clica em "Solicitar consulta".
+6. O sistema solicita o preenchimento de um formulário.
+7. O idoso preenche suas informações
+8. O sistema valida as informações e cria a solicitação.
+
+<br>
+
+***
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU15 | Cancelar Consultas | O sistema deve permitir que o usuário não profissional cancele consultas marcadas com profissionais da saúde | Idoso |
+
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O idoso acessa a opção "Consultas" na aba de "Pesquisar Profissional".
+2. O sistema retorna todas as consultas existentes.
+3. O idoso seleciona uma das consultas.
+4. O sistema retorna informações mais detalhadas desta consulta.
+5. O idoso clica em "Cancelar".
+6. O sistema solicita a confirmação do usuário.
+7. O idoso confirma a ação
+8. O sistema cancela a consulta.
+
+#### Fluxo Alternativo (15a):
+1. O idoso acessa a opção "Consultas" na aba de "Pesquisar Profissional".
+2. O sistema retorna todas as consultas existentes.
+3. O idoso seleciona uma das consultas.
+4. O sistema retorna uma mensagem avisando que nenhuma consulta foi encontrada.
+
 
 ### 3.4.3 Diagrama de Classes 
 
