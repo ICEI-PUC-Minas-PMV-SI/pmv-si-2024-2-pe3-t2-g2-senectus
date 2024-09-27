@@ -157,34 +157,32 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 ***
 | Caso de uso | Título | Sumário | Ator Primário |
 |-------------|--------|---------|---------------|
-| CSU04 | Gerenciar perfil de profissional | O sistema deve permitir que o idoso crie, edite, leia e exclua seu perfil | Profissional da saúde |
+| CSU04 | Gerenciar perfil de profissional | O sistema deve permitir que o profissional crie, edite, leia e exclua seu perfil, podendo manipular seus serviços ofertados, preços cobrados e sua região de atuação |
 
 #### Fluxo Principal:
-1. O profissional acessa a plataforma e navega até a seção "Planos de Treino".
-2. O profissional seleciona a opção "Criar novo plano de treino".
-3. O sistema solicita as informações necessárias para a criação do plano de treino.
-4. O profissional preenche o formulário com os dados do paciente e o plano de treino.
-5. O sistema valida as informações e cria o plano de treino.
-6. O profissional visualiza a mensagem de confirmação de que o plano foi criado com sucesso.
+1. O profissional acessa a plataforma e navega até a seção "Cadastrar usuário".
+2. O profissional seleciona a categoria do seu perfil.
+3. O sistema solicita as informações do profissional.
+4. O profissional preenche o formulário e envia os dados.
+5. O sistema valida as informações e cria o perfil do profissional.
 
 #### Fluxo Alternativo (4a):
 1. O profissional acessa a plataforma e realiza o login.
-2. O profissional navega até a seção "Planos de Treino".
-3. O sistema exibe a lista de planos de treino cadastrados.
-4. O profissional seleciona um plano de treino existente para edição.
-5. O profissional realiza as alterações necessárias no plano.
-6. O sistema valida as novas informações e atualiza o plano de treino.
-7. O profissional visualiza a mensagem de confirmação de que o plano foi atualizado com sucesso.
+2. O profissional navega até a seção "Configurações".
+3. O sistema exibe as informações atuais do perfil.
+4. O profissional realiza alterações na sua conta, inserindo, por exemplo, seus serviços prestados e sua localização.
+5. O sistema valida as novas informações e atualiza o perfil.
+6. O profissional visualiza a mensagem de confirmação de que o perfil foi atualizado com sucesso.
 
 #### Fluxo Alternativo (4b):
 1. O profissional acessa a plataforma e realiza o login.
-2. O profissional navega até a seção "Planos de Treino".
-3. O sistema exibe a lista de planos de treino cadastrados.
-4. O profissional seleciona a opção "Excluir plano de treino".
-5. O sistema solicita uma confirmação para a exclusão do plano.
-6. O profissional confirma a exclusão do plano.
-7. O sistema remove o plano de treino.
-8. O sistema exibe uma mensagem confirmando que o plano foi deletado com sucesso.
+2. O profissional navega até a seção Configurações".
+3. O sistema exibe as informações atuais do perfil.
+4. O profissional seleciona a opção "Excluir Conta" 
+5. O sistema solicita uma confirmação para a exclusão da conta.
+6. O profissional confirma a exclusão do perfil.
+7. O sistema remove o perfil e todos os dados associados.
+8. O sistema exibe uma mensagem confirmando que o perfil foi deletado com sucesso, e o profissional é desconectado da plataforma.
 
 <br>
 ***
@@ -209,24 +207,26 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 #### Pré-condições: O profissional da saúde deve estar autenticado na plataforma
 
 #### Fluxo Principal:
-1. O idoso seleciona a seção de exercícios do sistema.
-2. O idoso seleciona o tipo de treino de acordo com o seus respectivos objetivos.
-3. O sistema cria um plano de treino na conta do usuário.
-4. O idoso inicia sua rotina de treino.
+1. O profissional acessa a aba de planos de treino dentro da seção de clientes.
+2. O sistema informa que nenhum plano de treino foi encontrado 
+3. O profissional clica em "Criar plano de treino"
+2. O profissional seleciona um cliente já atendido
+5. O profissional cria um novo plano de treino, inserindo os exercícios pré-existentes no sistema.
+6. O sistema salva as informações do plano de treino
    
 #### Fluxo Alternativo (6a):
-1. O idoso seleciona a seção de exercícios do sistema.
-2. O idoso seleciona seu atual plano de treino.
-3. O idoso edita informações existente no plano, como o nível de dificuldade do mesmo.
-4. O sistema valida as informações e atualiza o plano de treino.
+1. O profissional acessa a aba de planos de treino dentro da seção de clientes.
+2. O profissional seleciona o plano de treino de um de seus clientes
+3. O profissional edita as informações do plano de treino existente.
+4. O sistema salva as informações.
 
 #### Fluxo Alternativo (6b):
-1. O idoso seleciona a seção de exercícios do sistema.
-2. O idoso seleciona seu atual plano de treino.
-3. O idoso tenta cancelar seu atual plano de treino.
+1. O profissional acessa a aba de planos de treino dentro da seção de clientes.
+2. O profissional seleciona o plano de treino de um de seus clientes
+3. O profissional solicita a remoção do plano de treino existente.
 4. O sistema solicita a sua confirmação.
-5. O idoso confirma a solicitação.
-6. O sistema cancela o plano de treino do idoso.
+5. O profissional confirma a solicitação.
+6. O sistema remove o plano de treino.
 
 <br>
 
@@ -292,7 +292,7 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 
 | Caso de uso | Título | Sumário | Ator Primário |
 |-------------|--------|---------|---------------|
-| CSU09| Pesquisar Eventos | Permitir que qualquer usuário pesquise por eventos relacionados à área da saúde. | Profissional da saúde ou Idoso  |
+| CSU09 | Pesquisar Eventos | Permitir que qualquer usuário pesquise por eventos relacionados à área da saúde. | Profissional da saúde ou Idoso  |
 
 #### Fluxo Principal:
 1. O profissional acessa a seção "Eventos".
@@ -303,7 +303,7 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 6. O usuário seleciona um evento e visualiza suas informações.
 
 
-#### Fluxo Alternativo (09a):
+#### Fluxo Alternativo (9a):
 1. O profissional acessa a seção "Eventos".
 2. O usuário acessa a opção "Pesquisar".
 3. O sistema exibe uma lista de eventos cadastrados.
@@ -397,15 +397,15 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 #### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
 
 #### Fluxo Principal:
-1. Profissional acessa a opção "Gerenciar consultas"
-2. O sistema exibe uma janela com uma tabBar contendo duas opções Agendadas e Solicitações.
-3. O profissional acessa a aba "Agendadas"
+1. O profissional acessa a aba de consultas dentro da seção de clientes.
+2. O sistema exibe as consultas mais recentes em forma de calendário, com duas opções de filtro, sendo elas: "Agendadas" e "Solicitações".
+3. O profissional clica em "Agendadas"
 4. O sistema retorna um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
 
 #### Fluxo Secundário:
-1. Profissional acessa a opção "Gerenciar consultas"
-2. O sistema exibe uma janela com uma tabBar contendo duas opções Agendadas e Solicitações.
-3. O profissional acessa a aba Soclitações.
+1. O profissional acessa a aba de consultas dentro da seção de clientes.
+2. O sistema exibe as consultas mais recentes em forma de calendário, com duas opções de filtro, sendo elas: "Agendadas" e "Solicitações".
+3. O profissional clica em "Solicitações".
 4. O sistema retorna uma lista contendo o idoso que solicitou a consulta, tipo, dia e horario desejo para realização da consulta.
 
 <br>
@@ -413,23 +413,24 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 ***
 | Caso de uso | Título | Sumário | Ator Primário |
 |-------------|--------|---------|---------------|
-| CSU14 | Solicitar Consultas - Idoso| O sistema deve permitir que o usuário não profissional solicite, cancele e leia as consultas de profissionais da saúde | Idoso |
+| CSU14 | Solicitar Consultas - Idoso | O sistema deve permitir que o usuário não profissional solicite, cancele e leia as consultas de profissionais da saúde | Idoso |
 
 #### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
 
 #### Fluxo Principal:
-1. Idoso acessa a opção "Gerenciar consultas"
+1. O idoso acessa a opção "Gerenciar consultas" em seu menu
 2. O sistema exibe uma janela com um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
 4. O idoso seleciona a consulta marcada previamente, e então o sistema exibe um modal contendo o nome da consulta, nome do profissional, dia e horário agendados, e uma opção para cancelar o agendamento.
 
 #### Fluxo Secundário:
-1. Idoso acessa a opção "Gerenciar consultas"
+1. O idoso acessa a opção "Gerenciar consultas"
 2. O sistema exibe uma janela com um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
-4. O idoso seleciona o botão "Nova consulta" exibido na tela, e então o sistema redireciona o idoso para a tela de "Agendar Nova Consulta" em que é possível pesquisar por profissional, tipo de consulta, região de atuação dos profissionais.
+4. O idoso seleciona o botão "Nova consulta" exibido na tela.
+5. O sistema redireciona o idoso para a tela de pesquisa de profissional.
 5. O idoso seleciona o profissional desejado e seleciona o tipo de consulta que deseja realizar.
-6. O sistema exibi uma lista contendo os horários dispóniveis para consulta de acordo com os dias do mês atual.
-7. O sistema idoso seleciona o dia e horário de sua prefêrencia clicando no botão "Agendar".
-8. O sistema sistema exibi um modal perguntando se o idoso deseja confirmar a consulta no dia e horário selecionado.
+6. O sistema exibe uma lista contendo os horários dispóniveis para consulta de acordo com os dias do mês atual.
+7. O idoso seleciona o dia e horário de sua prefêrencia clicando no botão "Agendar".
+8. O sistema sistema exibe um modal perguntando se o idoso deseja confirmar a consulta no dia e horário selecionado.
 9. O idoso confirma ou cancela a solicitação da consulta.
 
 <br>
