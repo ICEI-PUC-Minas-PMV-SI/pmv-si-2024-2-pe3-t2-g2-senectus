@@ -44,19 +44,18 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | ------ | --- | --- |
 | RF001 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma |
 | RF002 | Desconectar da plataforma | O sistema deve permitir que usuários se desconectem da plataforma |
-| RF003 | Gerenciar perfil de usuário | O sistema deve permitir que o usuário crie, edite, leia e exclua seu perfil |
-| RF004 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios |
-| RF005 | Gerenciar plano de treino | O sistema deve permitir que o usuário não profissional crie, atualize, leia e exclua seus planos de treino |
-| RF006 | Realizar avaliação prévia | O sistema deve permitir que o usuário não profissional realize uma avaliação prévia por formulário para saber qual o plano de treino mais indicado |
-| RF007 | Pesquisar profissional | O sistema deve ser capaz de permitir que o usuário pesquise por profissionais da saúde |
+| RF003 | Gerenciar perfil de idoso | O sistema deve permitir que o idoso crie, edite, leia e exclua seu perfil |
+| RF004 | Gerenciar perfil de profissional | O sistema deve permitir que o profissional crie, edite, leia e exclua seu perfil, podendo manipular seus serviços ofertados, preços cobrados e sua região de atuação |
+| RF005 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios |
+| RF006 | Gerenciar plano de treino | O sistema deve permitir que o profissional crie, atualize, leia e exclua os planos de treino dos seus pacientes |
+| RF007 | Pesquisar profissional | O sistema deve ser capaz de permitir que o usuário não profissional pesquise por profissionais da saúde |
 | RF008 | Gerenciar eventos | O sistema deve permitir que os profissionais criem, atualizem, leiam e excluam seus eventos relacionados a área da saúde |
 | RF009 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos relacionados a área da saúde |
 | RF010 | Gerenciar postagens | O sistema deve permitir que o profissional crie, edite, exclua e leias as suas postagens de seu blog |
 | RF011 | Pesquisar postagens | O sistema deve permitir que qualquer usuário pesquise as postagens dos blogs |
 | RF012 | Comentar em postagens | O sistema deve permitir que qualquer usuário comente nas postagens dos blogs |
-| RF013 | Gerenciar consultas | O sistema deve permitir que o profissional da saúde leia, exclua ou aceite solicitações de novas consultas médicas |
-| RF014 | Solicitar consultas | O sistema deve permitir que o usuário não profissional solicite consultas de profissionais da saúde |
-| RF015 | Cancelar consultas | O sistema deve permitir que o usuário não profissional cancele consultas marcadas com profissionais da saúde |
+| RF013 | Gerenciar consultas - Profissional | O sistema deve permitir que o profissional da saúde leia, exclua ou aceite solicitações de novas consultas médicas |
+| RF014 | Gerenciar consultas - Idoso | O sistema deve permitir que o usuário não profissional solicite, cancele e leia as consultas de profissionais da saúde |
 
 ### 3.3.2 Requisitos Não Funcional
 
