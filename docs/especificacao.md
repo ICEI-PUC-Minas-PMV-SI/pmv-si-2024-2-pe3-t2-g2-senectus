@@ -455,13 +455,18 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
  
 ![dcu](/docs/umbrello/diagrama-de-classe.svg)
 
+
 ### 3.4.4 Descrições das Classes 
 
 | # | Nome | Descrição |
 |--------------------|------------------------------------|----------------------------------------|
-| 1	|	Aluno |	Cadastro de informações relativas aos alunos. |
-| 2	| Curso |	Cadastro geral de cursos de aperfeiçoamento. |
-| 3 |	Matrícula |	Cadastro de Matrículas de alunos nos cursos. |
-| 4 |	Turma |	Cadastro de turmas.
-| 5	|	Professor |	Cadastro geral de professores que ministram as disciplinas. |
-| ... |	... |	... |
+| 1 | Usuario | Cadastro de usuário na plataforma. |
+| 2 | UsuarioIdoso| Gerenciamento de perfil do idoso. |
+| 3 | UsuarioProfissional| Gerenciamento de perfil do profissional. |
+| 4 | Postagem | Criação de postagem no Blog. |
+| 5 | Comentário | Criação de comentário nas postagens. |
+| 6 | PlanoDeTreino | Recebimento de plano de exercícios recomendados por Profissional. |
+| 7 | Exercício | Visualização de exercícios fisícos. |
+| 8 | Consulta | Verificação de consultas agendadas. |
+| 8 | Evento | Criação e divulgação de evento. |
+| 10 | Serviço | Oferecimento de serviço profissional. |
