@@ -192,9 +192,16 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | CSU05 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios | Profissional da Saúde ou Idoso |
 
 #### Fluxo Principal:
-1. O usuário acessa a seção de "Biblioteca de Exercícios".
-2. O usuário seleciona a categoria de exercício desejada.
-3. O usuário seleciona o exercício desejado.
+1. O usuário acessa a seção de biblioteca de exercícios na aba de plano de treino.
+2. O usuário seleciona categória de exercícios.
+3. O usuário seleciona um exercício.
+4. O sistema exibe informações instrucionais do exercício.
+
+#### Fluxo Alternativo (5a):
+1. O usuário seleciona a aba de plano de treino.
+2. O sistema exibe um calendário de exercícios.
+3. O usuário seleciona um dos exercícios do dia.
+4. O sistema exibe informações instrucionais do exercício.
 
 <br>
 
@@ -208,21 +215,21 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 
 #### Fluxo Principal:
 1. O profissional acessa a aba de planos de treino dentro da seção de clientes.
-2. O sistema informa que nenhum plano de treino foi encontrado 
-3. O profissional clica em "Criar plano de treino"
-2. O profissional seleciona um cliente já atendido
+2. O sistema informa que nenhum plano de treino foi encontrado. 
+3. O profissional clica em "Criar plano de treino".
+2. O profissional seleciona um cliente já atendido.
 5. O profissional cria um novo plano de treino, inserindo os exercícios pré-existentes no sistema.
-6. O sistema salva as informações do plano de treino
+6. O sistema salva as informações do plano de treino.
    
 #### Fluxo Alternativo (6a):
 1. O profissional acessa a aba de planos de treino dentro da seção de clientes.
-2. O profissional seleciona o plano de treino de um de seus clientes
+2. O profissional seleciona o plano de treino de um de seus clientes.
 3. O profissional edita as informações do plano de treino existente.
 4. O sistema salva as informações.
 
 #### Fluxo Alternativo (6b):
 1. O profissional acessa a aba de planos de treino dentro da seção de clientes.
-2. O profissional seleciona o plano de treino de um de seus clientes
+2. O profissional seleciona o plano de treino de um de seus clientes.
 3. O profissional solicita a remoção do plano de treino existente.
 4. O sistema solicita a sua confirmação.
 5. O profissional confirma a solicitação.
