@@ -239,7 +239,7 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 #### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
 
 #### Fluxo Principal:
-1. O idoso acessa a opção "Pesquisar Profissional".
+1. O idoso acessa a aba de pesquisa de profissionais na aba de consultas.
 2. O sistema exibe uma lista de profissionais da saúde cadastrados.
 3. O idoso insere informações referente ao profissional que ele busca, como o nome e sua profissão em forma de filtro.
 4. O sistema retorna uma lista de profissionais que estão de acordo com as informações fornecidas pelo idoso.
@@ -247,7 +247,7 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 
 
 #### Fluxo Alternativo (7a):
-1. O idoso acessa a opção "Pesquisar Profissional".
+1. O idoso acessa a aba de pesquisa de profissionais na aba de consultas.
 2. O sistema exibe uma lista de profissionais da saúde cadastrados.
 3. O idoso insere informações referente ao profissional que ele busca, como o nome e sua profissão em forma de filtro.
 4. O sistema retorna uma mensagem alertando que nenhum profissional foi encontrado.
@@ -392,21 +392,33 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 ***
 | Caso de uso | Título | Sumário | Ator Primário |
 |-------------|--------|---------|---------------|
-| CSU13 | Gerenciar Consultas - Profissional| O sistema deve permitir que o profissional da saúde leia, exclua ou aceite solicitações de novas consultas médicas | Profissional |
+| CSU13 | Gerenciar Consultas - Profissional | O sistema deve permitir que o profissional da saúde leia, exclua ou aceite solicitações de novas consultas médicas | Profissional |
 
 #### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
 
 #### Fluxo Principal:
 1. O profissional acessa a aba de consultas dentro da seção de clientes.
 2. O sistema exibe as consultas mais recentes em forma de calendário, com duas opções de filtro, sendo elas: "Agendadas" e "Solicitações".
-3. O profissional clica em "Agendadas"
+3. O profissional clica em "Solicitações".
 4. O sistema retorna um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
+5. O profissional clica em "Aceitar" para aceitar a solicitação de consulta no horário marcado. 
 
-#### Fluxo Secundário:
+#### Fluxo Alternativo (13a):
 1. O profissional acessa a aba de consultas dentro da seção de clientes.
 2. O sistema exibe as consultas mais recentes em forma de calendário, com duas opções de filtro, sendo elas: "Agendadas" e "Solicitações".
 3. O profissional clica em "Solicitações".
-4. O sistema retorna uma lista contendo o idoso que solicitou a consulta, tipo, dia e horario desejo para realização da consulta.
+4. O sistema retorna um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
+5. O profissional clica em "Recusar" para recusar a solicitação de consulta no horário marcado. 
+
+#### Fluxo Alternativo (13b):
+1. O profissional acessa a aba de consultas dentro da seção de clientes.
+2. O sistema exibe as consultas mais recentes em forma de calendário, com duas opções de filtro, sendo elas: "Agendadas" e "Solicitações".
+3. O profissional clica em "Agendadas"
+4. O sistema retorna um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
+5. O profissional clica em "Cancelar" para recusar a solicitação de consulta no horário marcado.
+6. O sistema solicita confirmação.
+7. O profissional confirma a ação.
+8. O sistema cancela a consulta já marcada, com sucesso.
 
 <br>
 
@@ -418,20 +430,21 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 #### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
 
 #### Fluxo Principal:
-1. O idoso acessa a opção "Gerenciar consultas" em seu menu
-2. O sistema exibe uma janela com um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
-4. O idoso seleciona a consulta marcada previamente, e então o sistema exibe um modal contendo o nome da consulta, nome do profissional, dia e horário agendados, e uma opção para cancelar o agendamento.
+1. O idoso acessa a aba de consultas.
+2. O sistema exibe uma janela com um calendário contendo os horários das consultas.
+3. O idoso clica em "Nova consulta".
+4. O sistema redireciona idoso para a seção de busca de profissionais.
+5. O idoso seleciona o profissional que deseja e clica em "Solicitar consulta.
+6. O idoso preenche as informações sobre consulta, como a data desejada e o tipo da sua consulta.
+7. O sistema cria uma solicitação de consulta para o profissional aceitar e redireciona usuário para o calendário no dia em que o mesmo escolheu a consulta
 
-#### Fluxo Secundário:
-1. O idoso acessa a opção "Gerenciar consultas"
-2. O sistema exibe uma janela com um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
-4. O idoso seleciona o botão "Nova consulta" exibido na tela.
-5. O sistema redireciona o idoso para a tela de pesquisa de profissional.
-5. O idoso seleciona o profissional desejado e seleciona o tipo de consulta que deseja realizar.
-6. O sistema exibe uma lista contendo os horários dispóniveis para consulta de acordo com os dias do mês atual.
-7. O idoso seleciona o dia e horário de sua prefêrencia clicando no botão "Agendar".
-8. O sistema sistema exibe um modal perguntando se o idoso deseja confirmar a consulta no dia e horário selecionado.
-9. O idoso confirma ou cancela a solicitação da consulta.
+#### Fluxo Alternativo (14a):
+1. O idoso acessa a aba de consultas.
+2. O sistema exibe uma janela com um calendário contendo os horários das consultas.
+3. O idoso seleciona uma das consultas e clica em "Cancelar".
+4. O sistema solicita confirmação por parte do idoso.
+5. O idoso confirma a sua ação.
+6. O sistema cancela a consulta com sucesso.
 
 <br>
 ***
