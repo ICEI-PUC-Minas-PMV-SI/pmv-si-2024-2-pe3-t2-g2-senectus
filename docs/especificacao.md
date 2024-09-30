@@ -157,7 +157,7 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 ***
 | Caso de uso | Título | Sumário | Ator Primário |
 |-------------|--------|---------|---------------|
-| CSU04 | Gerenciar perfil de profissional | O sistema deve permitir que o profissional crie, edite, leia e exclua seu perfil, podendo manipular seus serviços ofertados, preços cobrados e sua região de atuação |
+| CSU04 | Gerenciar perfil de profissional | O sistema deve permitir que o profissional crie, edite, leia e exclua seu perfil, podendo manipular seus serviços ofertados, preços cobrados e sua região de atuação | Profissional da saúde |
 
 #### Fluxo Principal:
 1. O profissional acessa a plataforma e navega até a seção "Cadastrar usuário".
@@ -441,7 +441,7 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 2. O sistema exibe uma janela com um calendário contendo os horários das consultas.
 3. O idoso clica em "Nova consulta".
 4. O sistema redireciona idoso para a seção de busca de profissionais.
-5. O idoso seleciona o profissional que deseja e clica em "Solicitar consulta.
+5. O idoso seleciona o profissional que deseja e clica em "Solicitar consulta".
 6. O idoso preenche as informações sobre consulta, como a data desejada e o tipo da sua consulta.
 7. O sistema cria uma solicitação de consulta para o profissional aceitar e redireciona usuário para o calendário no dia em que o mesmo escolheu a consulta
 
