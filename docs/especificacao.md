@@ -9,18 +9,18 @@ Esta especificação de requisitos tem como objetivo fornecer um guia completo e
 
 ### 3.2.1 Nome do produto e seus componentes principais
 O produto que será criado neste projeto será denominado "Senectus" que da tradução direta do latim para o português, significa idoso, referenciando o público alvo que o sistema visa atingir. Para que o sistema Senectus seja capaz de atingir seus objetivos, o mesmo terá os seguintes componentes:
-- **Biblioteca de Exercícios**: componente dedicado a exibir uma biblioteca de exercícios em formato de vídeo, fornecendo instruções de execução para os idosos;
-- **Gestor de cadastro de profissionais**: componente dedicado a gerenciar o fluxo de cadastro de novos profissionais no Senectus;
+- **Biblioteca de Exercícios**: componente dedicado a exibir uma biblioteca de exercícios e planos de treino para os usuários;
+- **Gestor de cadastro**: componente dedicado a gerenciar o fluxo de cadastro de usuários no Senectus;
 - **Gestor de eventos remotos e presenciais**: componente dedicado a fornecer meios de cadastro de novos eventos relacionados a saúde e exercícios por profissionais. Além disso, o componente também é responsável por permitir a pesquisa destes eventos e fornecer informações sobre como participar;
 - **Gestor de pesquisa de profissionais**: componente dedicado a gerenciar o fluxo de pesquisa de profissionais da área da saúde, fornecendo os meios de contato mais adequados do mesmo.
-- **Página de blog**: componente dedicado a fornecer conteúdos e recomendações sobre saúde e bem estar para o grupo da terceira idade;
+- **Gestor de blog**: componente dedicado a permitir o gerenciamento de postagens de blogs referente a temas da sáude e a pesquisa adequada dos mesmos;
 
 ### 3.2.2 Missão do produto
 Senectus tem como missão aumentar o engajamento em atividades físicas e promover o bem-estar de idosos através de uma plataforma digital que oferece:
-Biblioteca personalizada de exercícios: Vídeos com instruções claras e seguras, adaptados a diferentes níveis de condicionamento físico.
-Conexão com profissionais da saúde: Facilidade para encontrar e agendar consultas com especialistas.
-Eventos e atividades: Uma agenda de eventos presenciais e online, promovendo a socialização e o aprendizado.
-Conteúdo informativo: Artigos e dicas sobre saúde, nutrição e bem-estar, escritos por profissionais da área.
+- Biblioteca de exercícios: planos de treino e informações com instruções claras e seguras para a execução dos exercícios em si.
+- Conexão com profissionais da saúde: facilidade para encontrar e agendar consultas com especialistas.
+- Eventos e atividades: uma agenda de eventos presenciais e online, promovendo a socialização e o aprendizado.
+- Conteúdo informativo: artigos e dicas sobre saúde, nutrição e bem-estar, escritos por profissionais da área.
 
 ### 3.2.3 Limites do produto
 Senectus apesar de fornecer os meios de contatos e informações de eventos, não é responsável por promover nenhum meio de comunicação ou pagamento dentro da plataforma, utilizando-se assim, de sistemas externos, como, por exemplo, os clientes de email e telefone responsáveis para estabelecer um meio de comunicação entre o idoso e o profissional, ou links de formulários externos para permitir que os organizadores de eventos coletem informações dos participantes. Além disso, Senectus não armazena os vídeos de instruções de exercícios, necessitando, assim, de uma plataforma externa para tal.
@@ -31,37 +31,31 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 |--------------------|------------------------------------|----------------------------------------|
 | 1 | Facilidade no acesso de um amplo catalogo de exercícios variados | Essencial |
 | 2 | Acessibilidade para idosos com pouca experiência digital | Essencial |
-| 3 | Acesso rápido e sem necessidade de cadastro | Essencial |
-| 4 | Facilidade na busca por profissionais | Essencial |
-| 5 | Facilidade em cadastrar profissionais | Essencial |
-| 6 | Acesso ao blog de conteúdos | Recomendável |
-| 7 | Conexão entre eventos físicos e virtuais | Recomendável |
+| 3 | Facilidade na busca por profissionais | Essencial |
+| 4 | Facilidade em cadastrar profissionais | Essencial |
+| 5 | Acesso ao blog de conteúdos | Recomendável |
+| 6 | Conexão entre eventos físicos e virtuais | Recomendável |
 
 ## 3.3 Descrição geral do produto
 
 ### 3.3.1 Requisitos Funcionais
 
-| Código |  Requisito Funcional (Funcionalidade) | Descrição |
+| Código | Requisito Funcional (Funcionalidade) | Descrição |
 | ------ | --- | --- |
-| RF001 | Acessar instruções de execução de exercício | O sistema deve permitir que os usuários sejam capazes de acessar instruções de como executar os exercícios na plataforma |
-| RF002 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios |
-| RF003 | Filtrar exercícios | O sistema deve permitir que usuários sejam capazes de filtrar os exercícios |
-| RF004 | Gerenciar perfil do profissional | O sistema deve permitir que um profissional gerencie seu perfil na plataforma |
-| RF005 | Pesquisar profissional | O sistema deve ser capaz de permitir que o usuário pesquise por profissionais |
-| RF006 | Filtrar profissionais | O sistema deve ser capaz de filtrar profissionais. |
-| RF007 | Acessar contatos do profissional | O sistema deve permitir que o usuário idoso acesse as informações de contato do profissional |
-| RF008 | Gerenciar serviços | O sistema deve permitir que usuários profissionais gerenciem os seus serviços |
-| RF009 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma |
-| RF010 | Desconectar da plataforma | O sistema deve permitir que usuários desloguem da plataforma |
-| RF011 | Gerenciar eventos | O sistema deve permitir que gestores de eventos gerenciem eventos, tanto remoto, quanto presencial |
-| RF012 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos |
-| RF013 | Filtrar eventos | O sistema deve permitir que qualquer usuário filtre a categoria dos eventos |
-| RF014 | Gerenciar perfil de idoso | O sistema deve permitir que o idoso gerencie seu perfil |
-| RF015 | Acessar roteiro de exercícios | O sistema deve permitir que qualquer usuário acesse o roteiro de exercícios |
-| RF016 | Gerenciar roteiro | O sistema deve permitir que qualquer usuário gerencie seus roteiros dinamicamente |
-| RF017 | Realizar avaliação prévia | O sistema deve permitir que o usuário realize uma avaliação prévia para saber qual o roteiro de exercícios mais indicado |
-| RF018 | Pesquisar artigo | O sistema deve permitir que qualquer usuário pesquise por artigos de blog |
-| RF019 | Filtrar artigo | O sistema deve permitir que qualquer usuário filtre os artigos de blog |
+| RF001 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma |
+| RF002 | Desconectar da plataforma | O sistema deve permitir que usuários se desconectem da plataforma |
+| RF003 | Gerenciar perfil de idoso | O sistema deve permitir que o idoso crie, edite, leia e exclua seu perfil |
+| RF004 | Gerenciar perfil de profissional | O sistema deve permitir que o profissional crie, edite, leia e exclua seu perfil, podendo manipular seus serviços ofertados, preços cobrados e sua região de atuação |
+| RF005 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios |
+| RF006 | Gerenciar plano de treino | O sistema deve permitir que o profissional crie, atualize, leia e exclua os planos de treino dos seus pacientes |
+| RF007 | Pesquisar profissional | O sistema deve ser capaz de permitir que o usuário não profissional pesquise por profissionais da saúde |
+| RF008 | Gerenciar eventos | O sistema deve permitir que os profissionais criem, atualizem, leiam e excluam seus eventos relacionados a área da saúde |
+| RF009 | Pesquisar eventos | O sistema deve permitir que qualquer usuário pesquise por eventos relacionados a área da saúde |
+| RF010 | Gerenciar postagens | O sistema deve permitir que o profissional crie, edite, exclua e leias as suas postagens de seu blog |
+| RF011 | Pesquisar postagens | O sistema deve permitir que qualquer usuário pesquise as postagens dos blogs |
+| RF012 | Comentar em postagens | O sistema deve permitir que qualquer usuário comente nas postagens dos blogs |
+| RF013 | Gerenciar consultas - Profissional | O sistema deve permitir que o profissional da saúde leia, exclua ou aceite solicitações de novas consultas médicas |
+| RF014 | Gerenciar consultas - Idoso | O sistema deve permitir que o usuário não profissional solicite, cancele e leia as consultas de profissionais da saúde |
 
 ### 3.3.2 Requisitos Não Funcional
 
@@ -80,83 +74,406 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | Ator | Descrição |
 |--------------------|------------------------------------|
 | Profissional da Saúde |	Usuário profissional da saúde que deseja encontrar novas formas de divulgação do seu trabalho com idosos. |
-| Familiar de Idoso |	Familiar que necessita contratar um profissional para auxiliar seu parente. |
 | Idoso |	Usuário da terceira idade com compreensão das tecnologias e que deseja encontrar um profissional de saúde ou instruções para realizar exercícios em casa, como alongamentos. |	
-| Organizador de Evento | Usuário que deseja divulgar melhor o evento com foco no público de terceira idade em que é responsável. |
 
 ## 3.4 Modelagem do Sistema
 
 ### 3.4.1 Diagrama de Casos de Uso
-Como observado no diagrama de casos de uso da Figura 1, a secretária poderá gerenciar as matrículas e professores no sistema, enquanto o coordenador, além dessas funções, poderá gerenciar os cursos de aperfeiçoamento.
 
 #### Figura 1: Diagrama de Casos de Uso do Sistema.
 
-![dcu](https://github.com/user-attachments/assets/41f6b731-b44e-43aa-911f-423ad6198f47)
+![dcu](/docs/umbrello/use-case.svg)
  
 ### 3.4.2 Descrições de Casos de Uso
 
-Cada caso de uso deve ter a sua descrição representada nesta seção. Exemplo:
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU01 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma. | Profissional da Saúde ou Idoso |
 
-#### Gerenciar Professor (CSU01)
+#### Pré-condições: O usuário não deve estar logado.
+#### Pós-condições: O usuário foi cadastrado com sucesso e está disponível para utilizar a  plataforma.
 
-Sumário: A Secretária realiza a gestão (inclusão, remoção, alteração e consulta) dos dados sobre professores.
+#### Fluxo Principal:
+1. O usuário acessa a plataforma Senectus e clica em “Conectar”.
+2. O usuário preenche as suas informações.
+3. O sistema verifica se o usuário possui conta na plataforma.
+4. O sistema autoriza o acesso da plataforma.
 
-Ator Primário: Secretária.
+#### Fluxo Alternativo (1a):
+1. O usuário acessa a plataforma Senectus e clica em “Conectar”.
+2. O sistema verifica se o usuário possui conta na plataforma.
+3. O usuário não possui uma conta cadastrada, então o sistema redireciona o usuário para a página de “Cadastrar usuário”
 
-Ator Secundário: Coordenador.
+<br>
 
-Pré-condições: A Secretária deve ser validada pelo Sistema.
+***
 
-Fluxo Principal:
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU02 | Desconectar da plataforma | O sistema deve permitir que usuários se desconectem da plataforma em qualquer momento. | Profissional da Saúde ou Idoso |
 
-1) 	A Secretária requisita manutenção de professores.
-2) 	O Sistema apresenta as operações que podem ser realizadas: inclusão de um novo professor, alteração de um professor, a exclusão de um professor e a consulta de dados de um professor.
-3) 	A Secretária seleciona a operação desejada: Inclusão, Exclusão, Alteração ou Consulta, ou opta por finalizar o caso de uso.
-4) 	Se a Secretária desejar continuar com a gestão de professores, o caso de uso retorna ao passo 2; caso contrário o caso de uso termina.
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
+#### Pós-condições: O usuário foi desconectado da plataforma e não poderá acessar até o próximo login.
 
-Fluxo Alternativo (3): Inclusão
+#### Fluxo Principal:
+1. O usuário navega até a página de configurações.
+2. O usuário clica em "Desconectar".
+3. O sistema desconecta o usuário e redireciona para a página inicial na plataforma Senectus.
 
-a)	A Secretária requisita a inclusão de um professor. <br>
-b)	O Sistema apresenta uma janela solicitando o CPF do professor a ser cadastrado. <br>
-c)	A Secretária fornece o dado solicitado. <br>
-d)	O Sistema verifica se o professor já está cadastrado. Se sim, o Sistema reporta o fato e volta ao início; caso contrário, apresenta um formulário em branco para que os detalhes do professor (Código, Nome, Endereço, CEP, Estado, Cidade, Bairro, Telefone, Identidade, Sexo, Fax, CPF, Data do Cadastro e Observação) sejam incluídos. <br>
-e)	A Secretária fornece os detalhes do novo professor. <br>
-f)	O Sistema verifica a validade dos dados. Se os dados forem válidos, inclui o novo professor e a grade listando os professores cadastrados é atualizada; caso contrário, o Sistema reporta o fato, solicita novos dados e repete a verificação. <br>
+<br>
 
-Fluxo Alternativo (3): Remoção
+***
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU03 | Gerenciar perfil de idoso | O sistema deve permitir que o idoso crie, edite, leia e exclua seu perfil | Idoso |
 
-a)	A Secretária seleciona um professor e requisita ao Sistema que o remova. <br>
-b)	Se o professor pode ser removido, o Sistema realiza a remoção; caso contrário, o Sistema reporta o fato. <br>
+#### Fluxo Principal:
+1. O idoso acessa a plataforma e navega até a seção "Cadastrar usuário".
+2. O idoso seleciona a categoria do seu perfil.
+3. O sistema solicita as informações do idoso.
+4. O idoso preenche o formulário e envia os dados.
+5. O sistema valida as informações e cria o perfil do idoso.
 
-Fluxo Alternativo (3): Alteração
+#### Fluxo Alternativo (3a):
+1. O idoso acessa a plataforma e realiza o login.
+2. O idoso navega até a seção "Configurações".
+3. O sistema exibe as informações atuais do perfil.
+4. O idoso realiza alterações na sua conta.
+5. O sistema valida as novas informações e atualiza o perfil.
+6. O idoso visualiza a mensagem de confirmação de que o perfil foi atualizado com sucesso.
 
-a)	A Secretária altera um ou mais dos detalhes do professor e requisita sua atualização. <br>
-b)	O Sistema verifica a validade dos dados e, se eles forem válidos, altera os dados na lista de professores, caso contrário, o erro é reportado. <br>
- 
-Fluxo Alternativo (3): Consulta
+#### Fluxo Alternativo (3b):
+1. O idoso acessa a plataforma e realiza o login.
+2. O idoso navega até a seção Configurações".
+3. O sistema exibe as informações atuais do perfil.
+4. O idoso seleciona a opção "Excluir Conta" 
+5. O sistema solicita uma confirmação para a exclusão da conta.
+6. O idoso confirma a exclusão do perfil.
+7. O sistema remove o perfil e todos os dados associados.
+8. O sistema exibe uma mensagem confirmando que o perfil foi deletado com sucesso, e o idoso é desconectado da plataforma.
 
-a)	A Secretária opta por pesquisar pelo nome ou código e solicita a consulta sobre a lista de professores. <br>
-b)	O Sistema apresenta uma lista professores. <br>
-c)	A Secretária seleciona o professor. <br>
-d)	O Sistema apresenta os detalhes do professor no formulário de professores. <br>
+<br>
 
-Pós-condições: Um professor foi inserido ou removido, seus dados foram alterados ou apresentados na tela.
+***
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU04 | Gerenciar perfil de profissional | O sistema deve permitir que o profissional crie, edite, leia e exclua seu perfil, podendo manipular seus serviços ofertados, preços cobrados e sua região de atuação | Profissional da saúde |
+
+#### Fluxo Principal:
+1. O profissional acessa a plataforma e navega até a seção "Cadastrar usuário".
+2. O profissional seleciona a categoria do seu perfil.
+3. O sistema solicita as informações do profissional.
+4. O profissional preenche o formulário e envia os dados.
+5. O sistema valida as informações e cria o perfil do profissional.
+
+#### Fluxo Alternativo (4a):
+1. O profissional acessa a plataforma e realiza o login.
+2. O profissional navega até a seção "Configurações".
+3. O sistema exibe as informações atuais do perfil.
+4. O profissional realiza alterações na sua conta, inserindo, por exemplo, seus serviços prestados e sua localização.
+5. O sistema valida as novas informações e atualiza o perfil.
+6. O profissional visualiza a mensagem de confirmação de que o perfil foi atualizado com sucesso.
+
+#### Fluxo Alternativo (4b):
+1. O profissional acessa a plataforma e realiza o login.
+2. O profissional navega até a seção Configurações".
+3. O sistema exibe as informações atuais do perfil.
+4. O profissional seleciona a opção "Excluir Conta" 
+5. O sistema solicita uma confirmação para a exclusão da conta.
+6. O profissional confirma a exclusão do perfil.
+7. O sistema remove o perfil e todos os dados associados.
+8. O sistema exibe uma mensagem confirmando que o perfil foi deletado com sucesso, e o profissional é desconectado da plataforma.
+
+<br>
+***
+
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU05 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios | Profissional da Saúde ou Idoso |
+
+#### Fluxo Principal:
+1. O usuário acessa a seção de biblioteca de exercícios na aba de plano de treino.
+2. O usuário seleciona categória de exercícios.
+3. O usuário seleciona um exercício.
+4. O sistema exibe informações instrucionais do exercício.
+
+#### Fluxo Alternativo (5a):
+1. O usuário seleciona a aba de plano de treino.
+2. O sistema exibe um calendário de exercícios.
+3. O usuário seleciona um dos exercícios do dia.
+4. O sistema exibe informações instrucionais do exercício.
+
+<br>
+
+***
+
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU06 | Gerenciar plano de treino | O sistema deve permitir que o profissional crie, atualize, leia e exclua os planos de treino dos seus pacientes. | Profissional da saúde |
+
+#### Pré-condições: O profissional da saúde deve estar autenticado na plataforma
+
+#### Fluxo Principal:
+1. O profissional acessa a aba de planos de treino dentro da seção de clientes.
+2. O sistema informa que nenhum plano de treino foi encontrado. 
+3. O profissional clica em "Criar plano de treino".
+2. O profissional seleciona um cliente já atendido.
+5. O profissional cria um novo plano de treino, inserindo os exercícios pré-existentes no sistema.
+6. O sistema salva as informações do plano de treino.
+   
+#### Fluxo Alternativo (6a):
+1. O profissional acessa a aba de planos de treino dentro da seção de clientes.
+2. O profissional seleciona o plano de treino de um de seus clientes.
+3. O profissional edita as informações do plano de treino existente.
+4. O sistema salva as informações.
+
+#### Fluxo Alternativo (6b):
+1. O profissional acessa a aba de planos de treino dentro da seção de clientes.
+2. O profissional seleciona o plano de treino de um de seus clientes.
+3. O profissional solicita a remoção do plano de treino existente.
+4. O sistema solicita a sua confirmação.
+5. O profissional confirma a solicitação.
+6. O sistema remove o plano de treino.
+
+<br>
+
+***
+
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU07 | Pesquisar Profissional | Permitir que o idoso pesquise por profissionais da saúde. | Idoso |
+
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O idoso acessa a aba de pesquisa de profissionais na aba de consultas.
+2. O sistema exibe uma lista de profissionais da saúde cadastrados.
+3. O idoso insere informações referente ao profissional que ele busca, como o nome e sua profissão em forma de filtro.
+4. O sistema retorna uma lista de profissionais que estão de acordo com as informações fornecidas pelo idoso.
+5. O idoso seleciona um profissional e visualiza suas informações de contato e especialidades.
+
+
+#### Fluxo Alternativo (7a):
+1. O idoso acessa a aba de pesquisa de profissionais na aba de consultas.
+2. O sistema exibe uma lista de profissionais da saúde cadastrados.
+3. O idoso insere informações referente ao profissional que ele busca, como o nome e sua profissão em forma de filtro.
+4. O sistema retorna uma mensagem alertando que nenhum profissional foi encontrado.
+
+<br>
+
+***
+
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU08 | Gerenciar Eventos | Permitir que os profissionais criem, editem, visualizem e excluam eventos relacionados à área da saúde. | Profissional da saúde |
+
+#### Pré-condições: O profissional da saúde deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O profissional acessa a seção "Eventos".
+2. O sistema exibe os eventos atuais criados pelo profissional.
+3. O profissional cria um novo evento.
+4. O sistema salva as alterações.
+
+#### Fluxo Alternativo (8a):
+1. O profissional acessa a seção "Eventos".
+2. O sistema exibe os eventos atuais criados pelo profissional.
+3. O profissional seleciona um evento.
+4. O sistema exibe informações mais detalhadas deste evento.
+5. O profissional edita as informações atuais.
+6. O sistema atualiza as informações do evento em questão.
+
+#### Fluxo Alternativo (8b):
+1. O profissional acessa a seção "Eventos".
+2. O sistema exibe os eventos atuais criados pelo profissional.
+3. O profissional seleciona um evento.
+4. O sistema exibe informações mais detalhadas deste evento.
+5. O profissional clica em "Excluir".
+6. O sistema solicita a confirmação do profissional.
+7. O profissional confirma a ação.
+8. O sistema remove o evento.
+
+<br>
+
+***
+
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU09 | Pesquisar Eventos | Permitir que qualquer usuário pesquise por eventos relacionados à área da saúde. | Profissional da saúde ou Idoso  |
+
+#### Fluxo Principal:
+1. O profissional acessa a seção "Eventos".
+2. O usuário acessa a opção "Pesquisar".
+3. O sistema exibe uma lista de eventos cadastrados.
+4. O usuário insere informações referente ao evento que deseja pesquisar.
+5. O sistema retorna uma lista de eventos que estão de acordo com as informações fornecidas pelo usuário.
+6. O usuário seleciona um evento e visualiza suas informações.
+
+
+#### Fluxo Alternativo (9a):
+1. O profissional acessa a seção "Eventos".
+2. O usuário acessa a opção "Pesquisar".
+3. O sistema exibe uma lista de eventos cadastrados.
+4. O usuário insere informações referente ao evento que deseja pesquisar.
+5. O sistema retorna uma mensagem alertando que nenhum evento foi encontrado.
+
+<br>
+
+***
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU10 | Gerenciar Postagens | Permitir que os profissionais criem, editem, visualizem e excluam suas postagens no blog. | Profissional da Saúde |
+
+#### Pré-condições: O profissional da saúde deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O profissional acessa a seção "Blog".
+2. O sistema exibe as postagens atuais criadas pelo profissional.
+3. O profissional cria uma nova postagem.
+4. O sistema salva as alterações.
+
+#### Fluxo Alternativo (10a):
+1. O profissional acessa a seção "Blog".
+2. O sistema exibe as postagens atuais criadas pelo profissional.
+3. O profissional seleciona uma postagem.
+4. O sistema exibe informações mais detalhadas desta postagem.
+5. O profissional edita as informações atuais.
+6. O sistema atualiza as informações da postagem em questão.
+
+#### Fluxo Alternativo (10b):
+1. O profissional acessa a seção "Blog".
+2. O sistema exibe as postagens atuais criadas pelo profissional.
+3. O profissional seleciona uma postagem.
+4. O sistema exibe informações mais detalhadas desta postagem.
+5. O profissional clica em "Excluir".
+6. O sistema solicita a confirmação do profissional.
+7. O profissional confirma a ação.
+8. O sistema remove a postagem.
+
+<br>
+
+***
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU11 | Pesquisar Postagens | O sistema deve permitir que qualquer usuário pesquise por postagens no blog. | Profissional da Saúde ou Idoso |
+
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O profissional acessa a seção "Blog".
+2. O usuário acessa a opção "Pesquisar".
+3. O sistema exibe uma lista de postagens cadastradas.
+3. O usuário insere informações referente a postagem que deseja pesquisar.
+4. O sistema retorna uma lista de postagens que estão de acordo com as informações fornecidas pelo usuário.
+5. O usuário seleciona uma postagem e visualiza suas informações.
+
+
+#### Fluxo Alternativo (11a):
+1. O profissional acessa a seção "Blog".
+2. O usuário acessa a opção "Pesquisar".
+3. O sistema exibe uma lista de postagens cadastradas.
+4. O usuário insere informações referente a postagem que deseja pesquisar.
+5. O sistema retorna uma mensagem alertando que nenhuma postagem foi encontrada.
+
+<br>
+
+***
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU012 | Comentar em postagens | O sistema deve permitir que qualquer usuário comente nas postagens dos blogs | Idoso ou Profissional da saúde |
+
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O usuário acessa a seção "Blog".
+2. O usuário acessa a opção "Pesquisar".
+3. O sistema exibe uma lista de postagens cadastradas.
+4. O usuário insere informações referente a postagem que deseja pesquisar.
+5. O sistema retorna uma lista de postagens que estão de acordo com as informações fornecidas pelo usuário.
+6. O usuário seleciona uma postagem e visualiza suas informações.
+7. O usuário comenta na postagem.
+8. O sistema salva o comentário.
+
+<br>
+
+***
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU13 | Gerenciar Consultas - Profissional | O sistema deve permitir que o profissional da saúde leia, exclua ou aceite solicitações de novas consultas médicas | Profissional |
+
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O profissional acessa a aba de consultas dentro da seção de clientes.
+2. O sistema exibe as consultas mais recentes em forma de calendário, com duas opções de filtro, sendo elas: "Agendadas" e "Solicitações".
+3. O profissional clica em "Solicitações".
+4. O sistema retorna um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
+5. O profissional clica em "Aceitar" para aceitar a solicitação de consulta no horário marcado. 
+
+#### Fluxo Alternativo (13a):
+1. O profissional acessa a aba de consultas dentro da seção de clientes.
+2. O sistema exibe as consultas mais recentes em forma de calendário, com duas opções de filtro, sendo elas: "Agendadas" e "Solicitações".
+3. O profissional clica em "Solicitações".
+4. O sistema retorna um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
+5. O profissional clica em "Recusar" para recusar a solicitação de consulta no horário marcado. 
+
+#### Fluxo Alternativo (13b):
+1. O profissional acessa a aba de consultas dentro da seção de clientes.
+2. O sistema exibe as consultas mais recentes em forma de calendário, com duas opções de filtro, sendo elas: "Agendadas" e "Solicitações".
+3. O profissional clica em "Agendadas"
+4. O sistema retorna um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
+5. O profissional clica em "Cancelar" para recusar a solicitação de consulta no horário marcado.
+6. O sistema solicita confirmação.
+7. O profissional confirma a ação.
+8. O sistema cancela a consulta já marcada, com sucesso.
+
+<br>
+
+***
+| Caso de uso | Título | Sumário | Ator Primário |
+|-------------|--------|---------|---------------|
+| CSU14 | Solicitar Consultas - Idoso | O sistema deve permitir que o usuário não profissional solicite, cancele e leia as consultas de profissionais da saúde | Idoso |
+
+#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
+
+#### Fluxo Principal:
+1. O idoso acessa a aba de consultas.
+2. O sistema exibe uma janela com um calendário contendo os horários das consultas.
+3. O idoso clica em "Nova consulta".
+4. O sistema redireciona idoso para a seção de busca de profissionais.
+5. O idoso seleciona o profissional que deseja e clica em "Solicitar consulta".
+6. O idoso preenche as informações sobre consulta, como a data desejada e o tipo da sua consulta.
+7. O sistema cria uma solicitação de consulta para o profissional aceitar e redireciona usuário para o calendário no dia em que o mesmo escolheu a consulta
+
+#### Fluxo Alternativo (14a):
+1. O idoso acessa a aba de consultas.
+2. O sistema exibe uma janela com um calendário contendo os horários das consultas.
+3. O idoso seleciona uma das consultas e clica em "Cancelar".
+4. O sistema solicita confirmação por parte do idoso.
+5. O idoso confirma a sua ação.
+6. O sistema cancela a consulta com sucesso.
+
+<br>
+***
 
 ### 3.4.3 Diagrama de Classes 
 
-A Figura 2 mostra o diagrama de classes do sistema. A Matrícula deve conter a identificação do funcionário responsável pelo registro, bem com os dados do aluno e turmas. Para uma disciplina podemos ter diversas turmas, mas apenas um professor responsável por ela.
-
 #### Figura 2: Diagrama de Classes do Sistema.
  
-![dcu](https://github.com/user-attachments/assets/97ab1aa8-eb03-4b58-9ad5-1697d414a451)
+![dcu](/docs/umbrello/diagrama-de-classe.svg)
+
 
 ### 3.4.4 Descrições das Classes 
 
 | # | Nome | Descrição |
 |--------------------|------------------------------------|----------------------------------------|
-| 1	|	Aluno |	Cadastro de informações relativas aos alunos. |
-| 2	| Curso |	Cadastro geral de cursos de aperfeiçoamento. |
-| 3 |	Matrícula |	Cadastro de Matrículas de alunos nos cursos. |
-| 4 |	Turma |	Cadastro de turmas.
-| 5	|	Professor |	Cadastro geral de professores que ministram as disciplinas. |
-| ... |	... |	... |
+| 1 | Usuario | Cadastro de usuário na plataforma. |
+| 2 | UsuarioIdoso| Gerenciamento de perfil do idoso. |
+| 3 | UsuarioProfissional| Gerenciamento de perfil do profissional. |
+| 4 | Postagem | Criação de postagem no blog. |
+| 5 | Comentario | Criação de comentário nas postagens. |
+| 6 | PlanoDeTreino | Recebimento de plano de exercícios recomendados por profissional. |
+| 7 | Exercicio | Visualização de exercícios fisícos. |
+| 8 | Consulta | Verificação de consultas agendadas. |
+| 8 | Evento | Criação e divulgação de evento. |
+| 10 | Servico | Oferecimento de serviço profissional. |
