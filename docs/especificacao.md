@@ -91,7 +91,6 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | CSU01 | Conectar na plataforma | O sistema deve permitir que usuários se conectem na plataforma. | Profissional da Saúde ou Idoso |
 
 #### Pré-condições: O usuário não deve estar logado.
-#### Pós-condições: O usuário foi cadastrado com sucesso e está disponível para utilizar a  plataforma.
 
 #### Fluxo Principal:
 1. O usuário acessa a plataforma Senectus e clica em “Conectar”.
@@ -104,6 +103,8 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 2. O sistema verifica se o usuário possui conta na plataforma.
 3. O usuário não possui uma conta cadastrada, então o sistema redireciona o usuário para a página de “Cadastrar usuário”
 
+#### Pós-condições: O usuário se conectou com sucesso na plataforma.
+
 <br>
 
 ***
@@ -113,12 +114,13 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | CSU02 | Desconectar da plataforma | O sistema deve permitir que usuários se desconectem da plataforma em qualquer momento. | Profissional da Saúde ou Idoso |
 
 #### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
-#### Pós-condições: O usuário foi desconectado da plataforma e não poderá acessar até o próximo login.
 
 #### Fluxo Principal:
 1. O usuário navega até a página de configurações.
 2. O usuário clica em "Desconectar".
 3. O sistema desconecta o usuário e redireciona para a página inicial na plataforma Senectus.
+
+#### Pós-condições: O usuário foi desconectado da plataforma e não poderá acessar até o próximo login.
 
 <br>
 
@@ -128,29 +130,40 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | CSU03 | Gerenciar perfil de idoso | O sistema deve permitir que o idoso crie, edite, leia e exclua seu perfil | Idoso |
 
 #### Fluxo Principal:
-1. O idoso acessa a plataforma e navega até a seção "Cadastrar usuário".
-2. O idoso seleciona a categoria do seu perfil.
-3. O sistema solicita as informações do idoso.
-4. O idoso preenche o formulário e envia os dados.
-5. O sistema valida as informações e cria o perfil do idoso.
+1. O idoso requisita a manipulação de seu perfil.
+2. O sistema apresenta as seguintes operações disponíveis: cadastrar, conectar, editar, visualizar e excluir seu perfil.
+3. O idoso seleciona uma das operações: cadastrar, conectar, visualizar, editar e excluir.
+4. Se o idoso deseja continuar com suas operações de gerenciamento de seu perfil, o caso de uso retorna para o passo 2, caso contrário o caso de uso se encerra aqui.
 
-#### Fluxo Alternativo (3a):
-1. O idoso acessa a plataforma e realiza o login.
-2. O idoso navega até a seção "Configurações".
-3. O sistema exibe as informações atuais do perfil.
-4. O idoso realiza alterações na sua conta.
-5. O sistema valida as novas informações e atualiza o perfil.
-6. O idoso visualiza a mensagem de confirmação de que o perfil foi atualizado com sucesso.
+#### Fluxo Alternativo (4a): Cadastro
+1. O idoso requisita o cadastro de seu perfil.
+2. O sistema retorna um formulário com os seguintes campos: nome, email e senha.
+3. O idoso preenche suas informações no formulário e confirma envio.
+4. O sistema validas as informações, caso sejam válidas ele deve salvar a conta do usuário, caso contrário ele deve disparar uma mensagem informando que algum campo foi preenchido incorretamente.
 
-#### Fluxo Alternativo (3b):
-1. O idoso acessa a plataforma e realiza o login.
-2. O idoso navega até a seção Configurações".
-3. O sistema exibe as informações atuais do perfil.
-4. O idoso seleciona a opção "Excluir Conta" 
-5. O sistema solicita uma confirmação para a exclusão da conta.
-6. O idoso confirma a exclusão do perfil.
-7. O sistema remove o perfil e todos os dados associados.
-8. O sistema exibe uma mensagem confirmando que o perfil foi deletado com sucesso, e o idoso é desconectado da plataforma.
+#### Fluxo Alternativo (4b): Conectar
+1. O idoso requisita o login da sua conta.
+2. O sistema retorna um formulário com os campos de email e senha.
+3. O idoso preenche formulário e o envia.
+4. O sistema válida as informações, caso as credenciais estejam corretas ele autoriza o usuário a fazer o uso da plataforma, caso contrário ele retorna uma mensagem informando que as suas credenciais estão incorretas.
+
+#### Fluxo Alternativo (4c): Leitura
+1. O idoso opta por visualizar as informações de seu perfil.
+2. O sistema retorna todas as informações cadastradas na sua conta.
+
+#### Fluxo Alternativo (4d): Edição
+1. O idoso requisita a edição de seu perfil.
+2. O sistema verifica se o idoso já está conectado na plataforma, caso esteja, ele retorna um formulário contendo os campos de nome de usuário, email (não editável) e sua localização, caso o idoso não esteja autenticado corretamente na plataforma o sistema redireciona o usuário para a tela de login para permitir que o usuário se conecte e encerra o fluxo de edição.
+3. O idoso insere suas informações ou altera aquelas que já foram inseridas anteriormente e confirma ação.
+4. O sistema valida informações, caso estejam corretas ele realiza as alterações com sucesso na sua conta, caso contrário ele retorna uma mensagem informando que algum campo está preenchido incorretamente.
+
+#### Fluxo Alternativo (4e): Exclusão
+1. O idoso requisita a exclusão de seu perfil.
+2. O sistema solicita a confirmação por meio de um modal.
+3. O idoso confirma ação.
+4. O sistema realiza a exclusão permanente da conta do idoso.
+
+#### Pós-condições: O usuário deve ser capaz de cadastrar, conectar, editar, excluir ou ter suas informações exibidas em sua tela.
 
 <br>
 
@@ -160,29 +173,40 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | CSU04 | Gerenciar perfil de profissional | O sistema deve permitir que o profissional crie, edite, leia e exclua seu perfil, podendo manipular seus serviços ofertados, preços cobrados e sua região de atuação | Profissional da saúde |
 
 #### Fluxo Principal:
-1. O profissional acessa a plataforma e navega até a seção "Cadastrar usuário".
-2. O profissional seleciona a categoria do seu perfil.
-3. O sistema solicita as informações do profissional.
-4. O profissional preenche o formulário e envia os dados.
-5. O sistema valida as informações e cria o perfil do profissional.
+1. O profissional requisita a manipulação de seu perfil.
+2. O sistema apresenta as seguintes operações disponíveis: cadastrar, conectar, editar, visualizar e excluir seu perfil.
+3. O profissional seleciona uma das operações: cadastrar, conectar, visualizar, editar e excluir.
+4. Se o profissional deseja continuar com suas operações de gerenciamento de seu perfil, o caso de uso retorna para o passo 2, caso contrário o caso de uso se encerra aqui.
 
-#### Fluxo Alternativo (4a):
-1. O profissional acessa a plataforma e realiza o login.
-2. O profissional navega até a seção "Configurações".
-3. O sistema exibe as informações atuais do perfil.
-4. O profissional realiza alterações na sua conta, inserindo, por exemplo, seus serviços prestados e sua localização.
-5. O sistema valida as novas informações e atualiza o perfil.
-6. O profissional visualiza a mensagem de confirmação de que o perfil foi atualizado com sucesso.
+#### Fluxo Alternativo (4a): Cadastro
+1. O profissional requisita o cadastro de seu perfil.
+2. O sistema retorna um formulário com os seguintes campos: nome, email e senha.
+3. O profissional preenche suas informações no formulário e confirma envio.
+4. O sistema validas as informações, caso sejam válidas ele deve salvar a conta do usuário, caso contrário ele deve disparar uma mensagem informando que algum campo foi preenchido incorretamente.
 
-#### Fluxo Alternativo (4b):
-1. O profissional acessa a plataforma e realiza o login.
-2. O profissional navega até a seção Configurações".
-3. O sistema exibe as informações atuais do perfil.
-4. O profissional seleciona a opção "Excluir Conta" 
-5. O sistema solicita uma confirmação para a exclusão da conta.
-6. O profissional confirma a exclusão do perfil.
-7. O sistema remove o perfil e todos os dados associados.
-8. O sistema exibe uma mensagem confirmando que o perfil foi deletado com sucesso, e o profissional é desconectado da plataforma.
+#### Fluxo Alternativo (4a): Conectar
+1. O profissional requisita o login da sua conta.
+2. O sistema retorna um formulário com os campos de email e senha.
+3. O profissional preenche formulário e o envia.
+4. O sistema válida as informações, caso as credenciais estejam corretas ele autoriza o usuário a fazer o uso da plataforma, caso contrário ele retorna uma mensagem informando que as suas credenciais estão incorretas.
+
+#### Fluxo Alternativo (4c): Leitura
+1. O profissional opta por visualizar as informações de seu perfil.
+2. O sistema retorna todas as informações cadastradas na sua conta.
+
+#### Fluxo Alternativo (4d): Edição
+1. O profissional requisita a edição de seu perfil.
+2. O sistema verifica se o profissional já está conectado na plataforma, caso esteja, ele retorna um formulário contendo os campos de serviços prestados e seus respectivos preços, nome de usuário, email (não editável) e localização, caso o profissional não esteja autenticado corretamente na plataforma o sistema redireciona o usuário para a tela de login para permitir que o usuário se conecte e encerra o fluxo de edição.
+3. O profissional insire suas informações ou altera aquelas que já foram inseridas anteriormente e confirma ação.
+4. O sistema valida informações, caso estejam corretas ele realiza as alterações com sucesso na sua conta, caso contrário ele retorna uma mensagem informando que algum campo está preenchido incorretamente.
+
+#### Fluxo Alternativo (4e): Exclusão
+1. O profissional requisita a exclusão de seu perfil.
+2. O sistema solicita a confirmação por meio de um modal.
+3. O profissional confirma ação.
+4. O sistema realiza a exclusão permanente da conta do profissional.
+
+#### Pós-condições: O usuário deve ser capaz de cadastrar, conectar, editar, excluir ou ter suas informações exibidas em sua tela.
 
 <br>
 ***
@@ -190,6 +214,8 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | Caso de uso | Título | Sumário | Ator Primário |
 |-------------|--------|---------|---------------|
 | CSU05 | Pesquisar por exercícios | O sistema deve permitir que usuários sejam capazes de pesquisar por exercícios | Profissional da Saúde ou Idoso |
+
+#### Pré-condições: O usuário deve estar autenticado na plataforma
 
 #### Fluxo Principal:
 1. O usuário acessa a seção de biblioteca de exercícios na aba de plano de treino.
@@ -203,6 +229,8 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 3. O usuário seleciona um dos exercícios do dia.
 4. O sistema exibe informações instrucionais do exercício.
 
+#### Pós-condições: O usuário deve ser capaz de visualizar um exercício com sucesso
+
 <br>
 
 ***
@@ -214,26 +242,36 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 #### Pré-condições: O profissional da saúde deve estar autenticado na plataforma
 
 #### Fluxo Principal:
-1. O profissional acessa a aba de planos de treino dentro da seção de clientes.
-2. O sistema informa que nenhum plano de treino foi encontrado. 
-3. O profissional clica em "Criar plano de treino".
-2. O profissional seleciona um cliente já atendido.
-5. O profissional cria um novo plano de treino, inserindo os exercícios pré-existentes no sistema.
-6. O sistema salva as informações do plano de treino.
-   
-#### Fluxo Alternativo (6a):
-1. O profissional acessa a aba de planos de treino dentro da seção de clientes.
-2. O profissional seleciona o plano de treino de um de seus clientes.
-3. O profissional edita as informações do plano de treino existente.
-4. O sistema salva as informações.
+1. O profissional requisita a manipulação de seus planos de treino.
+2. O sistema apresenta as seguintes operações disponíveis: criar, editar, visualizar e excluir planos de treino.
+3. O profissional seleciona uma das operações: visualizar, criar, editar e excluir.
+4. Se o profissional deseja continuar com suas operações de gerenciamento de planos de treino, o caso de uso retorna para o passo 2, caso contrário o caso de uso se encerra aqui.
 
-#### Fluxo Alternativo (6b):
-1. O profissional acessa a aba de planos de treino dentro da seção de clientes.
-2. O profissional seleciona o plano de treino de um de seus clientes.
-3. O profissional solicita a remoção do plano de treino existente.
-4. O sistema solicita a sua confirmação.
-5. O profissional confirma a solicitação.
-6. O sistema remove o plano de treino.
+#### Fluxo Alternativo (6a): Leitura
+1. O profissional acessa a aba de planos de treino e opta por pesquisar por um plano de treino.
+2. Se já existir planos de treino, o sistema retorna uma lista de planos de treino criados ou editados recentemente com uma barra de pesquisa, caso não exista um plano de treino o sistema encerra o fluxo de leitura solicitando a criação de um plano.
+3. O profissional preenche a barra de pesquisa com o nome do cliente.
+4. Se o sistema encontrar algum cliente com o nome similar ele retorna o plano de treino vinculado a ele, caso contrário o sistema retorna uma mensagem informando que nenhum cliente foi encontrado com um plano de treino vinculado.
+
+#### Fluxo Alternativo (6b): Criação
+1. O profissional requisita a criação de um novo plano de treino.
+2. O sistema retorna um formulário para o profissional preencher, contendo o cliente que vai usar o plano, os exercícios que o plano deve conter e os dias do mês que cada exercício deve ser praticado.
+3. O profissional preenche o formulário e confirma envio.
+4. O sistema valida as informações, caso elas estejam corretas ele salva o plano de treino na base de dados, caso contrário, ele retorna um erro informando que algum campo foi preenchido incorretamente.
+
+#### Fluxo Alternativo (6c): Edição
+1. O profissional seleciona um cliente com seu respectivo plano de treino e requisita alterações.
+2. O sistema retorna um formulário para o profissional preencher, contendo os seguintes campos: cliente que vai usar o plano, os exercícios que o plano deve conter e os dias do mês que cada exercício deve ser praticado. Porém, os mesmos já estão preenchidos com suas informações antigas e disponíveis para alterações.
+3. O usuário confirma as alterações pelo formulário.
+4. O sistema valida as informações, caso elas estejam corretas ele salva as alterações do plano de treino na base de dados, caso contrário, ele retorna um erro informando que algum campo foi preenchido incorretamente.
+
+#### Fluxo Alternativo (6d): Exclusão
+1. O profissional seleciona um cliente com seu respectivo plano de treino e requisita a exclusão do mesmo.
+2. O sistema retorna um modal de confirmação de ação.
+3. O profissional confirma ação.
+4. O sistema exclui o plano de treino do cliente da base de dados.
+
+#### Pós-condições: O usuário deve realizar a criação, edição, exclusão ou deve ter seus planos de treinos visualizados em sua tela.
 
 <br>
 
@@ -259,6 +297,8 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 3. O idoso insere informações referente ao profissional que ele busca, como o nome e sua profissão em forma de filtro.
 4. O sistema retorna uma mensagem alertando que nenhum profissional foi encontrado.
 
+#### Pós-condições: O usuário deve ter as informações do profissional exibidas em sua tela ou receber uma mensagem informando que nenhum profissional foi encontrado.
+
 <br>
 
 ***
@@ -270,28 +310,36 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 #### Pré-condições: O profissional da saúde deve possuir uma conta na plataforma e deve estar logado.
 
 #### Fluxo Principal:
-1. O profissional acessa a seção "Eventos".
-2. O sistema exibe os eventos atuais criados pelo profissional.
-3. O profissional cria um novo evento.
-4. O sistema salva as alterações.
+1. O profissional requisita a manipulação de seus eventos.
+2. O sistema apresenta as seguintes operações disponíveis: criar, editar, visualizar e excluir eventos.
+3. O profissional seleciona uma das operações: visualizar, criar, editar e excluir.
+4. Se o profissional deseja continuar com suas operações de gerenciamento de evento, o caso de uso retorna para o passo 2, caso contrário o caso de uso se encerra aqui.
 
-#### Fluxo Alternativo (8a):
-1. O profissional acessa a seção "Eventos".
-2. O sistema exibe os eventos atuais criados pelo profissional.
-3. O profissional seleciona um evento.
-4. O sistema exibe informações mais detalhadas deste evento.
-5. O profissional edita as informações atuais.
-6. O sistema atualiza as informações do evento em questão.
+#### Fluxo Alternativo (10a): Leitura
+1. O profissional opta por realizar a leitura de um de seus eventos.
+2. O sistema exibe uma lista de eventos criados recentemente com uma barra de pesquisa.
+3. O profissional insere o nome do evento já criado.
+4. Se algum evento com nome similar já existir ele retorna, caso não exista o sistema informa que nenhum evento foi encontrado.
 
-#### Fluxo Alternativo (8b):
-1. O profissional acessa a seção "Eventos".
-2. O sistema exibe os eventos atuais criados pelo profissional.
-3. O profissional seleciona um evento.
-4. O sistema exibe informações mais detalhadas deste evento.
-5. O profissional clica em "Excluir".
-6. O sistema solicita a confirmação do profissional.
-7. O profissional confirma a ação.
-8. O sistema remove o evento.
+#### Fluxo Alternativo (10b): Criação
+1. O profissional solicita a criação de um evento.
+2. O sistema redireciona o usuário para um formulário com os seguintes campos a serem preenchidos: nome do evento, descrição e link de formulário externo a ser vinculado.
+3. O profissional preenche todas as informações e confirma o envio.
+4. O sistema valida o formulário, caso seja válido ele salva o evento na base de dados, caso contrário o sistema dispara uma mensagem alertando o usuário que algum campo foi preenchido incorretamente.
+
+#### Fluxo Alternativo (10c): Edição
+1. O profissional seleciona um de seus eventos e requisita a edição do mesmo.
+2. O sistema redireciona o usuário para um formulário com os seguintes campos a serem preenchidos: nome do evento, descrição e link de formulário externo a ser vinculado. Porém, os mesmos já estão preenchidos com suas informações antigas e disponíveis para alterações.
+3. O profissional altera as informações e confirma o envio.
+4. O sistema valida o formulário, caso seja válido ele salva as alterações do evento na base de dados, caso contrário o sistema dispara uma mensagem alertando o usuário que algum campo foi preenchido incorretamente.
+
+#### Fluxo Alternativo (10d): Exclusão
+1. O profissional seleciona um de seus eventos e requisita a exclusão do mesmo.
+2. O sistema solicita a confirmação do usuário por meio de um modal.
+3. O profissional confirma ação.
+4. O sistema realiza a exclusão do evento na base de dados.
+
+#### Pós-condições: O profissional deve criar, editar, excluir ou ter seus eventos exibidos em sua tela com sucesso.
 
 <br>
 
@@ -302,20 +350,20 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 | CSU09 | Pesquisar Eventos | Permitir que qualquer usuário pesquise por eventos relacionados à área da saúde. | Profissional da saúde ou Idoso  |
 
 #### Fluxo Principal:
-1. O profissional acessa a seção "Eventos".
-2. O usuário acessa a opção "Pesquisar".
-3. O sistema exibe uma lista de eventos cadastrados.
-4. O usuário insere informações referente ao evento que deseja pesquisar.
-5. O sistema retorna uma lista de eventos que estão de acordo com as informações fornecidas pelo usuário.
-6. O usuário seleciona um evento e visualiza suas informações.
+1. O usuário acessa a seção de eventos e opta por iniciar a pesquisa de um evento.
+2. O sistema exibe uma lista de eventos cadastrados com uma barra de pesquisa a ser preenchida.
+3. O usuário insere informações referente ao evento que deseja pesquisar.
+4. O sistema retorna uma lista de eventos que estão de acordo com as informações fornecidas pelo usuário.
+5. O usuário seleciona um evento e visualiza suas informações.
 
 
 #### Fluxo Alternativo (9a):
-1. O profissional acessa a seção "Eventos".
-2. O usuário acessa a opção "Pesquisar".
-3. O sistema exibe uma lista de eventos cadastrados.
-4. O usuário insere informações referente ao evento que deseja pesquisar.
-5. O sistema retorna uma mensagem alertando que nenhum evento foi encontrado.
+1. O usuário acessa a seção de eventos e opta por iniciar a pesquisa de um evento.
+2. O sistema exibe uma lista de eventos cadastrados.
+3. O usuário insere informações referente ao evento que deseja pesquisar.
+4. O sistema retorna uma mensagem alertando que nenhum evento foi encontrado.
+
+#### Pós-condições: O usuário deve ter um evento público exibido em sua tela ou uma mensagem alertando que nenhum evento foi encontrada.
 
 <br>
 
@@ -327,28 +375,36 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 #### Pré-condições: O profissional da saúde deve possuir uma conta na plataforma e deve estar logado.
 
 #### Fluxo Principal:
-1. O profissional acessa a seção "Blog".
-2. O sistema exibe as postagens atuais criadas pelo profissional.
-3. O profissional cria uma nova postagem.
-4. O sistema salva as alterações.
+1. O profissional requisita a manipulação de suas postagens em seu blog.
+2. O sistema apresenta as seguintes operações disponíveis: criar, editar, visualizar e excluir postagens de seu blog.
+3. O profissional seleciona uma das operações: visualizar, criar, editar e excluir.
+4. Se o profissional deseja continuar com suas operações de gerenciamento de blog, o caso de uso retorna para o passo 2, caso contrário o caso de uso se encerra aqui.
 
-#### Fluxo Alternativo (10a):
-1. O profissional acessa a seção "Blog".
-2. O sistema exibe as postagens atuais criadas pelo profissional.
-3. O profissional seleciona uma postagem.
-4. O sistema exibe informações mais detalhadas desta postagem.
-5. O profissional edita as informações atuais.
-6. O sistema atualiza as informações da postagem em questão.
+#### Fluxo Alternativo (10a): Leitura
+1. O profissional opta por realizar a leitura de uma de suas postagens.
+2. O sistema exibe uma lista de postagens criadas recentemente com uma barra de pesquisa.
+3. O profissional insere o nome da postagem já criada.
+4. Se alguma postagem com nome similar já existir ele retorna, caso não exista o sistema informa que nenhuma postagem foi encontrada.
 
-#### Fluxo Alternativo (10b):
-1. O profissional acessa a seção "Blog".
-2. O sistema exibe as postagens atuais criadas pelo profissional.
-3. O profissional seleciona uma postagem.
-4. O sistema exibe informações mais detalhadas desta postagem.
-5. O profissional clica em "Excluir".
-6. O sistema solicita a confirmação do profissional.
-7. O profissional confirma a ação.
-8. O sistema remove a postagem.
+#### Fluxo Alternativo (10b): Criação
+1. O profissional solicita a criação de uma postagem em seu blog.
+2. O sistema redireciona o usuário para um formulário com os seguintes campos a serem preenchidos: nome da postagem, descrição curta e o corpo da postagem.
+3. O profissional preenche todas as informações e confirma o envio.
+4. O sistema valida o formulário, caso seja válido ele salva a postagem na base de dados, caso contrário o sistema dispara uma mensagem alertando o usuário que algum campo foi preenchido incorretamente.
+
+#### Fluxo Alternativo (10c): Edição
+1. O profissional seleciona uma de suas postagens e requisita a edição da mesma.
+2. O sistema redireciona o usuário para um formulário com os seguintes campos a serem preenchidos: nome da postagem, descrição curta e o corpo da postagem. Porém, os mesmos já estão preenchidos com suas informações antigas e disponíveis para alterações.
+3. O profissional altera as informações e confirma o envio.
+4. O sistema valida o formulário, caso seja válido ele salva as alterações da postagem na base de dados, caso contrário o sistema dispara uma mensagem alertando o usuário que algum campo foi preenchido incorretamente.
+
+#### Fluxo Alternativo (10d): Exclusão
+1. O profissional seleciona uma de suas postagens e requisita a exclusão da mesma.
+2. O sistema solicita a confirmação do usuário por meio de um modal.
+3. O profissional confirma ação.
+4. O sistema realiza a exclusão da postagem na base de dados.
+
+#### Pós-condições: O profissional deve criar, editar, excluir ou ter suas postagens exibidas em sua tela com sucesso.
 
 <br>
 
@@ -357,23 +413,20 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 |-------------|--------|---------|---------------|
 | CSU11 | Pesquisar Postagens | O sistema deve permitir que qualquer usuário pesquise por postagens no blog. | Profissional da Saúde ou Idoso |
 
-#### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
-
 #### Fluxo Principal:
-1. O profissional acessa a seção "Blog".
-2. O usuário acessa a opção "Pesquisar".
-3. O sistema exibe uma lista de postagens cadastradas.
+1. O usuário acessa a seção de blog e opta por iniciar a pesquisa de uma postagem.
+2. O sistema exibe uma lista de postagens cadastradas com uma barra de pesquisa a ser preenchida.
 3. O usuário insere informações referente a postagem que deseja pesquisar.
 4. O sistema retorna uma lista de postagens que estão de acordo com as informações fornecidas pelo usuário.
 5. O usuário seleciona uma postagem e visualiza suas informações.
 
-
 #### Fluxo Alternativo (11a):
-1. O profissional acessa a seção "Blog".
-2. O usuário acessa a opção "Pesquisar".
-3. O sistema exibe uma lista de postagens cadastradas.
-4. O usuário insere informações referente a postagem que deseja pesquisar.
-5. O sistema retorna uma mensagem alertando que nenhuma postagem foi encontrada.
+1. O usuário acessa a seção de blog e opta por iniciar a pesquisa de uma postagem.
+2. O sistema exibe uma lista de postagens cadastradas com uma barra de pesquisa a ser preenchida.
+3. O usuário insere informações referente a postagem que deseja pesquisar.
+4. O sistema retorna uma mensagem alertando que nenhuma postagem foi encontrada.
+
+#### Pós-condições: O usuário deve ter a postagem exibida em sua tela ou deve receber uma mensagem alertando que a postagem não existe.
 
 <br>
 
@@ -385,14 +438,10 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 #### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
 
 #### Fluxo Principal:
-1. O usuário acessa a seção "Blog".
-2. O usuário acessa a opção "Pesquisar".
-3. O sistema exibe uma lista de postagens cadastradas.
-4. O usuário insere informações referente a postagem que deseja pesquisar.
-5. O sistema retorna uma lista de postagens que estão de acordo com as informações fornecidas pelo usuário.
-6. O usuário seleciona uma postagem e visualiza suas informações.
-7. O usuário comenta na postagem.
-8. O sistema salva o comentário.
+1. O usuário seleciona uma postagem na seção de blog e opta por comentar na mesma.
+2. O sistema salva o comentário.
+
+#### Pós-condições: O usuário deve ter seu comentário salvo e vinculado a postagem com sucesso.
 
 <br>
 
@@ -404,54 +453,65 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 #### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
 
 #### Fluxo Principal:
-1. O profissional acessa a aba de consultas dentro da seção de clientes.
-2. O sistema exibe as consultas mais recentes em forma de calendário, com duas opções de filtro, sendo elas: "Agendadas" e "Solicitações".
-3. O profissional clica em "Solicitações".
-4. O sistema retorna um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
-5. O profissional clica em "Aceitar" para aceitar a solicitação de consulta no horário marcado. 
+1. O profissional acessa a aba de consultas.
+2. O sistema exibe todas as operações que podem ser realizadas em suas consultas: leitura de uma consulta, exclusão de uma consulta e aceitação de uma consulta.
+3. O profissional seleciona uma das operações: leitura, exclusão ou aceitação
+4. Se o profissional deseja continuar com suas operações de gerenciamento, o caso de uso retorna ao passo 2, caso contrário o caso de uso se encerra.
 
-#### Fluxo Alternativo (13a):
-1. O profissional acessa a aba de consultas dentro da seção de clientes.
+#### Fluxo Alternativo (13a): Leitura
+1. O profissional opta por realizar a leitura das consultas e solicitações disponíveis.
 2. O sistema exibe as consultas mais recentes em forma de calendário, com duas opções de filtro, sendo elas: "Agendadas" e "Solicitações".
-3. O profissional clica em "Solicitações".
-4. O sistema retorna um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
-5. O profissional clica em "Recusar" para recusar a solicitação de consulta no horário marcado. 
+3. O profissional seleciona o filtro que deseja.
+4. O sistema retorna um calendário contendo os dias e as respectivas consultas.
 
-#### Fluxo Alternativo (13b):
-1. O profissional acessa a aba de consultas dentro da seção de clientes.
-2. O sistema exibe as consultas mais recentes em forma de calendário, com duas opções de filtro, sendo elas: "Agendadas" e "Solicitações".
-3. O profissional clica em "Agendadas"
-4. O sistema retorna um calendário contendo os dias e as respectivas consultas de acordo com o horário marcado.
-5. O profissional clica em "Cancelar" para recusar a solicitação de consulta no horário marcado.
-6. O sistema solicita confirmação.
-7. O profissional confirma a ação.
-8. O sistema cancela a consulta já marcada, com sucesso.
+#### Fluxo Alternativo (13b): Aceitação:
+1. O profissional seleciona uma solicitação de consulta e requisita a aceitação da mesma.
+2. O sistema salva as alterações na base de dados.
+
+#### Fluxo Alternativo (13c): Exclusão
+1. O profissional seleciona uma solicitação ou uma consulta já aceita e requisita a exclusão da mesma.
+2. O sistema solicita a confirmação do profissional por meio de um modal.
+3. O profissional confirma ação.
+2. O sistema remove o item da lista do usuário e efetiva as alterações na base de dados.
+
+#### Pós-condições: O profissional deve realizar a aceitação, exclusão ou deve ter as consultas exibidas em sua tela com sucesso.
 
 <br>
 
 ***
 | Caso de uso | Título | Sumário | Ator Primário |
 |-------------|--------|---------|---------------|
-| CSU14 | Solicitar Consultas - Idoso | O sistema deve permitir que o usuário não profissional solicite, cancele e leia as consultas de profissionais da saúde | Idoso |
+| CSU14 | Gerenciar Consultas - Idoso | O sistema deve permitir que o usuário não profissional solicite, cancele e leia as consultas de profissionais da saúde | Idoso |
 
 #### Pré-condições: O usuário deve possuir uma conta na plataforma e deve estar logado.
 
 #### Fluxo Principal:
 1. O idoso acessa a aba de consultas.
-2. O sistema exibe uma janela com um calendário contendo os horários das consultas.
-3. O idoso clica em "Nova consulta".
-4. O sistema redireciona idoso para a seção de busca de profissionais.
-5. O idoso seleciona o profissional que deseja e clica em "Solicitar consulta".
-6. O idoso preenche as informações sobre consulta, como a data desejada e o tipo da sua consulta.
-7. O sistema cria uma solicitação de consulta para o profissional aceitar e redireciona usuário para o calendário no dia em que o mesmo escolheu a consulta
+2. O sistema exibe todas as operações que podem ser realizadas em suas consultas: leitura de uma consulta, cancelamento de uma consulta e solicitação de uma consulta.
+3. O idoso seleciona uma das operações: leitura, cancelamento ou solicitação.
+4. Se o idoso deseja realizar mais alguma das operações, o caso de uso retorna para o passo 2, caso contrário o fluxo se encerra aqui.
 
-#### Fluxo Alternativo (14a):
-1. O idoso acessa a aba de consultas.
-2. O sistema exibe uma janela com um calendário contendo os horários das consultas.
-3. O idoso seleciona uma das consultas e clica em "Cancelar".
-4. O sistema solicita confirmação por parte do idoso.
-5. O idoso confirma a sua ação.
-6. O sistema cancela a consulta com sucesso.
+#### Fluxo Alternativo (14a): Leitura
+1. O idoso opta por realizar a leitura de uma de suas consultas.
+2. O sistema exibe as consultas mais recentes em forma de calendário, com duas opções de filtro, sendo elas: "Agendadas" e "Solicitações".
+3. O idoso seleciona o filtro que deseja.
+4. O sistema retorna um calendário contendo os dias e as respectivas consultas.
+
+#### Fluxo Alternativo (14b): Solicitação
+1. O idoso requisita a solicitação de uma consulta.
+2. O sistema redireciona idoso para a seção de busca de profissionais e retorna uma lista de profissionais disponíveis com seus respectivos dias de consultas.
+3. O idoso seleciona o profissional e o dia que deseja realizar a consulta.
+4. O sistema abre um formulário e solicita o preenchimento das seguintes informações: descrição da solicitação e o tipo de consulta.
+5. O idoso preenche as informações e confirma o envio.
+6. O sistema valida as informações do formulário e caso estejam corretas ele cria a solicitação na base de dados, caso não esteja, ele dispara uma mensagem alertando que algum campo foi preenchido incorretamente.
+
+#### Fluxo Alternativo (14a): Cancelamento
+1. O idoso seleciona uma consulta e requisita seu cancelamento.
+2. O sistema solicita a confirmação da ação através de um modal.
+3. O idoso confirma ação.
+4. O sistema cancela a consulta em questão.
+
+#### Pós-condições: O idoso deve realizar a solicitação, cancelamento ou deve ter as suas consultas exibidas em sua tela.
 
 <br>
 ***
