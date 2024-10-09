@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "eslint --fix && next build && next start",
     "lint": "eslint src --max-warnings=0",
     "prettier": "prettier --write",
     "lint:fix": "eslint --fix",

@@ -38,6 +38,7 @@ export function Header() {
       <AppButtonActionRect
         id="btn-connect"
         title="Conectar"
+        disabled={true}
         onClick={onClick}
       />
     </HeaderStyle>

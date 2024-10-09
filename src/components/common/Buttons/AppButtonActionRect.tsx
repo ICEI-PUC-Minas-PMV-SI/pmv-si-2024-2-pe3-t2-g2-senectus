@@ -24,7 +24,7 @@ const AppButtonActionRect = ({
       color={backgroundColor}
       size="md"
       isLoading={loading}
-      disabled={disabled}
+      isDisabled={disabled}
       style={style}
       onClick={onClick}
     >
