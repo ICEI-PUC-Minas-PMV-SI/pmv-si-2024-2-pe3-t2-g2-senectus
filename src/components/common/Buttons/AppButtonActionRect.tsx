@@ -1,21 +1,6 @@
 import { Button } from '@nextui-org/button'
 import theme from '../../../themes/theme'
-
-interface AppButtonActionRectProps {
-  id: string
-  loading?: boolean
-  disabled?: boolean
-  backgroundColor?:
-    | 'primary'
-    | 'default'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'danger'
-  style?: React.CSSProperties
-  title: string
-  onClick: () => void
-}
+import AppButtonActionRectProps from './type/AppButtonActionRectProps'
 
 const AppButtonActionRect = ({
   id,
