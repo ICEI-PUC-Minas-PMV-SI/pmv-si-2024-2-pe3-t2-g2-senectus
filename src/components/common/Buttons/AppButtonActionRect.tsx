@@ -1,36 +1,29 @@
-import { Button } from '@nextui-org/button'
+import { Button, ButtonProps } from '@nextui-org/button'
+import { ReactNode } from 'react'
 
-import AppButtonActionRectProps from './props/AppButtonActionRectProps'
-import theme from '../../../themes/theme'
+interface IAppButtonActionRect extends Omit<ButtonProps, "endContent" | "startContent" | "color"> {
+  isLoading?: boolean;
+  children?: ReactNode;
+  icon?: ReactNode;
+}
 
-function AppButtonActionRect({
-  id,
-  loading = false,
-  disabled = false,
-  backgroundColor = 'primary',
-  style = {
-    marginTop: '0px',
-    marginBottom: '0px',
-    marginRight: '0px',
-    marginLeft: '0px',
-    fontSize: theme.font.base
-  },
-  title,
-  onClick
-}: AppButtonActionRectProps) {
+export function AppButtonActionRect({
+  size = "sm", 
+  isLoading, 
+  children,
+  icon,
+  ...props
+}: IAppButtonActionRect) {
   return (
     <Button
-      id={id}
-      color={backgroundColor}
-      size="md"
-      isLoading={loading}
-      isDisabled={disabled}
-      style={style}
-      onClick={onClick}
+      color="primary"
+      size={size}
+      isLoading={isLoading}
+      endContent={icon}
+      {...props}
     >
-      {title}
+      {children}
     </Button>
   )
 }
 
-export default AppButtonActionRect
