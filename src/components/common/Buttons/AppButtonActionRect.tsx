@@ -1,8 +1,9 @@
 import { Button } from '@nextui-org/button'
-import theme from '../../../themes/theme'
-import AppButtonActionRectProps from './type/AppButtonActionRectProps'
 
-const AppButtonActionRect = ({
+import AppButtonActionRectProps from './props/AppButtonActionRectProps'
+import theme from '../../../themes/theme'
+
+function AppButtonActionRect({
   id,
   loading = false,
   disabled = false,
@@ -12,12 +13,11 @@ const AppButtonActionRect = ({
     marginBottom: '0px',
     marginRight: '0px',
     marginLeft: '0px',
-
     fontSize: theme.font.base
   },
   title,
   onClick
-}: AppButtonActionRectProps) => {
+}: AppButtonActionRectProps) {
   return (
     <Button
       id={id}
