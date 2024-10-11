@@ -1,10 +1,14 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Button } from '@nextui-org/button'
 import { HeaderStyle } from './HeaderStyle'
 import { InternalLink } from '../InternalLink/InternalLink'
+import AppButtonActionRect from '../Buttons/AppButtonActionRect'
 
 export function Header() {
+  const onClick = () => {
+    console.log('Clicou')
+  }
+
   return (
     <HeaderStyle>
       <Link href="#">
@@ -31,9 +35,12 @@ export function Header() {
         </li>
       </ul>
 
-      <Button id="btn-connect" color="primary" size="sm">
-        Conectar
-      </Button>
+      <AppButtonActionRect
+        id="btn-connect"
+        title="Conectar"
+        loading={true}
+        onClick={onClick}
+      />
     </HeaderStyle>
   )
 }
