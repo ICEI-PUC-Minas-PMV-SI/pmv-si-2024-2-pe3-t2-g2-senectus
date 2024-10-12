@@ -10,7 +10,7 @@ import { AppAboutUs } from '@components/home/AppAboutUs'
 import { AppBenefits } from '@components/home/AppBenefits'
 import { AppFooter } from '@components/common/Footer/AppFooter'
 
-export default function Home() {
+export default function HomeScreen() {
   return (
     <ThemeProvider theme={theme}>
       <NextUIProvider className="default">
