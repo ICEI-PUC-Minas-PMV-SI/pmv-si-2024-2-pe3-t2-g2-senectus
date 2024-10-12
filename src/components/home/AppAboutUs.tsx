@@ -11,16 +11,14 @@ export function AppAboutUs() {
           <h1 className="prettify-title">Sobre nós</h1>
 
           <p>
-            O projeto Senectus é uma iniciativa proposta por alguns estudantes{" "}
-            da PUC Minas, juntamente com a parceria de profissionais altamente{" "}
+            O projeto Senectus é uma iniciativa proposta por alguns estudantes{' '}
+            da PUC Minas, juntamente com a parceria de profissionais altamente{' '}
             qualificados na área, com o intuito de retardar e reduzir o aumento{' '}
-            do sedentarismo em nosso país, o que cada vez mais vem trazendo{" "}
+            do sedentarismo em nosso país, o que cada vez mais vem trazendo{' '}
             dados preocupantes!
           </p>
 
-          <AppButtonLinkRect href="/exercises">
-            Exercitar
-          </AppButtonLinkRect>
+          <AppButtonLinkRect href="/exercises" text="Exercitar" />
         </div>
 
         <Image

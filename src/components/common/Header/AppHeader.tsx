@@ -56,7 +56,7 @@ export function AppHeader() {
           id="menu-btn-connect"
           className={`${isOpen ? 'appear-animation' : 'disappear-animation'}`}
         >
-          <AppButtonLinkRect href="/sigin">Conectar</AppButtonLinkRect>
+          <AppButtonLinkRect href="/sigin" text="Conectar" />
         </li>
       </ul>
 
@@ -69,7 +69,7 @@ export function AppHeader() {
         <FaXmark id="btn-menu-close" />
       </MenuButtonStyle>
 
-      <AppButtonLinkRect id="btn-connect" href="/sigin">Conectar</AppButtonLinkRect>
+      <AppButtonLinkRect id="btn-connect" href="/sigin" text="Conectar" />
     </HeaderStyle>
   )
 }

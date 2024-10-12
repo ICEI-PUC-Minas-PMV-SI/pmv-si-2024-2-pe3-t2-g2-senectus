@@ -12,9 +12,7 @@ export function AppInitialSectionHome() {
           ama? Junte-se a nós em uma longa jornada de exercícios físicos com um{' '}
           digno suporte de profissionais altamente qualificados!
         </p>
-        <AppButtonLinkRect href="/exercises">
-          Exercitar
-        </AppButtonLinkRect>
+        <AppButtonLinkRect href="/exercises" text="Exercitar" />
       </div>
       <span></span>
       <Image

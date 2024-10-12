@@ -1,16 +1,20 @@
 import { Button, ButtonProps } from '@nextui-org/button'
 import { ReactNode } from 'react'
 
-interface IAppButtonActionRect extends Omit<ButtonProps, "endContent" | "startContent" | "color"> {
-  isLoading?: boolean;
-  children?: ReactNode;
-  icon?: ReactNode;
+interface IAppButtonActionRect
+  extends Omit<
+    ButtonProps,
+    'endContent' | 'startContent' | 'color' | 'children'
+  > {
+  isLoading?: boolean
+  text?: string
+  icon?: ReactNode
 }
 
 export function AppButtonActionRect({
-  size = "sm", 
-  isLoading, 
-  children,
+  size = 'sm',
+  isLoading,
+  text,
   icon,
   ...props
 }: IAppButtonActionRect) {
@@ -22,8 +26,7 @@ export function AppButtonActionRect({
       endContent={icon}
       {...props}
     >
-      {children}
+      {text}
     </Button>
   )
 }
-

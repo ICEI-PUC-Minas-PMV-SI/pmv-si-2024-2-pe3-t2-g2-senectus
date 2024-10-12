@@ -60,9 +60,11 @@ export function AppBenefits() {
               <div className="card-header">
                 <span>{item.icon}</span>
                 {i == benefits.length - 1 && (
-                  <AppButtonLinkRect href="/exercises" icon={<FaArrowRight/>}>
-                    Exercitar
-                  </AppButtonLinkRect>
+                  <AppButtonLinkRect
+                    href="/exercises"
+                    icon={<FaArrowRight />}
+                    text="Exercitar"
+                  />
                 )}
               </div>
               <div className="text">
