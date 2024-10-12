@@ -16,7 +16,7 @@ export function AppInitialSectionHome() {
       </div>
       <span></span>
       <Image
-        src="/img/imagem-inicial.png"
+        src="/img/home/imagem-inicial.png"
         alt="idosa empolgada"
         width={600}
         height={600}

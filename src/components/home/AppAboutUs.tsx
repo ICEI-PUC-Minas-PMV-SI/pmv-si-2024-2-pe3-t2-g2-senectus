@@ -22,7 +22,7 @@ export function AppAboutUs() {
         </div>
 
         <Image
-          src="/img/about-us-img.png"
+          src="/img/home/about-us-img.png"
           alt="foto de idosos"
           width={500}
           height={550}

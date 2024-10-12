@@ -20,7 +20,7 @@ export function AppHeader() {
     <HeaderStyle>
       <Link href="/home" id="header-logo">
         <Image
-          src="/img/logo-tipo.png"
+          src="/img/common/logo-tipo.png"
           alt="Logotipo do Senectus"
           height={90}
           width={110}
