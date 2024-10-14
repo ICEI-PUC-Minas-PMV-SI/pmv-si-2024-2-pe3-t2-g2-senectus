@@ -2,14 +2,14 @@ import { ReactNode } from 'react'
 import { AppInternalLink } from '../InternalLink/AppInternalLink'
 import { AppButtonActionRect } from './AppButtonActionRect'
 
-interface IAppButtonLinkRect {
+interface AppButtonLinkRectProps {
   id?: string
   href: string
   text: string
   icon?: ReactNode
 }
 
-export function AppButtonLinkRect(props: IAppButtonLinkRect) {
+export function AppButtonLinkRect(props: AppButtonLinkRectProps) {
   return (
     <AppInternalLink
       id={props.id ?? ''}

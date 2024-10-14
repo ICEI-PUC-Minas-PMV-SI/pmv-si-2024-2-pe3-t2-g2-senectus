@@ -12,13 +12,13 @@ import { v4 as uuid } from 'uuid'
 import { BenefitsStyle } from './BenefitsStyle'
 import { AppButtonLinkRect } from '@components/common/Buttons/AppButtonLinkRect'
 
-interface IBenefits {
+interface BenefitsProps {
   title: string
   text: string
   icon: ReactNode
 }
 
-const benefits: IBenefits[] = [
+const benefits: BenefitsProps[] = [
   {
     title: 'Previne doenças',
     text: 'A prática continua de exercícios ajuda qualquer indivíduo, principalmente os idosos, a se prevenir de doenças graves, como: câncer, diabete tipo 2 e doenças cardiovasculares.',

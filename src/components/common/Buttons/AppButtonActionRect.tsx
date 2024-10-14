@@ -1,7 +1,7 @@
 import { Button, ButtonProps } from '@nextui-org/button'
 import { ReactNode } from 'react'
 
-interface IAppButtonActionRect
+interface AppButtonActionRectProps
   extends Omit<
     ButtonProps,
     'endContent' | 'startContent' | 'color' | 'children'
@@ -17,7 +17,7 @@ export function AppButtonActionRect({
   text,
   icon,
   ...props
-}: IAppButtonActionRect) {
+}: AppButtonActionRectProps) {
   return (
     <Button
       color="primary"
