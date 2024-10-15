@@ -4,7 +4,6 @@ import { theme } from '../../../themes/theme'
 import { ReactNode, useState, useRef, useEffect } from 'react'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6'
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
-import { AVLTree } from 'dead-tree'
 import { MobileCalendarStyle } from './MobileCalendarStyle'
 import { CalendarContextProps } from './AppResponsiveCalendar'
 import Image from 'next/image'
@@ -13,7 +12,7 @@ import { CalendarEventEntity } from '@core/models/CalendarEventEntity'
 interface AppCalendarProps<T extends CalendarEventEntity> {
   daysWeek: string[]
   onOpenMenu: (item: CollectionEventsOnDay<T>) => ReactNode
-  list: AVLTree<CollectionEventsOnDay<T>>
+  list: CollectionEventsOnDay<T>[]
 }
 
 export function AppMobileCalendar<T extends CalendarEventEntity>(
@@ -53,14 +52,11 @@ export function AppMobileCalendar<T extends CalendarEventEntity>(
     }
 
     const actualDayInMonth = actualDay.getDate()
-    const dayTarget = new CollectionEventsOnDay<T>({
-      monthDay: actualDayInMonth
-    })
     setMenuContext({
-      ctx: props.list.findBy(dayTarget)?.item,
+      ctx: props.list[actualDayInMonth],
       selectedDay: actualDayInMonth
     })
-  }, [actualDay, props.list])
+  }, [props.list])
 
   return (
     <MobileCalendarStyle>
@@ -77,11 +73,8 @@ export function AppMobileCalendar<T extends CalendarEventEntity>(
               if (hasMoreThan32Days) {
                 return <li key={uuid()} className="empty-day"></li>
               }
-              const dayTarget = new CollectionEventsOnDay<T>({
-                monthDay: daysInTheMonth[dayInMonthIndex]
-              })
               const collectionOfEvents =
-                props.list.findBy(dayTarget)?.item ?? null
+                props.list[daysInTheMonth[dayInMonthIndex]]
 
               const availableEvents = collectionOfEvents?.events?.length ?? 0
               const displayText =
@@ -115,10 +108,7 @@ export function AppMobileCalendar<T extends CalendarEventEntity>(
                   <p className="day">{props.daysWeek[parsedDay.getDay()]}</p>
                   <button
                     onClick={() => {
-                      const dayTarget = new CollectionEventsOnDay<T>({
-                        monthDay: parsedDay.getDate()
-                      })
-                      const eventCollection = props.list.findBy(dayTarget)?.item
+                      const eventCollection = props.list[parsedDay.getDate()]
                       if (
                         !eventCollection ||
                         eventCollection.events.length <= 0
@@ -130,7 +120,6 @@ export function AppMobileCalendar<T extends CalendarEventEntity>(
                         ctx: eventCollection,
                         selectedDay: parsedDay.getDate()
                       })
-                      console.log(eventCollection)
                     }}
                     style={
                       menuContext.selectedDay === parsedDay.getDate()

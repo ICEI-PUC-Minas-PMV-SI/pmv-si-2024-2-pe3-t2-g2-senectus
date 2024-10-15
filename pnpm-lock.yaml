@@ -32,9 +32,6 @@ importers:
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
-      dead-tree:
-        specifier: ^1.1.2
-        version: 1.1.2
       framer-motion:
         specifier: ^11.11.8
         version: 11.11.8(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1870,9 +1867,6 @@ packages:
 
   date-fns@4.1.0:
     resolution: {integrity: sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==}
-
-  dead-tree@1.1.2:
-    resolution: {integrity: sha512-1GynDK/zJciJlz5Nz5BcOCDra8Iqyzqs0kdPv2JqbUCtj2AJCSy8GusVg0YwyCIpQBIicf/81O3dOMCFmmP/NQ==}
 
   debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
@@ -6353,8 +6347,6 @@ snapshots:
       is-data-view: 1.0.1
 
   date-fns@4.1.0: {}
-
-  dead-tree@1.1.2: {}
 
   debug@3.2.7:
     dependencies:

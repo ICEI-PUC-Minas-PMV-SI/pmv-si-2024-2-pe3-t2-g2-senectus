@@ -1,13 +1,11 @@
 import { format, getDaysInMonth } from 'date-fns'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
-import { AVLTree } from 'dead-tree'
-import { CollectionEventsOnDayComparator } from '@utils/comparators/CalendarDayComparator'
 
 export class RandomExercisesSeedService {
   static exec(
     maxOfCollections: number
-  ): AVLTree<CollectionEventsOnDay<ExerciseEntity>> {
+  ): CollectionEventsOnDay<ExerciseEntity>[] {
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
     const now = new Date(format(new Date(), 'yyyy-MM-dd') + ` (${timezone})`)
 
@@ -56,14 +54,12 @@ export class RandomExercisesSeedService {
       })
     }
 
-    const orderedDays = new AVLTree({
-      comparator: new CollectionEventsOnDayComparator<ExerciseEntity>()
-    })
-    for (const key in dayList) {
+    const orderedDays: CollectionEventsOnDay<ExerciseEntity>[] = []
+    for (let day = 0; day < 31; day++) {
       orderedDays.push(
         new CollectionEventsOnDay({
-          events: dayList[key],
-          monthDay: parseInt(key)
+          events: dayList[`${day}`],
+          monthDay: day
         })
       )
     }

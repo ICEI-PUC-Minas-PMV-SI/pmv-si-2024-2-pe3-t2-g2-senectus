@@ -5,14 +5,13 @@ import { theme } from '../../../themes/theme'
 import { ReactNode, useState, useEffect } from 'react'
 import { FaXmark } from 'react-icons/fa6'
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
-import { AVLTree } from 'dead-tree'
 import { CalendarContextProps } from './AppResponsiveCalendar'
 import { CalendarEventEntity } from '@core/models/CalendarEventEntity'
 
 interface AppCalendarProps<T extends CalendarEventEntity> {
   daysWeek: string[]
   onOpenMenu: (item: CollectionEventsOnDay<T>) => ReactNode
-  list: AVLTree<CollectionEventsOnDay<T>>
+  list: CollectionEventsOnDay<T>[]
 }
 
 export function AppDesktopCalendar<T extends CalendarEventEntity>(
@@ -26,7 +25,7 @@ export function AppDesktopCalendar<T extends CalendarEventEntity>(
   const actualDay = new Date(
     format(new Date(), 'yyyy-MM-dd') + ` (${timezone})`
   )
-  const firstWeekMonthDay = actualDay.getDay()
+  const firstWeekMonthDay = new Date(format(actualDay, 'MMMM yyyy')).getDay()
 
   const daysInTheMonth: number[] = []
   for (let i = 1; i <= getDaysInMonth(actualDay); i++) daysInTheMonth.push(i)
@@ -114,7 +113,7 @@ export function AppDesktopCalendar<T extends CalendarEventEntity>(
                   : {}
 
                 const daysOnThePreviousMonth =
-                  firstWeekMonthDay >= dayIndex + rowIndex * 7
+                  firstWeekMonthDay > dayIndex + rowIndex * 7
                 if (daysOnThePreviousMonth)
                   return (
                     <td
@@ -129,12 +128,8 @@ export function AppDesktopCalendar<T extends CalendarEventEntity>(
                     ></td>
                   )
 
-                const dayTarget = new CollectionEventsOnDay<T>({
-                  monthDay: daysInTheMonth[dayInMonthIndex]
-                })
                 const collectionOfEvents =
-                  props.list.findBy(dayTarget)?.item ?? undefined
-
+                  props.list[daysInTheMonth[dayInMonthIndex]]
                 const availableEvents = collectionOfEvents?.events?.length ?? 0
                 const displayText =
                   availableEvents > 0

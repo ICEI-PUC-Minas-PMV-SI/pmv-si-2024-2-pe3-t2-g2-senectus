@@ -74,6 +74,7 @@ export function AppTrainingPlan() {
   useEffect(() => {
     setDays(RandomExercisesSeedService.exec(100))
   }, [setDays])
+
   return (
     <TrainingPlanStyle>
       <h2>Plano de treino</h2>
