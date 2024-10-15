@@ -47,8 +47,10 @@ export function AppMobileCalendar<T extends CalendarEventEntity>(
 
   useEffect(() => {
     if (carousel.current) {
-      const width = window.innerWidth >= 640 ? 480 : 288
-      carousel.current.scrollLeft = width * Math.floor(actualDay.getDate() / 3)
+      const currentOffset = carousel.current?.offsetWidth ?? 0
+      const cardNumber = currentOffset / 96
+      carousel.current.scrollLeft =
+        currentOffset * (actualDay.getDate() / cardNumber) - currentOffset
     }
 
     const actualDayInMonth = actualDay.getDate()
