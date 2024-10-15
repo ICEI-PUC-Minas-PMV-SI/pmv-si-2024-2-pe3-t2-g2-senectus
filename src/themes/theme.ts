@@ -1,4 +1,4 @@
-const theme = {
+export const theme = {
   color: {
     logoColor: '#773EA6',
     primaryColor: '#7D4ED0',
@@ -8,13 +8,19 @@ const theme = {
     bgOfPrimaryColor: '#E6E2F7',
     onHoverBgOfPrimaryColor: '#F3F4FC',
     primaryBgColor: '#FDFDFD',
-    onHoverPrimaryBgColor: '#ededed',
+    onHoverPrimaryBgColor: '#EDEDED',
     secondaryBgColor: '#F3F4FC',
+    onHoverSecondaryBgColor: '#E4E4EB',
     invertedBgColor: '#262626',
     textColor: '#0F172A',
     textColorOp: 'rgba(15, 23, 42, 0.2)',
     onHoverTextColor: '#2D323E',
-    invertedTextColor: '#FDFDFD'
+    invertedTextColor: '#FDFDFD',
+    levels: {
+      hard: 'rgb(239 68 68)',
+      medium: 'rgb(251 191 36)',
+      easy: 'rgb(163 230 53)'
+    }
   },
   font: {
     xs: '0.75rem',
@@ -37,7 +43,9 @@ const theme = {
       '2xl': '1rem',
       '3xl': '1.5rem'
     }
+  },
+  shadow: {
+    sm: '0 1px 2px rgb(0 0 0 / 0.2)',
+    md: '0 2px 4px rgb(0 0 0 / 0.2)'
   }
 }
-
-export default theme

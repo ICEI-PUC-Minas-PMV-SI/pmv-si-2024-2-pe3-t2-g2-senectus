@@ -11,7 +11,7 @@ export const HeaderStyle = styled.header`
   justify-content: space-between;
   height: clamp(4rem, 2.25vh, 4.85rem);
   background-color: ${({ theme }) => theme.color.primaryBgColor};
-  box-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+  box-shadow: ${({ theme }) => theme.shadow.sm};
 
   ul {
     opacity: 1;

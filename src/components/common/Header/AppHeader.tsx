@@ -18,7 +18,7 @@ export function AppHeader() {
 
   return (
     <HeaderStyle>
-      <Link href="/home" id="header-logo">
+      <Link href="/" id="header-logo">
         <Image
           src="/img/common/logo-tipo.png"
           alt="Logotipo do Senectus"
