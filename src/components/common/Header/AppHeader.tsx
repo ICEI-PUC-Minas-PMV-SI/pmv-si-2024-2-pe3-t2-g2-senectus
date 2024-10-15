@@ -29,32 +29,32 @@ export function AppHeader() {
       </Link>
 
       <ul
-        className={`${isOpen ? 'open grow-animation' : isOpen == false ? 'closed shrink-animation' : ''}`}
+        className={`${isOpen ? 'open grow-animation' : isOpen === false ? 'closed shrink-animation' : ''}`}
       >
         <li
-          className={`${isOpen ? 'appear-animation' : isOpen == false ? 'disappear-animation' : ''}`}
+          className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
         >
           <AppInternalLink href="/appointments">Consultas</AppInternalLink>
         </li>
         <li
-          className={`${isOpen ? 'appear-animation' : isOpen == false ? 'disappear-animation' : ''}`}
+          className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
         >
           <AppInternalLink href="/exercises">Exercícios</AppInternalLink>
         </li>
         <li
-          className={`${isOpen ? 'appear-animation' : isOpen == false ? 'disappear-animation' : ''}`}
+          className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
         >
           <AppInternalLink href="/events">Eventos</AppInternalLink>
         </li>
         <li
-          className={`${isOpen ? 'appear-animation' : isOpen == false ? 'disappear-animation' : ''}`}
+          className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
         >
           <AppInternalLink href="/blogs">Blog</AppInternalLink>
         </li>
 
         <li
           id="menu-btn-connect"
-          className={`${isOpen ? 'appear-animation' : 'disappear-animation'}`}
+          className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
         >
           <AppButtonLinkRect href="/sigin" text="Conectar" />
         </li>

@@ -30,6 +30,11 @@ export const HeaderStyle = styled.header`
     width: clamp(6.5rem, 17.5vw, 9.5rem);
   }
 
+  & #menu-btn-connect {
+    opacity: 0;
+    visibility: hidden;
+  }
+
   @media (max-width: 960px) {
     display: flex;
     justify-content: space-between;
