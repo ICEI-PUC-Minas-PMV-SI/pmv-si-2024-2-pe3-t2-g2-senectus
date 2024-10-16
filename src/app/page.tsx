@@ -1,7 +1,7 @@
 'use client'
 
 import { ThemeProvider } from 'styled-components'
-import theme from '../themes/theme'
+import { theme } from '../themes/theme'
 import { NextUIProvider } from '@nextui-org/react'
 import { AppHeader } from '@components/common/Header/AppHeader'
 import { AppInitialSectionHome } from '@components/home/AppInitialSectionHome'

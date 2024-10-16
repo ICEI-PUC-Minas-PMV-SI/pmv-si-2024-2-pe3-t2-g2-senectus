@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const ContainerStyle = styled.div`
   display: grid;
-  gap: 25rem;
   margin-top: 7rem;
 
   & .container {
@@ -18,6 +17,7 @@ export const ContainerStyle = styled.div`
     & .container {
       padding-left: 0;
       padding-right: 0;
+      gap: 1rem;
     }
   }
 `
