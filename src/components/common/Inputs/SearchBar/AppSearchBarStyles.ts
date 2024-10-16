@@ -23,7 +23,7 @@ export const AppSearchBarContainer = styled.div`
 `
 
 export const AppSearchBarInput = styled.input`
-  width: fit-content;
+  min-width: fit-content;
   font-size: 0.6rem;
   flex: 1;
   border: none;
@@ -33,9 +33,6 @@ export const AppSearchBarInput = styled.input`
   padding: 0.5rem 1rem;
 
   @media (min-width: 550px) {
-    min-width: 25rem;
-  }
-  @media (max-width: 400px) {
-    font-size: 0.4rem;
+    min-width: 18rem;
   }
 `

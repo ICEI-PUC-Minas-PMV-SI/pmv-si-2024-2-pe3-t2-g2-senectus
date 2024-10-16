@@ -1,8 +1,5 @@
 import { ComponentProps, useState } from 'react'
-import {
-  AppSearchBarContainer,
-  AppSearchBarInput
-} from './styles/AppSearchBarStyles'
+import { AppSearchBarContainer, AppSearchBarInput } from './AppSearchBarStyles'
 import { FaMagnifyingGlass } from 'react-icons/fa6'
 
 export interface AppSearchBarProps

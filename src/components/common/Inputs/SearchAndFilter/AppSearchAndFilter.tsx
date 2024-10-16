@@ -1,11 +1,15 @@
-import AppButtonActionRect from '@components/common/Buttons/AppButtonActionRect'
 import { AppSearchBar, AppSearchBarProps } from '../SearchBar/AppSearchBar'
-import { AppSearchAndFilterContainer } from './styles/AppSearchAndFilterStyles'
+import { AppSearchAndFilterContainer } from './AppSearchAndFilterStyles'
+import {
+  AppSelectRect,
+  AppSelectRectProps
+} from '@components/common/Selects/AppSelectRect'
 
 interface AppSearchAndFilterProps {
-  onFilterClick: () => void
+  onFilterClick: (selectedFilter: string) => void
   onChange: Pick<AppSearchBarProps, 'onChange'>['onChange']
   placeholder: string
+  options: Pick<AppSelectRectProps, 'options'>['options']
 }
 
 export function AppSearchAndFilter(props: AppSearchAndFilterProps) {
@@ -13,10 +17,11 @@ export function AppSearchAndFilter(props: AppSearchAndFilterProps) {
     <AppSearchAndFilterContainer>
       <AppSearchBar placeholder={props.placeholder} onChange={props.onChange} />
 
-      <AppButtonActionRect
-        id="filter-button"
-        title="Filtrar"
-        onClick={props.onFilterClick}
+      <AppSelectRect
+        id="filter-select"
+        placeholder="Filtrar"
+        options={props.options}
+        onFilterChange={props.onFilterClick}
       />
     </AppSearchAndFilterContainer>
   )
