@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-export const InternalLinkStyle = styled.button`
+export const InternalLinkStyle = styled.div`
+  width: min-content;
   background-color: transparent;
   outline-color: ${({ theme }) => theme.color.primaryColor};
   outline-offset: 0.25rem;

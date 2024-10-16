@@ -57,7 +57,7 @@ h1 {
 
 @media(min-width: 705px) {
    h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -107,3 +107,103 @@ li {
 }
 /*----------------------------*/
 
+.prettify-title {
+  position: relative;
+  z-index: 1;
+}
+
+.prettify-title::before {
+  border-radius: 0.5rem;
+  content: '';
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  left: 3%;
+  top: 3px;
+  bottom: 0;
+  background-color: var(--primary-color);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+
+@media(max-width: 268px) {
+  .prettify-title::before {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+}
+
+@media (max-width: 704px) {
+  .prettify-title::before {
+    width: 1.20rem;
+    height: 1.20rem;
+    border-radius: 0.25rem;
+  }
+}
+
+@keyframes grow {
+  to {
+    height: 100vh;
+  }
+}
+
+.grow-animation {
+  animation-name: grow;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shrink {
+  from {
+    height: 100vh;
+  }
+
+  to {
+    height: 0;
+    display: none;
+  }
+}
+
+.shrink-animation {
+  animation-name: shrink;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes let-appear {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.appear-animation {
+  animation-name: let-appear;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes let-disappear {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.disappear-animation {
+  animation-name: let-disappear;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}

@@ -1,15 +1,18 @@
 import Link from 'next/link'
 import { InternalLinkStyle } from './InternalLinkStyle'
 import { ReactNode } from 'react'
+import { CSSProperties } from 'styled-components'
 
-interface IInternalLinkProps {
+interface InternalLinkProps {
+  id?: string
   href: string
   children: ReactNode
+  style?: CSSProperties
 }
 
-export function InternalLink(props: IInternalLinkProps) {
+export function AppInternalLink(props: InternalLinkProps) {
   return (
-    <InternalLinkStyle>
+    <InternalLinkStyle id={props.id ?? ''} style={props.style}>
       <Link href={props.href}>{props.children}</Link>
     </InternalLinkStyle>
   )
