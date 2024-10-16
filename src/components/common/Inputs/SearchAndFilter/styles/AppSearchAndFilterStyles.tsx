@@ -6,4 +6,8 @@ export const AppSearchAndFilterContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+  }
 `
