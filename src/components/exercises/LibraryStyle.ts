@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const LibraryStyle = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 4rem;
   margin-bottom: 4rem;
   gap: 1rem;
 
@@ -39,7 +38,6 @@ export const LibraryStyle = styled.div`
         position: absolute;
         z-index: 10;
         font-weight: 500;
-        background-color: ${({ theme }) => theme.color.primaryBgColorOp};
         padding: 0.85rem 1.75rem;
         width: 100%;
         height: 11rem;
@@ -47,6 +45,12 @@ export const LibraryStyle = styled.div`
         align-items: center;
         place-items: end;
         gap: 0.48rem;
+        background-color: ${({ theme }) => theme.color.primaryBgColorOp};
+        transition: 0.2s background-color;
+
+        &:hover {
+          background-color: ${({ theme }) => theme.color.secondaryBgColorOp};
+        }
 
         & p {
           font-size: 1rem;
@@ -54,7 +58,7 @@ export const LibraryStyle = styled.div`
         & span {
           height: 1.45rem;
           width: 2px;
-          background-color: ${({ theme }) => theme.color.secondaryColor};
+          background-color: ${({ theme }) => theme.color.primaryColor};
         }
       }
     }

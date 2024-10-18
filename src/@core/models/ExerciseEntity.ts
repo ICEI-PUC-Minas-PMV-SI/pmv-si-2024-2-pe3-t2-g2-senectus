@@ -1,9 +1,15 @@
 import { CalendarEventEntity } from './CalendarEventEntity'
 
 interface Props {
+  id: string
   name: string
   level: 'hard' | 'medium' | 'easy'
+  href: string
   dateInMilli: number
+  image: {
+    src: string
+    alt: string
+  }
 }
 
 export class ExerciseEntity extends CalendarEventEntity {
@@ -22,5 +28,11 @@ export class ExerciseEntity extends CalendarEventEntity {
   }
   get level() {
     return this.props.level
+  }
+  get href() {
+    return this.props.href
+  }
+  get image() {
+    return this.props.image
   }
 }

@@ -11,6 +11,7 @@ export const theme = {
     primaryBgColorOp: 'rgba(253, 253, 253, 0.45)',
     onHoverPrimaryBgColor: '#EDEDED',
     secondaryBgColor: '#F3F4FC',
+    secondaryBgColorOp: 'rgba(243, 244, 252, 0.45)',
     onHoverSecondaryBgColor: '#E4E4EB',
     invertedBgColor: '#262626',
     textColor: '#0F172A',
