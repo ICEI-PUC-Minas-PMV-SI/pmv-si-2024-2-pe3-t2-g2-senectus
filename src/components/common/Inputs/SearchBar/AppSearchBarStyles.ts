@@ -4,11 +4,19 @@ export const AppSearchBarContainer = styled.div`
   display: flex;
   align-items: center;
   border-radius: ${({ theme }) => theme.border.radius.md};
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2); // usar tema depois
   width: fit-content;
   height: 2rem;
+  background-color: ${({ theme }) => theme.color.secondaryBgColor};
+  position: relative;
+  padding-left: 1.8rem;
 
   & .search-icon {
+    position: absolute;
+    z-index: 1;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
     display: grid;
     height: 100%;
     width: 2rem;
@@ -31,6 +39,7 @@ export const AppSearchBarInput = styled.input`
   box-sizing: border-box;
   border-radius: inherit;
   padding: 0.5rem 1rem;
+  background-color: inherit;
 
   @media (min-width: 550px) {
     min-width: 18rem;

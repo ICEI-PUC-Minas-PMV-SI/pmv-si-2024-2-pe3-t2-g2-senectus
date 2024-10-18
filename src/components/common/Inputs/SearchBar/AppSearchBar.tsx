@@ -5,9 +5,14 @@ import { FaMagnifyingGlass } from 'react-icons/fa6'
 export interface AppSearchBarProps
   extends Omit<ComponentProps<'input'>, 'onChange'> {
   onChange: (value: string) => void
+  fullWidth?: boolean
 }
 
-export function AppSearchBar({ onChange, ...props }: AppSearchBarProps) {
+export function AppSearchBar({
+  onChange,
+  fullWidth,
+  ...props
+}: AppSearchBarProps) {
   const [inputValue, setInputValue] = useState('')
 
   const onInternalChangeValue = (
@@ -20,7 +25,9 @@ export function AppSearchBar({ onChange, ...props }: AppSearchBarProps) {
   }
 
   return (
-    <AppSearchBarContainer>
+    <AppSearchBarContainer
+      style={fullWidth ? { width: '100%', minWidth: '100%' } : {}}
+    >
       <span className="search-icon">
         <FaMagnifyingGlass />
       </span>
@@ -28,6 +35,7 @@ export function AppSearchBar({ onChange, ...props }: AppSearchBarProps) {
       <AppSearchBarInput
         value={inputValue}
         onChange={onInternalChangeValue}
+        style={fullWidth ? { width: '100%', minWidth: '100%' } : {}}
         {...props}
       />
     </AppSearchBarContainer>
