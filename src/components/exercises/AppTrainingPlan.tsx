@@ -4,7 +4,7 @@ import { RandomExercisesSeedService } from '@core/services/RandomExercisesSeedSe
 import { useEffect, useRef, useState } from 'react'
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
 import { useCalendar } from '../../hooks/useCalendar'
-import { AppTrainingPlanMenuStyle } from './AppTrainingPlanMenuStyle'
+import { TrainingPlanMenuStyle } from './TrainingPlanMenuStyle'
 import { v4 as uuid } from 'uuid'
 import { format } from 'date-fns'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'
@@ -26,7 +26,7 @@ function AppMenu({ exercises }: AppMenuProps) {
   }, [exercises])
 
   return (
-    <AppTrainingPlanMenuStyle>
+    <TrainingPlanMenuStyle>
       <section className="text" ref={listRef}>
         <h2>Lista de exercícios</h2>
         <p>
@@ -64,7 +64,7 @@ function AppMenu({ exercises }: AppMenuProps) {
           }}
         />
       )}
-    </AppTrainingPlanMenuStyle>
+    </TrainingPlanMenuStyle>
   )
 }
 

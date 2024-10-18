@@ -15,8 +15,8 @@ export const ContainerStyle = styled.div`
 
   @media (max-width: 429px) {
     & .container {
-      padding-left: 0;
-      padding-right: 0;
+      padding-left: 0.15rem;
+      padding-right: 0.15rem;
       gap: 1rem;
     }
   }

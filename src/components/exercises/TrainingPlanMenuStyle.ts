@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const AppTrainingPlanMenuStyle = styled.div`
+export const TrainingPlanMenuStyle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;

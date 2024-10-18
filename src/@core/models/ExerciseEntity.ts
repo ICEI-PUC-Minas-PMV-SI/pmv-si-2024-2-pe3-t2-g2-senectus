@@ -9,9 +9,12 @@ interface Props {
 export class ExerciseEntity extends CalendarEventEntity {
   private readonly props: Props
 
-  constructor(props: Props) {
-    super({ dateInMilli: props.dateInMilli })
-    this.props = props
+  constructor(props: Replace<Props, { dateInMilli?: number }>) {
+    super({ dateInMilli: props.dateInMilli ?? 0 })
+    this.props = {
+      ...props,
+      dateInMilli: props.dateInMilli ?? 0
+    }
   }
 
   get name() {
