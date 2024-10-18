@@ -8,6 +8,7 @@ export const theme = {
     bgOfPrimaryColor: '#E6E2F7',
     onHoverBgOfPrimaryColor: '#F3F4FC',
     primaryBgColor: '#FDFDFD',
+    primaryBgColorOp: 'rgba(253, 253, 253, 0.45)',
     onHoverPrimaryBgColor: '#EDEDED',
     secondaryBgColor: '#F3F4FC',
     onHoverSecondaryBgColor: '#E4E4EB',
@@ -35,6 +36,9 @@ export const theme = {
     '6xl': '3.75rem'
   },
   border: {
+    color: {
+      default: '#E8E8E8'
+    },
     radius: {
       sm: '0.125rem',
       md: '0.375rem',
