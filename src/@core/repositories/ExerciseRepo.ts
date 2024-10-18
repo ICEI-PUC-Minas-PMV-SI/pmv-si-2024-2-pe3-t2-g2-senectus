@@ -25,7 +25,16 @@ export class ExerciseRepo {
         const exercises: ExerciseEntity[] = []
         for (let i = 0; i < 20; i++)
           exercises.push(
-            new ExerciseEntity({ name: 'Treino de perna', level: 'easy' })
+            new ExerciseEntity({
+              id: 'perna',
+              name: 'Treino de perna',
+              href: '/exercises/perna',
+              level: 'easy',
+              image: {
+                src: '/img/exercises/generic-exercise-image.jpg',
+                alt: 'Pessoa fazendo exercício'
+              }
+            })
           )
         return exercises
       })()
@@ -42,7 +51,16 @@ export class ExerciseRepo {
         const exercises: ExerciseEntity[] = []
         for (let i = 0; i < 20; i++)
           exercises.push(
-            new ExerciseEntity({ name: 'Treino de perna', level: 'easy' })
+            new ExerciseEntity({
+              id: 'perna',
+              name: 'Treino de perna',
+              href: '/exercises/perna',
+              level: 'easy',
+              image: {
+                src: '/img/exercises/generic-exercise-image.jpg',
+                alt: 'Pessoa fazendo exercício'
+              }
+            })
           )
         return exercises
       })()
@@ -59,7 +77,16 @@ export class ExerciseRepo {
         const exercises: ExerciseEntity[] = []
         for (let i = 0; i < 20; i++)
           exercises.push(
-            new ExerciseEntity({ name: 'Treino de perna', level: 'easy' })
+            new ExerciseEntity({
+              id: 'perna',
+              name: 'Treino de perna',
+              href: '/exercises/perna',
+              level: 'easy',
+              image: {
+                src: '/img/exercises/generic-exercise-image.jpg',
+                alt: 'Pessoa fazendo exercício'
+              }
+            })
           )
         return exercises
       })()
@@ -76,7 +103,16 @@ export class ExerciseRepo {
         const exercises: ExerciseEntity[] = []
         for (let i = 0; i < 20; i++)
           exercises.push(
-            new ExerciseEntity({ name: 'Treino de perna', level: 'easy' })
+            new ExerciseEntity({
+              id: 'perna',
+              name: 'Treino de perna',
+              href: '/exercises/perna',
+              level: 'easy',
+              image: {
+                src: '/img/exercises/generic-exercise-image.jpg',
+                alt: 'Pessoa fazendo exercício'
+              }
+            })
           )
         return exercises
       })()
@@ -87,7 +123,11 @@ export class ExerciseRepo {
     return ExerciseRepo.exercises
   }
 
-  static getExerciseByCategory(id: string) {
-    return ExerciseRepo.exercises.find((item) => item.id == id)
+  static getExerciseByCategoryId(id: string) {
+    return ExerciseRepo.exercises.find((item) => item.id == id)?.exercises ?? []
+  }
+
+  static getCategoryNameById(id: string) {
+    return ExerciseRepo.exercises.find((item) => item.id == id)?.name
   }
 }

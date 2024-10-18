@@ -34,9 +34,15 @@ export class RandomExercisesSeedService {
       const dayArr: ExerciseEntity[] = []
       for (let i = 0; i < Math.min(Math.floor(Math.random() * 5), 4); i++) {
         const day = new ExerciseEntity({
+          id: 'peso',
           name: 'Levantamento de peso',
           level: RandomExercisesSeedService.getRandomLevel(),
-          dateInMilli: randomDate.getTime()
+          dateInMilli: randomDate.getTime(),
+          image: {
+            src: '/img/exercises/generic-exercise-image.jpg',
+            alt: 'Pessoa fazendo exercício'
+          },
+          href: '/exercises/peso'
         })
 
         dayArr.push(day)
