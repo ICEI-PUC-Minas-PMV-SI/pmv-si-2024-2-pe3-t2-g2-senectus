@@ -26,12 +26,22 @@ export class ExerciseRepo {
         for (let i = 0; i < 20; i++)
           exercises.push(
             new ExerciseEntity({
-              id: 'perna',
-              name: 'Treino de perna',
-              href: '/exercises/perna',
+              id: 'exercicio-da-cadeira',
+              durationInMilli: 1000 * 60 * 3,
+              name: 'Exercício da cadeira',
+              href: '/exercises/exercicio-da-cadeira',
               level: 'easy',
+              instructions: [
+                'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
+                'Estenda um braço para cima, segurando por 10 segundos e troque.',
+                'Fique em pé com os pés na largura dos ombros.',
+                'Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes.'
+              ],
+              video: {
+                src: 'https://www.youtube.com/watch?v=28kE5vLW4vM'
+              },
               image: {
-                src: '/img/exercises/generic-exercise-image.jpg',
+                src: '/img/exercises/walking-exercise.png',
                 alt: 'Pessoa fazendo exercício'
               }
             })
@@ -52,12 +62,22 @@ export class ExerciseRepo {
         for (let i = 0; i < 20; i++)
           exercises.push(
             new ExerciseEntity({
-              id: 'perna',
-              name: 'Treino de perna',
-              href: '/exercises/perna',
+              id: 'exercicio-da-cadeira',
+              durationInMilli: 1000 * 60 * 3,
+              name: 'Exercício da cadeira',
+              href: '/exercises/exercicio-da-cadeira',
               level: 'easy',
+              instructions: [
+                'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
+                'Estenda um braço para cima, segurando por 10 segundos e troque.',
+                'Fique em pé com os pés na largura dos ombros.',
+                'Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes.'
+              ],
+              video: {
+                src: 'https://www.youtube.com/watch?v=28kE5vLW4vM'
+              },
               image: {
-                src: '/img/exercises/generic-exercise-image.jpg',
+                src: '/img/exercises/walking-exercise.png',
                 alt: 'Pessoa fazendo exercício'
               }
             })
@@ -78,12 +98,22 @@ export class ExerciseRepo {
         for (let i = 0; i < 20; i++)
           exercises.push(
             new ExerciseEntity({
-              id: 'perna',
-              name: 'Treino de perna',
-              href: '/exercises/perna',
+              id: 'exercicio-da-cadeira',
+              durationInMilli: 1000 * 60 * 3,
+              name: 'Exercício da cadeira',
+              href: '/exercises/exercicio-da-cadeira',
               level: 'easy',
+              instructions: [
+                'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
+                'Estenda um braço para cima, segurando por 10 segundos e troque.',
+                'Fique em pé com os pés na largura dos ombros.',
+                'Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes.'
+              ],
+              video: {
+                src: 'https://www.youtube.com/watch?v=28kE5vLW4vM'
+              },
               image: {
-                src: '/img/exercises/generic-exercise-image.jpg',
+                src: '/img/exercises/walking-exercise.png',
                 alt: 'Pessoa fazendo exercício'
               }
             })
@@ -104,12 +134,22 @@ export class ExerciseRepo {
         for (let i = 0; i < 20; i++)
           exercises.push(
             new ExerciseEntity({
-              id: 'perna',
-              name: 'Treino de perna',
-              href: '/exercises/perna',
+              id: 'exercicio-da-cadeira',
+              durationInMilli: 1000 * 60 * 3,
+              name: 'Exercício da cadeira',
+              href: '/exercises/exercicio-da-cadeira',
               level: 'easy',
+              instructions: [
+                'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
+                'Estenda um braço para cima, segurando por 10 segundos e troque.',
+                'Fique em pé com os pés na largura dos ombros.',
+                'Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes.'
+              ],
+              video: {
+                src: 'https://www.youtube.com/watch?v=28kE5vLW4vM'
+              },
               image: {
-                src: '/img/exercises/generic-exercise-image.jpg',
+                src: '/img/exercises/walking-exercise.png',
                 alt: 'Pessoa fazendo exercício'
               }
             })

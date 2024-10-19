@@ -41,7 +41,7 @@ export const ExerciseListStyle = styled.div`
         width: 10rem;
         height: 10rem;
         position: absolute;
-        object-fit: cover;
+        object-fit: contain;
       }
 
       & .text {
