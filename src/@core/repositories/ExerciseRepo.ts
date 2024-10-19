@@ -18,7 +18,7 @@ export class ExerciseRepo {
       name: 'Alongamento',
       href: 'exercises/alongamento',
       image: {
-        src: '/img/exercises/generic-category-image.jpg',
+        src: '/img/exercises/stretching-exercise.png',
         alt: 'Imagem de uma pessoa caminhando'
       },
       exercises: (() => {
@@ -44,7 +44,7 @@ export class ExerciseRepo {
       name: 'Equilíbrio',
       href: 'exercises/equilibrio',
       image: {
-        src: '/img/exercises/generic-category-image.jpg',
+        src: '/img/exercises/balance-exercise.png',
         alt: 'Imagem de uma pessoa caminhando'
       },
       exercises: (() => {
@@ -70,7 +70,7 @@ export class ExerciseRepo {
       name: 'Fortalecimento',
       href: 'exercises/fortalecimento',
       image: {
-        src: '/img/exercises/generic-category-image.jpg',
+        src: '/img/exercises/strengthening-exercise.png',
         alt: 'Imagem de uma pessoa caminhando'
       },
       exercises: (() => {
@@ -96,7 +96,7 @@ export class ExerciseRepo {
       name: 'Mobilidade',
       href: 'exercises/mobilidade',
       image: {
-        src: '/img/exercises/generic-category-image.jpg',
+        src: '/img/exercises/walking-exercise.png',
         alt: 'Imagem de uma pessoa caminhando'
       },
       exercises: (() => {
