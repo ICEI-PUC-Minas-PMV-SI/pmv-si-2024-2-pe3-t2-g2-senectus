@@ -1,12 +1,9 @@
-import {
-  ExerciseCategoryProps,
-  ExerciseRepo
-} from '@core/repositories/ExerciseRepo'
+import { ExerciseRepo } from '@core/repositories/ExerciseRepo'
 import { LibraryStyle } from './LibraryStyle'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const categories: ExerciseCategoryProps[] = ExerciseRepo.getCategories()
+const categories = ExerciseRepo.getCategories()
 
 export function AppLibrary() {
   return (

@@ -37,7 +37,7 @@ export class RandomExercisesSeedService {
           id: 'exercicio-da-cadeira',
           durationInMilli: 1000 * 60 * 3,
           name: 'Exercício da cadeira',
-          href: '/exercises/exercicio-da-cadeira',
+          href: '/exercises/mobilidade/exercicio-da-cadeira',
           instructions: [
             'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
             'Estenda um braço para cima, segurando por 10 segundos e troque.',

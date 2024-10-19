@@ -5,7 +5,7 @@ interface Props {
   name: string
   level: 'hard' | 'medium' | 'easy'
   instructions: string[]
-  href: string
+  href?: string
   dateInMilli: number
   durationInMilli: number
   video: {
@@ -20,14 +20,22 @@ interface Props {
 export class ExerciseEntity extends CalendarEventEntity {
   private readonly props: Props
 
-  constructor(props: Replace<Props, { dateInMilli?: number }>) {
+  constructor(props: Replace<Props, { dateInMilli?: number; id?: string }>) {
     super({ dateInMilli: props.dateInMilli ?? 0 })
     this.props = {
       ...props,
+      id: props.id ?? this.makeUrlFriend(props.name),
       dateInMilli: props.dateInMilli ?? 0
     }
   }
 
+  private makeUrlFriend(input: string) {
+    return encodeURIComponent(input.replaceAll(' ', '_'))
+  }
+
+  get id() {
+    return this.props.id
+  }
   get name() {
     return this.props.name
   }
@@ -37,8 +45,11 @@ export class ExerciseEntity extends CalendarEventEntity {
   get level() {
     return this.props.level
   }
-  get href() {
+  get href(): string | undefined {
     return this.props.href
+  }
+  set href(input: string) {
+    this.props.href = input
   }
   get video() {
     return this.props.video
