@@ -1,35 +1,21 @@
+import { ExerciseCategoryEntity } from '@core/models/ExerciseCategoryEntity'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'
 
-export interface ExerciseCategoryProps {
-  id: string
-  name: string
-  image: {
-    src: string
-    alt: string
-  }
-  href: string
-  exercises: ExerciseEntity[]
-}
-
 export class ExerciseRepo {
-  private static exercises: ExerciseCategoryProps[] = [
-    {
-      id: 'alongamento',
+  private static exercises: ExerciseCategoryEntity[] = [
+    new ExerciseCategoryEntity({
       name: 'Alongamento',
-      href: 'exercises/alongamento',
       image: {
         src: '/img/exercises/stretching-exercise.png',
         alt: 'Imagem de uma pessoa caminhando'
       },
-      exercises: (() => {
+      exercises: (function () {
         const exercises: ExerciseEntity[] = []
         for (let i = 0; i < 20; i++)
           exercises.push(
             new ExerciseEntity({
-              id: 'exercicio-da-cadeira',
               durationInMilli: 1000 * 60 * 3,
               name: 'Exercício da cadeira',
-              href: '/exercises/exercicio-da-cadeira',
               level: 'easy',
               instructions: [
                 'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
@@ -48,11 +34,9 @@ export class ExerciseRepo {
           )
         return exercises
       })()
-    },
-    {
-      id: 'equilibrio',
+    }),
+    new ExerciseCategoryEntity({
       name: 'Equilíbrio',
-      href: 'exercises/equilibrio',
       image: {
         src: '/img/exercises/balance-exercise.png',
         alt: 'Imagem de uma pessoa caminhando'
@@ -62,10 +46,8 @@ export class ExerciseRepo {
         for (let i = 0; i < 20; i++)
           exercises.push(
             new ExerciseEntity({
-              id: 'exercicio-da-cadeira',
               durationInMilli: 1000 * 60 * 3,
               name: 'Exercício da cadeira',
-              href: '/exercises/exercicio-da-cadeira',
               level: 'easy',
               instructions: [
                 'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
@@ -84,11 +66,9 @@ export class ExerciseRepo {
           )
         return exercises
       })()
-    },
-    {
-      id: 'fortalecimento',
+    }),
+    new ExerciseCategoryEntity({
       name: 'Fortalecimento',
-      href: 'exercises/fortalecimento',
       image: {
         src: '/img/exercises/strengthening-exercise.png',
         alt: 'Imagem de uma pessoa caminhando'
@@ -98,10 +78,8 @@ export class ExerciseRepo {
         for (let i = 0; i < 20; i++)
           exercises.push(
             new ExerciseEntity({
-              id: 'exercicio-da-cadeira',
               durationInMilli: 1000 * 60 * 3,
               name: 'Exercício da cadeira',
-              href: '/exercises/exercicio-da-cadeira',
               level: 'easy',
               instructions: [
                 'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
@@ -120,11 +98,9 @@ export class ExerciseRepo {
           )
         return exercises
       })()
-    },
-    {
-      id: 'mobilidade',
+    }),
+    new ExerciseCategoryEntity({
       name: 'Mobilidade',
-      href: 'exercises/mobilidade',
       image: {
         src: '/img/exercises/walking-exercise.png',
         alt: 'Imagem de uma pessoa caminhando'
@@ -134,10 +110,8 @@ export class ExerciseRepo {
         for (let i = 0; i < 20; i++)
           exercises.push(
             new ExerciseEntity({
-              id: 'exercicio-da-cadeira',
               durationInMilli: 1000 * 60 * 3,
               name: 'Exercício da cadeira',
-              href: '/exercises/exercicio-da-cadeira',
               level: 'easy',
               instructions: [
                 'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
@@ -156,15 +130,25 @@ export class ExerciseRepo {
           )
         return exercises
       })()
-    }
+    })
   ]
 
-  static getCategories(): ExerciseCategoryProps[] {
+  static getCategories() {
     return ExerciseRepo.exercises
   }
 
-  static getExerciseByCategoryId(id: string) {
+  static getExercisesByCategoryId(id: string) {
     return ExerciseRepo.exercises.find((item) => item.id == id)?.exercises ?? []
+  }
+
+  static getExerciseByCategoryIdAndExerciseId(
+    categoryId: string,
+    exerciseId: string
+  ) {
+    const exercises =
+      ExerciseRepo.exercises.find((item) => item.id == categoryId)?.exercises ??
+      []
+    return exercises.find((item) => item.id === exerciseId)
   }
 
   static getCategoryNameById(id: string) {

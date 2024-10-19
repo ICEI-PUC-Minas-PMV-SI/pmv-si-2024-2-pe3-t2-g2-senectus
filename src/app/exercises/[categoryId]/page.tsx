@@ -12,13 +12,13 @@ import NotFound from '../../not-found'
 
 interface SearchExerciseScreen {
   params: {
-    id: string
+    categoryId: string
   }
 }
 
 export default function SearchExerciseScreen({ params }: SearchExerciseScreen) {
-  const categoryName = ExerciseRepo.getCategoryNameById(params.id)
-  const exercises = ExerciseRepo.getExerciseByCategoryId(params.id)
+  const categoryName = ExerciseRepo.getCategoryNameById(params.categoryId)
+  const exercises = ExerciseRepo.getExercisesByCategoryId(params.categoryId)
 
   if (!categoryName || exercises.length <= 0) return NotFound()
 
