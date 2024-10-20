@@ -1,0 +1,4 @@
+1. [] Corrigir histórico de retorno
+2. [] Corrigir pesquisa de exercícios
+3. [] Corrigir reinício de fluxo após remoção total do calendário
+4. [] Reorganizar funções
