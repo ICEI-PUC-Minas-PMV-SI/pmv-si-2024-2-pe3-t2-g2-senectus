@@ -17,7 +17,7 @@ export class ExerciseCategoryEntity {
     props: Replace<ExerciseCategoryEntityProps, { id?: string; href?: string }>
   ) {
     const id = props.id ?? this.makeUrlFriend(props.name)
-    const href = props.href ?? `/exercises/${props.id}`
+    const href = props.href ?? `/exercises/${id}`
     this.props = { ...props, id, href }
     this.props.exercises.forEach((item) => {
       item.href = `${this.props.href}/${item.id}`
@@ -25,7 +25,7 @@ export class ExerciseCategoryEntity {
   }
 
   private makeUrlFriend(input: string) {
-    return encodeURIComponent(input.replaceAll(' ', '_'))
+    return encodeURIComponent(input.replaceAll(' ', '_').toLowerCase())
   }
 
   get id() {
