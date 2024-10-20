@@ -30,7 +30,7 @@ export class ExerciseEntity extends CalendarEventEntity {
   }
 
   private makeUrlFriend(input: string) {
-    return encodeURIComponent(input.replaceAll(' ', '_'))
+    return encodeURIComponent(input.replaceAll(' ', '_').toLowerCase())
   }
 
   get id() {
@@ -45,11 +45,26 @@ export class ExerciseEntity extends CalendarEventEntity {
   get level() {
     return this.props.level
   }
+  get levelInPtBr() {
+    switch (this.props.level) {
+      case 'hard':
+        return 'Difícil'
+      case 'medium':
+        return 'Médio'
+      case 'easy':
+        return 'Fácil'
+      default:
+        throw new Error('Não foi possível reconhecer nível de dificuldade!')
+    }
+  }
   get href(): string | undefined {
     return this.props.href
   }
   set href(input: string) {
     this.props.href = input
+  }
+  get durationInMilli() {
+    return this.props.durationInMilli
   }
   get video() {
     return this.props.video
