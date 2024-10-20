@@ -5,17 +5,17 @@
 Desenvolvimento de seis personas que representam o público-alvo do projeto, sendo três usuários profissionais da saúde (médico, fisioterapeuta, personal trainer) e três idosos em diferentes níveis de atividade física.
 Criado utilizando o programa: www.geradordepersonas.com.br
 
-![Persona - Amanda](../.github/img/amanda.png)
+![Persona - Amanda](../.github/img/personas/amanda.png)
 
-![Persona - Ricardo](../.github/img/ricardo.png)
+![Persona - Ricardo](../.github/img/personas/ricardo.png)
 
-![Persona - Lucas](../.github/img/lucas.png)
+![Persona - Lucas](../.github/img/personas/lucas.png)
 
-![Persona - Maria](../.github/img/maria.png)
+![Persona - Maria](../.github/img/personas/maria.png)
 
-![Persona - Antônio](../.github/img/antonio.png)
+![Persona - Antônio](../.github/img/personas/antonio.png)
 
-![Persona - Clara](../.github/img/clara.png)
+![Persona - Clara](../.github/img/personas/clara.png)
 
 
 
