@@ -21,6 +21,7 @@
       "@core/*": ["./src/@core/*"],
       "@components/*": ["./src/components/*"],
       "@utils/*": ["./src/utils/*"],
+      "@lib/*": ["./src/lib/*"],
       "@public/*": ["./public/*"],
       "@themes/*": ["./src/themes/*"]
     }
