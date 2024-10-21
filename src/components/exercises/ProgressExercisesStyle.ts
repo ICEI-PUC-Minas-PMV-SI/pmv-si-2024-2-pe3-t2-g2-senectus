@@ -34,11 +34,40 @@ export const ProgressExercisesStyle = styled.div`
       }
 
       &#next-exercise {
-        flex-direction: column;
-        justify-content: space-between;
+        position: relative;
+        & img {
+          width: 19rem;
+          height: 6.7rem;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          object-fit: scale-down;
+        }
 
-        & small {
-          place-self: end;
+        & #next-exercise-btn {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 19rem;
+          height: 6.7rem;
+          padding: 0.75rem;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 10;
+          background-color: ${({ theme }) => theme.color.primaryBgColorOp};
+          transition: 0.2s background-color;
+
+          &:hover {
+            background-color: ${({ theme }) => theme.color.secondaryBgColorOp};
+          }
+          & small {
+            place-self: end;
+          }
         }
       }
 

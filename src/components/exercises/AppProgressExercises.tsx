@@ -6,6 +6,7 @@ import {
 } from 'react-icons/fa6'
 import { ProgressExercisesStyle } from './ProgressExercisesStyle'
 import { AppCircularProgress } from '@components/common/Progress/AppCircularProgress'
+import Image from 'next/image'
 
 export function AppProgressExercises() {
   return (
@@ -22,12 +23,25 @@ export function AppProgressExercises() {
             </div>
 
             <div id="exercise-progress">
-              <AppCircularProgress value={65} showValueLabel size="lg" />
+              <AppCircularProgress
+                aria-label="progresso"
+                value={65}
+                showValueLabel
+                size="lg"
+              />
             </div>
           </li>
           <li id="next-exercise" className="medium-card">
-            <h3>Próximo</h3>
-            <small>Fácil</small>
+            <Image
+              src="/img/exercises/stretching-exercise.png"
+              alt="Pessoa fazendo exercício"
+              width={100}
+              height={100}
+            />
+            <button id="next-exercise-btn">
+              <h3>Próximo</h3>
+              <small>Fácil</small>
+            </button>
           </li>
         </ul>
 

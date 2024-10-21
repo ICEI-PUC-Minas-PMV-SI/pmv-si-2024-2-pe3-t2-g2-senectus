@@ -9,6 +9,7 @@ import { v4 as uuid } from 'uuid'
 import { format } from 'date-fns'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'
 import { AppPagination } from '@components/common/Pagination/AppPagination'
+import Link from 'next/link'
 
 interface AppMenuProps {
   exercises: CollectionEventsOnDay<ExerciseEntity>
@@ -40,13 +41,13 @@ function AppMenu({ exercises }: AppMenuProps) {
       <ul className="events">
         {exercises.events.slice(page * 4, (page + 1) * 4).map((item) => (
           <li key={uuid()}>
-            <button>
+            <Link href={item.href!}>
               <span className={item.level}></span>
               <div>
                 <h3>{item.name}</h3>
                 <p>Marcado para às {format(item.dateInMilli, 'HH:mm')}</p>
               </div>
-            </button>
+            </Link>
           </li>
         ))}
       </ul>

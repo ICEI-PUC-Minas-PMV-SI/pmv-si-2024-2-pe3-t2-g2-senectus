@@ -84,7 +84,7 @@ li {
 }
 
 @media (min-width: 960px) {
-  p, small, a {
+  p, small {
     font-size: 0.75rem;
   }
 }
