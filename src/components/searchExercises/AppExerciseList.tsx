@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ExerciseRepo } from '@core/repositories/ExerciseRepo'
+import { AppSearchNotFound } from '@components/common/SearchPlaceholders/AppSearchNotFound'
 
 interface AppExerciseListProps {
   categoryId: string
@@ -39,33 +40,41 @@ export function AppExerciseList(props: AppExerciseListProps) {
         />
       </div>
 
-      <ul id="exercise-list">
-        {searchedExercises.slice(page * 8, (page + 1) * 8).map((item) => (
-          <li key={uuid()}>
-            <Link href={item.href!} className="exercise-card">
-              <Image
-                src={item.image.src}
-                alt={item.image.alt}
-                width={80}
-                height={80}
-              />
-              <div className="text">
-                <span></span>
-                <small>{item.name}</small>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {searchedExercises.length > 0 && (
+        <ul id="exercise-list">
+          {searchedExercises.slice(page * 8, (page + 1) * 8).map((item) => (
+            <li key={uuid()}>
+              <Link href={item.href!} className="exercise-card">
+                <Image
+                  src={item.image.src}
+                  alt={item.image.alt}
+                  width={80}
+                  height={80}
+                />
+                <div className="text">
+                  <span></span>
+                  <small>{item.name}</small>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
 
-      <AppPagination
-        id="exercise-pagination"
-        total={total}
-        page={page + 1}
-        onChange={(page) => {
-          setPage(page - 1)
-        }}
-      />
+      {searchedExercises.length <= 0 && (
+        <AppSearchNotFound text="Nenhum exercício encontrado." />
+      )}
+
+      {searchedExercises.length > 8 && total > 1 && (
+        <AppPagination
+          id="exercise-pagination"
+          total={total}
+          page={page + 1}
+          onChange={(page) => {
+            setPage(page - 1)
+          }}
+        />
+      )}
     </ExerciseListStyle>
   )
 }
