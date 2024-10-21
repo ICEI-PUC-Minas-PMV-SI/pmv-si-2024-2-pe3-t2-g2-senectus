@@ -18,6 +18,7 @@ export function AppLibrary() {
             alt={categories[0].image.alt}
             width={200}
             height={200}
+            priority
           />
           <div className="text">
             <span></span>
@@ -32,6 +33,7 @@ export function AppLibrary() {
               alt={categories[1].image.alt}
               width={200}
               height={200}
+              priority
             />
             <div className="text">
               <span></span>
@@ -45,6 +47,7 @@ export function AppLibrary() {
               alt={categories[2].image.alt}
               width={200}
               height={200}
+              priority
             />
             <div className="text">
               <span></span>
@@ -59,6 +62,7 @@ export function AppLibrary() {
             alt={categories[3].image.alt}
             width={200}
             height={200}
+            priority
           />
           <div className="text">
             <span></span>

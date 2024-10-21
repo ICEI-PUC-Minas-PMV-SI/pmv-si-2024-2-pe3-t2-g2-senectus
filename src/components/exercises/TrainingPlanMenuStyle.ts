@@ -59,6 +59,9 @@ export const TrainingPlanMenuStyle = styled.div`
         gap: 0.5rem;
         padding: 1rem;
 
+        & h3 {
+          font-size: 1rem;
+        }
         & p {
           font-size: ${({ theme }) => theme.font.sm};
         }

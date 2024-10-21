@@ -50,6 +50,7 @@ export function AppExerciseList(props: AppExerciseListProps) {
                   alt={item.image.alt}
                   width={80}
                   height={80}
+                  priority
                 />
                 <div className="text">
                   <span></span>
