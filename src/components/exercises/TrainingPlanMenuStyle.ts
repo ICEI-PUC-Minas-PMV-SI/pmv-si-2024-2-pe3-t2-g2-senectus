@@ -23,7 +23,7 @@ export const TrainingPlanMenuStyle = styled.div`
     flex-direction: column;
     gap: 1rem;
     height: 26rem;
-    & li button {
+    & li a {
       display: flex;
       gap: 1rem;
       width: 100%;
