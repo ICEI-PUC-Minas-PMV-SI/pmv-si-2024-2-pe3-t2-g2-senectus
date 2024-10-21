@@ -87,6 +87,17 @@ export class ExerciseRepo {
   static getCategoryNameById(id: string) {
     return ExerciseRepo.exercises.find((item) => item.id == id)?.name
   }
+
+  static findExercisesByMatches(categoryId: string, key: string) {
+    const matches: ExerciseEntity[] = []
+    const list = ExerciseRepo.getExercisesByCategoryId(categoryId)
+    const regex = new RegExp(key, 'gmi')
+    for (let i = 0; i < list.length; i++)
+      if (regex.test(list[i].name) || regex.test(list[i].level))
+        matches.push(list[i])
+
+    return matches
+  }
 }
 
 ExerciseRepo.generateDatabase()

@@ -29,7 +29,10 @@ export default function SearchExerciseScreen({ params }: SearchExerciseScreen) {
 
         <AppContainer style={{ justifyContent: 'start' }}>
           <AppSearchExerciseInitialText categoryName={categoryName} />
-          <AppExerciseList exercises={exercises} />
+          <AppExerciseList
+            categoryId={params.categoryId}
+            exercises={exercises}
+          />
         </AppContainer>
       </NextUIProvider>
     </ThemeProvider>
