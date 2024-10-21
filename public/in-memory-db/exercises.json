@@ -1,0 +1,116 @@
+{
+  "categories": [
+    {
+      "name": "Alongamento",
+      "image": {
+        "src": "/img/exercises/stretching-exercise.png",
+        "alt": "Imagem de uma pessoa caminhando"
+      },
+      "exercises": [
+        {
+          "repeat": 19,
+          "durationInMilli": 1800000,
+          "name": "Exercício da cadeira",
+          "level": "easy",
+          "instructions": [
+            "Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.",
+            "Estenda um braço para cima, segurando por 10 segundos e troque.",
+            "Fique em pé com os pés na largura dos ombros.",
+            "Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/watch?v=28kE5vLW4vM"
+          },
+          "image": {
+            "src": "/img/exercises/walking-exercise.png",
+            "alt": "Pessoa fazendo exercício"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Equilíbrio",
+      "image": {
+        "src": "/img/exercises/balance-exercise.png",
+        "alt": "Imagem de uma pessoa caminhando"
+      },
+      "exercises": [
+        {
+          "repeat": 19,
+          "durationInMilli": 1800000,
+          "name": "Exercício da cadeira",
+          "level": "easy",
+          "instructions": [
+            "Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.",
+            "Estenda um braço para cima, segurando por 10 segundos e troque.",
+            "Fique em pé com os pés na largura dos ombros.",
+            "Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/watch?v=28kE5vLW4vM"
+          },
+          "image": {
+            "src": "/img/exercises/walking-exercise.png",
+            "alt": "Pessoa fazendo exercício"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fortalecimento",
+      "image": {
+        "src": "/img/exercises/strengthening-exercise.png",
+        "alt": "Imagem de uma pessoa caminhando"
+      },
+      "exercises": [
+        {
+          "repeat": 19,
+          "durationInMilli": 1800000,
+          "name": "Exercício da cadeira",
+          "level": "easy",
+          "instructions": [
+            "Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.",
+            "Estenda um braço para cima, segurando por 10 segundos e troque.",
+            "Fique em pé com os pés na largura dos ombros.",
+            "Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/watch?v=28kE5vLW4vM"
+          },
+          "image": {
+            "src": "/img/exercises/walking-exercise.png",
+            "alt": "Pessoa fazendo exercício"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mobilidade",
+      "image": {
+        "src": "/img/exercises/walking-exercise.png",
+        "alt": "Imagem de uma pessoa caminhando"
+      },
+      "exercises": [
+        {
+          "repeat": 19,
+          "durationInMilli": 1800000,
+          "name": "Exercício da cadeira",
+          "level": "easy",
+          "instructions": [
+            "Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.",
+            "Estenda um braço para cima, segurando por 10 segundos e troque.",
+            "Fique em pé com os pés na largura dos ombros.",
+            "Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/watch?v=28kE5vLW4vM"
+          },
+          "image": {
+            "src": "/img/exercises/walking-exercise.png",
+            "alt": "Pessoa fazendo exercício"
+          }
+        }
+      ]
+    }
+  ]
+}

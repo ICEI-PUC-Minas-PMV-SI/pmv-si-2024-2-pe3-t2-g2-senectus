@@ -1,137 +1,70 @@
 import { ExerciseCategoryEntity } from '@core/models/ExerciseCategoryEntity'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'
+import z from 'zod'
+import exercises from '@public/in-memory-db/exercises.json'
 
 export class ExerciseRepo {
-  private static exercises: ExerciseCategoryEntity[] = [
-    new ExerciseCategoryEntity({
-      name: 'Alongamento',
-      image: {
-        src: '/img/exercises/stretching-exercise.png',
-        alt: 'Imagem de uma pessoa caminhando'
-      },
-      exercises: (function () {
-        const exercises: ExerciseEntity[] = []
-        for (let i = 0; i < 20; i++)
-          exercises.push(
-            new ExerciseEntity({
-              durationInMilli: 1000 * 60 * 3,
-              name: 'Exercício da cadeira',
-              level: 'easy',
-              instructions: [
-                'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
-                'Estenda um braço para cima, segurando por 10 segundos e troque.',
-                'Fique em pé com os pés na largura dos ombros.',
-                'Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes.'
-              ],
-              video: {
-                src: 'https://www.youtube.com/watch?v=28kE5vLW4vM'
-              },
-              image: {
-                src: '/img/exercises/walking-exercise.png',
-                alt: 'Pessoa fazendo exercício'
-              }
+  private static exercises: ExerciseCategoryEntity[] = []
+
+  static generateDatabase() {
+    const schema = z.object({
+      categories: z.array(
+        z.object({
+          name: z.string(),
+          image: z.object({
+            src: z.string(),
+            alt: z.string()
+          }),
+          exercises: z.array(
+            z.object({
+              repeat: z.optional(z.number()),
+              durationInMilli: z.number(),
+              name: z.string(),
+              level: z.union([
+                z.literal('hard'),
+                z.literal('medium'),
+                z.literal('easy')
+              ]),
+              image: z.object({
+                src: z.string(),
+                alt: z.string()
+              }),
+              instructions: z.array(z.string()),
+              video: z.object({
+                src: z.string()
+              })
             })
           )
-        return exercises
-      })()
-    }),
-    new ExerciseCategoryEntity({
-      name: 'Equilíbrio',
-      image: {
-        src: '/img/exercises/balance-exercise.png',
-        alt: 'Imagem de uma pessoa caminhando'
-      },
-      exercises: (() => {
-        const exercises: ExerciseEntity[] = []
-        for (let i = 0; i < 20; i++)
-          exercises.push(
-            new ExerciseEntity({
-              durationInMilli: 1000 * 60 * 3,
-              name: 'Exercício da cadeira',
-              level: 'easy',
-              instructions: [
-                'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
-                'Estenda um braço para cima, segurando por 10 segundos e troque.',
-                'Fique em pé com os pés na largura dos ombros.',
-                'Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes.'
-              ],
-              video: {
-                src: 'https://www.youtube.com/watch?v=28kE5vLW4vM'
-              },
-              image: {
-                src: '/img/exercises/walking-exercise.png',
-                alt: 'Pessoa fazendo exercício'
-              }
-            })
-          )
-        return exercises
-      })()
-    }),
-    new ExerciseCategoryEntity({
-      name: 'Fortalecimento',
-      image: {
-        src: '/img/exercises/strengthening-exercise.png',
-        alt: 'Imagem de uma pessoa caminhando'
-      },
-      exercises: (() => {
-        const exercises: ExerciseEntity[] = []
-        for (let i = 0; i < 20; i++)
-          exercises.push(
-            new ExerciseEntity({
-              durationInMilli: 1000 * 60 * 3,
-              name: 'Exercício da cadeira',
-              level: 'easy',
-              instructions: [
-                'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
-                'Estenda um braço para cima, segurando por 10 segundos e troque.',
-                'Fique em pé com os pés na largura dos ombros.',
-                'Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes.'
-              ],
-              video: {
-                src: 'https://www.youtube.com/watch?v=28kE5vLW4vM'
-              },
-              image: {
-                src: '/img/exercises/walking-exercise.png',
-                alt: 'Pessoa fazendo exercício'
-              }
-            })
-          )
-        return exercises
-      })()
-    }),
-    new ExerciseCategoryEntity({
-      name: 'Mobilidade',
-      image: {
-        src: '/img/exercises/walking-exercise.png',
-        alt: 'Imagem de uma pessoa caminhando'
-      },
-      exercises: (() => {
-        const exercises: ExerciseEntity[] = []
-        for (let i = 0; i < 20; i++)
-          exercises.push(
-            new ExerciseEntity({
-              durationInMilli: 1000 * 60 * 3,
-              name: 'Exercício da cadeira',
-              level: 'easy',
-              instructions: [
-                'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
-                'Estenda um braço para cima, segurando por 10 segundos e troque.',
-                'Fique em pé com os pés na largura dos ombros.',
-                'Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes.'
-              ],
-              video: {
-                src: 'https://www.youtube.com/watch?v=28kE5vLW4vM'
-              },
-              image: {
-                src: '/img/exercises/walking-exercise.png',
-                alt: 'Pessoa fazendo exercício'
-              }
-            })
-          )
-        return exercises
-      })()
+        })
+      )
     })
-  ]
+
+    const result = schema.parse(exercises)
+    ExerciseRepo.exercises = result.categories.map(
+      (item) =>
+        new ExerciseCategoryEntity({
+          name: item.name,
+          image: item.image,
+          exercises: item.exercises.flatMap((exercise) => {
+            const parsedExercise = new ExerciseEntity({
+              name: exercise.name,
+              durationInMilli: exercise.durationInMilli,
+              level: exercise.level,
+              instructions: exercise.instructions,
+              video: exercise.video,
+              image: exercise.image
+            })
+
+            const parsedExerciseList: ExerciseEntity[] = [parsedExercise]
+            if (exercise.repeat)
+              for (let i = 0; i < exercise.repeat; i++)
+                parsedExerciseList.push(parsedExercise)
+
+            return parsedExerciseList
+          })
+        })
+    )
+  }
 
   static getCategories() {
     return ExerciseRepo.exercises
@@ -155,3 +88,5 @@ export class ExerciseRepo {
     return ExerciseRepo.exercises.find((item) => item.id == id)?.name
   }
 }
+
+ExerciseRepo.generateDatabase()
