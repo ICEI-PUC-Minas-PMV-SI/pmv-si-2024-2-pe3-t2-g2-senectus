@@ -38,8 +38,8 @@ export const ExerciseListStyle = styled.div`
       }
 
       & img {
-        width: 10rem;
-        height: 10rem;
+        width: 100%;
+        height: 100%;
         position: absolute;
         object-fit: contain;
       }
@@ -49,8 +49,8 @@ export const ExerciseListStyle = styled.div`
         z-index: 10;
         background-color: ${({ theme }) => theme.color.primaryBgColorOp};
         padding: 1rem 0.75rem;
-        width: 10rem;
-        height: 10rem;
+        width: 100%;
+        height: 100%;
         display: flex;
         align-items: center;
         place-items: end;
