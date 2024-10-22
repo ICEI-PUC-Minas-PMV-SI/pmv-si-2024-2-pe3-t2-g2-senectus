@@ -1,0 +1,44 @@
+'use client'
+
+import { ThemeProvider } from 'styled-components'
+import { theme } from '../../themes/theme'
+import { NextUIProvider } from '@nextui-org/react'
+import { AppHeader } from '@components/common/Header/AppHeader'
+import { AppContainer } from '@components/common/Container/AppContainer'
+import { AppDashboardHeader } from '@components/common/DashboardHeader/AppDashboardHeader'
+import { FaMagnifyingGlass, FaSquarePlus } from 'react-icons/fa6'
+
+export default function AppointmentsScreen() {
+  return (
+    <ThemeProvider theme={theme}>
+      <NextUIProvider className="default">
+        <AppHeader />
+
+        <AppContainer style={{ justifyContent: 'start' }}>
+          <AppDashboardHeader
+            options={[
+              {
+                name: 'Novo plano',
+                description: 'Crie um plano de treino para seu cliente',
+                href: '/training-plan/new',
+                icon: <FaSquarePlus />
+              },
+              {
+                name: 'Consultas',
+                description: 'Gerencie suas consultas',
+                href: '/appointments/management',
+                icon: <FaMagnifyingGlass />
+              },
+              {
+                name: 'Clientes',
+                description: 'Gerencie seus clientes',
+                href: '/appointments/clients',
+                icon: <FaMagnifyingGlass />
+              }
+            ]}
+          />
+        </AppContainer>
+      </NextUIProvider>
+    </ThemeProvider>
+  )
+}
