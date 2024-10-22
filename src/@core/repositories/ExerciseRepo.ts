@@ -1,7 +1,7 @@
 import { ExerciseCategoryEntity } from '@core/models/ExerciseCategoryEntity'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'
 import z from 'zod'
-import exercises from '@public/in-memory-db/exercises.json'
+import exercises from '@public/inMemoryDb/exercises.json'
 
 export class ExerciseRepo {
   private static exercises: ExerciseCategoryEntity[] = []
