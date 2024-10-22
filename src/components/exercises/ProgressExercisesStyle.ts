@@ -62,6 +62,10 @@ export const ProgressExercisesStyle = styled.div`
           background-color: ${({ theme }) => theme.color.primaryBgColorOp};
           transition: 0.2s background-color;
 
+          & h3 {
+            font-size: 1rem;
+          }
+
           &:hover {
             background-color: ${({ theme }) => theme.color.secondaryBgColorOp};
           }
