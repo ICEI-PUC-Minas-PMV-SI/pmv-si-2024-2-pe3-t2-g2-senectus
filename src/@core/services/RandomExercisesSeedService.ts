@@ -34,7 +34,23 @@ export class RandomExercisesSeedService {
       const dayArr: ExerciseEntity[] = []
       for (let i = 0; i < Math.min(Math.floor(Math.random() * 5), 4); i++) {
         const day = new ExerciseEntity({
-          name: 'Levantamento de peso',
+          id: 'exercicio-da-cadeira',
+          durationInMilli: 1000 * 60 * 3,
+          name: 'Exercício da cadeira',
+          href: '/exercises/mobilidade/exercicio-da-cadeira',
+          instructions: [
+            'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
+            'Estenda um braço para cima, segurando por 10 segundos e troque.',
+            'Fique em pé com os pés na largura dos ombros.',
+            'Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes.'
+          ],
+          video: {
+            src: 'https://www.youtube.com/watch?v=28kE5vLW4vM'
+          },
+          image: {
+            src: '/img/exercises/walking-exercise.png',
+            alt: 'Pessoa fazendo exercício'
+          },
           level: RandomExercisesSeedService.getRandomLevel(),
           dateInMilli: randomDate.getTime()
         })

@@ -7,6 +7,8 @@ import { AppHeader } from '@components/common/Header/AppHeader'
 import { AppContainer } from '@components/common/Container/AppContainer'
 import { AppTrainingPlan } from '@components/exercises/AppTrainingPlan'
 import { AppExercisesInitialText } from '@components/exercises/AppExercisesInitialText'
+import { AppProgressExercises } from '@components/exercises/AppProgressExercises'
+import { AppLibrary } from '@components/exercises/AppLibrary'
 
 export default function ExercisesScreen() {
   return (
@@ -17,6 +19,8 @@ export default function ExercisesScreen() {
         <AppContainer style={{ justifyContent: 'start' }}>
           <AppExercisesInitialText />
           <AppTrainingPlan />
+          <AppProgressExercises />
+          <AppLibrary />
         </AppContainer>
       </NextUIProvider>
     </ThemeProvider>
