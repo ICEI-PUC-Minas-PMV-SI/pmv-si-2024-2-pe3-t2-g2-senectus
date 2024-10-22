@@ -4,6 +4,7 @@ import { format } from 'date-fns'
 import { FaClock, FaDumbbell } from 'react-icons/fa6'
 import { v4 as uuid } from 'uuid'
 import { AppButtonLinkRect } from '@components/common/Buttons/AppButtonLinkRect'
+import { AppButtonLinkRectOutline } from '@components/common/Buttons/AppButtonLinkRectOutline'
 
 interface AppExercisePlayerProps {
   exercise: ExerciseEntity
@@ -43,7 +44,11 @@ export function AppExercisePlayer({ exercise }: AppExercisePlayerProps) {
         <div id="instructions-actions">
           <AppButtonLinkRect id="finish" href="/exercises" text="Concluído" />
           <span></span>
-          <AppButtonLinkRect id="cancel" href="/exercises" text="Desistir" />
+          <AppButtonLinkRectOutline
+            id="cancel"
+            href="/exercises"
+            text="Desistir"
+          />
         </div>
       </div>
     </ExercisePlayerStyle>
