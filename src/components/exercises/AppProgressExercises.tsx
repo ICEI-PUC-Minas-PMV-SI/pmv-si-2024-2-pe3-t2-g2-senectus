@@ -7,6 +7,7 @@ import {
 import { ProgressExercisesStyle } from './ProgressExercisesStyle'
 import { AppCircularProgress } from '@components/common/Progress/AppCircularProgress'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export function AppProgressExercises() {
   return (
@@ -38,10 +39,13 @@ export function AppProgressExercises() {
               width={100}
               height={100}
             />
-            <button id="next-exercise-btn">
+            <Link
+              href="/exercises/alongamento/exercício_da_cadeira"
+              id="next-exercise-btn"
+            >
               <h3>Próximo</h3>
               <small>Fácil</small>
-            </button>
+            </Link>
           </li>
         </ul>
 
