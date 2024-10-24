@@ -7,7 +7,9 @@ export class RandomClientsSeedService {
       clients.push(
         new ClientEntity({
           name: 'Nicolas Cleiton Basilio Viana Viana Viana Viana Viana',
-          conclusionRate: Math.min(Math.floor(Math.random() * 101), 100)
+          conclusionRate: Math.min(Math.floor(Math.random() * 101), 100),
+          totalAppointments: Math.min(Math.floor(Math.random() * 51), 50),
+          lastAppointment: new Date()
         })
       )
     }

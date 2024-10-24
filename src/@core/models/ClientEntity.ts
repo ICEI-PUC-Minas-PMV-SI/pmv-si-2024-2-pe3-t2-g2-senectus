@@ -2,6 +2,8 @@ interface ClientEntityProps {
   id: string
   name: string
   conclusionRate: number
+  totalAppointments: number
+  lastAppointment: Date
   createdAt: Date
 }
 
@@ -25,6 +27,12 @@ export class ClientEntity {
   }
   get name() {
     return this.props.name
+  }
+  get totalAppointments() {
+    return this.props.totalAppointments
+  }
+  get lastAppointment() {
+    return this.props.lastAppointment
   }
   get conclusionRate() {
     return this.props.conclusionRate

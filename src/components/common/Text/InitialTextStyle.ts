@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ProfessionalAppointmentsInitialTextStyle = styled.div`
+export const InitialTextStyle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;

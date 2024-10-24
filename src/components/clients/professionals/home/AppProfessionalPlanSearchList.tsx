@@ -2,13 +2,12 @@ import { AppSearchAndFilter } from '@components/common/Inputs/SearchAndFilter/Ap
 import { ClientEntity } from '@core/models/ClientEntity'
 import { RandomClientsSeedService } from '@core/services/RandomClientsSeedService'
 import { useEffect, useState } from 'react'
-import { ProfessionalSearchListStyle } from './ProfessionalSearchListStyle'
+import { ProfessionalSearchListStyle } from '../ProfessionalSearchListStyle'
 import { format } from 'date-fns'
 import { AppPagination } from '@components/common/Pagination/AppPagination'
-import { v4 as uuid } from 'uuid'
-import Link from 'next/link'
+import { AppThreeColumnTable } from '@components/common/Tables/AppThreeColumnTable'
 
-export function AppProfessionalSearchList() {
+export function AppProfessionalPlanSearchList() {
   const [clients, setClients] = useState<ClientEntity[]>([])
   const [page, setPage] = useState(0)
   const [total, setTotal] = useState(Math.ceil(clients.length / 7))
@@ -33,37 +32,22 @@ export function AppProfessionalSearchList() {
         />
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th className="table-start">Cliente</th>
-            <th className="table-mid">Progresso</th>
-            <th className="table-end">Criado em</th>
-          </tr>
-        </thead>
-        <tbody>
-          {clients.slice(page * 7, (page + 1) * 7).map((client) => (
-            <td key={uuid()}>
-              <Link
-                href={`/clients/plan/edit/${client.id}`}
-                className="data-row"
-                role="button"
-              >
-                <p className="table-start">
-                  {client.name.length > 40
-                    ? client.name.substring(0, 40) + '...'
-                    : client.name}
-                </p>
-                <p className="table-mid">{client.conclusionRate}% concluído</p>
-                <p className="table-end">
-                  {format(client.createdAt, 'dd/MM/yyyy')} às{' '}
-                  {format(client.createdAt, 'HH:mm')}
-                </p>
-              </Link>
-            </td>
-          ))}
-        </tbody>
-      </table>
+      <AppThreeColumnTable
+        header={{
+          firstCol: 'Cliente',
+          secondCol: 'Progresso',
+          thirdCol: 'Criado em'
+        }}
+        rows={clients.slice(page * 7, (page + 1) * 7).map((client) => ({
+          firstCol:
+            client.name.length > 40
+              ? client.name.substring(0, 40) + '...'
+              : client.name,
+          secondCol: `${client.conclusionRate}% concluído`,
+          thirdCol: `${format(client.createdAt, 'dd/MM/yyyy')} às ${format(client.createdAt, 'HH:mm')}`,
+          link: `/clients/plan/edit/${client.id}`
+        }))}
+      />
       {total > 1 && clients.length > 7 && (
         <AppPagination
           className="pagination"

@@ -1,28 +1,13 @@
 import styled from 'styled-components'
 
-export const ProfessionalSearchListStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 4rem;
-
-  @media (max-width: 380px) {
-    justify-content: center;
-    width: 100%;
-  }
-
-  & .pagination {
-    place-self: center;
-  }
-
-  & table {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border-radius: ${({ theme }) => theme.border.radius.md};
-    border: 2px solid ${({ theme }) => theme.border.color.default};
-    border-bottom: none;
-    background-color: ${({ theme }) => theme.color.primaryBgColor};
+export const ThreeColumnTableStyle = styled.table`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	border-radius: ${({ theme }) => theme.border.radius.md};
+	border: 2px solid ${({ theme }) => theme.border.color.default};
+	border-bottom: none;
+	background-color: ${({ theme }) => theme.color.primaryBgColor};
 
     & .table-start,
     & .table-mid,

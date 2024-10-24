@@ -7,8 +7,8 @@ import { AppHeader } from '@components/common/Header/AppHeader'
 import { AppContainer } from '@components/common/Container/AppContainer'
 import { AppDashboardHeader } from '@components/common/DashboardHeader/AppDashboardHeader'
 import { FaMagnifyingGlass, FaSquarePlus } from 'react-icons/fa6'
-import { AppProfessionalAppointmentsInitialText } from '@components/clients/professionals/home/AppProfessionalAppointmentsInitialText'
-import { AppProfessionalSearchList } from '@components/clients/professionals/home/AppProfessionalSearchList'
+import { AppProfessionalPlanSearchList } from '@components/clients/professionals/home/AppProfessionalPlanSearchList'
+import { AppInitialText } from '@components/common/Text/AppInitialText'
 
 export default function ClientsScreen() {
   return (
@@ -39,9 +39,12 @@ export default function ClientsScreen() {
               }
             ]}
           />
-          <AppProfessionalAppointmentsInitialText />
+          <AppInitialText
+            title="Planos de treino"
+            text="Pesquise pelo seus planos de treino utilizando o nome de seus clientes"
+          />
 
-          <AppProfessionalSearchList />
+          <AppProfessionalPlanSearchList />
         </AppContainer>
       </NextUIProvider>
     </ThemeProvider>
