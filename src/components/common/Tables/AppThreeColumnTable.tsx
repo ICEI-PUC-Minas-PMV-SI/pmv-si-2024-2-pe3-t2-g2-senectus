@@ -1,5 +1,4 @@
 import { v4 as uuid } from 'uuid'
-import Link from 'next/link'
 import { ThreeColumnTableStyle } from './ThreeColumnTableStyle'
 
 interface ThreeColumnTableProps {
@@ -12,7 +11,7 @@ interface ThreeColumnTableProps {
     firstCol: string
     secondCol: string
     thirdCol: string
-    link?: string
+    onClick?: (() => void) | undefined
   }>
 }
 
@@ -29,12 +28,12 @@ export function AppThreeColumnTable(props: ThreeColumnTableProps) {
       <tbody>
         {props.rows.map((row) => (
           <td key={uuid()}>
-            {row.link ? (
-              <Link href={row.link} className="data-row" role="button">
+            {row.onClick ? (
+              <button className="data-row" onClick={row.onClick}>
                 <p className="table-start">{row.firstCol}</p>
                 <p className="table-mid">{row.secondCol}</p>
                 <p className="table-end">{row.thirdCol}</p>
-              </Link>
+              </button>
             ) : (
               <div className="data-row">
                 <p className="table-start">{row.firstCol}</p>

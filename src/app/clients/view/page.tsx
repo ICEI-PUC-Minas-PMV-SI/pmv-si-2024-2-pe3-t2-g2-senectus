@@ -30,7 +30,7 @@ export default function ClientsScreen() {
               text="Insira o nome de clientes que você já atendeu em suas consultas por aqui:"
             />
 
-            <AppProfessionalClientsSearchList viewOnly />
+            <AppProfessionalClientsSearchList />
           </AppInternalContainer>
         </AppContainer>
       </NextUIProvider>

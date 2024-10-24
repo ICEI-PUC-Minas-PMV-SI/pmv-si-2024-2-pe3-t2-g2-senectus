@@ -8,7 +8,7 @@ import { AppPagination } from '@components/common/Pagination/AppPagination'
 import { AppThreeColumnTable } from '@components/common/Tables/AppThreeColumnTable'
 
 interface ProfessionalClientsSearchListProps {
-  viewOnly?: boolean
+  onClick?: (client: ClientEntity) => void
 }
 
 export function AppProfessionalClientsSearchList(
@@ -44,18 +44,26 @@ export function AppProfessionalClientsSearchList(
           secondCol: 'Consultas',
           thirdCol: 'Última consulta'
         }}
-        rows={clients.slice(page * 7, (page + 1) * 7).map((client) => ({
-          firstCol:
-            client.name.length > 40
-              ? client.name.substring(0, 40) + '...'
-              : client.name,
-          secondCol: `${client.totalAppointments}`,
-          thirdCol: `${format(
-            client.lastAppointment,
-            'dd/MM/yyyy'
-          )} às ${format(client.lastAppointment, 'HH:mm')}`,
-          link: !props.viewOnly ? `/clients/plan/new/${client.id}` : undefined
-        }))}
+        rows={clients.slice(page * 7, (page + 1) * 7).map((client) => {
+          let onClick: undefined | (() => void)
+          if (props.onClick)
+            onClick = () => {
+              return props.onClick && props.onClick(client)
+            }
+
+          return {
+            firstCol:
+              client.name.length > 40
+                ? client.name.substring(0, 40) + '...'
+                : client.name,
+            secondCol: `${client.totalAppointments}`,
+            thirdCol: `${format(
+              client.lastAppointment,
+              'dd/MM/yyyy'
+            )} às ${format(client.lastAppointment, 'HH:mm')}`,
+            onClick
+          }
+        })}
       />
       {total > 1 && clients.length > 7 && (
         <AppPagination
