@@ -36,7 +36,7 @@ export function AppThreeColumnTable(props: ThreeColumnTableProps) {
                 <p className="table-end">{row.thirdCol}</p>
               </Link>
             ) : (
-              <div>
+              <div className="data-row">
                 <p className="table-start">{row.firstCol}</p>
                 <p className="table-mid">{row.secondCol}</p>
                 <p className="table-end">{row.thirdCol}</p>
