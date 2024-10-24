@@ -7,8 +7,10 @@ import { AppHeader } from '@components/common/Header/AppHeader'
 import { AppContainer } from '@components/common/Container/AppContainer'
 import { AppDashboardHeader } from '@components/common/DashboardHeader/AppDashboardHeader'
 import { FaMagnifyingGlass, FaSquarePlus } from 'react-icons/fa6'
+import { AppProfessionalAppointmentsInitialText } from '@components/clients/professionals/home/AppProfessionalAppointmentsInitialText'
+import { AppProfessionalSearchList } from '@components/clients/professionals/home/AppProfessionalSearchList'
 
-export default function AppointmentsScreen() {
+export default function ClientsScreen() {
   return (
     <ThemeProvider theme={theme}>
       <NextUIProvider className="default">
@@ -20,23 +22,26 @@ export default function AppointmentsScreen() {
               {
                 name: 'Novo plano',
                 description: 'Crie um plano de treino para seu cliente',
-                href: '/training-plan/new',
+                href: '/clients/plan/new',
                 icon: <FaSquarePlus />
               },
               {
                 name: 'Consultas',
                 description: 'Gerencie suas consultas',
-                href: '/appointments/management',
+                href: '/clients/appointments',
                 icon: <FaMagnifyingGlass />
               },
               {
                 name: 'Clientes',
                 description: 'Gerencie seus clientes',
-                href: '/appointments/clients',
+                href: '/clients/view',
                 icon: <FaMagnifyingGlass />
               }
             ]}
           />
+          <AppProfessionalAppointmentsInitialText />
+
+          <AppProfessionalSearchList />
         </AppContainer>
       </NextUIProvider>
     </ThemeProvider>

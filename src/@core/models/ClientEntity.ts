@@ -1,19 +1,28 @@
-interface ClientsEntityProps {
+interface ClientEntityProps {
+  id: string
   name: string
   conclusionRate: number
   createdAt: Date
 }
 
-export class ClientsEntity {
-  private props: ClientsEntityProps
+import { v4 as uuid } from 'uuid'
 
-  constructor(props: Replace<ClientsEntityProps, { createdAt?: Date }>) {
+export class ClientEntity {
+  private props: ClientEntityProps
+
+  constructor(
+    props: Replace<ClientEntityProps, { createdAt?: Date; id?: string }>
+  ) {
     this.props = {
       ...props,
+      id: props.id ?? uuid(),
       createdAt: props.createdAt ?? new Date()
     }
   }
 
+  get id() {
+    return this.props.id
+  }
   get name() {
     return this.props.name
   }

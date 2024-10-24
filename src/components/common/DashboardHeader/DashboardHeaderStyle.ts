@@ -37,9 +37,14 @@ export const DashboardHeaderStyle = styled.header`
       height: 7rem;
       padding: 1rem;
       gap: 1rem;
-      background-color: ${({ theme }) => theme.color.primaryBgColor};
       border: 1px solid ${({ theme }) => theme.border.color.default};
       border-radius: ${({ theme }) => theme.border.radius.md};
+      background-color: ${({ theme }) => theme.color.primaryBgColor};
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: ${({ theme }) => theme.color.onHoverPrimaryBgColor};
+      }
 
       & span {
         position: absolute;
