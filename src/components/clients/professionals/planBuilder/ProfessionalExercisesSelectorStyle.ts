@@ -45,6 +45,14 @@ export const ProfessionalExercisesSelectorStyle = styled.div`
         top: 0;
         bottom: 8.75rem;
         right: 0;
+
+        @media (max-width: 381px) {
+          left: 93%;
+        }
+
+        @media (max-width: 580px) and (min-width: 381px) {
+          left: 90%;
+        }
       }
 
       & .exercise-card {
@@ -77,16 +85,36 @@ export const ProfessionalExercisesSelectorStyle = styled.div`
           display: flex;
           align-items: center;
           place-items: end;
-          gap: 0.48rem;
 
-          & small {
-            font-size: 0.7rem;
+          & .text-wrapper {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            height: 1rem;
+            gap: 0.48rem;
+
+            & small {
+              font-size: 0.7rem;
+            }
+            & span {
+              height: 100%;
+              width: 2px;
+              background-color: ${({ theme }) => theme.color.primaryColor};
+            }
+
+            @media (max-width: 959px) {
+              height: 3rem;
+            }
           }
-          & span {
-            height: 1.2rem;
-            width: 2px;
-            background-color: ${({ theme }) => theme.color.primaryColor};
-          }
+        }
+
+        @media (max-width: 380px) {
+          width: 91vw;
+          max-width: 20rem;
+        }
+
+        @media (max-width: 580px) and (min-width: 381px) {
+          width: 100%;
         }
       }
     }
@@ -102,10 +130,6 @@ export const ProfessionalExercisesSelectorStyle = styled.div`
     @media (max-width: 380px) {
       grid-template-columns: 1fr;
       width: min-content;
-
-      & .exercise-card {
-        width: clamp(10rem, 91vw, 20rem);
-      }
     }
   }
 

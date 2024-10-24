@@ -54,8 +54,10 @@ export function AppProfessionalExercisesSelector(
                 priority
               />
               <div className="content">
-                <span></span>
-                <p>{item.name}</p>
+                <div className="text-wrapper">
+                  <span></span>
+                  <p>{item.name}</p>
+                </div>
               </div>
             </Link>
             <AppCheckbox

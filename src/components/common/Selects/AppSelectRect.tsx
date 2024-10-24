@@ -1,6 +1,6 @@
 import { Select, SelectItem } from '@nextui-org/select'
 import { theme } from '@themes/theme'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, ComponentProps } from 'react'
 import { AppSelectRectStyle } from './AppSelectRectStyle'
 import {
   Modal,
@@ -16,9 +16,11 @@ export interface AppSelectRectProps {
   options: string[]
   onFilterChange: (value: string) => void
   ariaLabel: string
+  divWrapperProps?: ComponentProps<'div'>
 }
 
 export function AppSelectRect({
+  divWrapperProps,
   placeholder,
   options,
   onFilterChange,
@@ -40,7 +42,7 @@ export function AppSelectRect({
   }, [onClose])
 
   return (
-    <AppSelectRectStyle>
+    <AppSelectRectStyle {...divWrapperProps}>
       {isTabletScreenOrLess && (
         <>
           <button className="mobile" onClick={onOpen}>

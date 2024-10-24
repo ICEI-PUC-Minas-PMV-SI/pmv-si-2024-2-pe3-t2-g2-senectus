@@ -6,7 +6,7 @@ export const InternalContainerStyle = styled.div`
   margin-left: 2.5rem;
   gap: 3rem;
 
-  @media (min-width: 800px) {
-    padding: 0;
+  @media (max-width: 800px) {
+    margin-left: 0;
   }
 `
