@@ -19,7 +19,7 @@ export function AppThreeColumnTable(props: ThreeColumnTableProps) {
   return (
     <ThreeColumnTableStyle>
       <thead>
-        <tr>
+        <tr className="table-header">
           <th className="table-start">{props.header.firstCol}</th>
           <th className="table-mid">{props.header.secondCol}</th>
           <th className="table-end">{props.header.thirdCol}</th>
@@ -27,7 +27,7 @@ export function AppThreeColumnTable(props: ThreeColumnTableProps) {
       </thead>
       <tbody>
         {props.rows.map((row) => (
-          <td key={uuid()}>
+          <tr key={uuid()}>
             {row.onClick ? (
               <button className="data-row" onClick={row.onClick}>
                 <p className="table-start">{row.firstCol}</p>
@@ -41,7 +41,7 @@ export function AppThreeColumnTable(props: ThreeColumnTableProps) {
                 <p className="table-end">{row.thirdCol}</p>
               </div>
             )}
-          </td>
+          </tr>
         ))}
       </tbody>
     </ThreeColumnTableStyle>
