@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { theme } from '@themes/theme'
 import { NextUIProvider } from '@nextui-org/react'
@@ -48,6 +48,13 @@ export default function PlanBuilderScreen() {
   const onSelectedExercises = (exercises: ExerciseEntity[]) => {
     setStage((prev) => ({ ...prev, stageId: StageEnum.SELECT_DATE, exercises }))
   }
+
+  useEffect(() => {
+    window.scrollTo({
+      behavior: 'smooth',
+      top: 0
+    })
+  }, [stage, setStage])
 
   return (
     <ThemeProvider theme={theme}>
