@@ -73,7 +73,7 @@ export function AppProfessionalExercisesSelector(
 
         <div className="btn-wrapper">
           <AppButtonActionRect
-            text="Criar"
+            text="Próximo"
             onClick={() => props.onSelectedExercises(exercises)}
             fullWidth
           />
