@@ -21,6 +21,7 @@ export function AppButtonActionRect({
   return (
     <Button
       color="primary"
+      radius="sm"
       size={size}
       isLoading={isLoading}
       startContent={icon}

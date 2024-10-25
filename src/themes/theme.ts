@@ -5,6 +5,7 @@ export const theme = {
     onHoverPrimaryColor: '#8C62D5',
     onHoverPrimaryColorOp: 'rgba(140, 98, 213, 0.35)',
     secondaryColor: '#F3C8FF',
+    onHoverSecondaryColor: '#F4D6FD',
     bgOfPrimaryColor: '#E6E2F7',
     onHoverBgOfPrimaryColor: '#F3F4FC',
     primaryBgColor: '#FDFDFD',

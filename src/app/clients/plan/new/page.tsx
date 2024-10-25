@@ -15,6 +15,7 @@ import { FaAngleLeft } from 'react-icons/fa6'
 import { ClientEntity } from '@core/models/ClientEntity'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'
 import { AppProfessionalExercisesSelector } from '@components/clients/professionals/planBuilder/AppProfessionalExercisesSelector'
+import { AppProfessionalSetCalendarDays } from '@components/clients/professionals/planBuilder/AppProfessionalSetCalendarDays'
 
 enum StageEnum {
   SEARCH_CLIENT = 0,
@@ -50,7 +51,7 @@ export default function PlanBuilderScreen() {
 
   return (
     <ThemeProvider theme={theme}>
-      <NextUIProvider className="default">
+      <NextUIProvider className="default" locale="pt-BR">
         <AppHeader />
 
         <AppContainer style={{ justifyContent: 'start' }}>
@@ -104,6 +105,8 @@ export default function PlanBuilderScreen() {
                   title="Selecionar datas"
                   text="Seleciona a data que em esta serie de exercícios vai ser realizada no mês:"
                 />
+
+                <AppProfessionalSetCalendarDays />
               </>
             )}
           </AppInternalContainer>

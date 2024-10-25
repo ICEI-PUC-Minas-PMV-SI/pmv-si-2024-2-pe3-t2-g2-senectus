@@ -22,6 +22,7 @@ export function AppButtonActionRectOutline({
     <Button
       color="primary"
       variant="ghost"
+      radius="sm"
       size={size}
       isLoading={isLoading}
       startContent={icon}
