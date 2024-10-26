@@ -90,8 +90,8 @@ export const ProfessionalExercisesSelectorStyle = styled.div`
             display: flex;
             width: 100%;
             align-items: center;
-            height: 1rem;
             gap: 0.48rem;
+            height: 1rem;
 
             & small {
               font-size: 0.7rem;
@@ -103,7 +103,10 @@ export const ProfessionalExercisesSelectorStyle = styled.div`
             }
 
             @media (max-width: 959px) {
-              height: 3rem;
+              height: auto;
+              & span {
+                display: none;
+              }
             }
           }
         }
