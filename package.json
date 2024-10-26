@@ -11,7 +11,8 @@
     "prettier": "prettier --write",
     "lint:fix": "eslint --fix",
     "prepare": "husky",
-    "commit": "cz"
+    "commit": "cz",
+    "validate:exercises": "node ./utils/validateExerciseSchema.mjs"
   },
   "husky": {
     "hooks": {
