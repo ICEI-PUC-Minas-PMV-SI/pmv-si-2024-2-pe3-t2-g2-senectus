@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const AppTrainingPlanMenuStyle = styled.div`
+export const TrainingPlanMenuStyle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -23,12 +23,11 @@ export const AppTrainingPlanMenuStyle = styled.div`
     flex-direction: column;
     gap: 1rem;
     height: 26rem;
-    & li button {
+    & li a {
       display: flex;
       gap: 1rem;
       width: 100%;
       height: 5.5rem;
-      box-shadow: ${({ theme }) => theme.shadow.md};
       text-align: start;
       margin: 0;
       padding: 0;
@@ -60,6 +59,9 @@ export const AppTrainingPlanMenuStyle = styled.div`
         gap: 0.5rem;
         padding: 1rem;
 
+        & h3 {
+          font-size: 1rem;
+        }
         & p {
           font-size: ${({ theme }) => theme.font.sm};
         }
