@@ -17,6 +17,8 @@ import { ExerciseEntity } from '@core/models/ExerciseEntity'
 import { AppProfessionalExercisesSelector } from '@components/clients/professionals/planBuilder/AppProfessionalExercisesSelector'
 import { AppProfessionalSetCalendarDays } from '@components/clients/professionals/planBuilder/AppProfessionalSetCalendarDays'
 import { AppProfessionalConfirmBuild } from '@components/clients/professionals/planBuilder/AppProfessionalConfirmBuild'
+import { NotificationContainer } from '@components/common/Notification/NotificationContainer'
+import 'react-toastify/dist/ReactToastify.css'
 
 enum StageEnum {
   SEARCH_CLIENT = 0,
@@ -84,6 +86,7 @@ export default function PlanBuilderScreen() {
 
   return (
     <ThemeProvider theme={theme}>
+      <NotificationContainer />
       <NextUIProvider className="default" locale="pt-BR">
         <AppHeader />
 

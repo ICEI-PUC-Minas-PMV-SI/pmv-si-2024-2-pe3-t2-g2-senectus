@@ -1,12 +1,14 @@
 import { AppButtonActionRect } from '@components/common/Buttons/AppButtonActionRect'
-import { AppCheckbox } from '@components/common/CheckBox/AppCheckbox'
 import { AppSearchAndFilter } from '@components/common/Inputs/SearchAndFilter/AppSearchAndFilter'
 import { AppPagination } from '@components/common/Pagination/AppPagination'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'
 import { ProfessionalExercisesSelectorStyle } from './ProfessionalExercisesSelectorStyle'
 import { v4 as uuid } from 'uuid'
-import Image from 'next/image'
-import Link from 'next/link'
+import {
+  NotificationService,
+  NotificationTypeEnum
+} from '@core/services/NotificationService'
+import { AppProfessionalExerciseListItem } from './AppProfessionalExerciseListItem'
 
 interface AppProfessionalExerciseSelectorProps {
   onSelectedExercises: (exercises: ExerciseEntity[]) => void
@@ -26,6 +28,27 @@ for (let i = 0; i < 8; i++) {
 export function AppProfessionalExercisesSelector(
   props: AppProfessionalExerciseSelectorProps
 ) {
+  const selectedExercises: ExerciseEntity[] = []
+
+  const onSelectExerciseChange = (value: boolean, exercise: ExerciseEntity) => {
+    if (value) selectedExercises.push(exercise)
+    else {
+      const index = selectedExercises.findIndex(
+        (item) => item.name === exercise.name
+      )
+      if (index >= 0) selectedExercises.splice(index, 1)
+    }
+  }
+
+  const onSubmit = () => {
+    if (selectedExercises.length <= 0)
+      return NotificationService.dispatch(
+        NotificationTypeEnum.ERROR,
+        'Você deve selecionar pelo menos um exercício.'
+      )
+    props.onSelectedExercises(selectedExercises)
+  }
+
   return (
     <ProfessionalExercisesSelectorStyle>
       <div id="input-wrapper">
@@ -44,27 +67,11 @@ export function AppProfessionalExercisesSelector(
 
       <ul id="exercise-list">
         {exercises.map((item) => (
-          <li key={uuid()}>
-            <Link href="/" className="exercise-card">
-              <Image
-                src="/img/exercises/balance-exercise.png"
-                alt="Pessoa se exercitando"
-                width={80}
-                height={80}
-                priority
-              />
-              <div className="content">
-                <div className="text-wrapper">
-                  <span></span>
-                  <p>{item.name}</p>
-                </div>
-              </div>
-            </Link>
-            <AppCheckbox
-              className="checkbox"
-              aria-label="Selecionar exercício"
-            />
-          </li>
+          <AppProfessionalExerciseListItem
+            key={uuid()}
+            exercise={item}
+            onSelectChange={(value) => onSelectExerciseChange(value, item)}
+          />
         ))}
       </ul>
 
@@ -72,11 +79,7 @@ export function AppProfessionalExercisesSelector(
         <AppPagination total={10} page={1} />
 
         <div className="btn-wrapper">
-          <AppButtonActionRect
-            text="Próximo"
-            onClick={() => props.onSelectedExercises(exercises)}
-            fullWidth
-          />
+          <AppButtonActionRect text="Próximo" onClick={onSubmit} fullWidth />
         </div>
       </div>
     </ProfessionalExercisesSelectorStyle>

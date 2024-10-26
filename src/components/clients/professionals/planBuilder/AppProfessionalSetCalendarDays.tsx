@@ -9,6 +9,10 @@ import Image from 'next/image'
 import { DateValue } from '@nextui-org/react'
 import { ProfessionalSetCalendarDaysStyle } from './ProfessionalSetCalendarDaysStyle'
 import { ptBR as locale } from 'date-fns/locale/pt-BR'
+import {
+  NotificationService,
+  NotificationTypeEnum
+} from '@core/services/NotificationService'
 
 interface ErrorStateProps {
   state: boolean
@@ -58,6 +62,21 @@ export function AppProfessionalSetCalendarDays(
     })
   }
 
+  const onSubmit = () => {
+    if (dates.length <= 0) {
+      setIsInvalid({
+        message: 'Nenhum horário selecionado',
+        state: true
+      })
+      return NotificationService.dispatch(
+        NotificationTypeEnum.ERROR,
+        'Você precisa marcar pelo menos um horário.'
+      )
+    }
+
+    props.onSelectedDays(dates)
+  }
+
   return (
     <ProfessionalSetCalendarDaysStyle>
       <section id="inputs">
@@ -82,11 +101,7 @@ export function AppProfessionalSetCalendarDays(
             <FaPlus />
           </button>
         </div>
-        <AppButtonActionRect
-          text="Próximo"
-          fullWidth
-          onClick={() => props.onSelectedDays(dates)}
-        />
+        <AppButtonActionRect text="Próximo" fullWidth onClick={onSubmit} />
 
         <Image
           src="/img/clients/meeting.svg"
