@@ -13,6 +13,8 @@ interface AppCalendarProps<T extends CalendarEventEntity> {
   daysWeek: string[]
   onOpenMenu: (item: CollectionEventsOnDay<T>) => ReactNode
   list: CollectionEventsOnDay<T>[]
+  messageBuilder?: (eventsLength: number) => string
+  emptyListMessage?: string
 }
 
 export function AppMobileCalendar<T extends CalendarEventEntity>(
@@ -56,7 +58,7 @@ export function AppMobileCalendar<T extends CalendarEventEntity>(
 
     const actualDayInMonth = actualDay.getDate()
     setMenuContext({
-      ctx: props.list[actualDayInMonth],
+      ctx: props.list[actualDayInMonth - 1],
       selectedDay: actualDayInMonth
     })
   }, [props.list, actualDay])
@@ -76,16 +78,22 @@ export function AppMobileCalendar<T extends CalendarEventEntity>(
               if (hasMoreThan32Days) {
                 return <li key={uuid()} className="empty-day"></li>
               }
-              const collectionOfEvents =
-                props.list[daysInTheMonth[dayInMonthIndex]]
+              const collectionOfEvents = props.list[dayInMonthIndex]
 
               const availableEvents = collectionOfEvents?.events?.length ?? 0
-              const displayText =
-                availableEvents > 0
-                  ? `Você tem ${
-                      availableEvents > 10 ? '+10' : availableEvents
-                    } compromisso${availableEvents > 1 ? 's' : ''}`
-                  : ''
+
+              let displayText: string
+              if (props.messageBuilder) {
+                displayText = props.messageBuilder(availableEvents)
+              } else {
+                displayText =
+                  availableEvents > 0
+                    ? `Você tem ${
+                        availableEvents > 10 ? '+10' : availableEvents
+                      } compromisso${availableEvents > 1 ? 's' : ''}`
+                    : ''
+              }
+
               const isActualDay =
                 actualDay.getDate() === daysInTheMonth[dayInMonthIndex]
               const actualDayBorder = isActualDay
@@ -105,13 +113,14 @@ export function AppMobileCalendar<T extends CalendarEventEntity>(
                   : {}
 
               const parsedDay = new Date(actualDay)
-              parsedDay.setDate(daysInTheMonth[dayInMonthIndex])
+              parsedDay.setDate(dayInMonthIndex + 1)
               return (
                 <li key={uuid()}>
                   <p className="day">{props.daysWeek[parsedDay.getDay()]}</p>
                   <button
                     onClick={() => {
-                      const eventCollection = props.list[parsedDay.getDate()]
+                      const eventCollection =
+                        props.list[parsedDay.getDate() - 1]
                       if (
                         !eventCollection ||
                         eventCollection.events.length <= 0
@@ -135,7 +144,7 @@ export function AppMobileCalendar<T extends CalendarEventEntity>(
                     }
                   >
                     <small className="day-number">
-                      {actualDay.getDate() == parsedDay.getDate()
+                      {actualDay.getDate() === parsedDay.getDate()
                         ? 'Hoje'
                         : parsedDay.getDate()}
                     </small>
@@ -161,9 +170,13 @@ export function AppMobileCalendar<T extends CalendarEventEntity>(
               width={300}
               height={300}
               alt="Pessoas descansando"
+              priority
             />
             <h3>Hora do descanso!</h3>
-            <p>Você não tem compromissos no dia {menuContext.selectedDay}.</p>
+            <p>
+              {props.emptyListMessage ??
+                `Você não tem compromissos no dia ${menuContext.selectedDay}.`}
+            </p>
           </div>
         )}
       </div>

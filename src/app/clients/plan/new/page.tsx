@@ -16,6 +16,7 @@ import { ClientEntity } from '@core/models/ClientEntity'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'
 import { AppProfessionalExercisesSelector } from '@components/clients/professionals/planBuilder/AppProfessionalExercisesSelector'
 import { AppProfessionalSetCalendarDays } from '@components/clients/professionals/planBuilder/AppProfessionalSetCalendarDays'
+import { AppProfessionalConfirmBuild } from '@components/clients/professionals/planBuilder/AppProfessionalConfirmBuild'
 
 enum StageEnum {
   SEARCH_CLIENT = 0,
@@ -24,29 +25,54 @@ enum StageEnum {
   CONFIRM = 3
 }
 
-interface StageContextProps {
+export interface PlanBuildPayloadProps {
+  client: ClientEntity
+  exercises: ExerciseEntity[]
+  dates: Date[]
+}
+
+export interface PlanBuildStageContextProps {
   stageId: StageEnum
-  payload?: {
-    client?: ClientEntity
-    exercises?: ExerciseEntity[]
-  }
+  payload?: Partial<PlanBuildPayloadProps>
 }
 
 export default function PlanBuilderScreen() {
-  const [stage, setStage] = useState<StageContextProps>({
+  const [stage, setStage] = useState<PlanBuildStageContextProps>({
     stageId: StageEnum.SEARCH_CLIENT
   })
 
   const onSelectedClient = (client: ClientEntity) => {
     setStage((prev) => ({
-      ...prev,
       stageId: StageEnum.SELECT_EXERCISES,
-      client
+      payload: {
+        ...prev.payload,
+        client
+      }
     }))
   }
 
   const onSelectedExercises = (exercises: ExerciseEntity[]) => {
-    setStage((prev) => ({ ...prev, stageId: StageEnum.SELECT_DATE, exercises }))
+    setStage((prev) => ({
+      stageId: StageEnum.SELECT_DATE,
+      payload: {
+        ...prev?.payload,
+        exercises
+      }
+    }))
+  }
+
+  const onSelectedDays = (dates: Date[]) => {
+    setStage((prev) => ({
+      stageId: StageEnum.CONFIRM,
+      payload: {
+        ...prev?.payload,
+        dates
+      }
+    }))
+  }
+
+  const onExerciseReedit = () => {
+    setStage((prev) => ({ ...prev, stageId: StageEnum.SELECT_EXERCISES }))
   }
 
   useEffect(() => {
@@ -113,7 +139,21 @@ export default function PlanBuilderScreen() {
                   text="Seleciona a data que em esta serie de exercícios vai ser realizada no mês:"
                 />
 
-                <AppProfessionalSetCalendarDays />
+                <AppProfessionalSetCalendarDays
+                  onSelectedDays={onSelectedDays}
+                />
+              </>
+            )}
+            {stage.stageId === StageEnum.CONFIRM && (
+              <>
+                <AppInitialText
+                  title="Confirmar ação"
+                  text="Estamos quase lá! Verifique a lista de exercícios do mês e confirme a sua ação, ou volte para selecionar mais exercícios:"
+                />
+                <AppProfessionalConfirmBuild
+                  payload={stage.payload as PlanBuildPayloadProps}
+                  onMoreExercises={onExerciseReedit}
+                />
               </>
             )}
           </AppInternalContainer>

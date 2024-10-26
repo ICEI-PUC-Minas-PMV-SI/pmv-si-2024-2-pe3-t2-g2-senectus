@@ -32,10 +32,14 @@ export class ExerciseEntity extends CalendarEventEntity {
   private makeUrlFriend(input: string) {
     return encodeURIComponent(input.replaceAll(' ', '_').toLowerCase())
   }
+  clone() {
+    return new ExerciseEntity(JSON.parse(JSON.stringify(this.props)))
+  }
 
   get id() {
     return this.props.id
   }
+
   get name() {
     return this.props.name
   }
@@ -45,6 +49,7 @@ export class ExerciseEntity extends CalendarEventEntity {
   get level() {
     return this.props.level
   }
+
   get levelInPtBr() {
     switch (this.props.level) {
       case 'hard':
@@ -71,5 +76,11 @@ export class ExerciseEntity extends CalendarEventEntity {
   }
   get image() {
     return this.props.image
+  }
+  get dateInMilli() {
+    return this.props.dateInMilli
+  }
+  set dateInMilli(value: number) {
+    this.props.dateInMilli = value
   }
 }

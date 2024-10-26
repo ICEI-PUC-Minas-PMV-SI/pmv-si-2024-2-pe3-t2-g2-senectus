@@ -9,6 +9,8 @@ import { SpinnerLoading } from '../Loadings/SpinnerLoading'
 interface AppCalendarProps<T extends CalendarEventEntity> {
   onOpenMenu: (item: CollectionEventsOnDay<T>) => ReactNode
   list: CollectionEventsOnDay<T>[]
+  messageBuilder?: (eventsLength: number) => string
+  mobileEmptyListMessage?: string
 }
 
 export interface CalendarContextProps<T extends CalendarEventEntity> {
@@ -33,9 +35,23 @@ export function AppResponsiveCalendar<T extends CalendarEventEntity>(
     setCalendar()
   }, [])
 
-  if (isMobile) return <AppMobileCalendar daysWeek={daysWeek} {...props} />
+  if (isMobile)
+    return (
+      <AppMobileCalendar
+        daysWeek={daysWeek}
+        messageBuilder={props.messageBuilder}
+        emptyListMessage={props.mobileEmptyListMessage}
+        {...props}
+      />
+    )
   else if (isMobile === false)
-    return <AppDesktopCalendar daysWeek={daysWeek} {...props} />
+    return (
+      <AppDesktopCalendar
+        daysWeek={daysWeek}
+        {...props}
+        messageBuilder={props.messageBuilder}
+      />
+    )
   else
     return (
       <AppCalendarLoadStyle>

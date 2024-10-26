@@ -29,17 +29,17 @@ export function AppThreeColumnTable(props: ThreeColumnTableProps) {
         {props.rows.map((row) => (
           <tr key={uuid()}>
             {row.onClick ? (
-              <button className="data-row" onClick={row.onClick}>
+              <td role="button" className="data-row" onClick={row.onClick}>
                 <p className="table-start">{row.firstCol}</p>
                 <p className="table-mid">{row.secondCol}</p>
                 <p className="table-end">{row.thirdCol}</p>
-              </button>
+              </td>
             ) : (
-              <div className="data-row">
+              <td className="data-row">
                 <p className="table-start">{row.firstCol}</p>
                 <p className="table-mid">{row.secondCol}</p>
                 <p className="table-end">{row.thirdCol}</p>
-              </div>
+              </td>
             )}
           </tr>
         ))}

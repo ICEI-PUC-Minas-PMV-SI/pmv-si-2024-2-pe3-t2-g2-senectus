@@ -15,9 +15,15 @@ interface ErrorStateProps {
   message?: string
 }
 
+interface AppProfessionalSetCalendarDaysProps {
+  onSelectedDays: (dates: Date[]) => void
+}
+
 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
-export function AppProfessionalSetCalendarDays() {
+export function AppProfessionalSetCalendarDays(
+  props: AppProfessionalSetCalendarDaysProps
+) {
   const [dates, setDates] = useState<Date[]>([])
   const [selectedDate, setSelectedDate] = useState<DateValue | undefined>(
     now(timezone)
@@ -76,7 +82,11 @@ export function AppProfessionalSetCalendarDays() {
             <FaPlus />
           </button>
         </div>
-        <AppButtonActionRect text="Próximo" fullWidth />
+        <AppButtonActionRect
+          text="Próximo"
+          fullWidth
+          onClick={() => props.onSelectedDays(dates)}
+        />
 
         <Image
           src="/img/clients/meeting.svg"

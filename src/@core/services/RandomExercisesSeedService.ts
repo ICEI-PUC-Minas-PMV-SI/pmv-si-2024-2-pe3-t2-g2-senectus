@@ -74,8 +74,8 @@ export class RandomExercisesSeedService {
     for (let day = 0; day < 31; day++) {
       orderedDays.push(
         new CollectionEventsOnDay({
-          events: dayList[`${day}`],
-          monthDay: day
+          events: dayList[`${day + 1}`],
+          monthDay: day + 1
         })
       )
     }

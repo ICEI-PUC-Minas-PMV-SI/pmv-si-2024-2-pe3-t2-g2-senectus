@@ -12,6 +12,7 @@ interface AppCalendarProps<T extends CalendarEventEntity> {
   daysWeek: string[]
   onOpenMenu: (item: CollectionEventsOnDay<T>) => ReactNode
   list: CollectionEventsOnDay<T>[]
+  messageBuilder?: (eventsLength: number) => string
 }
 
 export function AppDesktopCalendar<T extends CalendarEventEntity>(
@@ -128,15 +129,21 @@ export function AppDesktopCalendar<T extends CalendarEventEntity>(
                     ></td>
                   )
 
-                const collectionOfEvents =
-                  props.list[daysInTheMonth[dayInMonthIndex]]
+                const collectionOfEvents = props.list[dayInMonthIndex]
                 const availableEvents = collectionOfEvents?.events?.length ?? 0
-                const displayText =
-                  availableEvents > 0
-                    ? `Você tem ${
-                        availableEvents > 10 ? '+10' : availableEvents
-                      } compromisso${availableEvents > 1 ? 's' : ''}`
-                    : ''
+
+                let displayText: string
+                if (props.messageBuilder) {
+                  displayText = props.messageBuilder(availableEvents)
+                } else {
+                  displayText =
+                    availableEvents > 0
+                      ? `Você tem ${
+                          availableEvents > 10 ? '+10' : availableEvents
+                        } compromisso${availableEvents > 1 ? 's' : ''}`
+                      : ''
+                }
+
                 const isActualDay =
                   actualDay.getDate() === daysInTheMonth[dayInMonthIndex]
 
