@@ -75,6 +75,12 @@ export function AppHeader(props: AppHeaderProps) {
           ))}
 
         <li
+          className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
+        >
+          <AppInternalLink href="/configuration">Configurações</AppInternalLink>
+        </li>
+
+        <li
           id="menu-btn-connect"
           className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
           style={!isOpen ? { display: 'none' } : {}}
