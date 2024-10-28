@@ -1,20 +1,16 @@
 'use client'
 
 import { ThemeProvider } from 'styled-components'
-import theme from '../../themes/theme'
+import { theme } from '../../themes/theme'
 import { NextUIProvider } from '@nextui-org/react'
-import { AppSearchAndFilter } from '@components/common/Inputs/SearchAndFilter/AppSearchAndFilter'
+import { FaEnvelope } from 'react-icons/fa6'
+import { AppDefaultInput } from '@components/common/Inputs/DefaultInput/AppDefaultInput'
 
 export default function Tests() {
   return (
     <ThemeProvider theme={theme}>
       <NextUIProvider className="default">
-        <AppSearchAndFilter
-          options={['Filtro 1', 'Filtro 2']}
-          onFilterClick={(value) => console.log(value)}
-          onChange={(value) => console.log(value)}
-          placeholder="Insire qualquer coisa"
-        />
+        <AppDefaultInput label="Insira seu nome" icon={<FaEnvelope />} />
       </NextUIProvider>
     </ThemeProvider>
   )

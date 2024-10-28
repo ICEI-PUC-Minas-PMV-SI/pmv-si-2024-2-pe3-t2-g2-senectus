@@ -18,8 +18,8 @@ export function AppSearchAndFilter(props: AppSearchAndFilterProps) {
       <AppSearchBar placeholder={props.placeholder} onChange={props.onChange} />
 
       <AppSelectRect
-        id="filter-select"
         placeholder="Filtrar"
+        ariaLabel="Filtro de pesquisa"
         options={props.options}
         onFilterChange={props.onFilterClick}
       />

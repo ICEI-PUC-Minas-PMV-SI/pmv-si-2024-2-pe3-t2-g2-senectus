@@ -1,5 +1,5 @@
 import { Select, SelectItem } from '@nextui-org/select'
-import theme from '../../../themes/theme'
+import { theme } from '@themes/theme'
 import { useEffect, useState } from 'react'
 import { AppSelectRectStyle } from './AppSelectRectStyle'
 import {
@@ -37,7 +37,7 @@ export function AppSelectRect({
 
     addEventListener('resize', setSizeOption)
     setSizeOption()
-  }, [])
+  }, [onClose])
 
   return (
     <AppSelectRectStyle>

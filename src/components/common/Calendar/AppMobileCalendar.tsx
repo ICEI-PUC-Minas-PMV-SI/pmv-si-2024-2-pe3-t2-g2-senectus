@@ -1,7 +1,7 @@
 import { format, getDaysInMonth } from 'date-fns'
 import { v4 as uuid } from 'uuid'
 import { theme } from '../../../themes/theme'
-import { ReactNode, useState, useRef, useEffect } from 'react'
+import { ReactNode, useState, useRef, useEffect, useMemo } from 'react'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6'
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
 import { MobileCalendarStyle } from './MobileCalendarStyle'
@@ -23,10 +23,11 @@ export function AppMobileCalendar<T extends CalendarEventEntity>(
     Omit<CalendarContextProps<T>, 'isOpen'>
   >({})
 
-  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
-  const actualDay = new Date(
-    format(new Date(), 'yyyy-MM-dd') + ` (${timezone})`
-  )
+  const actualDay = useMemo(() => {
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+    const date = format(new Date(), 'yyyy-MM-dd') + ` (${timezone})`
+    return new Date(date)
+  }, [])
 
   const daysInTheMonth: number[] = []
   for (let i = 1; i <= getDaysInMonth(actualDay); i++) daysInTheMonth.push(i)
@@ -58,7 +59,7 @@ export function AppMobileCalendar<T extends CalendarEventEntity>(
       ctx: props.list[actualDayInMonth],
       selectedDay: actualDayInMonth
     })
-  }, [props.list])
+  }, [props.list, actualDay])
 
   return (
     <MobileCalendarStyle>
