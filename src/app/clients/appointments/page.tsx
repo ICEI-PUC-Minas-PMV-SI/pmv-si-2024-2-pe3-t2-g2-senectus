@@ -15,7 +15,7 @@ import {
 } from '@core/models/AppointmentsEntity'
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
 import { useEffect, useState } from 'react'
-import { RandomAppointmentsSeedService } from '@core/services/RandomAppointmentsSeedService'
+import { RandomAppointmentsSeedService } from '@core/services/seed/clients/RandomAppointmentsSeedService'
 import { AppProfessionalAppointmentsView } from '@components/clients/professionals/appointments/AppProfessionalAppointmentsView'
 
 interface AppointmentsProps {

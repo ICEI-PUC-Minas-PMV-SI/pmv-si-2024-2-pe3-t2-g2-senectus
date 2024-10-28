@@ -1,6 +1,6 @@
 import { AppSearchAndFilter } from '@components/common/Inputs/SearchAndFilter/AppSearchAndFilter'
 import { ClientEntity } from '@core/models/ClientEntity'
-import { RandomClientsSeedService } from '@core/services/RandomClientsSeedService'
+import { RandomClientsSeedService } from '@core/services/seed/clients/RandomClientsSeedService'
 import { useEffect, useState } from 'react'
 import { ProfessionalSearchListStyle } from '../ProfessionalSearchListStyle'
 import { format } from 'date-fns'
@@ -50,6 +50,7 @@ export function AppProfessionalClientsSearchList(
             onClick = () => {
               return props.onClick && props.onClick(client)
             }
+          const lastAppointment = new Date(client.lastAppointmentInMilli)
 
           return {
             firstCol:
@@ -58,9 +59,9 @@ export function AppProfessionalClientsSearchList(
                 : client.name,
             secondCol: `${client.totalAppointments}`,
             thirdCol: `${format(
-              client.lastAppointment,
+              lastAppointment,
               'dd/MM/yyyy'
-            )} às ${format(client.lastAppointment, 'HH:mm')}`,
+            )} às ${format(lastAppointment, 'HH:mm')}`,
             onClick
           }
         })}

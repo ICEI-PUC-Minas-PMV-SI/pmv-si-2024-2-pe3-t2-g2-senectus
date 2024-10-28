@@ -19,69 +19,56 @@ import { AppProfessionalSetCalendarDays } from '@components/clients/professional
 import { AppProfessionalConfirmBuild } from '@components/clients/professionals/planBuilder/AppProfessionalConfirmBuild'
 import { NotificationContainer } from '@components/common/Notification/NotificationContainer'
 import 'react-toastify/dist/ReactToastify.css'
+import { TrainingPlanEntity } from '@core/models/TrainingPlanEntity'
 
-enum StageEnum {
-  SEARCH_CLIENT = 0,
-  SELECT_EXERCISES = 1,
-  SELECT_DATE = 2,
-  CONFIRM = 3
-}
-
-export interface PlanBuildPayloadProps {
-  client: ClientEntity
-  exercises: ExerciseEntity[]
-  dates: Date[]
-}
-
-export interface PlanBuildStageContextProps {
-  stageId: StageEnum
-  payload?: Partial<PlanBuildPayloadProps>
-}
+import {
+  PlanBuildStageContextProps,
+  PlanBuildStageEnum
+} from '@components/clients/professionals/sharedProps/PlanBuilderStage'
+import { ClientSelectionHandlerService } from '@core/services/appointments/professional/ClientSelectionHandlerService'
+import { ExercisesSelectionHandlerService } from '@core/services/appointments/professional/ExercisesSelectionHandlerService'
+import { DaysSelectionHandlerService } from '@core/services/appointments/professional/DaysSelectionHandlerService'
+import { ExerciseReeditHandlerService } from '@core/services/appointments/professional/ExerciseReeditHandlerService'
+import { BackButtonPlanBuilderHandler } from '@core/services/appointments/professional/BackButtonPlanBuilderHandler'
 
 export default function PlanBuilderScreen() {
   const [stage, setStage] = useState<PlanBuildStageContextProps>({
-    stageId: StageEnum.SEARCH_CLIENT
+    stageId: PlanBuildStageEnum.SEARCH_CLIENT,
+    stageHistoric: [],
+    avoidScrollOnTransition: false,
+    payload: new TrainingPlanEntity({
+      owner: '',
+      client: '',
+      exerciseStacks: []
+    })
   })
 
   const onSelectedClient = (client: ClientEntity) => {
-    setStage((prev) => ({
-      stageId: StageEnum.SELECT_EXERCISES,
-      payload: {
-        ...prev.payload,
-        client
-      }
-    }))
+    setStage((prev) => ClientSelectionHandlerService.exec(prev, client))
   }
 
   const onSelectedExercises = (exercises: ExerciseEntity[]) => {
-    setStage((prev) => ({
-      stageId: StageEnum.SELECT_DATE,
-      payload: {
-        ...prev?.payload,
-        exercises
-      }
-    }))
+    setStage((prev) => ExercisesSelectionHandlerService.exec(prev, exercises))
   }
 
   const onSelectedDays = (dates: Date[]) => {
-    setStage((prev) => ({
-      stageId: StageEnum.CONFIRM,
-      payload: {
-        ...prev?.payload,
-        dates
-      }
-    }))
+    setStage((prev) => DaysSelectionHandlerService.exec(prev, dates))
   }
 
   const onExerciseReedit = () => {
-    setStage((prev) => ({ ...prev, stageId: StageEnum.SELECT_EXERCISES }))
+    setStage((prev) => ExerciseReeditHandlerService.exec(prev))
+  }
+
+  const onBackButtonClick = () => {
+    BackButtonPlanBuilderHandler.exec(stage, setStage)
   }
 
   useEffect(() => {
-    window.scrollTo({
-      behavior: 'smooth',
-      top: 0
-    })
+    if (!stage.avoidScrollOnTransition)
+      window.scrollTo({
+        behavior: 'smooth',
+        top: 0
+      })
   }, [stage, setStage])
 
   return (
@@ -91,7 +78,7 @@ export default function PlanBuilderScreen() {
         <AppHeader />
 
         <AppContainer style={{ justifyContent: 'start' }}>
-          {stage.stageId === StageEnum.SEARCH_CLIENT && (
+          {stage.stageHistoric.length <= 0 && (
             <AppButtonLinkRectOutline
               href="/clients"
               text="Voltar"
@@ -99,13 +86,11 @@ export default function PlanBuilderScreen() {
             />
           )}
 
-          {stage.stageId !== StageEnum.SEARCH_CLIENT && (
+          {stage.stageHistoric.length > 0 && (
             <div style={{ width: '75vw', maxWidth: '7.44rem' }}>
               <AppButtonActionRectOutline
                 fullWidth
-                onClick={() =>
-                  setStage((prev) => ({ ...prev, stageId: --prev.stageId }))
-                }
+                onClick={onBackButtonClick}
                 text="Voltar"
                 icon={<FaAngleLeft />}
               />
@@ -113,7 +98,7 @@ export default function PlanBuilderScreen() {
           )}
 
           <AppInternalContainer>
-            {stage.stageId === StageEnum.SEARCH_CLIENT && (
+            {stage.stageId === PlanBuildStageEnum.SEARCH_CLIENT && (
               <>
                 <AppInitialText
                   title="Selecione um cliente"
@@ -123,7 +108,7 @@ export default function PlanBuilderScreen() {
                 <AppProfessionalClientsSearchList onClick={onSelectedClient} />
               </>
             )}
-            {stage.stageId === StageEnum.SELECT_EXERCISES && (
+            {stage.stageId === PlanBuildStageEnum.SELECT_EXERCISES && (
               <>
                 <AppInitialText
                   title="Selecionar exercícios"
@@ -132,10 +117,11 @@ export default function PlanBuilderScreen() {
 
                 <AppProfessionalExercisesSelector
                   onSelectedExercises={onSelectedExercises}
+                  preSelectedExercises={stage.payload.stackHolderRef?.exercises}
                 />
               </>
             )}
-            {stage.stageId === StageEnum.SELECT_DATE && (
+            {stage.stageId === PlanBuildStageEnum.SELECT_DATE && (
               <>
                 <AppInitialText
                   title="Selecionar datas"
@@ -143,19 +129,24 @@ export default function PlanBuilderScreen() {
                 />
 
                 <AppProfessionalSetCalendarDays
+                  planContext={stage}
                   onSelectedDays={onSelectedDays}
+                  preSelectedDays={stage.payload.stackHolderRef?.dateInMilliList.map(
+                    (milli) => new Date(milli)
+                  )}
                 />
               </>
             )}
-            {stage.stageId === StageEnum.CONFIRM && (
+            {stage.stageId === PlanBuildStageEnum.CONFIRM && (
               <>
                 <AppInitialText
                   title="Confirmar ação"
                   text="Estamos quase lá! Verifique a lista de exercícios do mês e confirme a sua ação, ou volte para selecionar mais exercícios:"
                 />
                 <AppProfessionalConfirmBuild
-                  payload={stage.payload as PlanBuildPayloadProps}
+                  planContext={stage}
                   onMoreExercises={onExerciseReedit}
+                  setPlanContext={setStage}
                 />
               </>
             )}

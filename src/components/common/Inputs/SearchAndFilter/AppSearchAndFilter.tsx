@@ -1,21 +1,51 @@
-import { AppSearchBar, AppSearchBarProps } from '../SearchBar/AppSearchBar'
+import { AppSearchBar } from '../SearchBar/AppSearchBar'
 import { AppSearchAndFilterContainer } from './AppSearchAndFilterStyles'
 import {
   AppSelectRect,
   AppSelectRectProps
 } from '@components/common/Selects/AppSelectRect'
+import { useState, useEffect } from 'react'
+
+interface OnFilterQuery {
+  filter: string
+  key?: string
+}
+
+interface OnChangeQuery {
+  key: string
+  filter?: string
+}
 
 interface AppSearchAndFilterProps {
-  onFilterClick: (selectedFilter: string) => void
-  onChange: Pick<AppSearchBarProps, 'onChange'>['onChange']
+  onFilterClick: (q: OnFilterQuery) => void
+  onChange: (q: OnChangeQuery) => void
   placeholder: string
   options: Pick<AppSelectRectProps, 'options'>['options']
 }
 
 export function AppSearchAndFilter(props: AppSearchAndFilterProps) {
+  const [filter, setFilter] = useState<string>('')
+  const [key, setKey] = useState('')
+
+  useEffect(() => {
+    props.onFilterClick({
+      filter,
+      key: key.length <= 0 ? undefined : key
+    })
+  }, [filter, setFilter, key])
+
   return (
     <AppSearchAndFilterContainer>
-      <AppSearchBar placeholder={props.placeholder} onChange={props.onChange} />
+      <AppSearchBar
+        placeholder={props.placeholder}
+        onChange={(key) => {
+          setKey(key)
+          props.onChange({
+            key,
+            filter: filter.length <= 0 ? undefined : filter
+          })
+        }}
+      />
 
       <AppSelectRect
         placeholder="Filtrar"
@@ -24,7 +54,8 @@ export function AppSearchAndFilter(props: AppSearchAndFilterProps) {
           className: 'filter'
         }}
         options={props.options}
-        onFilterChange={props.onFilterClick}
+        value={filter}
+        setValue={setFilter}
       />
     </AppSearchAndFilterContainer>
   )

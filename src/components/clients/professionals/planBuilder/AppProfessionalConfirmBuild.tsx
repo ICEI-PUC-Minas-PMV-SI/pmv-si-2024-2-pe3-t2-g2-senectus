@@ -1,19 +1,34 @@
-import { AppResponsiveCalendar } from '@components/common/Calendar/AppResponsiveCalendar'
+import {
+  AppResponsiveCalendar,
+  CalendarContextProps
+} from '@components/common/Calendar/AppResponsiveCalendar'
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'
-import { PlanBuildPayloadProps } from '@screens/clients/plan/new/page'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from 'react'
 import { AppProfessionalConfirmBuildMenu } from './AppProfessionalConfirmBuildMenu'
 import { AppTrainingMenuPlan } from '@components/exercises/AppTrainingMenuPlan'
 import { AppButtonActionRectOutline } from '@components/common/Buttons/AppButtonActionRectOutline'
 import { FaAngleLeft } from 'react-icons/fa6'
 import { ProfessionalConfirmBuilderStyle } from './ProfessionalConfirmBuilderStyle'
-import { AppInternalLink } from '@components/common/InternalLink/AppInternalLink'
 import { AppButtonActionRect } from '@components/common/Buttons/AppButtonActionRect'
+import { CreateCalendarCollectionByPlanService } from '@core/services/appointments/professional/CreateCalendarCollectionByPlanService'
+import { PlanBuildStageContextProps } from '../sharedProps/PlanBuilderStage'
+import { TrainingPlanEntity } from '@core/models/TrainingPlanEntity'
+import { useRouter } from 'next/navigation'
+import { PlanBuilderSubmitService } from '@core/services/appointments/professional/PlanBuilderSubmitService'
 
 interface AppProfessionalConfirmBuildProps {
-  payload: PlanBuildPayloadProps
+  planContext: PlanBuildStageContextProps
+  setPlanContext: Dispatch<SetStateAction<PlanBuildStageContextProps>>
   onMoreExercises: () => void
+  onSubmit: (plan: TrainingPlanEntity) => void
 }
 
 interface MenuTypeProps {
@@ -22,35 +37,20 @@ interface MenuTypeProps {
 }
 
 export function AppProfessionalConfirmBuild({
-  payload,
+  planContext,
+  setPlanContext,
   onMoreExercises
 }: AppProfessionalConfirmBuildProps) {
+  const router = useRouter()
   const [menuType, setMenuType] = useState<MenuTypeProps>({ type: 'main' })
-  const exercises = useMemo(() => {
-    const collections: CollectionEventsOnDay<ExerciseEntity>[] = []
-    for (let day = 0; day < 31; day++) {
-      collections.push(
-        new CollectionEventsOnDay<ExerciseEntity>({
-          monthDay: day + 1,
-          events: []
-        })
-      )
-    }
+  const [desktopMenuContext, setDesktopMenuContext] = useState<
+    CalendarContextProps<ExerciseEntity>
+  >({})
 
-    payload.dates.forEach((date) => {
-      const exercises = payload.exercises.map((exercise) => {
-        const clone = exercise.clone()
-        clone.dateInMilli = date.getTime()
-        return clone
-      })
-      const monthDay = date.getDate()
-      if (!collections[monthDay - 1].events)
-        collections[monthDay - 1].events = exercises
-      else collections[monthDay - 1].events.push(...exercises)
-    })
-
-    return collections
-  }, [payload])
+  const exercises = useMemo(
+    () => CreateCalendarCollectionByPlanService.exec(planContext.payload),
+    [planContext]
+  )
 
   const menuRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
@@ -58,21 +58,20 @@ export function AppProfessionalConfirmBuild({
   }, [menuType])
 
   const openExerciseMenu = (exercises: ExerciseEntity[]) => {
-    setMenuType({
-      type: 'exercise',
-      context: exercises
-    })
+    setMenuType({ type: 'exercise', context: exercises })
   }
 
   const closeExerciseMenu = () => {
     setMenuType({ type: 'main' })
   }
 
+  const onSubmit = () => {
+    PlanBuilderSubmitService.exec(router, planContext.payload)
+  }
+
   useEffect(() => {
     addEventListener('resize', () => {
-      if (window.innerHeight < 1000) {
-        setMenuType({ type: 'main' })
-      }
+      if (window.innerHeight < 1000) setMenuType({ type: 'main' })
     })
   }, [])
 
@@ -80,13 +79,19 @@ export function AppProfessionalConfirmBuild({
     <ProfessionalConfirmBuilderStyle>
       <AppResponsiveCalendar
         list={exercises}
+        sideMenuContext={desktopMenuContext}
+        setSideMenuContext={setDesktopMenuContext}
         onOpenMenu={(exercise) => (
           <div id="calendar-menu">
             {menuType.type === 'main' && (
               <div ref={menuRef}>
                 <AppProfessionalConfirmBuildMenu
                   exercises={exercise}
+                  setPlanContext={setPlanContext}
                   openExerciseMenu={openExerciseMenu}
+                  closeDesktopMenu={() => {
+                    setDesktopMenuContext({ isOpen: false })
+                  }}
                 />
               </div>
             )}
@@ -110,7 +115,7 @@ export function AppProfessionalConfirmBuild({
             )}
           </div>
         )}
-        mobileEmptyListMessage="Sem tarefas neste dia"
+        mobileEmptyListMessage="Sem tarefas neste dia."
         messageBuilder={(eventsLength) => {
           if (eventsLength <= 0) return ''
           if (eventsLength === 1) return '1 exercício disponível'
@@ -126,9 +131,12 @@ export function AppProfessionalConfirmBuild({
           onClick={onMoreExercises}
           fullWidth
         />
-        <AppInternalLink href="/clients" id="finish-creation">
-          <AppButtonActionRect fullWidth text="Finalizar" />
-        </AppInternalLink>
+        <AppButtonActionRect
+          id="finish-creation"
+          text="Finalizar"
+          onClick={onSubmit}
+          fullWidth
+        />
       </div>
     </ProfessionalConfirmBuilderStyle>
   )

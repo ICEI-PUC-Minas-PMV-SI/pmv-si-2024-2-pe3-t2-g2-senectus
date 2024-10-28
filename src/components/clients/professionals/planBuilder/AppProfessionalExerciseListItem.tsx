@@ -6,14 +6,16 @@ import Image from 'next/image'
 
 interface AppProfessionalExerciseListItemProps {
   exercise: ExerciseEntity
+  isSelected?: boolean
   onSelectChange: (value: boolean) => void
 }
 
 export function AppProfessionalExerciseListItem({
   exercise,
+  isSelected: externalIsSelected,
   onSelectChange
 }: AppProfessionalExerciseListItemProps) {
-  const [isSelected, setIsSelected] = useState(false)
+  const [isSelected, setIsSelected] = useState(externalIsSelected)
 
   return (
     <li>

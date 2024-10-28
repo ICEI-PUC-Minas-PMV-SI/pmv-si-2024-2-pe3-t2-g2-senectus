@@ -12,7 +12,9 @@ import { ptBR as locale } from 'date-fns/locale/pt-BR'
 import {
   NotificationService,
   NotificationTypeEnum
-} from '@core/services/NotificationService'
+} from '@core/services/notifications/NotificationService'
+import { PlanBuildStageContextProps } from '../sharedProps/PlanBuilderStage'
+import { SelectSingleDateService } from '@core/services/appointments/professional/SelectSingleDateService'
 
 interface ErrorStateProps {
   state: boolean
@@ -20,6 +22,8 @@ interface ErrorStateProps {
 }
 
 interface AppProfessionalSetCalendarDaysProps {
+  planContext: PlanBuildStageContextProps
+  preSelectedDays?: Date[]
   onSelectedDays: (dates: Date[]) => void
 }
 
@@ -28,7 +32,7 @@ const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 export function AppProfessionalSetCalendarDays(
   props: AppProfessionalSetCalendarDaysProps
 ) {
-  const [dates, setDates] = useState<Date[]>([])
+  const [dates, setDates] = useState<Date[]>(props.preSelectedDays ?? [])
   const [selectedDate, setSelectedDate] = useState<DateValue | undefined>(
     now(timezone)
   )
@@ -38,18 +42,17 @@ export function AppProfessionalSetCalendarDays(
 
   const addNewDate = () => {
     if (!selectedDate) return
-
-    const parsedDate = selectedDate.toDate(timezone)
-    const searchedDate = dates.find(
-      (item) => item.getTime() === parsedDate.getTime()
-    )
-    if (searchedDate)
-      return setIsInvalid({
-        state: true,
-        message: 'Nenhuma data pode ser repetida.'
-      })
-
-    setDates((prev) => [...prev, parsedDate])
+    try {
+      SelectSingleDateService.exec(
+        selectedDate,
+        props.planContext,
+        dates,
+        setDates,
+        timezone
+      )
+    } catch (e) {
+      setIsInvalid({ state: true, message: (e as Error).message })
+    }
   }
 
   const removeDate = (date: Date) => {

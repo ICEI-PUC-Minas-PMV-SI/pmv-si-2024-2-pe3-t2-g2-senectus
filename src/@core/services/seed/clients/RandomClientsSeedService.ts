@@ -9,7 +9,7 @@ export class RandomClientsSeedService {
           name: 'Nicolas Cleiton Basilio Viana Viana Viana Viana Viana',
           conclusionRate: Math.min(Math.floor(Math.random() * 101), 100),
           totalAppointments: Math.min(Math.floor(Math.random() * 51), 50),
-          lastAppointment: new Date()
+          lastAppointmentInMilli: Date.now()
         })
       )
     }

@@ -1,25 +1,45 @@
+import { v4 as uuid } from 'uuid'
+import { EntityTemplate } from './EntityTemplate'
+
 interface ClientEntityProps {
   id: string
   name: string
   conclusionRate: number
   totalAppointments: number
-  lastAppointment: Date
-  createdAt: Date
+  lastAppointmentInMilli: number
+  createdAtInMilli: number
 }
 
-import { v4 as uuid } from 'uuid'
-
-export class ClientEntity {
+export class ClientEntity implements EntityTemplate<ClientEntity> {
   private props: ClientEntityProps
 
   constructor(
-    props: Replace<ClientEntityProps, { createdAt?: Date; id?: string }>
+    props: Replace<
+      ClientEntityProps,
+      { createdAtInMilli?: number; id?: string }
+    >
   ) {
     this.props = {
       ...props,
       id: props.id ?? uuid(),
-      createdAt: props.createdAt ?? new Date()
+      createdAtInMilli: props.createdAtInMilli ?? Date.now()
     }
+  }
+
+  clone() {
+    return this.deserialize(this.serialize())
+  }
+
+  deserialize(json: string): ClientEntity {
+    return ClientEntity.deserialize(json)
+  }
+
+  static deserialize(json: string): ClientEntity {
+    return new ClientEntity(JSON.parse(json))
+  }
+
+  serialize() {
+    return JSON.stringify(this.props)
   }
 
   get id() {
@@ -31,13 +51,13 @@ export class ClientEntity {
   get totalAppointments() {
     return this.props.totalAppointments
   }
-  get lastAppointment() {
-    return this.props.lastAppointment
+  get lastAppointmentInMilli() {
+    return this.props.lastAppointmentInMilli
   }
   get conclusionRate() {
     return this.props.conclusionRate
   }
-  get createdAt() {
-    return this.props.createdAt
+  get createdAtInMilli() {
+    return this.props.createdAtInMilli
   }
 }

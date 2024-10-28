@@ -1,7 +1,10 @@
 import { CalendarEventEntity } from './CalendarEventEntity'
+import { v4 as uuid } from 'uuid'
+import { EntityTemplate } from './EntityTemplate'
 
-interface Props {
+interface ExerciseEntityProps {
   id: string
+  exerciseStackId?: string
   name: string
   level: 'hard' | 'medium' | 'easy'
   instructions: string[]
@@ -17,27 +20,51 @@ interface Props {
   }
 }
 
-export class ExerciseEntity extends CalendarEventEntity {
-  private readonly props: Props
+export type SerializedExerciseEntityProps = ExerciseEntityProps
 
-  constructor(props: Replace<Props, { dateInMilli?: number; id?: string }>) {
+export class ExerciseEntity
+  extends CalendarEventEntity
+  implements EntityTemplate<ExerciseEntity>
+{
+  private readonly props: ExerciseEntityProps
+
+  constructor(
+    props: Replace<ExerciseEntityProps, { dateInMilli?: number; id?: string }>
+  ) {
     super({ dateInMilli: props.dateInMilli ?? 0 })
     this.props = {
       ...props,
-      id: props.id ?? this.makeUrlFriend(props.name),
+      id: props.id ?? uuid(),
       dateInMilli: props.dateInMilli ?? 0
     }
   }
 
-  private makeUrlFriend(input: string) {
-    return encodeURIComponent(input.replaceAll(' ', '_').toLowerCase())
-  }
   clone() {
-    return new ExerciseEntity(JSON.parse(JSON.stringify(this.props)))
+    return this.deserialize(this.serialize())
+  }
+
+  deserialize(json: string): ExerciseEntity {
+    return new ExerciseEntity({ ...JSON.parse(json) })
+  }
+
+  static deserialize(json: string): ExerciseEntity {
+    return ExerciseEntity.deserialize(json)
+  }
+
+  serialize() {
+    return JSON.stringify(this.props)
   }
 
   get id() {
     return this.props.id
+  }
+
+  get exerciseStackId(): string | undefined {
+    return this.props.exerciseStackId
+  }
+
+  set exerciseStackId(value: string | undefined) {
+    this.props.exerciseStackId = value
   }
 
   get name() {

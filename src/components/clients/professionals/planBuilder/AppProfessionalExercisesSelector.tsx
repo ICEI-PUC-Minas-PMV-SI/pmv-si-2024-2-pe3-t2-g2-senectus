@@ -7,37 +7,36 @@ import { v4 as uuid } from 'uuid'
 import {
   NotificationService,
   NotificationTypeEnum
-} from '@core/services/NotificationService'
+} from '@core/services/notifications/NotificationService'
 import { AppProfessionalExerciseListItem } from './AppProfessionalExerciseListItem'
+import { useState, useEffect } from 'react'
+import { AppSearchNotFound } from '@components/common/SearchPlaceholders/AppSearchNotFound'
+import { ExerciseSearchService } from '@core/services/exercises/ExerciseSearchService'
+import { SelectedExerciseSearchService } from '@core/services/SelectedExerciseSearchService'
+import { SelectSingleExerciseService } from '@core/services/appointments/professional/SelectSingleExerciseService'
 
 interface AppProfessionalExerciseSelectorProps {
+  preSelectedExercises?: ExerciseEntity[]
   onSelectedExercises: (exercises: ExerciseEntity[]) => void
-}
-
-const exercises: ExerciseEntity[] = []
-for (let i = 0; i < 8; i++) {
-  exercises.push(
-    new ExerciseEntity({
-      name: 'Exercício de cadeira',
-      level: 'easy',
-      dateInMilli: Date.now()
-    })
-  )
 }
 
 export function AppProfessionalExercisesSelector(
   props: AppProfessionalExerciseSelectorProps
 ) {
-  const selectedExercises: ExerciseEntity[] = []
+  const [search, setSearch] = useState<ExerciseEntity[]>(
+    ExerciseSearchService.exec()
+  )
+  const [page, setPage] = useState(0)
+  const [total, setTotal] = useState(Math.ceil(search.length * 8))
+  const [selectedExercises, setSelectedExercises] = useState<ExerciseEntity[]>(
+    props.preSelectedExercises ?? []
+  )
 
-  const onSelectExerciseChange = (value: boolean, exercise: ExerciseEntity) => {
-    if (value) selectedExercises.push(exercise)
-    else {
-      const index = selectedExercises.findIndex(
-        (item) => item.name === exercise.name
-      )
-      if (index >= 0) selectedExercises.splice(index, 1)
-    }
+  const onSelectExerciseChange = (
+    isSelected: boolean,
+    exercise: ExerciseEntity
+  ) => {
+    SelectSingleExerciseService.exec(isSelected, exercise, setSelectedExercises)
   }
 
   const onSubmit = () => {
@@ -49,34 +48,71 @@ export function AppProfessionalExercisesSelector(
     props.onSelectedExercises(selectedExercises)
   }
 
+  const handleSearch = (filter?: string, key?: string) => {
+    if (filter === 'Selecionados')
+      return setSearch(
+        SelectedExerciseSearchService.exec(selectedExercises, key)
+      )
+    setSearch(ExerciseSearchService.exec(key, filter))
+  }
+
+  useEffect(() => {
+    setPage(0)
+    setTotal(Math.ceil(search.length / 8))
+  }, [search, setSearch])
+
   return (
     <ProfessionalExercisesSelectorStyle>
       <div id="input-wrapper">
         <AppSearchAndFilter
-          onFilterClick={() => {}}
+          onFilterClick={(q) => handleSearch(q.filter, q.key)}
           options={[
+            'Selecionados',
             'Alongamento',
             'Equilíbrio',
             'Fortalecimento',
             'Mobilidade'
           ]}
           placeholder="Insira o nome do exercício."
-          onChange={() => {}}
+          onChange={(q) => handleSearch(q.filter, q.key)}
         />
       </div>
 
-      <ul id="exercise-list">
-        {exercises.map((item) => (
-          <AppProfessionalExerciseListItem
-            key={uuid()}
-            exercise={item}
-            onSelectChange={(value) => onSelectExerciseChange(value, item)}
-          />
-        ))}
-      </ul>
+      {search.length > 0 && (
+        <ul id="exercise-list">
+          {search.slice(page * 8, (page + 1) * 8).map((item) => {
+            const searchedExercise = selectedExercises.find((exercise) => {
+              return exercise.id === item.id
+            })
+
+            return (
+              <AppProfessionalExerciseListItem
+                key={uuid()}
+                exercise={item}
+                isSelected={Boolean(searchedExercise)}
+                onSelectChange={(value) => onSelectExerciseChange(value, item)}
+              />
+            )
+          })}
+        </ul>
+      )}
+
+      {search.length <= 0 && (
+        <AppSearchNotFound text="Nenhum exercício encontrado." />
+      )}
 
       <div id="actions">
-        <AppPagination total={10} page={1} />
+        {search.length > 8 && total > 1 && (
+          <AppPagination
+            total={total}
+            page={page + 1}
+            onChange={(page) => {
+              setPage(page - 1)
+            }}
+          />
+        )}
+
+        {search.length <= 8 && <AppPagination total={1} page={1} />}
 
         <div className="btn-wrapper">
           <AppButtonActionRect text="Próximo" onClick={onSubmit} fullWidth />

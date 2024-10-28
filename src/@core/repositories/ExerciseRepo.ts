@@ -46,19 +46,21 @@ export class ExerciseRepo {
           name: item.name,
           image: item.image,
           exercises: item.exercises.flatMap((exercise) => {
-            const parsedExercise = new ExerciseEntity({
+            const props = {
               name: exercise.name,
               durationInMilli: exercise.durationInMilli,
               level: exercise.level,
               instructions: exercise.instructions,
               video: exercise.video,
               image: exercise.image
-            })
+            }
 
-            const parsedExerciseList: ExerciseEntity[] = [parsedExercise]
+            const parsedExerciseList: ExerciseEntity[] = [
+              new ExerciseEntity(props)
+            ]
             if (exercise.repeat)
               for (let i = 0; i < exercise.repeat; i++)
-                parsedExerciseList.push(parsedExercise)
+                parsedExerciseList.push(new ExerciseEntity(props))
 
             return parsedExerciseList
           })
@@ -86,6 +88,21 @@ export class ExerciseRepo {
 
   static getCategoryNameById(id: string) {
     return ExerciseRepo.exercises.find((item) => item.id == id)?.name
+  }
+
+  static getAllExercises() {
+    return ExerciseRepo.exercises.flatMap((item) => item.exercises)
+  }
+
+  static findExercisesByMatchesInAllCategories(key: string) {
+    const matches: ExerciseEntity[] = []
+    const list = ExerciseRepo.getAllExercises()
+    const regex = new RegExp(key, 'gmi')
+    for (let i = 0; i < list.length; i++)
+      if (regex.test(list[i].name) || regex.test(list[i].level))
+        matches.push(list[i])
+
+    return matches
   }
 
   static findExercisesByMatches(categoryId: string, key: string) {

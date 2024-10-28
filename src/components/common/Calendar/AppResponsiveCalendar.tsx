@@ -1,4 +1,4 @@
-import { ReactNode, useState, useEffect } from 'react'
+import { ReactNode, useState, useEffect, SetStateAction, Dispatch } from 'react'
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
 import { AppDesktopCalendar } from './AppDesktopCalendar'
 import { AppMobileCalendar } from './AppMobileCalendar'
@@ -6,17 +6,19 @@ import { AppCalendarLoadStyle } from './AppCalendarLoadStyle'
 import { CalendarEventEntity } from '@core/models/CalendarEventEntity'
 import { SpinnerLoading } from '../Loadings/SpinnerLoading'
 
+export interface CalendarContextProps<T extends CalendarEventEntity> {
+  isOpen?: boolean
+  ctx?: CollectionEventsOnDay<T>
+  selectedDay?: number
+}
+
 interface AppCalendarProps<T extends CalendarEventEntity> {
   onOpenMenu: (item: CollectionEventsOnDay<T>) => ReactNode
   list: CollectionEventsOnDay<T>[]
   messageBuilder?: (eventsLength: number) => string
   mobileEmptyListMessage?: string
-}
-
-export interface CalendarContextProps<T extends CalendarEventEntity> {
-  isOpen?: boolean
-  ctx?: CollectionEventsOnDay<T>
-  selectedDay?: number
+  sideMenuContext?: CalendarContextProps<T>
+  setSideMenuContext?: Dispatch<SetStateAction<CalendarContextProps<T>>>
 }
 
 const daysWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']

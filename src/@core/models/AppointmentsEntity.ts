@@ -1,4 +1,5 @@
 import { CalendarEventEntity } from './CalendarEventEntity'
+import { EntityTemplate } from './EntityTemplate'
 
 export enum AppointmentStateEnum {
   ACCEPTED = 'Aceito',
@@ -14,12 +15,31 @@ interface AppointmentEntityProps {
   state: AppointmentStateEnum
 }
 
-export class AppointmentsEntity extends CalendarEventEntity {
+export class AppointmentsEntity
+  extends CalendarEventEntity
+  implements EntityTemplate<AppointmentsEntity>
+{
   private props: AppointmentEntityProps
 
   constructor(props: AppointmentEntityProps) {
     super({ dateInMilli: props.dateInMilli })
     this.props = props
+  }
+
+  clone() {
+    return this.deserialize(this.serialize())
+  }
+
+  deserialize(json: string): AppointmentsEntity {
+    return AppointmentsEntity.deserialize(json)
+  }
+
+  static deserialize(json: string): AppointmentsEntity {
+    return new AppointmentsEntity(JSON.parse(json))
+  }
+
+  serialize() {
+    return JSON.stringify(this.props)
   }
 
   get host() {
