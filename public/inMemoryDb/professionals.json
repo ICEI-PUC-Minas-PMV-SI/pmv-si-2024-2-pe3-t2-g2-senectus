@@ -1,0 +1,39 @@
+{
+  "professionals": [
+    {
+      "role": "Doctor",
+      "name": "Dr. Alice Smith",
+      "email": "alice.smith@example.com",
+      "phone": "+1-555-1234",
+      "city": "New York"
+    },
+    {
+      "role": "Therapist",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "phone": "+1-555-5678",
+      "city": "Los Angeles"
+    },
+    {
+      "role": "Nutritionist",
+      "name": "Mary Johnson",
+      "email": "mary.johnson@example.com",
+      "phone": "+1-555-8765",
+      "city": "Chicago"
+    },
+    {
+      "role": "Physical Trainer",
+      "name": "David Brown",
+      "email": "david.brown@example.com",
+      "phone": "+1-555-4321",
+      "city": "Houston"
+    },
+    {
+      "role": "Psychologist",
+      "name": "Sophia Williams",
+      "email": "sophia.williams@example.com",
+      "phone": "+1-555-3456",
+      "city": "Phoenix"
+    }
+  ]
+}
