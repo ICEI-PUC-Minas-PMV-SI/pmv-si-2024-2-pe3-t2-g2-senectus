@@ -12,7 +12,7 @@ import { AppProfessionalExerciseListItem } from './AppProfessionalExerciseListIt
 import { useState, useEffect } from 'react'
 import { AppSearchNotFound } from '@components/common/SearchPlaceholders/AppSearchNotFound'
 import { ExerciseSearchService } from '@core/services/exercises/ExerciseSearchService'
-import { SelectedExerciseSearchService } from '@core/services/SelectedExerciseSearchService'
+import { SelectedExerciseSearchService } from '@core/services/exercises/SelectedExerciseSearchService'
 import { SelectSingleExerciseService } from '@core/services/appointments/professional/SelectSingleExerciseService'
 
 interface AppProfessionalExerciseSelectorProps {

@@ -1,6 +1,6 @@
 import { AppResponsiveCalendar } from '@components/common/Calendar/AppResponsiveCalendar'
 import { TrainingPlanStyle } from './TrainingPlanStyle'
-import { RandomExercisesSeedService } from '@core/services/RandomExercisesSeedService'
+import { RandomExercisesSeedService } from '@core/services/seed/exercises/RandomExercisesSeedService'
 import { useEffect } from 'react'
 import { useCalendar } from '../../hooks/useCalendar'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'

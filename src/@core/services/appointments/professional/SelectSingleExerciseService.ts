@@ -16,7 +16,7 @@ export class SelectSingleExerciseService {
 
     setSelectedExercises((prev) => {
       const arr = [...prev]
-      const index = arr.findIndex((item) => item.name === exercise.name)
+      const index = arr.findIndex((item) => item.id === exercise.id)
       if (index >= 0) arr.splice(index, 1)
       return arr
     })

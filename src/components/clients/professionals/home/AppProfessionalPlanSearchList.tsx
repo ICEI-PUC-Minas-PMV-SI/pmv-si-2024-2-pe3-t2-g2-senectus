@@ -1,13 +1,15 @@
 import { AppSearchAndFilter } from '@components/common/Inputs/SearchAndFilter/AppSearchAndFilter'
 import { ClientEntity } from '@core/models/ClientEntity'
-import { RandomClientsSeedService } from '@core/services/RandomClientsSeedService'
+import { RandomClientsSeedService } from '@core/services/seed/clients/RandomClientsSeedService'
 import { useEffect, useState } from 'react'
 import { ProfessionalSearchListStyle } from '../ProfessionalSearchListStyle'
 import { format } from 'date-fns'
 import { AppPagination } from '@components/common/Pagination/AppPagination'
 import { AppThreeColumnTable } from '@components/common/Tables/AppThreeColumnTable'
+import { useRouter } from 'next/navigation'
 
 export function AppProfessionalPlanSearchList() {
+  const router = useRouter()
   const [clients, setClients] = useState<ClientEntity[]>([])
   const [page, setPage] = useState(0)
   const [total, setTotal] = useState(Math.ceil(clients.length / 7))
@@ -38,15 +40,20 @@ export function AppProfessionalPlanSearchList() {
           secondCol: 'Progresso',
           thirdCol: 'Criado em'
         }}
-        rows={clients.slice(page * 7, (page + 1) * 7).map((client) => ({
-          firstCol:
-            client.name.length > 40
-              ? client.name.substring(0, 40) + '...'
-              : client.name,
-          secondCol: `${client.conclusionRate}% concluído`,
-          thirdCol: `${format(client.createdAt, 'dd/MM/yyyy')} às ${format(client.createdAt, 'HH:mm')}`,
-          link: `/clients/plan/edit/${client.id}`
-        }))}
+        rows={clients.slice(page * 7, (page + 1) * 7).map((client) => {
+          const createdAt = new Date(client.createdAtInMilli)
+          return {
+            firstCol:
+              client.name.length > 40
+                ? client.name.substring(0, 40) + '...'
+                : client.name,
+            secondCol: `${client.conclusionRate}% concluído`,
+            thirdCol: `${format(createdAt, 'dd/MM/yyyy')} às ${format(createdAt, 'HH:mm')}`,
+            onClick: () => {
+              router.push(`/clients/plan/edit/${client.id}`)
+            }
+          }
+        })}
       />
       {total > 1 && clients.length > 7 && (
         <AppPagination

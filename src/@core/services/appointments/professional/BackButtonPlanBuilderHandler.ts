@@ -7,7 +7,8 @@ import { Dispatch, SetStateAction } from 'react'
 export class BackButtonPlanBuilderHandler {
   static exec(
     context: PlanBuildStageContextProps,
-    setContext: Dispatch<SetStateAction<PlanBuildStageContextProps>>
+    setContext: Dispatch<SetStateAction<PlanBuildStageContextProps>>,
+    shouldSkipClientStep?: boolean
   ) {
     let historicClone = [...context.stageHistoric]
     const payload = context.payload
@@ -16,7 +17,9 @@ export class BackButtonPlanBuilderHandler {
     if (payload.stackHolderRef) nextStage = historicClone.pop()!
     else {
       nextStage = PlanBuildStageEnum.SELECT_EXERCISES
-      historicClone = [PlanBuildStageEnum.SEARCH_CLIENT]
+      historicClone = !shouldSkipClientStep
+        ? [PlanBuildStageEnum.SEARCH_CLIENT]
+        : []
     }
 
     setContext((prev) => ({

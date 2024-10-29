@@ -7,6 +7,6 @@ export class PlanBuilderSubmitService {
     clone.stackHolderRef = undefined
 
     console.log(clone.serialize())
-    router.push('/client', { scroll: true })
+    router.push('/clients', { scroll: true })
   }
 }

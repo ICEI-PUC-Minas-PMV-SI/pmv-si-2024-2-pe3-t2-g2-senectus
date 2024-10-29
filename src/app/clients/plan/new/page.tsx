@@ -31,16 +31,24 @@ import { DaysSelectionHandlerService } from '@core/services/appointments/profess
 import { ExerciseReeditHandlerService } from '@core/services/appointments/professional/ExerciseReeditHandlerService'
 import { BackButtonPlanBuilderHandler } from '@core/services/appointments/professional/BackButtonPlanBuilderHandler'
 
-export default function PlanBuilderScreen() {
+interface PlanBuilderScreenProps {
+  initialStage?: PlanBuildStageEnum
+  preLoadedTrainingPlan?: TrainingPlanEntity
+  skipClientSelection?: boolean
+}
+
+export default function PlanBuilderScreen(props: PlanBuilderScreenProps) {
   const [stage, setStage] = useState<PlanBuildStageContextProps>({
-    stageId: PlanBuildStageEnum.SEARCH_CLIENT,
+    stageId: props.initialStage ?? PlanBuildStageEnum.SEARCH_CLIENT,
     stageHistoric: [],
     avoidScrollOnTransition: false,
-    payload: new TrainingPlanEntity({
-      owner: '',
-      client: '',
-      exerciseStacks: []
-    })
+    payload:
+      props.preLoadedTrainingPlan ??
+      new TrainingPlanEntity({
+        owner: '',
+        client: '',
+        exerciseStacks: []
+      })
   })
 
   const onSelectedClient = (client: ClientEntity) => {
@@ -60,7 +68,11 @@ export default function PlanBuilderScreen() {
   }
 
   const onBackButtonClick = () => {
-    BackButtonPlanBuilderHandler.exec(stage, setStage)
+    BackButtonPlanBuilderHandler.exec(
+      stage,
+      setStage,
+      props.skipClientSelection
+    )
   }
 
   useEffect(() => {
@@ -98,16 +110,19 @@ export default function PlanBuilderScreen() {
           )}
 
           <AppInternalContainer>
-            {stage.stageId === PlanBuildStageEnum.SEARCH_CLIENT && (
-              <>
-                <AppInitialText
-                  title="Selecione um cliente"
-                  text="Insira o nome de clientes que você já atendeu em suas consultas por aqui:"
-                />
+            {stage.stageId === PlanBuildStageEnum.SEARCH_CLIENT &&
+              !props.skipClientSelection && (
+                <>
+                  <AppInitialText
+                    title="Selecione um cliente"
+                    text="Insira o nome de clientes que você já atendeu em suas consultas por aqui:"
+                  />
 
-                <AppProfessionalClientsSearchList onClick={onSelectedClient} />
-              </>
-            )}
+                  <AppProfessionalClientsSearchList
+                    onClick={onSelectedClient}
+                  />
+                </>
+              )}
             {stage.stageId === PlanBuildStageEnum.SELECT_EXERCISES && (
               <>
                 <AppInitialText

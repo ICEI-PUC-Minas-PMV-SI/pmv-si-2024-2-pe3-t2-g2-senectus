@@ -20,7 +20,6 @@ import { ProfessionalConfirmBuilderStyle } from './ProfessionalConfirmBuilderSty
 import { AppButtonActionRect } from '@components/common/Buttons/AppButtonActionRect'
 import { CreateCalendarCollectionByPlanService } from '@core/services/appointments/professional/CreateCalendarCollectionByPlanService'
 import { PlanBuildStageContextProps } from '../sharedProps/PlanBuilderStage'
-import { TrainingPlanEntity } from '@core/models/TrainingPlanEntity'
 import { useRouter } from 'next/navigation'
 import { PlanBuilderSubmitService } from '@core/services/appointments/professional/PlanBuilderSubmitService'
 
@@ -28,7 +27,6 @@ interface AppProfessionalConfirmBuildProps {
   planContext: PlanBuildStageContextProps
   setPlanContext: Dispatch<SetStateAction<PlanBuildStageContextProps>>
   onMoreExercises: () => void
-  onSubmit: (plan: TrainingPlanEntity) => void
 }
 
 interface MenuTypeProps {
