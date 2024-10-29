@@ -94,6 +94,14 @@ export class ExerciseRepo {
     return ExerciseRepo.exercises.flatMap((item) => item.exercises)
   }
 
+  static getRandomExercise() {
+    const exercises = ExerciseRepo.getAllExercises()
+    const randomIndex = Math.floor(
+      Math.min(Math.random() * exercises.length, exercises.length - 1)
+    )
+    return exercises[randomIndex]
+  }
+
   static findExercisesByMatchesInAllCategories(key: string) {
     const matches: ExerciseEntity[] = []
     const list = ExerciseRepo.getAllExercises()

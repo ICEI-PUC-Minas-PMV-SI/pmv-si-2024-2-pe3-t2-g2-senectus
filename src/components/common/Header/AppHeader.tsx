@@ -6,8 +6,27 @@ import { MenuButtonStyle } from './MenuButtonStyle'
 import { FaBars, FaXmark } from 'react-icons/fa6'
 import { useEffect, useState } from 'react'
 import { AppButtonLinkRect } from '../Buttons/AppButtonLinkRect'
+import { v4 as uuid } from 'uuid'
 
-export function AppHeader() {
+const options = {
+  client: [
+    { href: '/appointments', title: 'Consultas' },
+    { href: '/exercises', title: 'Exercícios' },
+    { href: '/events', title: 'Eventos' },
+    { href: '/blogs', title: 'Blog' }
+  ],
+  professional: [
+    { href: '/clients', title: 'Clientes' },
+    { href: '/events', title: 'Eventos' },
+    { href: '/blogs', title: 'Blog' }
+  ]
+}
+
+interface AppHeaderProps {
+  isProfessional?: boolean
+}
+
+export function AppHeader(props: AppHeaderProps) {
   const [isOpen, setIsOpen] = useState<boolean | null>(null)
 
   useEffect(() => {
@@ -31,30 +50,34 @@ export function AppHeader() {
       <ul
         className={`${isOpen ? 'open grow-animation' : isOpen === false ? 'closed shrink-animation' : ''}`}
       >
-        <li
-          className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
-        >
-          <AppInternalLink href="/appointments">Consultas</AppInternalLink>
-        </li>
-        <li
-          className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
-        >
-          <AppInternalLink href="/exercises">Exercícios</AppInternalLink>
-        </li>
-        <li
-          className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
-        >
-          <AppInternalLink href="/events">Eventos</AppInternalLink>
-        </li>
-        <li
-          className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
-        >
-          <AppInternalLink href="/blogs">Blog</AppInternalLink>
-        </li>
+        {!props.isProfessional &&
+          options.client.map((option) => (
+            <li
+              key={uuid()}
+              className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
+            >
+              <AppInternalLink href={option.href}>
+                {option.title}
+              </AppInternalLink>
+            </li>
+          ))}
+
+        {props.isProfessional &&
+          options.professional.map((option) => (
+            <li
+              key={uuid()}
+              className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
+            >
+              <AppInternalLink href={option.href}>
+                {option.title}
+              </AppInternalLink>
+            </li>
+          ))}
 
         <li
           id="menu-btn-connect"
           className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
+          style={!isOpen ? { display: 'none' } : {}}
         >
           <AppButtonLinkRect href="/sigin" text="Conectar" />
         </li>

@@ -15,7 +15,7 @@ export default function ClientsScreen() {
   return (
     <ThemeProvider theme={theme}>
       <NextUIProvider className="default">
-        <AppHeader />
+        <AppHeader isProfessional />
 
         <AppContainer style={{ justifyContent: 'start' }}>
           <AppButtonLinkRectOutline

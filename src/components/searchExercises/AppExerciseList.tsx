@@ -6,8 +6,8 @@ import { AppPagination } from '@components/common/Pagination/AppPagination'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ExerciseRepo } from '@core/repositories/ExerciseRepo'
 import { AppSearchNotFound } from '@components/common/SearchPlaceholders/AppSearchNotFound'
+import { ExerciseSearchService } from '@core/services/exercises/ExerciseSearchService'
 
 interface AppExerciseListProps {
   categoryId: string
@@ -21,7 +21,7 @@ export function AppExerciseList(props: AppExerciseListProps) {
 
   const onSearch = (value: string) => {
     if (value.length <= 0) return setSearchedExercises(props.exercises)
-    const res = ExerciseRepo.findExercisesByMatches(props.categoryId, value)
+    const res = ExerciseSearchService.exec(value, props.categoryId)
     setSearchedExercises(res)
   }
 

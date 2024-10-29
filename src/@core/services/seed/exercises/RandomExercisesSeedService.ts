@@ -1,6 +1,7 @@
 import { format, getDaysInMonth } from 'date-fns'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
+import { ExerciseRepo } from '@core/repositories/ExerciseRepo'
 
 export class RandomExercisesSeedService {
   static exec(
@@ -33,29 +34,9 @@ export class RandomExercisesSeedService {
 
       const dayArr: ExerciseEntity[] = []
       for (let i = 0; i < Math.min(Math.floor(Math.random() * 5), 4); i++) {
-        const day = new ExerciseEntity({
-          id: 'exercicio-da-cadeira',
-          durationInMilli: 1000 * 60 * 3,
-          name: 'Exercício da cadeira',
-          href: '/exercises/mobilidade/exercicio-da-cadeira',
-          instructions: [
-            'Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.',
-            'Estenda um braço para cima, segurando por 10 segundos e troque.',
-            'Fique em pé com os pés na largura dos ombros.',
-            'Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes.'
-          ],
-          video: {
-            src: 'https://www.youtube.com/watch?v=28kE5vLW4vM'
-          },
-          image: {
-            src: '/img/exercises/walking-exercise.png',
-            alt: 'Pessoa fazendo exercício'
-          },
-          level: RandomExercisesSeedService.getRandomLevel(),
-          dateInMilli: randomDate.getTime()
-        })
-
-        dayArr.push(day)
+        const exerciseDay = ExerciseRepo.getRandomExercise().clone()
+        exerciseDay.dateInMilli = randomDate.getTime()
+        dayArr.push(exerciseDay)
       }
 
       const randomlySelectedDayOnMonth = `${randomDate.getDate()}`
@@ -81,20 +62,6 @@ export class RandomExercisesSeedService {
     }
 
     return orderedDays
-  }
-
-  private static getRandomLevel(): 'easy' | 'medium' | 'hard' {
-    const rand = Math.min(Math.floor(Math.random() * 3), 2)
-    switch (rand) {
-      case 0:
-        return 'easy'
-      case 1:
-        return 'medium'
-      case 2:
-        return 'hard'
-      default:
-        return 'easy'
-    }
   }
 
   private static formatCalendarNumber(num: number) {

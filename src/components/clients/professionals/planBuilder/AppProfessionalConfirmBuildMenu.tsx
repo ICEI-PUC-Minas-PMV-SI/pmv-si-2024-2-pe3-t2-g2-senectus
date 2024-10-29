@@ -14,11 +14,11 @@ import { ptBR as locale } from 'date-fns/locale'
 import { ProfessionalConfirmBuildMenuStyle } from './ProfessionalConfirmBuildMenuStyle'
 import { AppPagination } from '@components/common/Pagination/AppPagination'
 import { AppExerciseSelectorModalAction } from '../modals/planBuilder/AppExerciseSelectorModalAction'
-import { SortExercisesByDateKeyService } from '@core/services/appointments/professional/SortExercisesByDateKeyService'
-import { FormatExercisesToShowOnPlanBuildService } from '@core/services/appointments/professional/FormatExercisesToShowOnPlanBuildService'
-import { EditPlanBuilderService } from '@core/services/appointments/professional/EditPlanBuilderService'
+import { SortExercisesByDateKeyService } from '@core/services/plan/professional/SortExercisesByDateKeyService'
+import { FormatExercisesToShowOnPlanBuildService } from '@core/services/plan/professional/FormatExercisesToShowOnPlanBuildService'
+import { EditPlanBuilderService } from '@core/services/plan/professional/EditPlanBuilderService'
 import { PlanBuildStageContextProps } from '../sharedProps/PlanBuilderStage'
-import { DeleteExercisePlanBuilderService } from '@core/services/appointments/professional/DeleteExercisePlanBuilderService'
+import { DeleteExercisePlanBuilderService } from '@core/services/plan/professional/DeleteExercisePlanBuilderService'
 
 interface FormattedExercise {
   exercises: ExerciseEntity[]
