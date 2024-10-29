@@ -43,6 +43,7 @@ export class GetRandomTrainingPlanService {
       return clone
     })
     exerciseStack.exercises = exercises
+    exerciseStack.dateInMilliList = dateInMilliList
     return new TrainingPlanEntity({
       owner: '',
       client: '',
