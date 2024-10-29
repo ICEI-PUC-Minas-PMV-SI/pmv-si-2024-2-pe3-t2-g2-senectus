@@ -1,6 +1,5 @@
 import { EntityTemplate } from './EntityTemplate'
 import { ExerciseEntity, SerializedExerciseEntityProps } from './ExerciseEntity'
-import { v4 as uuid } from 'uuid'
 
 interface ExerciseStackEntityProps {
   id: string
@@ -16,13 +15,15 @@ export type SerializedExerciseStackEntityProps = Replace<
 export class ExerciseStackEntity
   implements EntityTemplate<ExerciseStackEntity>
 {
+  private static nextId = 0
   private props: ExerciseStackEntityProps
 
   constructor(props: Replace<ExerciseStackEntityProps, { id?: string }>) {
     this.props = {
       ...props,
-      id: props.id ?? uuid()
+      id: props.id ?? `exercise-stack-${ExerciseStackEntity.nextId}`
     }
+    ++ExerciseStackEntity.nextId
   }
 
   clone() {

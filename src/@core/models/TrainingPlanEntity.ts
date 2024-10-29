@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid'
 import {
   ExerciseStackEntity,
   SerializedExerciseStackEntityProps
@@ -23,13 +22,15 @@ export type SerializedTrainingPlanEntityProps = Replace<
 >
 
 export class TrainingPlanEntity implements EntityTemplate<TrainingPlanEntity> {
+  private static nextId = 0
   private props: TrainingPlanEntityProps
 
   constructor(props: Replace<TrainingPlanEntityProps, { id?: string }>) {
     this.props = {
       ...props,
-      id: props.id ?? uuid()
+      id: props.id ?? `training-plan-${TrainingPlanEntity.nextId}`
     }
+    ++TrainingPlanEntity.nextId
   }
 
   clone() {

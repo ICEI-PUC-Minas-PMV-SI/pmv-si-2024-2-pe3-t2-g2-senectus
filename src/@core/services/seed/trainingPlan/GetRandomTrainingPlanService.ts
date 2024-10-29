@@ -2,7 +2,6 @@ import { ExerciseStackEntity } from '@core/models/ExerciseStackEntity'
 import { TrainingPlanEntity } from '@core/models/TrainingPlanEntity'
 import { ExerciseRepo } from '@core/repositories/ExerciseRepo'
 import { format, getDaysInMonth } from 'date-fns'
-import { v4 as uuid } from 'uuid'
 
 export class GetRandomTrainingPlanService {
   static exec() {
@@ -34,22 +33,20 @@ export class GetRandomTrainingPlanService {
       dateInMilliList.push(randomDate.getTime())
     }
 
-    const stackId = uuid()
+    const exerciseStack = new ExerciseStackEntity({
+      dateInMilliList: [],
+      exercises: []
+    })
     const exercises = ExerciseRepo.getAllExercises().map((item) => {
       const clone = item.clone()
-      clone.exerciseStackId = stackId
+      clone.exerciseStackId = exerciseStack.id
       return clone
     })
+    exerciseStack.exercises = exercises
     return new TrainingPlanEntity({
       owner: '',
       client: '',
-      exerciseStacks: [
-        new ExerciseStackEntity({
-          id: stackId,
-          dateInMilliList,
-          exercises
-        })
-      ]
+      exerciseStacks: [exerciseStack]
     })
   }
 

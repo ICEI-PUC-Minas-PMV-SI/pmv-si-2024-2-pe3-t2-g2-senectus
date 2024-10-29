@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid'
 import { EntityTemplate } from './EntityTemplate'
 
 interface ClientEntityProps {
@@ -11,6 +10,7 @@ interface ClientEntityProps {
 }
 
 export class ClientEntity implements EntityTemplate<ClientEntity> {
+  private static nextId = 0
   private props: ClientEntityProps
 
   constructor(
@@ -21,9 +21,10 @@ export class ClientEntity implements EntityTemplate<ClientEntity> {
   ) {
     this.props = {
       ...props,
-      id: props.id ?? uuid(),
+      id: props.id ?? `client-${ClientEntity.nextId}`,
       createdAtInMilli: props.createdAtInMilli ?? Date.now()
     }
+    ++ClientEntity.nextId
   }
 
   clone() {

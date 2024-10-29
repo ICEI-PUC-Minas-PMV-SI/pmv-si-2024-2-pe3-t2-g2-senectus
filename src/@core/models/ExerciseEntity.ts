@@ -1,5 +1,4 @@
 import { CalendarEventEntity } from './CalendarEventEntity'
-import { v4 as uuid } from 'uuid'
 import { EntityTemplate } from './EntityTemplate'
 
 interface ExerciseEntityProps {
@@ -26,6 +25,7 @@ export class ExerciseEntity
   extends CalendarEventEntity
   implements EntityTemplate<ExerciseEntity>
 {
+  private static nextId = 0
   private readonly props: ExerciseEntityProps
 
   constructor(
@@ -34,9 +34,11 @@ export class ExerciseEntity
     super({ dateInMilli: props.dateInMilli ?? 0 })
     this.props = {
       ...props,
-      id: props.id ?? uuid(),
+      id: props.id ?? `exercise-${ExerciseEntity.nextId}`,
       dateInMilli: props.dateInMilli ?? 0
     }
+
+    ++ExerciseEntity.nextId
   }
 
   clone() {
