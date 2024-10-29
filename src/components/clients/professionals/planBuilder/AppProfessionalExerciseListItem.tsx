@@ -19,10 +19,10 @@ export function AppProfessionalExerciseListItem({
 
   return (
     <li>
-      <Link href="/" className="exercise-card">
+      <Link href={exercise.href!} className="exercise-card">
         <Image
-          src="/img/exercises/balance-exercise.png"
-          alt="Pessoa se exercitando"
+          src={exercise.image.src}
+          alt={exercise.image.alt}
           width={80}
           height={80}
           priority
