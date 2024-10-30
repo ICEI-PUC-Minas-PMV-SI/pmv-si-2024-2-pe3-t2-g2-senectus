@@ -22,17 +22,22 @@ export const AppSearchBarContainer = styled.div`
     width: 2rem;
     justify-content: center;
     align-content: center;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     padding: 0.5rem;
     border-radius: ${({ theme }) => theme.border.radius.md};
     background-color: ${({ theme }) => theme.color.secondaryColor};
     color: ${({ theme }) => theme.color.textColor};
   }
+
+  @media (max-width: 550px) {
+    width: 75vw;
+  }
 `
 
 export const AppSearchBarInput = styled.input`
   min-width: fit-content;
-  font-size: 0.6rem;
+  height: inherit;
+  font-size: 0.8rem;
   flex: 1;
   border: none;
   outline: none;

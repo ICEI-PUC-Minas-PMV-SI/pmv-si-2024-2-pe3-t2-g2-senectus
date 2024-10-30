@@ -6,51 +6,69 @@ import { AppSearchAndFilter } from "@components/common/Inputs/SearchAndFilter/Ap
 import { AppPagination } from "@components/common/Pagination/AppPagination";
 import { NextUIProvider } from "@nextui-org/react";
 import { theme } from "@themes/theme";
-import { set } from "date-fns/fp";
 import { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import ProfessionalCard from "./professional_card/ProfessionalCard";
+import { AppSearchNotFound } from "@components/common/SearchPlaceholders/AppSearchNotFound";
+import { AppointmentSolicitationPaginationStyle, ProfessionalsListStyle } from "./AppointmentsSolicitationStyles";
 
 export default function ExercisesScreen() {
   const [searchValue, setSearchValue] = useState('')
-  const [filterValue, setFilter] = useState('')
-
+  const [filterValue, setFilter] = useState("Todas")
   const [professionals, setProfessionals] = useState<ProfessionalEntity[] | null>(null);
+  const [filteredProfessionals, setFilteredProfessionals] = useState<ProfessionalEntity[] | null>(professionals);
 
-  const filterOptions = [
-    "Área de atuação",
-    "Cidade"
-  ]
+  const [page, setPage] = useState(0);
+  const totalPages = filteredProfessionals ? Math.ceil(filteredProfessionals.length / 8) : 0;
+
+  const [filterOptions, setFilterOptions] = useState<string[]>([]);
 
   function onSetSearchValue(value: string) {
-    setSearchValue(value)
+    setSearchValue(value);
   }
 
   function onSetFilterValue(value: string) {
-    setFilter(value)
+    setFilter(value);
   }
 
   useEffect(() => {
     const fetchProfessionals = async () => {
       try {
-        const response = await fetch('/inMemoryDb/professionals.json')
-        const data = await response.json()
+        const response = await fetch('/inMemoryDb/professionals.json');
+        const data = await response.json();
+        setProfessionals(data.professionals);
+        setFilteredProfessionals(data.professionals);
 
-        setProfessionals(data.professionals)
+        const cities = data.professionals.map((professional: { city: string; }) => professional.city);
+        cities.push("Todas");
+
+        setFilterOptions(cities);
       } catch (error) {
-        setProfessionals(null)
+        setProfessionals(null);
       }
-    }
+    };
 
-    fetchProfessionals()
-  }, [])
+    fetchProfessionals();
+  }, []);
+
+  useEffect(() => {
+    if (professionals) {
+      const filtered = professionals.filter((professional) => {
+        const matchesSearch = professional.name.toLowerCase().includes(searchValue.toLowerCase());
+        const matchesFilter = professional.city == filterValue || filterValue == "Todas";
+        return matchesSearch && matchesFilter;
+      });
+      setFilteredProfessionals(filtered);
+      setPage(0);
+    }
+  }, [searchValue, filterValue, professionals]);
 
   return (
     <ThemeProvider theme={theme}>
       <NextUIProvider className="default">
         <AppHeader />
 
-        <AppContainer style={{ justifyContent: 'center' }}>
+        <AppContainer style={{ justifyContent: 'start', width: '100%' }}>
           <h1>Pesquisar profissional</h1>
 
           <h3>Para prosseguir, selecione o profissional que você deseja realizar a consulta:</h3>
@@ -62,12 +80,28 @@ export default function ExercisesScreen() {
             options={filterOptions}
           />
 
-          {professionals != null ? (
-            professionals.map((professional) => (
-              <ProfessionalCard professional={professional} />
-            ))
-          ) : <h1 style={{textAlign: 'center'}}>Não foi encontrado nenhum profissional disponível</h1>}
+          {filteredProfessionals && filteredProfessionals.length > 0 ? (
+            <ProfessionalsListStyle>
+              {filteredProfessionals.slice(page * 8, (page + 1) * 8).map((professional) => (
+                <ProfessionalCard key={professional.name} professional={professional} />
+              ))}
+            </ProfessionalsListStyle>
+          ) : (
+            <AppSearchNotFound text="Nenhum exercício encontrado." />
+          )}
 
+          <AppointmentSolicitationPaginationStyle>
+            {professionals != null && professionals.length > 8 && totalPages > 1 && (
+              <AppPagination
+                id="appointment-solicitation-pagination"
+                total={totalPages}
+                page={page + 1}
+                onChange={(page) => {
+                  setPage(page - 1)
+                }}
+              />
+            )}
+          </AppointmentSolicitationPaginationStyle>
         </AppContainer>
       </NextUIProvider>
     </ThemeProvider>
