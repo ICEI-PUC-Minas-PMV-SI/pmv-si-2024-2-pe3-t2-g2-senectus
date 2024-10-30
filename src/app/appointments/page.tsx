@@ -4,7 +4,7 @@ import { AppContainer } from '@components/common/Container/AppContainer'
 import { AppDashboardHeader } from '@components/common/DashboardHeader/AppDashboardHeader'
 import { AppInitialText } from '@components/common/Text/AppInitialText'
 import { NextUIProvider } from '@nextui-org/react'
-import { FaMagnifyingGlass } from 'react-icons/fa6'
+import { FaSquarePlus } from 'react-icons/fa6'
 import { ThemeProvider } from 'styled-components'
 import { theme } from '@themes/theme'
 import { AppAppointmentsRoutineCalendar } from '@components/appointments/routine/AppAppointmentsRoutineCalendar'
@@ -45,7 +45,7 @@ export default function AppointmentsScreen() {
                 name: 'Nova consulta',
                 description: 'Solicite uma nova consulta',
                 href: '/appointments/new',
-                icon: <FaMagnifyingGlass />
+                icon: <FaSquarePlus />
               }
             ]}
           />
