@@ -9,7 +9,7 @@ import { AppConfigurationForm } from '@components/configuration/AppConfiguration
 import { AppConfigurationInitialText } from '@components/configuration/AppConfigurationInitialText'
 import { AppDangerZone } from '@components/configuration/AppDangerZone'
 import { AppConfigurationFormProfessional } from '@components/configuration/AppConfigurationFormProfessional'
-import { Divider } from '@nextui-org/divider'
+import { AppDivider } from '@components/common/Divider/AppDivider'
 
 const user = {
   isProfessional: true
@@ -18,19 +18,18 @@ const user = {
 export default function ConfigurationScreen() {
   return (
     <ThemeProvider theme={theme}>
-      <NextUIProvider className="default">
+      <NextUIProvider style={{ justifyContent: 'start' }}>
         <AppHeader />
-
         <AppContainer>
           <AppConfigurationInitialText></AppConfigurationInitialText>
           <AppConfigurationForm></AppConfigurationForm>
           {user.isProfessional && (
             <>
-              <Divider className="my-6"></Divider>
+              <AppDivider></AppDivider>
               <AppConfigurationFormProfessional></AppConfigurationFormProfessional>
             </>
           )}
-          <Divider className="my-6"></Divider>
+          <AppDivider></AppDivider>
           <AppDangerZone></AppDangerZone>
         </AppContainer>
       </NextUIProvider>
