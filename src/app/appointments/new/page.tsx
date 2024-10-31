@@ -12,16 +12,31 @@ import ProfessionalCard from "./professional_card/ProfessionalCard";
 import { AppSearchNotFound } from "@components/common/SearchPlaceholders/AppSearchNotFound";
 import { AppointmentSolicitationPaginationStyle, ProfessionalsListStyle } from "./AppointmentsSolicitationStyles";
 
-export default function ExercisesScreen() {
+import professionalsData from "../../../../public/inMemoryDb/professionals.json";
+import ProfessionalEntity from "../../../@core/models/ProfessionalEntity";
+
+export default function AppointmentsSolicitationScreen() {
   const [searchValue, setSearchValue] = useState('')
   const [filterValue, setFilter] = useState("Todas")
-  const [professionals, setProfessionals] = useState<ProfessionalEntity[] | null>(null);
+
+  const professionals = professionalsData.professionals.map((professional) => {
+    return new ProfessionalEntity(
+      {
+        role: professional.role,
+        name: professional.name,
+        city: professional.city,
+        email: professional.email,
+        phone: professional.phone
+      }
+    )
+  });
   const [filteredProfessionals, setFilteredProfessionals] = useState<ProfessionalEntity[] | null>(professionals);
 
   const [page, setPage] = useState(0);
   const totalPages = filteredProfessionals ? Math.ceil(filteredProfessionals.length / 8) : 0;
 
-  const [filterOptions, setFilterOptions] = useState<string[]>([]);
+  const cities = professionals.map((professional) => professional.city);
+  cities.push("Todas");
 
   function onSetSearchValue(value: string) {
     setSearchValue(value);
@@ -32,36 +47,17 @@ export default function ExercisesScreen() {
   }
 
   useEffect(() => {
-    const fetchProfessionals = async () => {
-      try {
-        const response = await fetch('/inMemoryDb/professionals.json');
-        const data = await response.json();
-        setProfessionals(data.professionals);
-        setFilteredProfessionals(data.professionals);
-
-        const cities = data.professionals.map((professional: { city: string; }) => professional.city);
-        cities.push("Todas");
-
-        setFilterOptions(cities);
-      } catch (error) {
-        setProfessionals(null);
-      }
-    };
-
-    fetchProfessionals();
-  }, []);
-
-  useEffect(() => {
-    if (professionals) {
+    if (professionalsData) {
       const filtered = professionals.filter((professional) => {
         const matchesSearch = professional.name.toLowerCase().includes(searchValue.toLowerCase());
         const matchesFilter = professional.city == filterValue || filterValue == "Todas";
         return matchesSearch && matchesFilter;
       });
       setFilteredProfessionals(filtered);
+
       setPage(0);
     }
-  }, [searchValue, filterValue, professionals]);
+  }, [searchValue, filterValue, professionalsData]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -69,7 +65,7 @@ export default function ExercisesScreen() {
         <AppHeader />
 
         <AppContainer style={{ justifyContent: 'start', width: '100%' }}>
-          <h1>Pesquisar profissional</h1>
+          <h1 className="prettify-title">Pesquisar profissional</h1>
 
           <h3>Para prosseguir, selecione o profissional que você deseja realizar a consulta:</h3>
 
@@ -77,7 +73,7 @@ export default function ExercisesScreen() {
             placeholder="Insira o nome do profissional"
             onChange={onSetSearchValue}
             onFilterClick={onSetFilterValue}
-            options={filterOptions}
+            options={cities}
           />
 
           {filteredProfessionals && filteredProfessionals.length > 0 ? (
@@ -87,7 +83,7 @@ export default function ExercisesScreen() {
               ))}
             </ProfessionalsListStyle>
           ) : (
-            <AppSearchNotFound text="Nenhum exercício encontrado." />
+            <AppSearchNotFound text="Nenhum profissional encontrado." />
           )}
 
           <AppointmentSolicitationPaginationStyle>

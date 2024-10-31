@@ -5,7 +5,7 @@ interface Props {
     phone: string
     city: string
 }
-class ProfessionalEntity {
+export default class ProfessionalEntity {
   private readonly props: Props
 
   constructor(props: Props) {

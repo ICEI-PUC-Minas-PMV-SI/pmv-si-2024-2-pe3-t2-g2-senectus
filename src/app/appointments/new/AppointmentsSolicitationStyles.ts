@@ -5,7 +5,7 @@ export const ProfessionalsListStyle = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, auto);
-    gap: 16px;
+    grid-gap: 1rem;
 
     @media (max-width: 1000px) {
         grid-template-columns: repeat(3, 1fr);

@@ -23,7 +23,7 @@ export function AppButtonActionRect({
       color="primary"
       size={size}
       isLoading={isLoading}
-      endContent={icon}
+      startContent={icon}
       {...props}
     >
       {text}
