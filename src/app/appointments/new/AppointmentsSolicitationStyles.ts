@@ -11,11 +11,11 @@ export const ProfessionalsListStyle = styled.div`
         grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 720px) {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (max-width: 460px) {
+    @media (max-width: 540px) {
         display: flex;
         align-items: center;
         flex-direction: column;

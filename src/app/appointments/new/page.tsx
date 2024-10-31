@@ -8,12 +8,12 @@ import { NextUIProvider } from "@nextui-org/react";
 import { theme } from "@themes/theme";
 import { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
-import ProfessionalCard from "./professional_card/ProfessionalCard";
 import { AppSearchNotFound } from "@components/common/SearchPlaceholders/AppSearchNotFound";
 import { AppointmentSolicitationPaginationStyle, ProfessionalsListStyle } from "./AppointmentsSolicitationStyles";
 
 import professionalsData from "../../../../public/inMemoryDb/professionals.json";
 import ProfessionalEntity from "../../../@core/models/ProfessionalEntity";
+import ProfessionalCard from "@components/professional_card/ProfessionalCard";
 
 export default function AppointmentsSolicitationScreen() {
   const [searchValue, setSearchValue] = useState('')

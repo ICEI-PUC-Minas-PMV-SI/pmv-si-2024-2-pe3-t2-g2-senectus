@@ -4,7 +4,7 @@ export const ProfessionalCardStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: start;
-    width: 16rem;
+    width: 13rem;
     padding: 8px;
     border: 2px solid ${({ theme }) => theme.border.color.default};
 `

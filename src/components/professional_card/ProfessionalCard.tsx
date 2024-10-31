@@ -29,7 +29,7 @@ export default function ProfessionalCard({ professional }: ProfessionalCardProps
     return (
         <ProfessionalCardStyle>
             <ProfessionalRoleStyle>
-                <p style={{ fontSize: "1rem"}}>{professional.role}</p>
+                <p style={{ fontSize: "1rem "}}>{professional.role}</p>
             </ProfessionalRoleStyle>
 
             <ProfessionalsItemsStyle>
