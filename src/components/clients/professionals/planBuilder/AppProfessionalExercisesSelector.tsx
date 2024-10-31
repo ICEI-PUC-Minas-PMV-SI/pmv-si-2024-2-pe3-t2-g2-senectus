@@ -23,8 +23,12 @@ interface AppProfessionalExerciseSelectorProps {
 export function AppProfessionalExercisesSelector(
   props: AppProfessionalExerciseSelectorProps
 ) {
+  const [query, setQuery] = useState({
+    filter: '',
+    key: ''
+  })
   const [search, setSearch] = useState<ExerciseEntity[]>(
-    ExerciseSearchService.exec()
+    ExerciseSearchService.exec(query.key, query.filter)
   )
   const [page, setPage] = useState(0)
   const [total, setTotal] = useState(Math.ceil(search.length * 8))
@@ -48,7 +52,7 @@ export function AppProfessionalExercisesSelector(
     props.onSelectedExercises(selectedExercises)
   }
 
-  const handleSearch = (filter?: string, key?: string) => {
+  const handleSearch = (filter: string, key: string) => {
     if (filter === 'Selecionados')
       return setSearch(
         SelectedExerciseSearchService.exec(selectedExercises, key)
@@ -65,7 +69,10 @@ export function AppProfessionalExercisesSelector(
     <ProfessionalExercisesSelectorStyle>
       <div id="input-wrapper">
         <AppSearchAndFilter
-          onFilterClick={(q) => handleSearch(q.filter, q.key)}
+          onFilterClick={(filter) => {
+            setQuery((prev) => ({ ...prev, filter }))
+            handleSearch(filter, query.key)
+          }}
           options={[
             'Selecionados',
             'Alongamento',
@@ -74,7 +81,10 @@ export function AppProfessionalExercisesSelector(
             'Mobilidade'
           ]}
           placeholder="Insira o nome do exercício."
-          onChange={(q) => handleSearch(q.filter, q.key)}
+          onChange={(key) => {
+            setQuery((prev) => ({ ...prev, key }))
+            handleSearch(query.filter, key)
+          }}
         />
       </div>
 

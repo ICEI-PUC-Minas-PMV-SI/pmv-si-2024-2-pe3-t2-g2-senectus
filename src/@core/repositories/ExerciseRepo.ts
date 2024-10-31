@@ -105,7 +105,7 @@ export class ExerciseRepo {
   static findExercisesByMatchesInAllCategories(key: string) {
     const matches: ExerciseEntity[] = []
     const list = ExerciseRepo.getAllExercises()
-    const regex = new RegExp(key, 'gmi')
+    const regex = new RegExp(key, 'i')
     for (let i = 0; i < list.length; i++)
       if (regex.test(list[i].name) || regex.test(list[i].level))
         matches.push(list[i])
@@ -116,7 +116,7 @@ export class ExerciseRepo {
   static findExercisesByMatches(categoryId: string, key: string) {
     const matches: ExerciseEntity[] = []
     const list = ExerciseRepo.getExercisesByCategoryId(categoryId)
-    const regex = new RegExp(key, 'gmi')
+    const regex = new RegExp(key, 'i')
     for (let i = 0; i < list.length; i++)
       if (regex.test(list[i].name) || regex.test(list[i].level))
         matches.push(list[i])
