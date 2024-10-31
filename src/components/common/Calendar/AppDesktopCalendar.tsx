@@ -2,7 +2,7 @@ import { format, getDaysInMonth } from 'date-fns'
 import { v4 as uuid } from 'uuid'
 import { DesktopCalendarStyle } from './DesktopCalendarStyle'
 import { theme } from '../../../themes/theme'
-import { ReactNode, useState, useEffect } from 'react'
+import { ReactNode, useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { FaXmark } from 'react-icons/fa6'
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
 import { CalendarContextProps } from './AppResponsiveCalendar'
@@ -12,15 +12,20 @@ interface AppCalendarProps<T extends CalendarEventEntity> {
   daysWeek: string[]
   onOpenMenu: (item: CollectionEventsOnDay<T>) => ReactNode
   list: CollectionEventsOnDay<T>[]
+  messageBuilder?: (eventsLength: number) => string
+  sideMenuContext?: CalendarContextProps<T>
+  setSideMenuContext?: Dispatch<SetStateAction<CalendarContextProps<T>>>
 }
 
-export function AppDesktopCalendar<T extends CalendarEventEntity>(
-  props: AppCalendarProps<T>
+function AppCalendar<T extends CalendarEventEntity>(
+  props: Replace<
+    AppCalendarProps<T>,
+    {
+      sideMenuContext: CalendarContextProps<T>
+      setSideMenuContext: Dispatch<SetStateAction<CalendarContextProps<T>>>
+    }
+  >
 ) {
-  const [sideMenuContext, setSideMenuContext] = useState<
-    CalendarContextProps<T>
-  >({})
-
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
   const actualDay = new Date(
     format(new Date(), 'yyyy-MM-dd') + ` (${timezone})`
@@ -32,23 +37,23 @@ export function AppDesktopCalendar<T extends CalendarEventEntity>(
   const availableRows = Math.ceil(daysInTheMonth.length / 7)
 
   useEffect(() => {
-    if (sideMenuContext.isOpen) document.body.classList.add('no-scroll')
+    if (props.sideMenuContext.isOpen) document.body.classList.add('no-scroll')
     else document.body.classList.remove('no-scroll')
 
     return () => document.body.classList.remove('no-scroll')
-  }, [sideMenuContext, setSideMenuContext])
+  }, [props.sideMenuContext, props.setSideMenuContext])
 
   return (
     <DesktopCalendarStyle>
-      {sideMenuContext.isOpen && sideMenuContext.ctx && (
+      {props.sideMenuContext.isOpen && props.sideMenuContext.ctx && (
         <div className="side-bar-wrapper">
           <section
-            className={`side-bar ${sideMenuContext.isOpen ? 'appear-from-right-animation' : ''}`}
+            className={`side-bar ${props.sideMenuContext.isOpen ? 'appear-from-right-animation' : ''}`}
           >
             <header>
               <button
                 onClick={() => {
-                  setSideMenuContext({
+                  props.setSideMenuContext({
                     ctx: undefined,
                     isOpen: false
                   })
@@ -58,7 +63,7 @@ export function AppDesktopCalendar<T extends CalendarEventEntity>(
               </button>
             </header>
             <div className="content">
-              {props.onOpenMenu(sideMenuContext.ctx)}
+              {props.onOpenMenu(props.sideMenuContext.ctx)}
             </div>
           </section>
         </div>
@@ -128,15 +133,21 @@ export function AppDesktopCalendar<T extends CalendarEventEntity>(
                     ></td>
                   )
 
-                const collectionOfEvents =
-                  props.list[daysInTheMonth[dayInMonthIndex]]
+                const collectionOfEvents = props.list[dayInMonthIndex]
                 const availableEvents = collectionOfEvents?.events?.length ?? 0
-                const displayText =
-                  availableEvents > 0
-                    ? `Você tem ${
-                        availableEvents > 10 ? '+10' : availableEvents
-                      } compromisso${availableEvents > 1 ? 's' : ''}`
-                    : ''
+
+                let displayText: string
+                if (props.messageBuilder) {
+                  displayText = props.messageBuilder(availableEvents)
+                } else {
+                  displayText =
+                    availableEvents > 0
+                      ? `Você tem ${
+                          availableEvents > 10 ? '+10' : availableEvents
+                        } compromisso${availableEvents > 1 ? 's' : ''}`
+                      : ''
+                }
+
                 const isActualDay =
                   actualDay.getDate() === daysInTheMonth[dayInMonthIndex]
 
@@ -164,7 +175,7 @@ export function AppDesktopCalendar<T extends CalendarEventEntity>(
                           collectionOfEvents &&
                           collectionOfEvents.events.length > 0
                         )
-                          setSideMenuContext({
+                          props.setSideMenuContext({
                             ctx: collectionOfEvents,
                             isOpen: true
                           })
@@ -186,5 +197,29 @@ export function AppDesktopCalendar<T extends CalendarEventEntity>(
         </tbody>
       </table>
     </DesktopCalendarStyle>
+  )
+}
+
+export function AppDesktopCalendar<T extends CalendarEventEntity>(
+  props: AppCalendarProps<T>
+) {
+  const [sideMenuContext, setSideMenuContext] = useState<
+    CalendarContextProps<T>
+  >({})
+  if (props.sideMenuContext && props.setSideMenuContext)
+    return (
+      <AppCalendar
+        {...props}
+        sideMenuContext={props.sideMenuContext}
+        setSideMenuContext={props.setSideMenuContext}
+      />
+    )
+
+  return (
+    <AppCalendar
+      {...props}
+      sideMenuContext={sideMenuContext}
+      setSideMenuContext={setSideMenuContext}
+    />
   )
 }

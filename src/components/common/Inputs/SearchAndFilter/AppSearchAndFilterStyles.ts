@@ -12,5 +12,12 @@ export const AppSearchAndFilterContainer = styled.div`
     gap: 1.15rem;
     flex-direction: column;
     align-items: start;
+
+    & .filter {
+      width: 100%;
+      button {
+        width: 100%;
+      }
+    }
   }
 `

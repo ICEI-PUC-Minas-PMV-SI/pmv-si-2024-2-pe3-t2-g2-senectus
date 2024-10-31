@@ -22,9 +22,10 @@ export function AppButtonActionRectOutline({
     <Button
       color="primary"
       variant="ghost"
+      radius="sm"
       size={size}
       isLoading={isLoading}
-      endContent={icon}
+      startContent={icon}
       style={{ border: '2px solid' }}
       {...props}
     >
