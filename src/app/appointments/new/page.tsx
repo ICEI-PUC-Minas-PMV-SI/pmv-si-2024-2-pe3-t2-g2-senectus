@@ -35,8 +35,7 @@ export default function AppointmentsSolicitationScreen() {
   const [page, setPage] = useState(0);
   const totalPages = filteredProfessionals ? Math.ceil(filteredProfessionals.length / 8) : 0;
 
-  const cities = professionals.map((professional) => professional.city);
-  cities.push("Todas");
+  const cities = ["Todas", ...professionals.map(professional => professional.city)];
 
   function onSetSearchValue(value: string) {
     setSearchValue(value);
