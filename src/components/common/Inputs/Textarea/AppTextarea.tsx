@@ -1,5 +1,5 @@
 import { Textarea, TextAreaProps } from '@nextui-org/input'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { TextareaStyle } from './TextareaStyle'
 
 interface AppTextareaProps extends Omit<TextAreaProps, 'label'> {
@@ -8,6 +8,13 @@ interface AppTextareaProps extends Omit<TextAreaProps, 'label'> {
 }
 
 export function AppTextarea({ label, icon, ...props }: AppTextareaProps) {
+  useEffect(() => {
+    const textarea = document.querySelector(
+      "textarea[data-slot='input']"
+    ) as HTMLElement
+    textarea.style.height = '6.18rem'
+  }, [])
+
   return (
     <TextareaStyle>
       <Textarea

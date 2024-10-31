@@ -13,6 +13,10 @@ export const TextareaStyle = styled.div`
     color: ${({ theme }) => theme.color.primaryColor} !important;
   }
 
+  & textarea[data-slot='input'] {
+    height: 6.18rem !important;
+  }
+
   & .text-danger,
   & .group-data-[invalid='true']:text-danger {
     color: rgb(239 68 68);

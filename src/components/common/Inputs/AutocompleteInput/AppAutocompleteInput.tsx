@@ -28,6 +28,9 @@ export function AppAutocompleteInput({
         variant="bordered"
         label={label}
         startContent={<span className="input-icon">{icon}</span>}
+        listboxProps={{
+          emptyContent: 'Nenhum resultado encontrado.'
+        }}
         {...props}
       >
         {options.map((option) => (
