@@ -1,7 +1,4 @@
 import React, { useState } from 'react'
-import { Input } from '@nextui-org/input'
-import { Button } from '@nextui-org/button'
-import { DateInput } from '@nextui-org/react'
 import {
   FaBriefcaseMedical,
   FaCalendarDays,
@@ -10,17 +7,21 @@ import {
   FaSackDollar,
   FaTrash
 } from 'react-icons/fa6'
+import { AppDefaultInput } from '@components/common/Inputs/DefaultInput/AppDefaultInput'
+import {
+  Container,
+  FlexContainer,
+  Grid,
+  StyledButton,
+  AddServiceButton
+} from './ConfigurationFormProfessional'
+import { AppButtonActionRect } from '@components/common/Buttons/AppButtonActionRect'
 
 export function AppConfigurationFormProfessional() {
-  const [services, setServices] = useState([
-    { profession: '', serviceName: '', startDate: null, price: '' }
-  ])
+  const [services, setServices] = useState([{ serviceName: '', price: '' }])
 
   const handleAddService = () => {
-    setServices([
-      ...services,
-      { profession: '', serviceName: '', startDate: null, price: '' }
-    ])
+    setServices([...services, { serviceName: '', price: '' }])
   }
 
   const handleRemoveService = (index: number) => {
@@ -31,84 +32,53 @@ export function AppConfigurationFormProfessional() {
   }
 
   return (
-    <div className="p-6 max-w-4xl w-full mx-auto">
+    <Container>
+      <Grid>
+        <div>
+          <AppDefaultInput
+            label="Insira a sua profissão"
+            icon={<FaBriefcaseMedical />}
+          />
+        </div>
+
+        <div>
+          <AppDefaultInput label="Iniciou em" icon={<FaCalendarDays />} />
+        </div>
+      </Grid>
+
       {services.map((service, index) => (
-        <div key={index} className="grid grid-cols-2 gap-4 mb-4 items-end">
+        <Grid key={index}>
           <div>
-            <Input
-              type="text"
-              label="Insira a sua profissão"
-              labelPlacement="outside"
-              variant="bordered"
-              radius="sm"
-              classNames={{ inputWrapper: ['border-purple-300'] }}
-              startContent={
-                <FaBriefcaseMedical className="text-base text-purple-500 pointer-events-none flex-shrink-0" />
-              }
-            />
-          </div>
-
-          <div>
-            <DateInput
-              label="Iniciou em"
-              labelPlacement="outside"
-              variant="bordered"
-              radius="sm"
-              classNames={{ inputWrapper: ['border-purple-300'] }}
-              startContent={
-                <FaCalendarDays className="text-base text-purple-500 pointer-events-none flex-shrink-0" />
-              }
-            />
-          </div>
-
-          <div>
-            <Input
-              type="text"
+            <AppDefaultInput
               label="Insira o nome do serviço que você presta"
-              labelPlacement="outside"
-              variant="bordered"
-              radius="sm"
-              classNames={{ inputWrapper: ['border-purple-300'] }}
-              startContent={
-                <FaHandHoldingMedical className="text-base text-purple-500 pointer-events-none flex-shrink-0" />
-              }
+              icon={<FaHandHoldingMedical />}
             />
           </div>
 
-          <div className="flex items-center">
-            <Input
-              type="number"
+          <FlexContainer>
+            <AppDefaultInput
               label="Insira o valor a ser cobrado"
-              labelPlacement="outside"
-              variant="bordered"
-              radius="sm"
-              classNames={{ inputWrapper: ['border-purple-300'] }}
-              startContent={
-                <FaSackDollar className="text-base text-purple-500 pointer-events-none flex-shrink-0" />
-              }
+              icon={<FaSackDollar />}
             />
 
-            <Button
+            <StyledButton
               isIconOnly
               radius="sm"
-              className="ml-4 mt-6 flex-shrink-0 bg-purple-200"
               onClick={() => handleRemoveService(index)}
             >
-              <FaTrash className="text-purple-500" />
-            </Button>
-          </div>
-        </div>
+              <FaTrash />
+            </StyledButton>
+          </FlexContainer>
+        </Grid>
       ))}
 
-      <Button
-        color="primary"
-        radius="sm"
-        onClick={handleAddService}
-        className="mt-4 px-16"
-        endContent={<FaRegSquarePlus className="text-base text-white" />}
-      >
-        Mais serviço
-      </Button>
-    </div>
+      <AddServiceButton>
+        <AppButtonActionRect
+          onClick={handleAddService}
+          text="Mais serviço"
+          icon={<FaRegSquarePlus />}
+        />
+      </AddServiceButton>
+    </Container>
   )
 }

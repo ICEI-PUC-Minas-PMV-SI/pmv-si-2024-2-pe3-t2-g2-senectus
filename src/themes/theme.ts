@@ -18,6 +18,11 @@ export const theme = {
     textColorOp: 'rgba(15, 23, 42, 0.2)',
     onHoverTextColor: '#2D323E',
     invertedTextColor: '#FDFDFD',
+    bgDangerZone: '#FECACA',
+    divider: {
+      stroke: 'rgb(140, 140, 140)',
+      fill: 'rgb(218, 218, 218)'
+    },
     levels: {
       hard: 'rgb(239 68 68)',
       medium: 'rgb(251 191 36)',
