@@ -12,9 +12,6 @@ export const TrainingPlanMenuStyle = styled.div`
   }
 
   & .pagination {
-    display: flex;
-    width: 40vw;
-    justify-content: center;
     place-self: center;
   }
 

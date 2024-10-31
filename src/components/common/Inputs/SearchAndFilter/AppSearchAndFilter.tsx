@@ -1,4 +1,4 @@
-import { AppSearchBar, AppSearchBarProps } from '../SearchBar/AppSearchBar'
+import { AppSearchBar } from '../SearchBar/AppSearchBar'
 import { AppSearchAndFilterContainer } from './AppSearchAndFilterStyles'
 import {
   AppSelectRect,
@@ -6,8 +6,8 @@ import {
 } from '@components/common/Selects/AppSelectRect'
 
 interface AppSearchAndFilterProps {
-  onFilterClick: (selectedFilter: string) => void
-  onChange: Pick<AppSearchBarProps, 'onChange'>['onChange']
+  onFilterClick: (q: string) => void
+  onChange: (q: string) => void
   placeholder: string
   options: Pick<AppSelectRectProps, 'options'>['options']
 }
@@ -15,13 +15,21 @@ interface AppSearchAndFilterProps {
 export function AppSearchAndFilter(props: AppSearchAndFilterProps) {
   return (
     <AppSearchAndFilterContainer>
-      <AppSearchBar placeholder={props.placeholder} onChange={props.onChange} />
+      <AppSearchBar
+        placeholder={props.placeholder}
+        onChange={(key) => {
+          props.onChange(key)
+        }}
+      />
 
       <AppSelectRect
         placeholder="Filtrar"
         ariaLabel="Filtro de pesquisa"
+        divWrapperProps={{
+          className: 'filter'
+        }}
         options={props.options}
-        onFilterChange={props.onFilterClick}
+        onChange={props.onFilterClick}
       />
     </AppSearchAndFilterContainer>
   )

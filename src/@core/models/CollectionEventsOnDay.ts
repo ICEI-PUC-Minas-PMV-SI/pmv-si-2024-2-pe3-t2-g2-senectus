@@ -31,6 +31,9 @@ export class CollectionEventsOnDay<T extends CalendarEventEntity> {
   get events() {
     return this.props.events
   }
+  set events(value: T[]) {
+    this.props.events = value
+  }
   get monthDay() {
     return this.props.monthDay
   }

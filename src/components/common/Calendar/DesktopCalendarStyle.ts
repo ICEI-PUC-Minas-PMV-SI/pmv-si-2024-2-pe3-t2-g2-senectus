@@ -23,6 +23,7 @@ export const DesktopCalendarStyle = styled.div`
       grid-template-rows: 5rem 1fr;
       padding: 5rem 2rem 1rem 2rem;
       width: 50vw;
+      max-width: 29rem;
       height: 100vh;
       background-color: white;
       box-shadow: ${({ theme }) => theme.shadow.md};
