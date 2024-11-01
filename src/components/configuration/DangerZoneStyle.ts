@@ -53,6 +53,10 @@ export const Card = styled.div`
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 export const Content = styled.div`
@@ -60,6 +64,11 @@ export const Content = styled.div`
   background-color: ${({ theme }) => theme.color.secondaryBgColorOp};
   padding: 3rem;
   border-radius: 0.5rem 0 0 0.5rem;
+
+  @media (max-width: 768px) {
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 2rem;
+  }
 `
 
 export const Title = styled.h2`
@@ -91,6 +100,17 @@ export const IconContainer = styled.div`
   background-color: ${({ theme }) => theme.color.bgDangerZone};
   width: 40%;
   border-radius: 0 0.5rem 0.5rem 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    border-radius: 0 0 0.5rem 0.5rem;
+    padding: 2rem 0;
+
+    svg {
+      height: 100px;
+      width: 100px;
+    }
+  }
 `
 
 export const Icon = styled.div`

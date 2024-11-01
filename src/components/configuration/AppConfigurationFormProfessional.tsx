@@ -8,13 +8,7 @@ import {
   FaTrash
 } from 'react-icons/fa6'
 import { AppDefaultInput } from '@components/common/Inputs/DefaultInput/AppDefaultInput'
-import {
-  Container,
-  FlexContainer,
-  Grid,
-  StyledButton,
-  AddServiceButton
-} from './ConfigurationFormProfessional'
+import { Container, FlexContainer, Grid } from './ConfigurationFormProfessional'
 import { AppButtonActionRect } from '@components/common/Buttons/AppButtonActionRect'
 
 export function AppConfigurationFormProfessional() {
@@ -61,24 +55,20 @@ export function AppConfigurationFormProfessional() {
               icon={<FaSackDollar />}
             />
 
-            <StyledButton
+            <AppButtonActionRect
               isIconOnly
-              radius="sm"
+              icon={<FaTrash />}
               onClick={() => handleRemoveService(index)}
-            >
-              <FaTrash />
-            </StyledButton>
+            />
           </FlexContainer>
         </Grid>
       ))}
 
-      <AddServiceButton>
-        <AppButtonActionRect
-          onClick={handleAddService}
-          text="Mais serviço"
-          icon={<FaRegSquarePlus />}
-        />
-      </AddServiceButton>
+      <AppButtonActionRect
+        onClick={handleAddService}
+        text="Mais serviço"
+        icon={<FaRegSquarePlus />}
+      />
     </Container>
   )
 }

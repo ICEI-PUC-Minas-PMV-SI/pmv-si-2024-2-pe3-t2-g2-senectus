@@ -18,9 +18,9 @@ const user = {
 export default function ConfigurationScreen() {
   return (
     <ThemeProvider theme={theme}>
-      <NextUIProvider style={{ justifyContent: 'start' }}>
+      <NextUIProvider className="default">
         <AppHeader />
-        <AppContainer>
+        <AppContainer style={{ justifyContent: 'start' }}>
           <AppConfigurationInitialText></AppConfigurationInitialText>
           <AppConfigurationForm></AppConfigurationForm>
           {user.isProfessional && (
