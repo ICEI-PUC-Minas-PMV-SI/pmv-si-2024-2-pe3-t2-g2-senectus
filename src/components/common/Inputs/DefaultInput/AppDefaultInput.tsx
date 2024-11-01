@@ -17,8 +17,6 @@ export function AppDefaultInput({ label, icon, ...props }: AppDefaultInput) {
         variant="bordered"
         startContent={<span className="input-icon">{icon}</span>}
         label={label}
-        isInvalid
-        errorMessage="Erro aqui"
         {...props}
       />
     </DefaultInputStyle>
