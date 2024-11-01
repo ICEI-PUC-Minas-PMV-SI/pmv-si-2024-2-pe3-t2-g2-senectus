@@ -12,8 +12,17 @@ export const Grid = styled.div`
   gap: 1rem;
   margin-bottom: 1rem;
   align-items: end;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-column: 0.5;
+  }
 `
 
 export const FullWidthContainer = styled.div`
   grid-column: span 2;
+
+  @media (max-width: 768px) {
+    grid-column: span 1;
+  }
 `
