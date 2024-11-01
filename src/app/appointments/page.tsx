@@ -21,16 +21,24 @@ export default function AppointmentsScreen() {
   const [appointments, setAppointments] = useCalendar<AppointmentsEntity>()
 
   useEffect(() => {
+    // Ambos accepted e pendent retornam um array de 31 dias de consultas de largura aleatória
     const accepted = RandomAppointmentsSeedService.exec(
-      100,
-      AppointmentStateEnum.PENDENT
-    )
-    const pendent = RandomAppointmentsSeedService.exec(
       100,
       AppointmentStateEnum.ACCEPTED
     )
+    const pendent = RandomAppointmentsSeedService.exec(
+      100,
+      AppointmentStateEnum.PENDENT
+    )
 
-    setAppointments([...accepted, ...pendent])
+    const lastAcceptedSliceIndex = Math.floor(accepted.length / 2)
+    const acceptedSlice = accepted.slice(0, lastAcceptedSliceIndex)
+    const pendentSlice = pendent.slice(
+      lastAcceptedSliceIndex + 1,
+      pendent.length - 1
+    )
+
+    setAppointments([...acceptedSlice, ...pendentSlice])
   }, [])
 
   return (
