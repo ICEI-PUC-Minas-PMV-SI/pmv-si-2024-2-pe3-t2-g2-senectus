@@ -1,18 +1,20 @@
 import { v4 as uuid } from 'uuid'
 import { ThreeColumnTableStyle } from './ThreeColumnTableStyle'
 
+export type ThreeColumnTableRowsType = Array<{
+  firstCol: string
+  secondCol: string
+  thirdCol: string
+  onClick?: (() => void) | undefined
+}>
+
 interface ThreeColumnTableProps {
   header: {
     firstCol: string
     secondCol: string
     thirdCol: string
   }
-  rows: Array<{
-    firstCol: string
-    secondCol: string
-    thirdCol: string
-    onClick?: (() => void) | undefined
-  }>
+  rows: ThreeColumnTableRowsType
 }
 
 export function AppThreeColumnTable(props: ThreeColumnTableProps) {

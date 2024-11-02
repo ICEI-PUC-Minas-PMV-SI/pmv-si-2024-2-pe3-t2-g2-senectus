@@ -12,7 +12,10 @@ export class TrainingPlansRepo {
       const collection: TrainingPlansCollection = {
         trainingPlans: [plan.serialize()]
       }
-      return localStorage.setItem(plan.id, JSON.stringify(collection))
+      return localStorage.setItem(
+        TrainingPlansRepo.trainingPlanCollectionId,
+        JSON.stringify(collection)
+      )
     }
 
     const searchedTrainingPlanIndex = trainingPlans.findIndex(

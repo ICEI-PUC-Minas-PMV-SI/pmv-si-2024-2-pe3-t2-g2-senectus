@@ -2,7 +2,6 @@ import { EntityTemplate } from './EntityTemplate'
 import { UserEntity, UserEntityInputProps } from './UserEntity'
 
 interface ClientEntityProps extends UserEntityInputProps {
-  conclusionRate: number
   totalAppointments: number
   lastAppointmentInMilli: number
   professionalIdList: string[]
@@ -63,11 +62,5 @@ export class ClientEntity
   }
   set lastAppointmentInMilli(value: number) {
     this.props.lastAppointmentInMilli = value
-  }
-  get conclusionRate() {
-    return this.props.conclusionRate
-  }
-  set conclusionRate(value: number) {
-    this.props.conclusionRate = value
   }
 }

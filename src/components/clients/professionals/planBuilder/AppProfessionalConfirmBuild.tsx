@@ -18,10 +18,10 @@ import { AppButtonActionRectOutline } from '@components/common/Buttons/AppButton
 import { FaAngleLeft } from 'react-icons/fa6'
 import { ProfessionalConfirmBuilderStyle } from './ProfessionalConfirmBuilderStyle'
 import { AppButtonActionRect } from '@components/common/Buttons/AppButtonActionRect'
-import { CreateCalendarCollectionByPlanService } from '@core/services/plan/professional/CreateCalendarCollectionByPlanService'
+import { CreateCalendarCollectionByPlanService } from '@core/services/plan/builder/CreateCalendarCollectionByPlanService'
 import { PlanBuildStageContextProps } from '../sharedProps/PlanBuilderStage'
 import { useRouter } from 'next/navigation'
-import { PlanBuilderSubmitService } from '@core/services/plan/professional/PlanBuilderSubmitService'
+import { PlanBuilderSubmitService } from '@core/services/plan/builder/PlanBuilderSubmitService'
 
 interface AppProfessionalConfirmBuildProps {
   planContext: PlanBuildStageContextProps

@@ -25,11 +25,11 @@ import {
   PlanBuildStageContextProps,
   PlanBuildStageEnum
 } from '@components/clients/professionals/sharedProps/PlanBuilderStage'
-import { ClientSelectionHandlerService } from '@core/services/plan/professional/ClientSelectionHandlerService'
-import { ExercisesSelectionHandlerService } from '@core/services/plan/professional/ExercisesSelectionHandlerService'
-import { DaysSelectionHandlerService } from '@core/services/plan/professional/DaysSelectionHandlerService'
-import { ExerciseReeditHandlerService } from '@core/services/plan/professional/ExerciseReeditHandlerService'
-import { BackButtonPlanBuilderHandler } from '@core/services/plan/professional/BackButtonPlanBuilderHandler'
+import { ClientSelectionHandlerService } from '@core/services/plan/builder/ClientSelectionHandlerService'
+import { ExercisesSelectionHandlerService } from '@core/services/plan/builder/ExercisesSelectionHandlerService'
+import { DaysSelectionHandlerService } from '@core/services/plan/builder/DaysSelectionHandlerService'
+import { ExerciseReeditHandlerService } from '@core/services/plan/builder/ExerciseReeditHandlerService'
+import { BackButtonPlanBuilderHandler } from '@core/services/plan/builder/BackButtonPlanBuilderHandler'
 
 interface AppProfessionalPlanManagerProps {
   initialStage?: PlanBuildStageEnum

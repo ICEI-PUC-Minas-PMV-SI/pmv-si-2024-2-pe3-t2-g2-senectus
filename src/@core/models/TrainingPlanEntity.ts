@@ -10,8 +10,10 @@ interface TrainingPlanEntityProps {
   id: string
   client: string
   owner: string
+  progress: number
   stackHolderRef?: ExerciseStackEntity // referência da pilha de exercícios que está sendo modificada na criação do plano
   exerciseStacks: ExerciseStackEntity[]
+  createdAtInMilli: number
 }
 
 export type SerializedTrainingPlanEntityProps = Replace<
@@ -24,7 +26,11 @@ export type SerializedTrainingPlanEntityProps = Replace<
 
 export type TrainingPlanEntityInputProps = Replace<
   TrainingPlanEntityProps,
-  { id?: string }
+  {
+    id?: string
+    progress?: number
+    createdAtInMilli?: number
+  }
 >
 
 export class TrainingPlanEntity implements EntityTemplate<TrainingPlanEntity> {
@@ -33,20 +39,14 @@ export class TrainingPlanEntity implements EntityTemplate<TrainingPlanEntity> {
   constructor(props: TrainingPlanEntityInputProps) {
     this.props = {
       ...props,
-      id: props.id ?? uuid()
+      id: props.id ?? uuid(),
+      progress: props.progress ?? 0,
+      createdAtInMilli: props.createdAtInMilli ?? Date.now()
     }
   }
 
-  clone() {
-    const stackHolderRef = this.props.stackHolderRef?.clone()
-    const exerciseStacks = this.props.exerciseStacks.map((item) => item.clone())
-    return new TrainingPlanEntity({
-      id: this.props.id,
-      client: this.props.client,
-      owner: this.props.owner,
-      stackHolderRef,
-      exerciseStacks
-    })
+  clone(): TrainingPlanEntity {
+    return this.deserialize(this.serialize())
   }
 
   serialize(): string {
@@ -100,11 +100,25 @@ export class TrainingPlanEntity implements EntityTemplate<TrainingPlanEntity> {
     this.props.owner = value
   }
 
+  get progress() {
+    return this.props.progress
+  }
+  set progress(value: number) {
+    this.props.progress = value
+  }
+
   get stackHolderRef(): ExerciseStackEntity | undefined {
     return this.props.stackHolderRef
   }
   set stackHolderRef(value: ExerciseStackEntity | undefined) {
     this.props.stackHolderRef = value
+  }
+
+  get createdAtInMilli() {
+    return this.props.createdAtInMilli
+  }
+  set createdAtInMilli(value: number) {
+    this.props.createdAtInMilli = value
   }
 
   get exerciseStacks() {

@@ -1,17 +1,21 @@
+import { userEntityFactory } from '@core/factories/userEntityFactory'
 import { ClientEntity } from '@core/models/ClientEntity'
+import { UserEntityTypeEnum } from '@core/models/UserEntity'
 
 export class RandomClientsSeedService {
   static exec(max: number): ClientEntity[] {
     const clients: ClientEntity[] = []
     for (let i = 0; i < max; i++) {
-      clients.push(
-        new ClientEntity({
-          name: 'Nicolas Cleiton Basilio Viana Viana Viana Viana Viana',
-          conclusionRate: Math.min(Math.floor(Math.random() * 101), 100),
-          totalAppointments: Math.min(Math.floor(Math.random() * 51), 50),
-          lastAppointmentInMilli: Date.now()
-        })
-      )
+      const client = userEntityFactory({
+        type: UserEntityTypeEnum.CLIENT,
+        name: 'Diana Doe',
+        email: 'dianadoe@email.com',
+        password: '123456'
+      }) as ClientEntity
+
+      client.totalAppointments = Math.min(Math.floor(Math.random() * 51), 50)
+      client.lastAppointmentInMilli = Date.now()
+      clients.push(client)
     }
 
     return clients
