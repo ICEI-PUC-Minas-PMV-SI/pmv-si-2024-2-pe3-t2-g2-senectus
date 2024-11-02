@@ -1,3 +1,4 @@
+import { ServiceError } from '@core/errors/ServiceError'
 import { userEntityFactory } from '@core/factories/userEntityFactory'
 import { UserEntity, UserEntityTypeEnum } from '@core/models/UserEntity'
 import { UsersRepo } from '@core/repositories/UsersRepo'
@@ -16,7 +17,7 @@ export class CreateUserService {
     const searchedUserByEmail = UsersRepo.findByEmailWithoutType(user.email)
 
     if (searchedUserById || searchedUserByEmail)
-      throw new Error('Este usuário já existe')
+      throw new ServiceError('Este usuário já existe')
     UsersRepo.set(user)
 
     return user

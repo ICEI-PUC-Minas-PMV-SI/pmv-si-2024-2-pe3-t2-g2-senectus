@@ -3,6 +3,7 @@ import {
   AppointmentStateEnum
 } from '@core/models/AppointmentsEntity'
 import { AppointmentsRepo } from '@core/repositories/AppointmentsRepo'
+import { ServiceError } from '../../errors/ServiceError'
 
 interface CreateAppointmentServiceProps {
   professionalId: string
@@ -29,7 +30,7 @@ export class CreateAppointmentService {
         appointment.client,
         appointment.dateInMilli
       )
-    if (searchedAppointment) throw new Error('Consulta já foi marcada')
+    if (searchedAppointment) throw new ServiceError('Consulta já foi marcada')
     AppointmentsRepo.set(appointment)
   }
 }

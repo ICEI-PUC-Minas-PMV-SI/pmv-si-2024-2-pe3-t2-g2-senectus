@@ -1,10 +1,15 @@
+import { ServiceError } from '@core/errors/ServiceError'
 import { JWTTokenType } from '@core/tokens/JWTTokenType'
 import { z } from 'zod'
 
-export class ValidateUserService {
+export class ValidateTokenService {
   static exec(token: string): JWTTokenType {
     const slices = token.split('.')
-    if (slices.length !== 3) throw new Error('Credenciais inválidas')
+    if (slices.length !== 3)
+      throw new ServiceError({
+        msg: 'Credenciais inválidas',
+        redirect: '/login'
+      })
 
     const schema = z.object({
       type: z.union([z.literal('CLIENT'), z.literal('PROFESSIONAL')]),
