@@ -1,30 +1,33 @@
 import { EntityTemplate } from './EntityTemplate'
+import { UserEntity, UserEntityInputProps } from './UserEntity'
 
-interface ClientEntityProps {
-  id: string
-  name: string
+interface ClientEntityProps extends UserEntityInputProps {
   conclusionRate: number
   totalAppointments: number
   lastAppointmentInMilli: number
-  createdAtInMilli: number
+  professionalIdList: string[]
 }
 
-export class ClientEntity implements EntityTemplate<ClientEntity> {
-  private static nextId = 0
+export type ClientEntityInputProps = Replace<
+  ClientEntityProps,
+  { professionalIdList?: string[] }
+> &
+  UserEntityInputProps
+
+export type SerializedClientEntityProps = ClientEntityProps
+
+export class ClientEntity
+  extends UserEntity
+  implements EntityTemplate<ClientEntity>
+{
   private props: ClientEntityProps
 
-  constructor(
-    props: Replace<
-      ClientEntityProps,
-      { createdAtInMilli?: number; id?: string }
-    >
-  ) {
+  constructor(props: ClientEntityInputProps) {
+    super(props)
     this.props = {
       ...props,
-      id: props.id ?? `client-${ClientEntity.nextId}`,
-      createdAtInMilli: props.createdAtInMilli ?? Date.now()
+      professionalIdList: props.professionalIdList ?? []
     }
-    ++ClientEntity.nextId
   }
 
   clone() {
@@ -36,29 +39,35 @@ export class ClientEntity implements EntityTemplate<ClientEntity> {
   }
 
   static deserialize(json: string): ClientEntity {
-    return new ClientEntity(JSON.parse(json))
+    return new ClientEntity({ ...JSON.parse(json) })
   }
 
   serialize() {
-    return JSON.stringify(this.props)
+    return JSON.stringify({ ...this.props, ...this.userProps })
   }
 
-  get id() {
-    return this.props.id
+  get professionalIdList() {
+    return this.props.professionalIdList
   }
-  get name() {
-    return this.props.name
+  set professionalIdList(value: string[]) {
+    this.props.professionalIdList = value
   }
   get totalAppointments() {
     return this.props.totalAppointments
   }
+  set totalAppointments(value: number) {
+    this.props.totalAppointments = value
+  }
   get lastAppointmentInMilli() {
     return this.props.lastAppointmentInMilli
+  }
+  set lastAppointmentInMilli(value: number) {
+    this.props.lastAppointmentInMilli = value
   }
   get conclusionRate() {
     return this.props.conclusionRate
   }
-  get createdAtInMilli() {
-    return this.props.createdAtInMilli
+  set conclusionRate(value: number) {
+    this.props.conclusionRate = value
   }
 }
