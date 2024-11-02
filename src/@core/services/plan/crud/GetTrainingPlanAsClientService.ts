@@ -1,5 +1,5 @@
 import { ClientEntity } from '@core/models/ClientEntity'
-import { GetUserInfoService } from '../users/GetUserInfoService'
+import { GetUserInfoService } from '../../users/GetUserInfoService'
 import { TrainingPlansRepo } from '@core/repositories/TrainingPlansRepo'
 import { TrainingPlanEntity } from '@core/models/TrainingPlanEntity'
 

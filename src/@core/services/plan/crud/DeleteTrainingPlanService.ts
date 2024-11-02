@@ -1,5 +1,5 @@
 import { TrainingPlansRepo } from '@core/repositories/TrainingPlansRepo'
-import { GetUserInfoService } from '../users/GetUserInfoService'
+import { GetUserInfoService } from '../../users/GetUserInfoService'
 import { ProfessionalEntity } from '@core/models/ProfessionalEntity'
 
 export class DeleteTrainingPlanService {
