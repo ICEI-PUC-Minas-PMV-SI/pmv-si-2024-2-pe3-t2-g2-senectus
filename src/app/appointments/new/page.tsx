@@ -6,7 +6,7 @@ import { AppSearchAndFilter } from "@components/common/Inputs/SearchAndFilter/Ap
 import { AppPagination } from "@components/common/Pagination/AppPagination";
 import { NextUIProvider } from "@nextui-org/react";
 import { theme } from "@themes/theme";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { AppSearchNotFound } from "@components/common/SearchPlaceholders/AppSearchNotFound";
 import { AppointmentSolicitationPaginationStyle, ProfessionalsListStyle } from "./AppointmentsSolicitationStyles";
@@ -19,23 +19,30 @@ export default function AppointmentsSolicitationScreen() {
   const [searchValue, setSearchValue] = useState('')
   const [filterValue, setFilter] = useState("Todas")
 
-  const professionals = professionalsData.professionals.map((professional) => {
-    return new ProfessionalEntity(
-      {
-        role: professional.role,
-        name: professional.name,
-        city: professional.city,
-        email: professional.email,
-        phone: professional.phone
-      }
-    )
-  });
-  const [filteredProfessionals, setFilteredProfessionals] = useState<ProfessionalEntity[] | null>(professionals);
+  const professionals = useMemo(() => professionalsData.professionals.map(professional => (
+    new ProfessionalEntity({
+      id: professional.id,
+      role: professional.role,
+      name: professional.name,
+      city: professional.city,
+      email: professional.email,
+      phone: professional.phone,
+    })
+  )), []);
+  
+  const filteredProfessionals = useMemo(() => {
+    return professionals.filter(professional => {
+      const matchesSearch = professional.name.toLowerCase().includes(searchValue.toLowerCase());
+      const matchesFilter = filterValue === "Todas" || professional.city === filterValue;
+      
+      return matchesSearch && matchesFilter;
+    });
+  }, [searchValue, filterValue, professionals]);
 
   const [page, setPage] = useState(0);
   const totalPages = filteredProfessionals ? Math.ceil(filteredProfessionals.length / 8) : 0;
 
-  const cities = ["Todas", ...professionals.map(professional => professional.city)];
+  const cities = useMemo(() => ["Todas", ...Array.from(new Set(professionals.map(p => p.city)))], [professionals]);
 
   function onSetSearchValue(value: string) {
     setSearchValue(value);
@@ -46,17 +53,8 @@ export default function AppointmentsSolicitationScreen() {
   }
 
   useEffect(() => {
-    if (professionalsData) {
-      const filtered = professionals.filter((professional) => {
-        const matchesSearch = professional.name.toLowerCase().includes(searchValue.toLowerCase());
-        const matchesFilter = professional.city == filterValue || filterValue == "Todas";
-        return matchesSearch && matchesFilter;
-      });
-      setFilteredProfessionals(filtered);
-
-      setPage(0);
-    }
-  }, [searchValue, filterValue, professionalsData]);
+    setPage(0);
+  }, [searchValue, filterValue]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -78,7 +76,7 @@ export default function AppointmentsSolicitationScreen() {
           {filteredProfessionals && filteredProfessionals.length > 0 ? (
             <ProfessionalsListStyle>
               {filteredProfessionals.slice(page * 8, (page + 1) * 8).map((professional) => (
-                <ProfessionalCard key={professional.name} professional={professional} />
+                <ProfessionalCard key={professional.id} professional={professional} />
               ))}
             </ProfessionalsListStyle>
           ) : (

@@ -9,6 +9,7 @@ import {
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 import { FaCalendarDays } from "react-icons/fa6";
 import ProfessionalEntity from "@core/models/ProfessionalEntity";
+import Link from "next/link";
 
 interface ProfessionalCardProps {
     professional: ProfessionalEntity;
@@ -25,11 +26,13 @@ enum ProfessionalCardItemType {
     CITY
 }
 
-export default function ProfessionalCard({ professional }: ProfessionalCardProps) {
+export default function ProfessionalCard(
+    { professional }: ProfessionalCardProps
+) {
     return (
         <ProfessionalCardStyle>
             <ProfessionalRoleStyle>
-                <p style={{ fontSize: "1rem "}}>{professional.role}</p>
+                <p style={{ fontSize: "1rem " }}>{professional.role}</p>
             </ProfessionalRoleStyle>
 
             <ProfessionalsItemsStyle>
@@ -42,7 +45,9 @@ export default function ProfessionalCard({ professional }: ProfessionalCardProps
                 <ProfessionalCardItem type={ProfessionalCardItemType.CITY} text={professional.city} />
 
                 <div style={{ marginTop: "8px" }}>
-                    <AppButtonActionRect fullWidth={true}  text="Contatar" icon={<FaCalendarDays />} />
+                    <Link href={`/appointments/contact/${professional.id}`}>
+                        <AppButtonActionRect fullWidth={true} text="Contatar" icon={<FaCalendarDays />} />
+                    </Link>
                 </div>
             </ProfessionalsItemsStyle>
         </ProfessionalCardStyle>

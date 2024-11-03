@@ -1,4 +1,5 @@
 interface Props {
+    id: string,
     role: string
     name: string
     email: string
@@ -10,6 +11,10 @@ export default class ProfessionalEntity {
 
   constructor(props: Props) {
     this.props = props
+  }
+
+  get id() {
+    return this.props.id
   }
 
   get role() {

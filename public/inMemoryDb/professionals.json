@@ -1,6 +1,7 @@
 {
   "professionals": [
     {
+      "id": "1",
       "role": "Médico",
       "name": "Dra. Alice Smith",
       "email": "alice.smith@example.com",
@@ -8,6 +9,7 @@
       "city": "São Paulo"
     },
     {
+      "id": "2",
       "role": "Terapeuta",
       "name": "João Silva",
       "email": "joao.silva@example.com",
@@ -15,6 +17,7 @@
       "city": "Rio de Janeiro"
     },
     {
+      "id": "3",
       "role": "Nutricionista",
       "name": "Maria Oliveira",
       "email": "maria.oliveira@example.com",
@@ -22,6 +25,7 @@
       "city": "Belo Horizonte"
     },
     {
+      "id": "4",
       "role": "Personal Trainer",
       "name": "Carlos Souza",
       "email": "carlos.souza@example.com",
@@ -29,6 +33,7 @@
       "city": "Curitiba"
     },
     {
+      "id": "5",
       "role": "Psicóloga",
       "name": "Sofia Santos",
       "email": "sofia.santos@example.com",
@@ -36,6 +41,7 @@
       "city": "Salvador"
     },
     {
+      "id": "6",
       "role": "Fisioterapeuta",
       "name": "Pedro Almeida",
       "email": "pedro.almeida@example.com",
@@ -43,6 +49,7 @@
       "city": "Fortaleza"
     },
     {
+      "id": "7",
       "role": "Endocrinologista",
       "name": "Dr. Lucas Ribeiro",
       "email": "lucas.ribeiro@example.com",
@@ -50,6 +57,7 @@
       "city": "Brasília"
     },
     {
+      "id": "8",
       "role": "Pediatra",
       "name": "Dra. Camila Costa",
       "email": "camila.costa@example.com",
@@ -57,6 +65,7 @@
       "city": "Porto Alegre"
     },
     {
+      "id": "9",
       "role": "Dermatologista",
       "name": "Dr. Thiago Pereira",
       "email": "thiago.pereira@example.com",
@@ -64,6 +73,7 @@
       "city": "Campinas"
     },
     {
+      "id": "10",
       "role": "Geriatra",
       "name": "Dra. Helena Lima",
       "email": "helena.lima@example.com",
