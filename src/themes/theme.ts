@@ -5,10 +5,11 @@ export const theme = {
     onHoverPrimaryColor: '#8C62D5',
     onHoverPrimaryColorOp: 'rgba(140, 98, 213, 0.35)',
     secondaryColor: '#F3C8FF',
+    onHoverSecondaryColor: '#F4D6FD',
     bgOfPrimaryColor: '#E6E2F7',
     onHoverBgOfPrimaryColor: '#F3F4FC',
     primaryBgColor: '#FDFDFD',
-    primaryBgColorOp: 'rgba(253, 253, 253, 0.45)',
+    primaryBgColorOp: 'rgba(253, 253, 253, 0.55)',
     onHoverPrimaryBgColor: '#EDEDED',
     secondaryBgColor: '#F3F4FC',
     secondaryBgColorOp: 'rgba(243, 244, 252, 0.45)',
@@ -18,6 +19,11 @@ export const theme = {
     textColorOp: 'rgba(15, 23, 42, 0.2)',
     onHoverTextColor: '#2D323E',
     invertedTextColor: '#FDFDFD',
+    bgDangerZone: '#FECACA',
+    divider: {
+      stroke: 'rgb(140, 140, 140)',
+      fill: 'rgb(218, 218, 218)'
+    },
     levels: {
       hard: 'rgb(239 68 68)',
       medium: 'rgb(251 191 36)',

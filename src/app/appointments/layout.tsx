@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import '../../../globals.css'
+import '@screens/globals.css'
 import StyledComponentsRegistry from '@lib/registry'
 import { Poppins } from 'next/font/google'
 
