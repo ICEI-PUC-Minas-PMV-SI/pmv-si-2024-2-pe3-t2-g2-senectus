@@ -1,0 +1,84 @@
+{
+  "professionals": [
+    {
+      "id": "1",
+      "role": "Médico",
+      "name": "Dra. Alice Smith",
+      "email": "alice.smith@example.com",
+      "phone": "+55-11-5551-1234",
+      "city": "São Paulo"
+    },
+    {
+      "id": "2",
+      "role": "Terapeuta",
+      "name": "João Silva",
+      "email": "joao.silva@example.com",
+      "phone": "+55-21-5555-5678",
+      "city": "Rio de Janeiro"
+    },
+    {
+      "id": "3",
+      "role": "Nutricionista",
+      "name": "Maria Oliveira",
+      "email": "maria.oliveira@example.com",
+      "phone": "+55-31-5555-8765",
+      "city": "Belo Horizonte"
+    },
+    {
+      "id": "4",
+      "role": "Personal Trainer",
+      "name": "Carlos Souza",
+      "email": "carlos.souza@example.com",
+      "phone": "+55-41-5555-4321",
+      "city": "Curitiba"
+    },
+    {
+      "id": "5",
+      "role": "Psicóloga",
+      "name": "Sofia Santos",
+      "email": "sofia.santos@example.com",
+      "phone": "+55-71-5555-3456",
+      "city": "Salvador"
+    },
+    {
+      "id": "6",
+      "role": "Fisioterapeuta",
+      "name": "Pedro Almeida",
+      "email": "pedro.almeida@example.com",
+      "phone": "+55-85-5555-7890",
+      "city": "Fortaleza"
+    },
+    {
+      "id": "7",
+      "role": "Endocrinologista",
+      "name": "Dr. Lucas Ribeiro",
+      "email": "lucas.ribeiro@example.com",
+      "phone": "+55-61-5555-2468",
+      "city": "Brasília"
+    },
+    {
+      "id": "8",
+      "role": "Pediatra",
+      "name": "Dra. Camila Costa",
+      "email": "camila.costa@example.com",
+      "phone": "+55-51-5555-1357",
+      "city": "Porto Alegre"
+    },
+    {
+      "id": "9",
+      "role": "Dermatologista",
+      "name": "Dr. Thiago Pereira",
+      "email": "thiago.pereira@example.com",
+      "phone": "+55-19-5555-9753",
+      "city": "Campinas"
+    },
+    {
+      "id": "10",
+      "role": "Geriatra",
+      "name": "Dra. Helena Lima",
+      "email": "helena.lima@example.com",
+      "phone": "+55-27-5555-6423",
+      "city": "Vitória"
+    }
+  ]
+}
