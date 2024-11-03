@@ -24,7 +24,8 @@
       "@public/*": ["./public/*"],
       "@themes/*": ["./src/themes/*"],
       "@lib/*": ["./src/lib/*"],
-      "@screens/*": ["./src/app/*"]
+      "@screens/*": ["./src/app/*"],
+      "@context/*": ["./src/context/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

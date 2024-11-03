@@ -1,5 +1,4 @@
 import { TrainingPlanFiltersType } from '@components/clients/professionals/home/AppProfessionalPlanSearchList'
-import { SortPlanByAscProgress } from '../sorters/SortPlanByAscProgress'
 import { TrainingPlansRepo } from '@core/repositories/TrainingPlansRepo'
 import { GetUserByIdService } from '@core/services/users/GetUserByIdService'
 import { UserEntityTypeEnum } from '@core/models/UserEntity'
@@ -10,7 +9,8 @@ import {
 import { GetUserInfoService } from '@core/services/users/GetUserInfoService'
 import { ServiceError } from '@core/errors/ServiceError'
 import { ClientEntity } from '@core/models/ClientEntity'
-import { SortPlanByDescProgress } from '../sorters/SortPlanByDescProgress'
+import { sortInDesc } from '@core/services/sorters/SortPlanByDescProgress'
+import { sortInAsc } from '@core/services/sorters/SortPlanByAscProgress'
 
 export type FormattedPlanProps = Replace<
   SerializedTrainingPlanEntityProps,
@@ -87,8 +87,11 @@ export class SearchTrainingPlanService {
     inMemoryPlans: FormattedPlanProps[],
     filter: TrainingPlanFiltersType
   ) {
+    const clone = [...inMemoryPlans]
     if (filter.toString() === 'Conclusão (decrescente)')
-      return SortPlanByDescProgress.exec(inMemoryPlans)
-    else return SortPlanByAscProgress.exec(inMemoryPlans)
+      clone.sort((c1, c2) => sortInDesc(c1.progress, c2.progress))
+    else clone.sort((c1, c2) => sortInAsc(c1.progress, c2.progress))
+
+    return clone
   }
 }

@@ -24,11 +24,11 @@ export default function ClientsScreen() {
   }, [])
 
   return (
-    <LoginProvider userType={UserEntityTypeEnum.PROFESSIONAL}>
-      <ThemeProvider theme={theme}>
-        <NextUIProvider className="default">
-          <AppHeader isProfessional />
+    <ThemeProvider theme={theme}>
+      <NextUIProvider className="default">
+        <AppHeader isProfessional />
 
+        <LoginProvider userType={UserEntityTypeEnum.PROFESSIONAL}>
           <AppContainer style={{ justifyContent: 'start' }}>
             <AppDashboardHeader
               options={[
@@ -59,8 +59,8 @@ export default function ClientsScreen() {
 
             <AppProfessionalPlanSearchList />
           </AppContainer>
-        </NextUIProvider>
-      </ThemeProvider>
-    </LoginProvider>
+        </LoginProvider>
+      </NextUIProvider>
+    </ThemeProvider>
   )
 }

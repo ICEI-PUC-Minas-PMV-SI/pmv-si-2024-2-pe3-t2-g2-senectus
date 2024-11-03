@@ -8,7 +8,7 @@ export class TrainingPlansRepo {
   private static trainingPlanCollectionId = 'trainingPlans'
   static set(plan: TrainingPlanEntity) {
     const trainingPlans = TrainingPlansRepo.getSource()
-    if (!trainingPlans) {
+    if (trainingPlans.length <= 0) {
       const collection: TrainingPlansCollection = {
         trainingPlans: [plan.serialize()]
       }
@@ -39,12 +39,12 @@ export class TrainingPlansRepo {
 
   static deleteById(id: string) {
     const trainingPlans = TrainingPlansRepo.getSource()
-    if (!trainingPlans) return
+    if (trainingPlans.length <= 0) return
 
     const searchedTrainingPlanIndex = trainingPlans.findIndex(
       (item) => item.id === id
     )
-    if (!searchedTrainingPlanIndex) return
+    if (searchedTrainingPlanIndex < 0) return
 
     trainingPlans.splice(searchedTrainingPlanIndex, 1)
 
@@ -62,7 +62,7 @@ export class TrainingPlansRepo {
 
   static findAllByOwnerId(id: string): TrainingPlanEntity[] {
     const trainingPlans = TrainingPlansRepo.getSource()
-    if (!trainingPlans) return []
+    if (trainingPlans.length <= 0) return []
 
     const matches: TrainingPlanEntity[] = []
     for (let i = 0; i < trainingPlans.length; i++) {
@@ -74,7 +74,7 @@ export class TrainingPlansRepo {
 
   static findByClientId(id: string): TrainingPlanEntity | undefined {
     const trainingPlans = TrainingPlansRepo.getSource()
-    if (!trainingPlans) return
+    if (trainingPlans.length <= 0) return
 
     const searchedTrainingPlan = trainingPlans.find(
       (item) => item.client === id
@@ -87,7 +87,7 @@ export class TrainingPlansRepo {
     clientId: string
   ): TrainingPlanEntity | undefined {
     const trainingPlans = TrainingPlansRepo.getSource()
-    if (!trainingPlans) return
+    if (trainingPlans.length <= 0) return
 
     const searchedTrainingPlan = trainingPlans.find(
       (item) => item.owner === ownerId && item.client === clientId
@@ -95,19 +95,24 @@ export class TrainingPlansRepo {
     return searchedTrainingPlan ?? undefined
   }
 
-  static findById(id: string): TrainingPlanEntity | undefined {
+  static findByIdAndOwnerId(
+    id: string,
+    ownerId: string
+  ): TrainingPlanEntity | undefined {
     const trainingPlans = TrainingPlansRepo.getSource()
-    if (!trainingPlans) return
+    if (trainingPlans.length <= 0) return
 
-    const searchedTrainingPlan = trainingPlans.find((item) => item.id === id)
+    const searchedTrainingPlan = trainingPlans.find(
+      (item) => item.id === id && item.owner === ownerId
+    )
     return searchedTrainingPlan ?? undefined
   }
 
-  private static getSource(): TrainingPlanEntity[] | undefined {
+  private static getSource(): TrainingPlanEntity[] {
     const trainingPlansSerializedCollection = localStorage.getItem(
       TrainingPlansRepo.trainingPlanCollectionId
     )
-    if (!trainingPlansSerializedCollection) return
+    if (!trainingPlansSerializedCollection) return []
 
     const trainingPlanJsonCol: TrainingPlansCollection = JSON.parse(
       trainingPlansSerializedCollection

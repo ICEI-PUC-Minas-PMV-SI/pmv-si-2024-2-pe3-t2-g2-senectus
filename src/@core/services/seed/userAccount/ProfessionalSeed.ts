@@ -7,6 +7,9 @@ import { UsersRepo } from '@core/repositories/UsersRepo'
 import { AuthenticationService } from '@core/services/login/AuthenticationService'
 import { GetRandomTrainingPlanService } from '../trainingPlan/GetRandomTrainingPlanService'
 import { TrainingPlansRepo } from '@core/repositories/TrainingPlansRepo'
+import { RandomAppointmentsSeedService } from '../clients/RandomAppointmentsSeedService'
+import { AppointmentStateEnum } from '@core/models/AppointmentsEntity'
+import { AppointmentsRepo } from '@core/repositories/AppointmentsRepo'
 
 const staticClients = [
   {
@@ -96,8 +99,8 @@ export class ProfessionalSeed {
       password: '123456',
       name: 'John Doe'
     }) as ProfessionalEntity
-    const clientsId = ProfessionalSeed.createClients(userAccount.id)
-    userAccount.clientIdList = clientsId
+    const clientIdList = ProfessionalSeed.createClients(userAccount.id)
+    userAccount.clientIdList = clientIdList
 
     UsersRepo.set(userAccount)
 
@@ -123,7 +126,11 @@ export class ProfessionalSeed {
       }) as ClientEntity
 
       UsersRepo.set(user)
-      ProfessionalSeed.createTrainingPlan(user.id, professionalId)
+
+      const rand = Math.floor(Math.min(Math.random() * 11, 10))
+      if (rand > 5) ProfessionalSeed.createTrainingPlan(user.id, professionalId)
+
+      ProfessionalSeed.createRandomAppointments(user.id, professionalId)
 
       clientsId.push(user.id)
     }
@@ -137,5 +144,37 @@ export class ProfessionalSeed {
     plan.owner = professionalId
     plan.progress = Math.min(Math.random() * 101, 100)
     TrainingPlansRepo.set(plan)
+  }
+
+  private static createRandomAppointments(
+    clientId: string,
+    professionalId: string
+  ) {
+    const accepted = RandomAppointmentsSeedService.exec(
+      5,
+      AppointmentStateEnum.PENDENT,
+      professionalId,
+      clientId
+    )
+    const pendent = RandomAppointmentsSeedService.exec(
+      5,
+      AppointmentStateEnum.ACCEPTED,
+      professionalId,
+      clientId
+    )
+
+    const lastAcceptedSliceIndex = Math.floor(accepted.length / 2)
+    const acceptedSlice = accepted.slice(0, lastAcceptedSliceIndex)
+    const pendentSlice = pendent.slice(
+      lastAcceptedSliceIndex + 1,
+      pendent.length - 1
+    )
+
+    const appointments = [...acceptedSlice, ...pendentSlice].flatMap(
+      (item) => item.events
+    )
+    for (let i = 0; i < appointments.length; i++) {
+      AppointmentsRepo.set(appointments[i])
+    }
   }
 }

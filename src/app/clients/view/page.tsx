@@ -10,8 +10,16 @@ import { AppButtonLinkRectOutline } from '@components/common/Buttons/AppButtonLi
 import { AppProfessionalClientsSearchList } from '@components/clients/professionals/clients/AppProfessionalClientsSearchList'
 import { AppInternalContainer } from '@components/common/InternalContainer/AppInternalContainer'
 import { FaAngleLeft } from 'react-icons/fa6'
+import { LoginProvider } from '../../../context/LoginProvider'
+import { UserEntityTypeEnum } from '@core/models/UserEntity'
+import { useEffect } from 'react'
+import { ProfessionalSeed } from '@core/services/seed/userAccount/ProfessionalSeed'
 
 export default function ClientsScreen() {
+  useEffect(() => {
+    ProfessionalSeed.exec()
+  }, [])
+
   return (
     <ThemeProvider theme={theme}>
       <NextUIProvider className="default">
@@ -24,14 +32,16 @@ export default function ClientsScreen() {
             icon={<FaAngleLeft />}
           />
 
-          <AppInternalContainer>
-            <AppInitialText
-              title="Seus clientes"
-              text="Insira o nome de clientes que você já atendeu em suas consultas por aqui:"
-            />
+          <LoginProvider userType={UserEntityTypeEnum.PROFESSIONAL}>
+            <AppInternalContainer>
+              <AppInitialText
+                title="Seus clientes"
+                text="Insira o nome de clientes que você já atendeu em suas consultas por aqui:"
+              />
 
-            <AppProfessionalClientsSearchList />
-          </AppInternalContainer>
+              <AppProfessionalClientsSearchList />
+            </AppInternalContainer>
+          </LoginProvider>
         </AppContainer>
       </NextUIProvider>
     </ThemeProvider>
