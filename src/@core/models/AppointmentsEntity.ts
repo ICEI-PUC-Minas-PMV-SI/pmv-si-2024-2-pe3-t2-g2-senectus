@@ -4,7 +4,8 @@ import { v4 as uuid } from 'uuid'
 
 export enum AppointmentStateEnum {
   ACCEPTED = 'Aceito',
-  PENDENT = 'Pendente'
+  PENDENT = 'Pendente',
+  DONE = 'Feito'
 }
 
 interface AppointmentEntityProps {
@@ -74,6 +75,9 @@ export class AppointmentsEntity
   }
   get serviceType() {
     return this.props.serviceType
+  }
+  set state(value: AppointmentStateEnum) {
+    this.props.state = value
   }
   get state() {
     return this.props.state

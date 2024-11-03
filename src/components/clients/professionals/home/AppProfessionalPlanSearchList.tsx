@@ -89,14 +89,15 @@ export function AppProfessionalPlanSearchList() {
   }, [search])
 
   return (
-    <AppPlanOptionsModalAction
-      onDelete={() => {
-        planActionsController.onClose()
-        confirmDeleteController.onOpen()
-      }}
-      onEdit={() => router.push(`/clients/plan/edit/${selectedPlanId}`)}
-      controller={planActionsController}
-    >
+    <div>
+      <AppPlanOptionsModalAction
+        onDelete={() => {
+          planActionsController.onClose()
+          confirmDeleteController.onOpen()
+        }}
+        onEdit={() => router.push(`/clients/plan/edit/${selectedPlanId}`)}
+        controller={planActionsController}
+      />
       <AppConfirmPlanRemotionModalAction
         onDelete={() => {
           DeleteTrainingPlanService.exec(String(selectedPlanId))
@@ -108,78 +109,77 @@ export function AppProfessionalPlanSearchList() {
           planActionsController.onOpen()
         }}
         controller={confirmDeleteController}
-      >
-        <ProfessionalSearchListStyle>
-          <div id="input-wrapper">
-            <AppSearchAndFilter
-              onFilterClick={(filter) => {
-                setQuery((prev) => ({ ...prev, filter }))
-                handleSearch(filter, query.key)
-              }}
-              options={['Conclusão (crescente)', 'Conclusão (decrescente)']}
-              placeholder="Insira o nome do seu cliente."
-              onChange={(key) => {
-                setQuery((prev) => ({ ...prev, key }))
-                handleSearch(query.filter, key)
-              }}
-            />
-          </div>
-
-          <AppThreeColumnTable
-            header={{
-              firstCol: 'Cliente',
-              secondCol: 'Progresso',
-              thirdCol: 'Criado em'
+      />
+      <ProfessionalSearchListStyle>
+        <div id="input-wrapper">
+          <AppSearchAndFilter
+            onFilterClick={(filter) => {
+              setQuery((prev) => ({ ...prev, filter }))
+              handleSearch(filter, query.key)
             }}
-            rows={(() => {
-              const slice = search.slice(page * 7, (page + 1) * 7)
-              const rows = slice.map((plan) => {
-                const createdAt = new Date(plan.createdAtInMilli)
-                const client = plan.client
-                return {
-                  firstCol:
-                    client.name.length > 40
-                      ? client.name.substring(0, 40) + '...'
-                      : client.name,
-                  secondCol: `${plan.progress.toFixed(2)}% concluído`,
-                  thirdCol: `${format(createdAt, 'dd/MM/yyyy')} às ${format(createdAt, 'HH:mm')}`,
-                  onClick: () => {
-                    if (plan.owner === auth.token.id) {
-                      setSelectedPlanId(plan.id)
-                      return planActionsController.onOpen()
-                    }
-                    router.push(`/clients/plan/edit/${client.id}`)
-                  }
-                }
-              }) as ThreeColumnTableRowsType
-
-              if (slice.length < 7) {
-                let emptyRows: ThreeColumnTableRowsType = Array.from({
-                  length: 7 - slice.length
-                })
-                emptyRows = emptyRows.map(() => ({
-                  firstCol: '-',
-                  secondCol: '-',
-                  thirdCol: '-'
-                }))
-                rows.push(...emptyRows)
-              }
-
-              return rows
-            })()}
+            options={['Conclusão (crescente)', 'Conclusão (decrescente)']}
+            placeholder="Insira o nome do seu cliente."
+            onChange={(key) => {
+              setQuery((prev) => ({ ...prev, key }))
+              handleSearch(query.filter, key)
+            }}
           />
-          {total > 1 && search.length > 7 && (
-            <AppPagination
-              className="pagination"
-              total={total}
-              page={page + 1}
-              onChange={(page) => {
-                setPage(page - 1)
-              }}
-            />
-          )}
-        </ProfessionalSearchListStyle>
-      </AppConfirmPlanRemotionModalAction>
-    </AppPlanOptionsModalAction>
+        </div>
+
+        <AppThreeColumnTable
+          header={{
+            firstCol: 'Cliente',
+            secondCol: 'Progresso',
+            thirdCol: 'Criado em'
+          }}
+          rows={(() => {
+            const slice = search.slice(page * 7, (page + 1) * 7)
+            const rows = slice.map((plan) => {
+              const createdAt = new Date(plan.createdAtInMilli)
+              const client = plan.client
+              return {
+                firstCol:
+                  client.name.length > 40
+                    ? client.name.substring(0, 40) + '...'
+                    : client.name,
+                secondCol: `${plan.progress.toFixed(2)}% concluído`,
+                thirdCol: `${format(createdAt, 'dd/MM/yyyy')} às ${format(createdAt, 'HH:mm')}`,
+                onClick: () => {
+                  if (plan.owner === auth.token.id) {
+                    setSelectedPlanId(plan.id)
+                    return planActionsController.onOpen()
+                  }
+                  router.push(`/clients/plan/edit/${client.id}`)
+                }
+              }
+            }) as ThreeColumnTableRowsType
+
+            if (slice.length < 7) {
+              let emptyRows: ThreeColumnTableRowsType = Array.from({
+                length: 7 - slice.length
+              })
+              emptyRows = emptyRows.map(() => ({
+                firstCol: '-',
+                secondCol: '-',
+                thirdCol: '-'
+              }))
+              rows.push(...emptyRows)
+            }
+
+            return rows
+          })()}
+        />
+        {total > 1 && search.length > 7 && (
+          <AppPagination
+            className="pagination"
+            total={total}
+            page={page + 1}
+            onChange={(page) => {
+              setPage(page - 1)
+            }}
+          />
+        )}
+      </ProfessionalSearchListStyle>
+    </div>
   )
 }

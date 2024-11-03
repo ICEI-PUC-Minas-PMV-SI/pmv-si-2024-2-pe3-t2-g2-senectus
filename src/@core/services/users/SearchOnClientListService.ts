@@ -5,6 +5,7 @@ import { sortInDesc } from '@core/services/sorters/SortPlanByDescProgress'
 import { sortInAsc } from '@core/services/sorters/SortPlanByAscProgress'
 import { ClientFiltersType } from '@components/clients/professionals/clients/AppProfessionalClientsSearchList'
 import { GetAppointmentsService } from '../appointments/GetAppointmentsService'
+import { AppointmentStateEnum } from '@core/models/AppointmentsEntity'
 
 interface FormattedClient {
   client: ClientEntity
@@ -46,20 +47,33 @@ export class SearchOnClientListService {
 
   static format(inMemoryClients: ClientEntity[]): FormattedClient[] {
     const appointments = GetAppointmentsService.exec()
-    return inMemoryClients.map((client) => {
+
+    const parsedClients: FormattedClient[] = []
+    for (let i = 0; i < inMemoryClients.length; i++) {
+      const client = inMemoryClients[i]
       let totalAppointments = 0
       let lastAppointment: Date | undefined
       for (let i = 0; i < appointments.length; i++) {
         const item = appointments[i]
-        if (item.client === client.id) {
+        if (
+          item.client === client.id &&
+          item.state === AppointmentStateEnum.DONE
+        ) {
           ++totalAppointments
           if (!lastAppointment || item.dateInMilli > lastAppointment?.getTime())
             lastAppointment = new Date(item.dateInMilli)
         }
       }
 
-      return { client, totalAppointments, lastAppointment: lastAppointment! }
-    })
+      if (totalAppointments > 0)
+        parsedClients.push({
+          client,
+          totalAppointments,
+          lastAppointment: lastAppointment!
+        })
+    }
+
+    return parsedClients
   }
 
   private static searchWithRegexp(
@@ -85,11 +99,17 @@ export class SearchOnClientListService {
     const clone = [...inMemoryClients]
     if (filter.toString() === 'Conclusão (decrescente)')
       clone.sort((c1, c2) =>
-        sortInDesc(c1.totalAppointments, c2.totalAppointments)
+        sortInDesc(
+          c1.totalAppointments as object,
+          c2.totalAppointments as object
+        )
       )
     else
       clone.sort((c1, c2) =>
-        sortInAsc(c1.totalAppointments, c2.totalAppointments)
+        sortInAsc(
+          c1.totalAppointments as object,
+          c2.totalAppointments as object
+        )
       )
     return clone
   }

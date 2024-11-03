@@ -14,7 +14,8 @@ export class BackButtonPlanBuilderHandler {
     const payload = context.payload
 
     let nextStage: PlanBuildStageEnum
-    if (payload.stackHolderRef) nextStage = historicClone.pop()!
+    if (payload.stackHolderRef || historicClone.length)
+      nextStage = historicClone.pop()!
     else {
       nextStage = PlanBuildStageEnum.SELECT_EXERCISES
       historicClone = !shouldSkipClientStep
