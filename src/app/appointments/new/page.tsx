@@ -11,13 +11,13 @@ import { ThemeProvider } from "styled-components";
 import { AppSearchNotFound } from "@components/common/SearchPlaceholders/AppSearchNotFound";
 import { AppointmentSolicitationPaginationStyle, ProfessionalsListStyle } from "./AppointmentsSolicitationStyles";
 
-import professionalsData from "../../../../public/inMemoryDb/professionals.json";
-import ProfessionalEntity from "../../../@core/models/ProfessionalEntity";
-import ProfessionalCard from "@components/professional_card/ProfessionalCard";
+import professionalsData from '../../../../public/inMemoryDb/professionals.json'
+import ProfessionalEntity from '../../../@core/models/ProfessionalEntity'
+import ProfessionalCard from '@components/professional_card/ProfessionalCard'
 
 export default function AppointmentsSolicitationScreen() {
   const [searchValue, setSearchValue] = useState('')
-  const [filterValue, setFilter] = useState("Todas")
+  const [filterValue, setFilter] = useState('Todas')
 
   const professionals = useMemo(() => professionalsData.professionals.map(professional => (
     new ProfessionalEntity({
@@ -39,17 +39,19 @@ export default function AppointmentsSolicitationScreen() {
     });
   }, [searchValue, filterValue, professionals]);
 
-  const [page, setPage] = useState(0);
-  const totalPages = filteredProfessionals ? Math.ceil(filteredProfessionals.length / 8) : 0;
+  const [page, setPage] = useState(0)
+  const totalPages = filteredProfessionals
+    ? Math.ceil(filteredProfessionals.length / 8)
+    : 0
 
   const cities = useMemo(() => ["Todas", ...Array.from(new Set(professionals.map(p => p.city)))], [professionals]);
 
   function onSetSearchValue(value: string) {
-    setSearchValue(value);
+    setSearchValue(value)
   }
 
   function onSetFilterValue(value: string) {
-    setFilter(value);
+    setFilter(value)
   }
 
   useEffect(() => {
@@ -64,7 +66,10 @@ export default function AppointmentsSolicitationScreen() {
         <AppContainer style={{ justifyContent: 'start', width: '100%' }}>
           <h1 className="prettify-title">Pesquisar profissional</h1>
 
-          <h3>Para prosseguir, selecione o profissional que você deseja realizar a consulta:</h3>
+          <h3>
+            Para prosseguir, selecione o profissional que você deseja realizar a
+            consulta:
+          </h3>
 
           <AppSearchAndFilter
             placeholder="Insira o nome do profissional"
@@ -84,16 +89,18 @@ export default function AppointmentsSolicitationScreen() {
           )}
 
           <AppointmentSolicitationPaginationStyle>
-            {professionals != null && professionals.length > 8 && totalPages > 1 && (
-              <AppPagination
-                id="appointment-solicitation-pagination"
-                total={totalPages}
-                page={page + 1}
-                onChange={(page) => {
-                  setPage(page - 1)
-                }}
-              />
-            )}
+            {professionals != null &&
+              professionals.length > 8 &&
+              totalPages > 1 && (
+                <AppPagination
+                  id="appointment-solicitation-pagination"
+                  total={totalPages}
+                  page={page + 1}
+                  onChange={(page) => {
+                    setPage(page - 1)
+                  }}
+                />
+              )}
           </AppointmentSolicitationPaginationStyle>
         </AppContainer>
       </NextUIProvider>
