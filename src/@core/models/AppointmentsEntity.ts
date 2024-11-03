@@ -1,5 +1,6 @@
 import { CalendarEventEntity } from './CalendarEventEntity'
 import { EntityTemplate } from './EntityTemplate'
+import { v4 as uuid } from 'uuid'
 
 export enum AppointmentStateEnum {
   ACCEPTED = 'Aceito',
@@ -7,13 +8,21 @@ export enum AppointmentStateEnum {
 }
 
 interface AppointmentEntityProps {
+  id: string
   host: string
   client: string
   dateInMilli: number
-  description: string
+  description?: string
   serviceType: string
   state: AppointmentStateEnum
 }
+
+export type AppointmentEntityInputProps = Replace<
+  AppointmentEntityProps,
+  { id?: string }
+>
+
+export type SerializedAppointmentEntityProps = AppointmentEntityProps
 
 export class AppointmentsEntity
   extends CalendarEventEntity
@@ -21,9 +30,12 @@ export class AppointmentsEntity
 {
   private props: AppointmentEntityProps
 
-  constructor(props: AppointmentEntityProps) {
+  constructor(props: AppointmentEntityInputProps) {
     super({ dateInMilli: props.dateInMilli })
-    this.props = props
+    this.props = {
+      id: props.id ?? uuid(),
+      ...props
+    }
   }
 
   clone() {
@@ -42,6 +54,12 @@ export class AppointmentsEntity
     return JSON.stringify(this.props)
   }
 
+  get id() {
+    return this.props.id
+  }
+  set id(value: string) {
+    this.props.id = value
+  }
   get host() {
     return this.props.host
   }
