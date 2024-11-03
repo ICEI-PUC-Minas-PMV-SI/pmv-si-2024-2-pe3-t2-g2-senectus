@@ -1,8 +1,5 @@
-import { AppButtonActionRect } from '@components/common/Buttons/AppButtonActionRect'
-import { AppButtonActionRectOutline } from '@components/common/Buttons/AppButtonActionRectOutline'
-import { AppModal } from '@components/common/Modals/AppModal'
 import { ReactNode } from 'react'
-import { ExerciseSelectorModalStyle } from './ExerciseSelectorModalStyle'
+import { AppModalWithOptions } from '@components/common/Modals/AppModalWithOptions'
 
 interface AppExerciseSelectorModalActionProps {
   id?: string
@@ -13,45 +10,26 @@ interface AppExerciseSelectorModalActionProps {
   onDelete: () => void
 }
 
-function AppSelectorModal(props: AppExerciseSelectorModalActionProps) {
-  return (
-    <ExerciseSelectorModalStyle>
-      <p>Selecione uma ação para realizar nesta pilha de exercícios:</p>
-      <div className="options">
-        <AppButtonActionRect
-          className="common-btn"
-          text="Editar pilha"
-          onClick={props.onEdit}
-          fullWidth
-        />
-        <AppButtonActionRect
-          className="common-btn"
-          text="Visualizar exercícios"
-          onClick={props.onView}
-          fullWidth
-        />
-        <AppButtonActionRectOutline
-          className="outline-btn"
-          text="Remover pilha"
-          onClick={props.onDelete}
-          fullWidth
-        />
-      </div>
-    </ExerciseSelectorModalStyle>
-  )
-}
-
 export function AppExerciseSelectorModalAction(
   props: AppExerciseSelectorModalActionProps
 ) {
   return (
-    <AppModal
+    <AppModalWithOptions
+      id={props.id}
+      className={props.className}
       title="Selecionar ação"
-      id={props.id ?? ''}
-      className={props.className ?? ''}
-      modalBody={<AppSelectorModal {...props} />}
+      text="Selecione uma ação para realizar nesta lista de exercícios:"
+      options={[
+        { text: 'Editar lista', onClick: props.onEdit },
+        { text: 'Visualizar exercícios', onClick: props.onView },
+        {
+          text: 'Remover lista',
+          onClick: props.onDelete,
+          isOutlinedButton: true
+        }
+      ]}
     >
       {props.children}
-    </AppModal>
+    </AppModalWithOptions>
   )
 }
