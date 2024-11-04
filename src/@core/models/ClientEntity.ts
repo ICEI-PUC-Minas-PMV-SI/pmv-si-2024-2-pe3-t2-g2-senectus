@@ -43,6 +43,10 @@ export class ClientEntity
     return JSON.stringify({ ...this.props, ...this.userProps })
   }
 
+  get location() {
+    if (!this.userProps.address || !this.userProps.city) return
+    return `${this.userProps.address} - ${this.userProps.city}`
+  }
   get professionalIdList() {
     return this.props.professionalIdList
   }

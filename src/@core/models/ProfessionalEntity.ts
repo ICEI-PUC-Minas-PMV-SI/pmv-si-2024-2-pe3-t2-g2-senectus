@@ -1,13 +1,19 @@
 import { EntityTemplate } from './EntityTemplate'
 import { UserEntity, UserEntityInputProps } from './UserEntity'
 
-type ServiceProps = Array<{
+export type ServiceProps = Array<{
   name: string
   price: number
 }>
 
+export type JobConstant =
+  | 'Personal Trainer'
+  | 'Nutricionista'
+  | 'Quiroprata'
+  | 'Fisioterapeuta'
+  | 'Nutricionista'
 interface ProfessionalEntityProps extends UserEntityInputProps {
-  job?: string
+  job?: JobConstant
   startedAtInMilli?: number
   services: ServiceProps
   clientIdList: string[]
@@ -18,7 +24,7 @@ export type ProfessionalEntityInputProps = Replace<
   {
     clientIdList?: string[]
     startedAtInMilli?: number
-    role?: string
+    job?: JobConstant
     services?: ServiceProps
   }
 > &
@@ -60,7 +66,7 @@ export class ProfessionalEntity
   get job(): string | undefined {
     return this.props.job
   }
-  set job(value: string | undefined) {
+  set job(value: JobConstant | undefined) {
     this.props.job = value
   }
   get startedAtInMilli() {
@@ -77,6 +83,9 @@ export class ProfessionalEntity
   }
   get services() {
     return this.props.services
+  }
+  get location() {
+    return `${this.userProps.address} - ${this.userProps.city}`
   }
   set services(value: ServiceProps) {
     this.props.services = value
