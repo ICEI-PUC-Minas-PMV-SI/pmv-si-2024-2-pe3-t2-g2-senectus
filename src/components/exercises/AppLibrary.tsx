@@ -2,12 +2,17 @@ import { ExerciseRepo } from '@core/repositories/ExerciseRepo'
 import { LibraryStyle } from './LibraryStyle'
 import Link from 'next/link'
 import Image from 'next/image'
+import { CSSProperties } from 'styled-components'
 
 const categories = ExerciseRepo.getCategories()
 
-export function AppLibrary() {
+interface AppLibraryProps {
+  style?: CSSProperties
+}
+
+export function AppLibrary({ style }: AppLibraryProps) {
   return (
-    <LibraryStyle>
+    <LibraryStyle style={style}>
       <h2>Biblioteca</h2>
       <p>Selecione a categória que mais te agradar:</p>
 

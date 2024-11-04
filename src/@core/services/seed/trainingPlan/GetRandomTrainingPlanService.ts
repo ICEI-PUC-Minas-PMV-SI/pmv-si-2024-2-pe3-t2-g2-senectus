@@ -16,7 +16,7 @@ export class GetRandomTrainingPlanService {
     const daysInTheMonth: number[] = []
     for (let i = 1; i <= getDaysInMonth(now); i++) daysInTheMonth.push(i)
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 5; i++) {
       const randomDayMonth =
         daysInTheMonth[
           Math.floor(Math.random() * Math.max(daysInTheMonth.length - 1, 0))
@@ -37,7 +37,7 @@ export class GetRandomTrainingPlanService {
       dateInMilliList: [],
       exercises: []
     })
-    const exercises = ExerciseRepo.getAllExercises().map((item) => {
+    const exercises = ExerciseRepo.getCategories()[0].exercises.map((item) => {
       const clone = item.clone()
       clone.exerciseStackId = exerciseStack.id
       return clone

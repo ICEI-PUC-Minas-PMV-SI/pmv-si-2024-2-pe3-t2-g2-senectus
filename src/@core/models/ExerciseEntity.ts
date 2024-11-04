@@ -1,7 +1,13 @@
 import { CalendarEventEntity } from './CalendarEventEntity'
 import { EntityTemplate } from './EntityTemplate'
 
+export enum ExerciseState {
+  DONE = 'DONE',
+  PENDING = 'PENDING'
+}
+
 interface ExerciseEntityProps {
+  state?: ExerciseState
   id: string
   exerciseStackId?: string
   name: string
@@ -35,6 +41,7 @@ export class ExerciseEntity
     this.props = {
       ...props,
       id: props.id ?? `exercise-${ExerciseEntity.nextId}`,
+      state: props.state ?? ExerciseState.PENDING,
       dateInMilli: props.dateInMilli ?? 0
     }
 
@@ -59,6 +66,16 @@ export class ExerciseEntity
 
   get id() {
     return this.props.id
+  }
+  set id(value: string) {
+    this.props.id = value
+  }
+
+  get state(): ExerciseState | undefined {
+    return this.props.state
+  }
+  set state(value: ExerciseState | undefined) {
+    this.props.state = value
   }
 
   get exerciseStackId(): string | undefined {
