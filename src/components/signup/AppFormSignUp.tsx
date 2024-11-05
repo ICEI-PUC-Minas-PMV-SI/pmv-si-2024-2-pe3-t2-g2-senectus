@@ -121,7 +121,7 @@ export function AppFormSignUp() {
 
           <p id="create-account-link">
             Já tem uma conta?
-            <Link href="/sigin">
+            <Link href="/login">
               {' '}
               {/* Crie uma pasta com o nome deste endpoint */}
               Clique aqui
@@ -132,7 +132,7 @@ export function AppFormSignUp() {
       </div>
       <div id="wallpaper">
         <Image
-          src="/img/login-register/idoso.jpg"
+          src="/img/login-signup/idoso_andando_de_bicicleta.jpg"
           alt="Idoso andando de bicicleta"
           width={300}
           height={300}
