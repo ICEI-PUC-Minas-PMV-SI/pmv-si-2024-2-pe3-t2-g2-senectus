@@ -183,6 +183,56 @@
           }
         }
       ]
+    },
+    {
+      "name": "Mobilidade Inferior",
+      "image": {
+        "src": "/img/exercises/img_elderly_stretching.jpg",
+        "alt": "Pessoa idosa realizando alongamento"
+      },
+      "exercises": [
+        {
+          "name": "Alongamento de Isquiotibiais",
+          "repeat": "3x20",
+          "durationInMilli": 60000,
+          "level": "EASY",
+          "instructions": [
+            "Na postura de pé e atrás de uma cadeira, coloque o pé direito sobre a cadeira.",
+            "Incline o tronco para frente, como se fosse pegar o pé que está na cadeira.",
+            "Mantenha a posição por 20 segundos.",
+            "Retorne à postura inicial e repita com a perna esquerda.",
+            "Caso seja necessário, pode apoiar na parede."
+          ],
+          "video": {
+            "url": "https://www.youtube.com/watch?v=oYjSm-6u0b4",
+            "videoTime": "8min44 até 09min43"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_perfoming_hamstring",
+            "alt": "Pessoa idosa realizando alongamento de isquiotibiais, com o pé sobre a cadeira"
+          }
+        }
+        ,
+        {
+          "name": "Alongamento de Quadríceps",
+          "repeat": "3x20",
+          "durationInMilli": 60000,
+          "level": "EASY",
+          "instructions": [
+            "Na postura de pé e atrás de uma cadeira, deixe uma mão apoiada na cadeira e a outra mão segure o pé direito.",
+            "Sinta esticar a parte da frente da coxa direita, mantendo a posição por 20 segundos.",
+            "Retorne à postura inicial e repita com a perna esquerda."
+          ],
+          "video": {
+            "url": "https://www.youtube.com/watch?v=B3CL6fwWE8g&t=10s",
+            "videoTime": "12min35 até 13min13"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_elevating_leg.jpg",
+            "alt": "Pessoa idosa realizando alongamento de quadríceps, apoiada na cadeira"
+          }
+        }
+      ]
     }
   ]
 }
