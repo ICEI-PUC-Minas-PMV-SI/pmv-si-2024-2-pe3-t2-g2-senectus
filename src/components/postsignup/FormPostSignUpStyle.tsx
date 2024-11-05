@@ -12,6 +12,8 @@ export const FormPostSignUpStyle = styled.div`
     width: 50%;
     padding: 6rem 0 0 6rem;
     box-sizing: border-box;
+    overflow-y: auto;
+    height: 100%;
   }
 
   h1 {
@@ -45,11 +47,6 @@ export const FormPostSignUpStyle = styled.div`
     margin-left: 25%;
   }
 
-  #voltar, .AppButtonActionRect {
-    width: 100%;
-    max-width: 150px; 
-  }
-
   #wallpaper {
     width: 50%;
     height: 100vh;
@@ -62,5 +59,27 @@ export const FormPostSignUpStyle = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  @media (max-width: 1000px) {
+    #wallpaper {
+      display: none;
+    }
+  }
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    height: auto;
+
+    #forms {
+      width: 100%;
+      padding: 2rem;
+    }
+
+    #buttons {
+      width: 100%;
+      margin-left: 0;
+      flex-direction: column;
+    }
   }
 `;
