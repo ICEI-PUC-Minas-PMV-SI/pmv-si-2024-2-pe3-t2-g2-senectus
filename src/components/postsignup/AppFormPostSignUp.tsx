@@ -1,4 +1,4 @@
-import { AppButtonActionRect } from '@components/common/Buttons/AppButtonActionRect';
+import { AppButtonActionRectOutline } from '@components/common/Buttons/AppButtonActionRectOutline';
 import { AppButtonLinkRect } from '@components/common/Buttons/AppButtonLinkRect';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -56,7 +56,7 @@ export function AppFormPostSignUp() {
             href="/signup" 
             text={"Voltar"}   
           />
-          <AppButtonActionRect
+          <AppButtonActionRectOutline
             type="button"
             text="Criar minha conta"
             fullWidth
@@ -67,10 +67,10 @@ export function AppFormPostSignUp() {
 
       <div id="wallpaper">
         <Image
-          src="/img/login-register/idoso.jpg"
+          src="/img/login-signup/idoso_andando_de_bicicleta.jpg"
           alt="Idoso andando de bicicleta"
-          width={300}
-          height={300}
+          width={1000}
+          height={1000}
           priority
         />
       </div>
