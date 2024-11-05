@@ -1,151 +1,185 @@
 {
   "categories": [
     {
-      "name": "Alongamento",
+      "name": "Alongamento Cervical",
       "image": {
-        "src": "/img/exercises/stretching-exercise.png",
-        "alt": "Imagem de uma pessoa caminhando"
+        "src": "/img/exercises/img_elderly_making_neck_up_down.jpg",
+        "alt": "Pessoa idosa realizando alongamento cervical, movendo o pescoço para cima e para baixo"
       },
       "exercises": [
         {
-          "repeat": 5,
-          "durationInMilli": 1800000,
-          "name": "Exercício da cadeira",
-          "level": "easy",
+          "name": "Flexão lateral",
+          "repeat": "3x20",
+          "durationInMilli": 210000,
+          "level": "EASY",
           "instructions": [
-            "Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.",
-            "Estenda um braço para cima, segurando por 10 segundos e troque.",
-            "Fique em pé com os pés na largura dos ombros.",
-            "Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes."
+            "Mantenha a coluna reta, com a mão sobre a cabeça",
+            "Puxe a cabeça para o lado direito, sentindo esticar toda a região do pescoço à esquerda",
+            "Mantenha a posição por 20 segundos",
+            "Retorne a cabeça para o centro e repita o movimento para o lado esquerdo"
           ],
           "video": {
-            "src": "https://www.youtube.com/watch?v=28kE5vLW4vM"
+            "url": "https://www.youtube.com/watch?v=oYjSm-6u0b4",
+            "videoTime": "2min40 até 3min32"
           },
           "image": {
-            "src": "/img/exercises/walking-exercise.png",
-            "alt": "Pessoa fazendo exercício"
+            "src": "/img/exercises/img_elderly_making_lateral_flexing_3jpg.jpg",
+            "alt": "Pessoa idosa realizando flexão lateral do pescoço"
           }
         },
         {
-          "repeat": 5,
-          "durationInMilli": 1800000,
-          "name": "Prancha",
-          "level": "easy",
+          "name": "Flexão anterior com rotação",
+          "repeat": "3x20",
+          "durationInMilli": 255600,
+          "level": "EASY",
           "instructions": [
-            "Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.",
-            "Estenda um braço para cima, segurando por 10 segundos e troque.",
-            "Fique em pé com os pés na largura dos ombros.",
-            "Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes."
+            "Comece com a cabeça alinhada no centro",
+            "Rode a cabeça 45° à direita e depois incline a cabeça para baixo, sentindo esticar a região de trás do pescoço",
+            "Mantenha a posição por 20 segundos",
+            "Retorne a cabeça para o centro e repita o movimento para o lado esquerdo"
           ],
           "video": {
-            "src": "https://www.youtube.com/watch?v=28kE5vLW4vM"
+            "url": "https://www.youtube.com/watch?v=oYjSm-6u0b4",
+            "videoTime": "3min33 até 4min26"
           },
           "image": {
-            "src": "/img/exercises/walking-exercise.png",
-            "alt": "Pessoa fazendo exercício"
+            "src": "/img/exercises/img_elderly_making_lateral_flexing_2.jpg",
+            "alt": "Pessoa idosa realizando flexão anterior com rotação do pescoço"
           }
         },
         {
-          "repeat": 5,
-          "durationInMilli": 1800000,
-          "name": "Flexão",
-          "level": "easy",
+          "name": "Flexão anterior",
+          "repeat": "3x20",
+          "durationInMilli": 255600,
+          "level": "EASY",
           "instructions": [
-            "Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.",
-            "Estenda um braço para cima, segurando por 10 segundos e troque.",
-            "Fique em pé com os pés na largura dos ombros.",
-            "Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes."
+            "Comece com a cabeça alinhada no centro",
+            "Coloque as mãos na nuca, feche o cotovelo e incline a cabeça para baixo, sentindo esticar a região de trás do pescoço",
+            "Mantenha a posição por 20 segundos",
+            "Retorne a cabeça para o centro"
           ],
           "video": {
-            "src": "https://www.youtube.com/watch?v=28kE5vLW4vM"
+            "url": "https://www.youtube.com/watch?v=oYjSm-6u0b4",
+            "videoTime": "4min26 até 5min"
           },
           "image": {
-            "src": "/img/exercises/walking-exercise.png",
-            "alt": "Pessoa fazendo exercício"
+            "src": "/img/exercises/img_elderly_making_lateral_flexing.jpg",
+            "alt": "Pessoa idosa realizando flexão anterior do pescoço"
+          }
+        },
+        {
+          "name": "Movimentar o pescoço para cima e para baixo",
+          "repeat": "1x10",
+          "durationInMilli": 20000,
+          "level": "EASY",
+          "instructions": [
+            "Na postura de pé, fazer o movimento no pescoço devagar, olhando para cima e para baixo"
+          ],
+          "video": {
+            "url": "https://www.youtube.com/watch?v=xfF6WV_cDgU",
+            "videoTime": "4min05 até 4min25"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_making_neck_up_down.jpg",
+            "alt": "Pessoa idosa movimentando o pescoço para cima e para baixo"
+          }
+        },
+        {
+          "name": "Mobilidade escapular - Elevação de ombro",
+          "repeat": "10x",
+          "durationInMilli": 60000,
+          "level": "EASY",
+          "instructions": [
+            "Na postura de pé, braços ao lado do corpo, realizar movimentos de subir e descer os ombros"
+          ],
+          "video": {
+            "url": "https://www.youtube.com/watch?v=Kb3D2Cr-wrw&t=9s",
+            "videoTime": "3min50 até 4min17"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_elevating_shoulders.jpg",
+            "alt": "Pessoa idosa realizando elevação de ombro"
           }
         }
       ]
     },
     {
-      "name": "Equilíbrio",
+      "name": "Mobilidade escapular",
       "image": {
-        "src": "/img/exercises/balance-exercise.png",
-        "alt": "Imagem de uma pessoa caminhando"
+        "src": "/img/exercises/img_elderly_rotating_shoulders_2.jpg",
+        "alt": "Pessoa idosa realizando movimentos rotacionais para mobilidade escapular"
       },
       "exercises": [
         {
-          "repeat": 19,
-          "durationInMilli": 1800000,
-          "name": "Exercício da cadeira",
-          "level": "easy",
+          "name": "Mobilidade escapular - Movimentos rotacionais para frente e para trás",
+          "repeat": "10x para cada direção",
+          "durationInMilli": 120000,
+          "level": "EASY",
           "instructions": [
-            "Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.",
-            "Estenda um braço para cima, segurando por 10 segundos e troque.",
-            "Fique em pé com os pés na largura dos ombros.",
-            "Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes."
+            "Na postura de pé, enrolar os ombros para frente e depois para trás, realizando 10 movimentos para cada direção"
           ],
           "video": {
-            "src": "https://www.youtube.com/watch?v=28kE5vLW4vM"
+            "url": "https://www.youtube.com/watch?v=Kb3D2Cr-wrw&t=9s",
+            "videoTime": "4min41 até 5min25"
           },
           "image": {
-            "src": "/img/exercises/walking-exercise.png",
-            "alt": "Pessoa fazendo exercício"
+            "src": "/img/exercises/img_elderly_rotating_shoulders.jpg",
+            "alt": "Pessoa idosa realizando movimentos rotacionais de ombro"
           }
-        }
-      ]
-    },
-    {
-      "name": "Fortalecimento",
-      "image": {
-        "src": "/img/exercises/strengthening-exercise.png",
-        "alt": "Imagem de uma pessoa caminhando"
-      },
-      "exercises": [
+        },
         {
-          "repeat": 19,
-          "durationInMilli": 1800000,
-          "name": "Exercício da cadeira",
-          "level": "easy",
+          "name": "Fortalecimento dos rotadores externos de ombro associado à escápula",
+          "repeat": "2x10",
+          "durationInMilli": 90000,
+          "level": "EASY",
           "instructions": [
-            "Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.",
-            "Estenda um braço para cima, segurando por 10 segundos e troque.",
-            "Fique em pé com os pés na largura dos ombros.",
-            "Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes."
+            "Na postura de pé, com cotovelos apoiados no tronco, gire os braços para fora. Pode usar resistência elástica, segurando uma faixa elástica e esticando-a ao girar os braços"
           ],
           "video": {
-            "src": "https://www.youtube.com/watch?v=28kE5vLW4vM"
+            "url": "https://www.youtube.com/watch?v=A68yj4oYWfo",
+            "videoTime": "4min41 até 5min55"
           },
           "image": {
-            "src": "/img/exercises/walking-exercise.png",
-            "alt": "Pessoa fazendo exercício"
+            "src": "/img/exercises/img_elderly_strengthening_shoulders_2.jpg",
+            "alt": "Pessoa idosa fortalecendo rotadores externos do ombro com elástico"
           }
-        }
-      ]
-    },
-    {
-      "name": "Mobilidade",
-      "image": {
-        "src": "/img/exercises/walking-exercise.png",
-        "alt": "Imagem de uma pessoa caminhando"
-      },
-      "exercises": [
+        },
         {
-          "repeat": 19,
-          "durationInMilli": 1800000,
-          "name": "Exercício da cadeira",
-          "level": "easy",
+          "name": "Fortalecimento de abdutores de ombro",
+          "repeat": "2x10",
+          "durationInMilli": 90000,
+          "level": "EASY",
           "instructions": [
-            "Levante os joelhos de forma leve, caminhando no lugar por 5 minutos.",
-            "Estenda um braço para cima, segurando por 10 segundos e troque.",
-            "Fique em pé com os pés na largura dos ombros.",
-            "Dobre os joelhos lentamente, como se fosse sentar em uma cadeira, e volte à posição de pé. Repita 5 vezes."
+            "Na postura de pé, levante os braços com uma abertura de 30° a 45° graus em relação ao tronco",
+            "Levante até a altura dos ombros",
+            "Pode realizar com carga, utilizando uma garrafa de água de 500ml"
           ],
           "video": {
-            "src": "https://www.youtube.com/watch?v=28kE5vLW4vM"
+            "url": "https://www.youtube.com/watch?v=A68yj4oYWfo",
+            "videoTime": "6min07 até 7min12"
           },
           "image": {
-            "src": "/img/exercises/walking-exercise.png",
-            "alt": "Pessoa fazendo exercício"
+            "src": "/img/exercises/img_elderly_strengthening_shoulders.jpg",
+            "alt": "Pessoa idosa realizando fortalecimento de abdutores de ombro"
+          }
+        },
+        {
+          "name": "Fortalecimento dos rotadores internos de ombro",
+          "repeat": "2x10",
+          "durationInMilli": 90000,
+          "level": "EASY",
+          "instructions": [
+            "Deitada de barriga para cima, com cotovelos apoiados no tronco",
+            "Gire os braços para fora e retorne à posição inicial",
+            "Pode realizar com carga leve, utilizando uma garrafa de água de 500ml"
+          ],
+          "video": {
+            "url": "https://www.youtube.com/watch?v=A68yj4oYWfo",
+            "videoTime": "8min52 até 9min50"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_rotating_shoulders_in_bed.jpg",
+            "alt": "Pessoa idosa deitada fortalecendo os rotadores internos do ombro"
           }
         }
       ]
