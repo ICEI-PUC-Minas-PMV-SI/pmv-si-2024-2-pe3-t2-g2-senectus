@@ -13,16 +13,10 @@ import {
 } from 'react-icons/fa6'
 import { AppProfessionalPlanSearchList } from '@components/clients/professionals/home/AppProfessionalPlanSearchList'
 import { AppInitialText } from '@components/common/Text/AppInitialText'
-import { ProfessionalSeed } from '@core/services/seed/userAccount/ProfessionalSeed'
-import { useEffect } from 'react'
 import { LoginProvider } from '../../context/LoginProvider'
 import { UserEntityTypeEnum } from '@core/models/UserEntity'
 
 export default function ClientsScreen() {
-  useEffect(() => {
-    ProfessionalSeed.exec()
-  }, [])
-
   return (
     <ThemeProvider theme={theme}>
       <NextUIProvider className="default">

@@ -35,7 +35,7 @@ export function ProfessionalCard({ professional }: ProfessionalCardProps) {
 
       <ProfessionalsItemsStyle>
         <h6 style={{ fontSize: '1.2rem', marginBottom: '4px' }}>
-          {professional.name}
+          {professional.formattedName}
         </h6>
 
         <ProfessionalCardItem

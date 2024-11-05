@@ -3,12 +3,14 @@ import { ProfessionalEntity } from '@core/models/ProfessionalEntity'
 import { UserEntity, UserEntityTypeEnum } from '@core/models/UserEntity'
 import { UsersRepo } from '@core/repositories/UsersRepo'
 import { GetUserInfoService } from './GetUserInfoService'
+import { TokenRepo } from '@core/repositories/TokenRepo'
 
 export class DeleteUserService {
   static exec() {
     const user = GetUserInfoService.exec<UserEntity>()
     if (!user) return
     UsersRepo.deleteById(user.id, user.type as UserEntityTypeEnum)
+    TokenRepo.delete()
 
     if (user.type === 'CLIENT')
       DeleteUserService.removeRefFromProfessionals(user)
@@ -22,14 +24,19 @@ export class DeleteUserService {
 
     for (let i = 0; i < professionalIdList.length; i++) {
       const item = professionalIdList[i]
-      const searchedProfessional = UsersRepo.findById(
+      const searchedProfessionals = UsersRepo.findById(
         item,
         UserEntityTypeEnum.PROFESSIONAL
       ) as ProfessionalEntity | undefined
-      if (!searchedProfessional) break
+      if (!searchedProfessionals) break
 
-      searchedProfessional.clientIdList.find((item) => item === clientId)
-      UsersRepo.set(searchedProfessional)
+      const index = searchedProfessionals.clientIdList.findIndex(
+        (item) => item === clientId
+      )
+      if (index >= 0) {
+        searchedProfessionals.clientIdList.splice(index, 1)
+        UsersRepo.set(searchedProfessionals)
+      }
     }
   }
 
@@ -46,8 +53,13 @@ export class DeleteUserService {
       ) as ClientEntity | undefined
       if (!searchedClient) break
 
-      searchedClient.professionalIdList.find((item) => item === professionalId)
-      UsersRepo.set(searchedClient)
+      const index = searchedClient.professionalIdList.findIndex(
+        (item) => item === professionalId
+      )
+      if (index >= 0) {
+        searchedClient.professionalIdList.splice(index, 1)
+        UsersRepo.set(searchedClient)
+      }
     }
   }
 }

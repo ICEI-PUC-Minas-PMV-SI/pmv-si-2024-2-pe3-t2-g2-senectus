@@ -1,6 +1,6 @@
 import { Select, SelectItem, SelectProps } from '@nextui-org/select'
 import { theme } from '@themes/theme'
-import { useEffect, useState, ReactNode } from 'react'
+import { useEffect, useState, ReactNode, CSSProperties } from 'react'
 import {
   Modal,
   ModalContent,
@@ -10,11 +10,13 @@ import {
 } from '@nextui-org/modal'
 import { AppSelectModalStyle } from './AppSelectModalStyle'
 import { SelectOutlineStyle } from './SelectOutlineStyle'
+import { Selection } from '@nextui-org/react'
 
 interface AppSelectOutlineProps
   extends Omit<SelectProps, 'label' | 'children' | 'onChange' | 'placeholder'> {
   label: string
   icon?: ReactNode
+  wrapperStyle?: CSSProperties
   options: string[]
   onChange: (value: string) => void
 }
@@ -24,11 +26,12 @@ export function AppSelectOutline({
   icon,
   options,
   onChange,
+  wrapperStyle,
   ...props
 }: AppSelectOutlineProps) {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure()
   const [isTabletScreenOrLess, setIsTabletScreenOrLess] = useState(false)
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState(props.value ?? '')
 
   const onChangeValue = (value: string) => {
     setValue(value)
@@ -47,10 +50,10 @@ export function AppSelectOutline({
   }, [onClose])
 
   return (
-    <SelectOutlineStyle>
+    <SelectOutlineStyle style={wrapperStyle}>
       {isTabletScreenOrLess && (
         <>
-          <label className="outline-btn-label">
+          <label className="outline-btn-label" style={props.style}>
             <div className="label" role="label">
               {label}
               {props.isRequired && <span>*</span>}
@@ -101,6 +104,7 @@ export function AppSelectOutline({
             borderRadius: theme.border.radius.md,
             boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.2)'
           }}
+          defaultSelectedKeys={new Set([value]) as Selection}
           onChange={(e) => onChangeValue(e.target.value)}
           popover="manual"
           fullWidth

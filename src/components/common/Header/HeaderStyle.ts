@@ -30,9 +30,23 @@ export const HeaderStyle = styled.header`
     width: clamp(6.5rem, 17.5vw, 9.5rem);
   }
 
-  & #menu-btn-connect {
+  & #menu-btn-connect,
+  & #menu-btn-config {
     opacity: 0;
     visibility: hidden;
+  }
+
+  & #btn-config {
+    & .icon {
+      color: ${({ theme }) => theme.color.primaryColor};
+    }
+
+    width: 100%;
+    & a {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
   }
 
   @media (max-width: 960px) {
@@ -62,8 +76,24 @@ export const HeaderStyle = styled.header`
         visibility: hidden;
       }
 
-      & #menu-btn-connect {
+      & #menu-btn-connect,
+      & #menu-btn-config {
         margin-top: 1.5rem;
+      }
+
+      & #menu-btn-config {
+        & .icon {
+          color: ${({ theme }) => theme.color.primaryColor};
+        }
+
+        & div {
+          width: 100%;
+          & a {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+          }
+        }
       }
     }
 
@@ -84,7 +114,8 @@ export const HeaderStyle = styled.header`
       z-index: 101;
     }
 
-    & #btn-connect {
+    & #btn-connect,
+    & #btn-config {
       display: none;
     }
   }

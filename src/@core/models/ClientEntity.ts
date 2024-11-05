@@ -40,7 +40,20 @@ export class ClientEntity
   }
 
   serialize() {
-    return JSON.stringify({ ...this.props, ...this.userProps })
+    const data: SerializedClientEntityProps = {
+      type: this.props.type,
+      id: this.userProps.id ?? this.props.id,
+      name: this.userProps.name,
+      email: this.userProps.email,
+      password: this.userProps.password,
+      createdAtInMilli: this.userProps.createdAtInMilli,
+      phoneNumber: this.userProps.phoneNumber,
+      city: this.userProps.city,
+      state: this.userProps.state,
+      address: this.userProps.address,
+      professionalIdList: this.props.professionalIdList
+    }
+    return JSON.stringify(data)
   }
 
   get location() {

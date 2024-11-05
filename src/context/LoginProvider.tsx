@@ -1,11 +1,7 @@
-import { AppContainer } from '@components/common/Container/AppContainer'
-import { SpinnerLoading } from '@components/common/Loadings/SpinnerLoading'
+import { ProfessionalEntity } from '@core/models/ProfessionalEntity'
 import { UserEntityTypeEnum } from '@core/models/UserEntity'
 import { TokenRepo } from '@core/repositories/TokenRepo'
-import {
-  NotificationService,
-  NotificationTypeEnum
-} from '@core/services/notifications/NotificationService'
+import { GetUserInfoService } from '@core/services/users/GetUserInfoService'
 import { JWTTokenType } from '@core/tokens/JWTTokenType'
 import { useRouter } from 'next/navigation'
 import {
@@ -16,6 +12,7 @@ import {
   useEffect,
   useState
 } from 'react'
+import { LoginLoading } from '../components/common/Loadings/LoginLoading'
 
 export interface LoginProviderContext {
   token: JWTTokenType
@@ -41,26 +38,34 @@ export function LoginProvider({ children, userType }: LoginProviderProps) {
     if (!window) return
 
     const token = TokenRepo.get()
-    if (!token || (userType && token.type !== userType)) {
-      NotificationService.dispatch(
-        NotificationTypeEnum.ERROR,
-        'A sua conta não pode realizar esta ação.'
-      )
+    const user = GetUserInfoService.exec<ProfessionalEntity>()
+    if (!token || (userType && token.type !== userType) || !user) {
       router.push('/login')
+      return
+    }
+
+    const nonFinishedProfessionalAccount =
+      token?.type === 'PROFESSIONAL' &&
+      (!user.job ||
+        !user.startedAtInMilli ||
+        !user.services ||
+        user.services.length <= 0 ||
+        !user.address ||
+        !user.city ||
+        !user.state ||
+        !user.phoneNumber)
+    if (
+      nonFinishedProfessionalAccount &&
+      window.location.pathname !== '/configuration'
+    ) {
+      router.push('/configuration')
       return
     }
 
     setAuth({ token })
   }, [setAuth, userType, router])
 
-  if (!auth?.token)
-    return (
-      <AppContainer>
-        <SpinnerLoading className="load" />
-        <h3>Aguarde!</h3>
-        <p>Conectando a sua conta...</p>
-      </AppContainer>
-    )
+  if (!auth?.token) return <LoginLoading />
 
   return (
     <LoginContext.Provider value={{ auth, setAuth }}>

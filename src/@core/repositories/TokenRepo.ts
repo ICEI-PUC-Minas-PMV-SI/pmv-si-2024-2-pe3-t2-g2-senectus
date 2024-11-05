@@ -12,6 +12,6 @@ export class TokenRepo {
   }
 
   static delete() {
-    localStorage.deleteItem(TokenRepo.tokenCollectionId)
+    localStorage.removeItem(TokenRepo.tokenCollectionId)
   }
 }

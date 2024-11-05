@@ -3,11 +3,12 @@ import { DatePicker, DatePickerProps } from '@nextui-org/date-picker'
 import { FaCalendarDays } from 'react-icons/fa6'
 import { DatePickerStyle } from './DatePickerStyle'
 import { now } from '@internationalized/date'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, CSSProperties } from 'react'
 import { DateValue } from '@nextui-org/react'
 
 interface AppDatePickerProps extends Omit<DatePickerProps, 'label'> {
   label: string
+  wrapperStyle?: CSSProperties
 }
 
 function AppIcon() {
@@ -46,7 +47,7 @@ export function AppDatePicker(props: AppDatePickerProps) {
   }, [])
 
   return (
-    <DatePickerStyle>
+    <DatePickerStyle style={props.wrapperStyle}>
       <DatePicker
         className="date-picker"
         radius="sm"

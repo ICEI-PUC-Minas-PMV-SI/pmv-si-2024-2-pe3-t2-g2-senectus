@@ -21,7 +21,8 @@ export const Grid = styled.div`
 
 export const FlexContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
+  height: 100%;
   gap: 1rem;
   justify-content: space-between;
   button {

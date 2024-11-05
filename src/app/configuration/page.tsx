@@ -10,28 +10,38 @@ import { AppConfigurationInitialText } from '@components/configuration/AppConfig
 import { AppDangerZone } from '@components/configuration/AppDangerZone'
 import { AppConfigurationFormProfessional } from '@components/configuration/AppConfigurationFormProfessional'
 import { AppDivider } from '@components/common/Divider/AppDivider'
+import { useContext } from 'react'
+import { LoginContext, LoginProvider } from '@context/LoginProvider'
+import { UserEntityTypeEnum } from '@core/models/UserEntity'
 
-const user = {
-  isProfessional: true
+function Configuration() {
+  const { auth } = useContext(LoginContext)
+  return (
+    <>
+      <AppConfigurationInitialText></AppConfigurationInitialText>
+      <AppConfigurationForm></AppConfigurationForm>
+      {auth.token.type === UserEntityTypeEnum.PROFESSIONAL && (
+        <>
+          <AppDivider></AppDivider>
+          <AppConfigurationFormProfessional></AppConfigurationFormProfessional>
+        </>
+      )}
+      <AppDivider></AppDivider>
+      <AppDangerZone></AppDangerZone>
+    </>
+  )
 }
 
 export default function ConfigurationScreen() {
   return (
     <ThemeProvider theme={theme}>
-      <NextUIProvider className="default">
+      <NextUIProvider className="default" locale="pt-BR">
         <AppHeader />
-        <AppContainer style={{ justifyContent: 'start' }}>
-          <AppConfigurationInitialText></AppConfigurationInitialText>
-          <AppConfigurationForm></AppConfigurationForm>
-          {user.isProfessional && (
-            <>
-              <AppDivider></AppDivider>
-              <AppConfigurationFormProfessional></AppConfigurationFormProfessional>
-            </>
-          )}
-          <AppDivider></AppDivider>
-          <AppDangerZone></AppDangerZone>
-        </AppContainer>
+        <LoginProvider>
+          <AppContainer style={{ justifyContent: 'start' }}>
+            <Configuration />
+          </AppContainer>
+        </LoginProvider>
       </NextUIProvider>
     </ThemeProvider>
   )

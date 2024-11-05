@@ -13,7 +13,6 @@ import { LoginProvider } from '@context/LoginProvider'
 import { UserEntityTypeEnum } from '@core/models/UserEntity'
 import { useEffect } from 'react'
 import { ProfessionalListSeed } from '@core/services/seed/professionals/ProfessionalListSeed'
-import { ClientSeed } from '@core/services/seed/userAccount/ClientSeed'
 
 interface SearchExerciseScreen {
   params: {
@@ -27,7 +26,6 @@ export default function SearchExerciseScreen({ params }: SearchExerciseScreen) {
 
   useEffect(() => {
     ProfessionalListSeed.exec()
-    ClientSeed.exec()
   }, [])
 
   if (!categoryName || exercises.length <= 0) return NotFound()

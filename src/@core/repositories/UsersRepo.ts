@@ -119,7 +119,7 @@ export class UsersRepo {
     return matches ?? undefined
   }
 
-  private static getSource(type: UserEntityTypeEnum): UserEntity[] {
+  static getSource(type: UserEntityTypeEnum): UserEntity[] {
     const usersSerializedCollection = localStorage.getItem(type.toLowerCase())
     if (!usersSerializedCollection) return []
 

@@ -16,7 +16,6 @@ import { FaAngleLeft } from 'react-icons/fa6'
 import { ThemeProvider } from 'styled-components'
 import { LoginProvider } from '@context/LoginProvider'
 import NotFound from '@screens/not-found'
-import { ClientSeed } from '@core/services/seed/userAccount/ClientSeed'
 import { ProfessionalListSeed } from '@core/services/seed/professionals/ProfessionalListSeed'
 
 interface AppointmentFormScreenProps {
@@ -34,7 +33,6 @@ export default function AppointmentFormScreen({
   useEffect(() => {
     // Espera API do localstorage ficar disponíve
     ProfessionalListSeed.exec()
-    ClientSeed.exec()
 
     const user = GetUserByIdService.exec(
       params.professionalId,
