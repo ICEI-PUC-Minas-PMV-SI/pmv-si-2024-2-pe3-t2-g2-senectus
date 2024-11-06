@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaBriefcaseMedical, FaRegSquarePlus } from 'react-icons/fa6'
 import { Container, Grid } from './ConfigurationFormProfessional'
 import { AppButtonActionRect } from '@components/common/Buttons/AppButtonActionRect'
@@ -33,9 +33,9 @@ export interface UpdateProfessionalUserErrorForm {
 
 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 export function AppConfigurationFormProfessional() {
-  const user: ProfessionalEntity | undefined = useMemo(() => {
-    return GetUserInfoService.exec()
-  }, [])
+  const [user, setUser] = useState(
+    GetUserInfoService.exec() as ProfessionalEntity | undefined
+  )
 
   const [form, setForm] = useState<UpdateProfessionalUserForm>({
     job: (user?.job ?? '') as JobConstantInput,
@@ -116,6 +116,8 @@ export function AppConfigurationFormProfessional() {
   }
 
   useEffect(() => {
+    const user = GetUserInfoService.exec() as ProfessionalEntity | undefined
+    setUser(user)
     const serviceError = findServiceError()
     if (
       Boolean(formError.startAtInMilli) ||
@@ -134,7 +136,7 @@ export function AppConfigurationFormProfessional() {
       )
 
       UpdateUserService.exec(user)
-    })
+    }, 1500)
 
     return () => {
       clearTimeout(timer)
