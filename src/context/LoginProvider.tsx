@@ -13,6 +13,7 @@ import {
   useState
 } from 'react'
 import { LoginLoading } from '../components/common/Loadings/LoginLoading'
+import { ProfessionalSeed } from '@core/services/seed/userAccount/ProfessionalSeed'
 
 export interface LoginProviderContext {
   token: JWTTokenType
@@ -36,6 +37,8 @@ export function LoginProvider({ children, userType }: LoginProviderProps) {
 
   useEffect(() => {
     if (!window) return
+
+    ProfessionalSeed.exec()
 
     const token = TokenRepo.get()
     const user = GetUserInfoService.exec<ProfessionalEntity>()
