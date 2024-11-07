@@ -1,29 +1,30 @@
 import { ReactNode } from 'react'
 import { AppModalWithOptions } from '@components/common/Modals/AppModalWithOptions'
+import { ModalControllerProps } from '@components/common/Modals/AppModal'
 
-interface AppExerciseSelectorModalActionProps {
+interface AppPlanOptionsModalActionProps {
   id?: string
   className?: string
-  children: ReactNode
+  children?: ReactNode
+  controller?: ModalControllerProps
   onEdit: () => void
-  onView: () => void
   onDelete: () => void
 }
 
-export function AppExerciseSelectorModalAction(
-  props: AppExerciseSelectorModalActionProps
+export function AppPlanOptionsModalAction(
+  props: AppPlanOptionsModalActionProps
 ) {
   return (
     <AppModalWithOptions
       id={props.id}
       className={props.className}
+      controller={props.controller}
       title="Selecionar ação"
       text="Selecione uma ação para realizar nesta lista de exercícios:"
       options={[
-        { text: 'Editar lista', onClick: props.onEdit },
-        { text: 'Visualizar exercícios', onClick: props.onView },
+        { text: 'Editar plano', onClick: props.onEdit },
         {
-          text: 'Remover lista',
+          text: 'Remover plano',
           onClick: props.onDelete,
           isOutlinedButton: true
         }

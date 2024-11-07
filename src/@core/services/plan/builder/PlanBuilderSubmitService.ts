@@ -1,4 +1,5 @@
 import { TrainingPlanEntity } from '@core/models/TrainingPlanEntity'
+import { TrainingPlansRepo } from '@core/repositories/TrainingPlansRepo'
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 
 export class PlanBuilderSubmitService {
@@ -6,7 +7,7 @@ export class PlanBuilderSubmitService {
     const clone = plan.clone()
     clone.stackHolderRef = undefined
 
-    console.log(clone.serialize())
+    TrainingPlansRepo.set(clone)
     router.push('/clients', { scroll: true })
   }
 }

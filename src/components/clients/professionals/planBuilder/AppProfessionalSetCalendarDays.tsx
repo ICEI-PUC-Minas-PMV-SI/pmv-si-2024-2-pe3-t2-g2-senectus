@@ -14,7 +14,7 @@ import {
   NotificationTypeEnum
 } from '@core/services/notifications/NotificationService'
 import { PlanBuildStageContextProps } from '../sharedProps/PlanBuilderStage'
-import { SelectSingleDateService } from '@core/services/plan/professional/SelectSingleDateService'
+import { SelectSingleDateService } from '@core/services/plan/builder/SelectSingleDateService'
 
 interface ErrorStateProps {
   state: boolean

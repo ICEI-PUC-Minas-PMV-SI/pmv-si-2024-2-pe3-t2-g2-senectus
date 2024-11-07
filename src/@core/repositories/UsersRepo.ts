@@ -34,7 +34,7 @@ export class UsersRepo {
     if (users.length <= 0) return
 
     const searchedUserIndex = users.findIndex((item) => item.id === id)
-    if (!searchedUserIndex) return
+    if (searchedUserIndex < 0) return
 
     users.splice(searchedUserIndex, 1)
 

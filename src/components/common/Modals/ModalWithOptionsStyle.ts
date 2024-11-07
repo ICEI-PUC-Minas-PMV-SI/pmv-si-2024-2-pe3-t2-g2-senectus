@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ExerciseSelectorModalStyle = styled.div`
+export const ModalWithOptionsStyle = styled.div`
   font-size: ${({ theme }) => theme.font.sm};
   gap: 0.5rem;
   margin-bottom: 1rem;

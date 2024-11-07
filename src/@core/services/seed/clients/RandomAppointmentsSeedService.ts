@@ -8,7 +8,9 @@ import {
 export class RandomAppointmentsSeedService {
   static exec(
     maxOfCollections: number,
-    appointmentState: AppointmentStateEnum
+    appointmentState: AppointmentStateEnum,
+    hostId?: string,
+    clientId?: string
   ): CollectionEventsOnDay<AppointmentsEntity>[] {
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
     const now = new Date(format(new Date(), 'yyyy-MM-dd') + ` (${timezone})`)
@@ -38,8 +40,8 @@ export class RandomAppointmentsSeedService {
       const dayArr: AppointmentsEntity[] = []
       for (let i = 0; i < Math.min(Math.floor(Math.random() * 5), 4); i++) {
         const day = new AppointmentsEntity({
-          host: 'John Doe',
-          client: 'Diana Doe',
+          host: hostId ?? 'John Doe',
+          client: clientId ?? 'Diana Doe',
           serviceType: 'Tratamento de coluna',
           state: appointmentState,
           description:

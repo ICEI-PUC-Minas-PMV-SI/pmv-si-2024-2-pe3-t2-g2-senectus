@@ -8,11 +8,14 @@ export class AppointmentsRepo {
   private static appointmentCollectionId = 'appointments'
   static set(appointment: AppointmentsEntity) {
     const appointments = AppointmentsRepo.getSource()
-    if (!appointments) {
+    if (appointments.length <= 0) {
       const collection: AppointmentsCollection = {
         appointments: [appointment.serialize()]
       }
-      return localStorage.setItem(appointment.id, JSON.stringify(collection))
+      return localStorage.setItem(
+        AppointmentsRepo.appointmentCollectionId,
+        JSON.stringify(collection)
+      )
     }
 
     const searchedAppointmentIndex = appointments.findIndex(
@@ -34,12 +37,12 @@ export class AppointmentsRepo {
 
   static deleteById(id: string) {
     const appointments = AppointmentsRepo.getSource()
-    if (!appointments) return
+    if (appointments.length <= 0) return
 
     const searchedAppointmentIndex = appointments.findIndex(
       (item) => item.id === id
     )
-    if (!searchedAppointmentIndex) return
+    if (searchedAppointmentIndex < 0) return
 
     appointments.splice(searchedAppointmentIndex, 1)
 
@@ -55,7 +58,7 @@ export class AppointmentsRepo {
 
   static findById(id: string): AppointmentsEntity | undefined {
     const appointments = AppointmentsRepo.getSource()
-    if (!appointments) return
+    if (appointments.length <= 0) return
 
     const searchedAppointment = appointments.find((item) => item.id === id)
     return searchedAppointment ?? undefined
@@ -67,7 +70,7 @@ export class AppointmentsRepo {
     dateInMilli: number
   ): AppointmentsEntity | undefined {
     const appointments = AppointmentsRepo.getSource()
-    if (!appointments) return
+    if (appointments.length <= 0) return
 
     const searchedAppointment = appointments.find(
       (item) =>
@@ -80,7 +83,7 @@ export class AppointmentsRepo {
 
   static findByProfessionalId(id: string): AppointmentsEntity | undefined {
     const appointments = AppointmentsRepo.getSource()
-    if (!appointments) return
+    if (appointments.length <= 0) return
 
     const searchedAppointment = appointments.find((item) => item.host === id)
     return searchedAppointment ?? undefined
@@ -88,7 +91,7 @@ export class AppointmentsRepo {
 
   static findByClientId(id: string): AppointmentsEntity | undefined {
     const appointments = AppointmentsRepo.getSource()
-    if (!appointments) return
+    if (appointments.length <= 0) return
 
     const searchedAppointment = appointments.find((item) => item.client === id)
     return searchedAppointment ?? undefined
@@ -99,23 +102,23 @@ export class AppointmentsRepo {
     professionalId: string
   ): AppointmentsEntity[] {
     const appointments = AppointmentsRepo.getSource()
-    if (!appointments) return []
+    if (appointments.length <= 0) return []
 
     const matches: AppointmentsEntity[] = []
     for (let i = 0; i < appointments.length; i++) {
       const item = appointments[i]
       if (item.client === clientId || item.host === professionalId)
-        appointments.push(item)
+        matches.push(item)
     }
 
     return matches
   }
 
-  private static getSource(): AppointmentsEntity[] | undefined {
+  private static getSource(): AppointmentsEntity[] {
     const appointmentsSerializedCollection = localStorage.getItem(
       AppointmentsRepo.appointmentCollectionId
     )
-    if (!appointmentsSerializedCollection) return
+    if (!appointmentsSerializedCollection) return []
 
     const appointmentsJsonCol: AppointmentsCollection = JSON.parse(
       appointmentsSerializedCollection
