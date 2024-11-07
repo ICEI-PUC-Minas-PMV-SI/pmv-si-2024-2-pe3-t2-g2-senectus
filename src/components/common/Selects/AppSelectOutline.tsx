@@ -1,7 +1,6 @@
 import { Select, SelectItem, SelectProps } from '@nextui-org/select'
 import { theme } from '@themes/theme'
-import { useEffect, useState, ComponentProps } from 'react'
-import { AppSelectRectStyle } from './AppSelectRectStyle'
+import { useEffect, useState, ReactNode } from 'react'
 import {
   Modal,
   ModalContent,
@@ -10,26 +9,23 @@ import {
   useDisclosure
 } from '@nextui-org/modal'
 import { AppSelectModalStyle } from './AppSelectModalStyle'
+import { SelectOutlineStyle } from './SelectOutlineStyle'
 
-export interface AppSelectRectProps {
-  placeholder: string
+interface AppSelectOutlineProps
+  extends Omit<SelectProps, 'label' | 'children' | 'onChange' | 'placeholder'> {
+  label: string
+  icon?: ReactNode
   options: string[]
-  ariaLabel: string
   onChange: (value: string) => void
-  divWrapperProps?: ComponentProps<'div'>
-  buttonProps?: ComponentProps<'button'>
-  selectProps?: Partial<SelectProps>
 }
 
-export function AppSelectRect({
-  divWrapperProps,
-  buttonProps,
-  selectProps,
-  placeholder,
+export function AppSelectOutline({
+  label,
+  icon,
   options,
   onChange,
-  ariaLabel
-}: AppSelectRectProps) {
+  ...props
+}: AppSelectOutlineProps) {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure()
   const [isTabletScreenOrLess, setIsTabletScreenOrLess] = useState(false)
   const [value, setValue] = useState('')
@@ -51,12 +47,19 @@ export function AppSelectRect({
   }, [onClose])
 
   return (
-    <AppSelectRectStyle {...divWrapperProps}>
+    <SelectOutlineStyle>
       {isTabletScreenOrLess && (
         <>
-          <button className="mobile" onClick={onOpen} {...buttonProps}>
-            {!Boolean(value.length) ? 'Filtrar' : value}
-          </button>
+          <label className="outline-btn-label">
+            <div className="label" role="label">
+              {label}
+              {props.isRequired && <span>*</span>}
+            </div>
+            <button type="button" className="mobile" onClick={onOpen}>
+              <span className="icon">{icon}</span>
+              {value ?? ''}
+            </button>
+          </label>
           <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="bottom">
             <ModalContent>
               <ModalHeader>Escolha o filtro</ModalHeader>
@@ -86,8 +89,12 @@ export function AppSelectRect({
       )}
       {!isTabletScreenOrLess && (
         <Select
-          color="primary"
-          aria-label={ariaLabel}
+          color="secondary"
+          variant="bordered"
+          label={label}
+          labelPlacement="outside"
+          placeholder=" "
+          startContent={<span className="icon">{icon}</span>}
           style={{
             height: '2rem',
             minHeight: '2rem',
@@ -95,16 +102,15 @@ export function AppSelectRect({
             boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.2)'
           }}
           onChange={(e) => onChangeValue(e.target.value)}
-          placeholder={placeholder}
           popover="manual"
           fullWidth
-          {...selectProps}
+          {...props}
         >
           {options.map((item) => (
             <SelectItem key={item}>{item}</SelectItem>
           ))}
         </Select>
       )}
-    </AppSelectRectStyle>
+    </SelectOutlineStyle>
   )
 }

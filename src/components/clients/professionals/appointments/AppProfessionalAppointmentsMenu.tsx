@@ -67,16 +67,18 @@ export function AppProfessionalAppointmentsMenu({
                   <b>Tipo de serviço</b>: {item.serviceType}
                 </p>
 
-                <div className="appointment-item-actions">
-                  <AppButtonActionRect
-                    text={positiveButtonTitle}
-                    onClick={() => onPositiveButtonClick(item)}
-                  />
-                  <AppButtonActionRectOutline
-                    text={negativeButtonTitle}
-                    onClick={() => onNegativeButtonClick(item)}
-                  />
-                </div>
+                {item.dateInMilli < Date.now() - 1000 * 60 * 5 && (
+                  <div className="appointment-item-actions">
+                    <AppButtonActionRect
+                      text={positiveButtonTitle}
+                      onClick={() => onPositiveButtonClick(item)}
+                    />
+                    <AppButtonActionRectOutline
+                      text={negativeButtonTitle}
+                      onClick={() => onNegativeButtonClick(item)}
+                    />
+                  </div>
+                )}
               </li>
             )
           })}
