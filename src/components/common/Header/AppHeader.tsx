@@ -39,6 +39,13 @@ export function AppHeader(props: AppHeaderProps) {
     setUser(GetUserInfoService.exec())
   }, [])
 
+  useEffect(() => {
+    if (isOpen) document.body.classList.add('no-scroll')
+    else document.body.classList.remove('no-scroll')
+
+    return () => document.body.classList.remove('no-scroll')
+  }, [isOpen, setIsOpen])
+
   return (
     <HeaderStyle>
       <Link href="/" id="header-logo">
@@ -67,8 +74,8 @@ export function AppHeader(props: AppHeaderProps) {
             </li>
           ))}
 
-        {(user?.type === UserEntityTypeEnum.PROFESSIONAL ||
-          props.isProfessional) &&
+        {user?.type === UserEntityTypeEnum.PROFESSIONAL &&
+          props.isProfessional &&
           options.professional.map((option) => (
             <li
               key={uuid()}
