@@ -28,7 +28,7 @@ export function AppProgressExercises(props: AppProgressExercisesProps) {
   return (
     <ProgressExercisesStyle>
       <h2>Progresso</h2>
-      <p>Confira o seu progresso do plano de treino:</p>
+      <p>Confira o quanto você progrediu este mês em seu plano de treino:</p>
 
       <div className="list-infos">
         <ul id="primary-exercise-infos">
