@@ -7,6 +7,9 @@ export class UpdateUserService {
   static exec(user: UserEntity) {
     UsersRepo.set(user)
 
+    const token = TokenRepo.get()
+    if (token?.id !== user.id) return
+
     const jwt = AuthenticationService.genJWT(user)
     TokenRepo.set(jwt.payload)
   }

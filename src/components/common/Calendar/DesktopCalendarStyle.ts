@@ -41,6 +41,23 @@ export const DesktopCalendarStyle = styled.div`
     }
   }
 
+  & .calendar-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    & .date-info {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & div {
+        display: flex;
+        gap: 1rem;
+      }
+    }
+  }
+
   & .calendar-days {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;

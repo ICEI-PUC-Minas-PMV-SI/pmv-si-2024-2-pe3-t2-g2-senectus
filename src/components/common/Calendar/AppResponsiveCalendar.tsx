@@ -19,6 +19,7 @@ interface AppCalendarProps<T extends CalendarEventEntity> {
   mobileEmptyListMessage?: string
   sideMenuContext?: CalendarContextProps<T>
   setSideMenuContext?: Dispatch<SetStateAction<CalendarContextProps<T>>>
+  header?: ReactNode
 }
 
 const daysWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']

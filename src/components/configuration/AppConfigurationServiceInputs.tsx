@@ -36,13 +36,15 @@ export function AppConfigurationServiceInputs(
     if (res.isError && Boolean(res.name))
       props.setFormError((prev) => {
         const clone = [...prev.services]
-        clone[props.index].name = res.name
+        const newItem = (clone[props.index] = { name: '', price: '' })
+        newItem.name = res.name
         return { ...prev, services: clone }
       })
     else
       props.setFormError((prev) => {
         const clone = [...prev.services]
-        clone[props.index].name = ''
+        const newItem = (clone[props.index] = { name: '', price: '' })
+        newItem.name = ''
         return { ...prev, services: clone }
       })
   }
@@ -62,13 +64,15 @@ export function AppConfigurationServiceInputs(
     if (res.isError && Boolean(res.price))
       props.setFormError((prev) => {
         const clone = [...prev.services]
-        clone[props.index].price = String(res.price)
+        const newItem = (clone[props.index] = { name: '', price: '' })
+        newItem.price = String(res.price)
         return { ...prev, services: clone }
       })
     else
       props.setFormError((prev) => {
         const clone = [...prev.services]
-        clone[props.index].price = ''
+        const newItem = (clone[props.index] = { name: '', price: '' })
+        newItem.price = ''
         return { ...prev, services: clone }
       })
   }

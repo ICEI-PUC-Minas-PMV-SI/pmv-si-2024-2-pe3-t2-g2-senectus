@@ -1,7 +1,7 @@
 import { AppDefaultInput } from '@components/common/Inputs/DefaultInput/AppDefaultInput'
 import { FaCity, FaEnvelope, FaPhone, FaRoad, FaTag } from 'react-icons/fa6'
 import { Container, FullWidthContainer, Grid } from './ConfigurationFormStyle'
-import { ChangeEvent, useEffect, useMemo, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { AppSelectOutline } from '@components/common/Selects/AppSelectOutline'
 import { GetUserInfoService } from '@core/services/users/GetUserInfoService'
 import { FormatPhoneNumber } from '@core/utils/FormatPhoneNumber'
@@ -48,9 +48,7 @@ const states = [
 ]
 
 export function AppConfigurationForm() {
-  const user = useMemo(() => {
-    return GetUserInfoService.exec()
-  }, [])
+  const [user, setUser] = useState(GetUserInfoService.exec())
 
   const [form, setForm] = useState<UpdateUserForm>({
     email: user?.email ?? '',
@@ -121,6 +119,9 @@ export function AppConfigurationForm() {
   }
 
   useEffect(() => {
+    const user = GetUserInfoService.exec()
+    setUser(user)
+
     if (
       Boolean(formError.email) ||
       Boolean(formError.name) ||

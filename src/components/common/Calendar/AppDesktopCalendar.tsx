@@ -1,12 +1,29 @@
-import { format, getDaysInMonth } from 'date-fns'
+import { format } from 'date-fns'
 import { v4 as uuid } from 'uuid'
 import { DesktopCalendarStyle } from './DesktopCalendarStyle'
 import { theme } from '../../../themes/theme'
-import { ReactNode, useState, useEffect, Dispatch, SetStateAction } from 'react'
-import { FaXmark } from 'react-icons/fa6'
+import {
+  ReactNode,
+  useState,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+  useMemo
+} from 'react'
+import { FaAngleLeft, FaAngleRight, FaXmark } from 'react-icons/fa6'
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
 import { CalendarContextProps } from './AppResponsiveCalendar'
 import { CalendarEventEntity } from '@core/models/CalendarEventEntity'
+import { AppButtonActionRect } from '../Buttons/AppButtonActionRect'
+import { ptBR as locale } from 'date-fns/locale'
+import { firstLetterOnUpperCase } from '@core/utils/firstLetterOnUppercase'
+import { AvoidDayOverflowService } from '@core/services/calendar/AvoidDayOverflowService'
+import { GetQuantityEventsService } from '@core/services/calendar/GetQuantityEventsService'
+import { BuildDefaultDayMessageService } from '@core/services/calendar/BuildDefaultDayMessageService'
+import {
+  HandleMonthChangeService,
+  TimeProps
+} from '@core/services/calendar/HandleMonthChangeService'
 
 interface AppCalendarProps<T extends CalendarEventEntity> {
   daysWeek: string[]
@@ -15,6 +32,7 @@ interface AppCalendarProps<T extends CalendarEventEntity> {
   messageBuilder?: (eventsLength: number) => string
   sideMenuContext?: CalendarContextProps<T>
   setSideMenuContext?: Dispatch<SetStateAction<CalendarContextProps<T>>>
+  header?: ReactNode
 }
 
 function AppCalendar<T extends CalendarEventEntity>(
@@ -27,14 +45,26 @@ function AppCalendar<T extends CalendarEventEntity>(
   >
 ) {
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
-  const actualDay = new Date(
-    format(new Date(), 'yyyy-MM-dd') + ` (${timezone})`
-  )
-  const firstWeekMonthDay = new Date(format(actualDay, 'MMMM yyyy')).getDay()
+  const memoizedTime: TimeProps = useMemo(() => {
+    return HandleMonthChangeService.initialStart(timezone)
+  }, [timezone])
+  const [time, setTime] = useState<TimeProps>(memoizedTime)
 
-  const daysInTheMonth: number[] = []
-  for (let i = 1; i <= getDaysInMonth(actualDay); i++) daysInTheMonth.push(i)
-  const availableRows = Math.ceil(daysInTheMonth.length / 7)
+  const changeMonth = (shouldDecrease?: boolean) => {
+    const newTimeValue = HandleMonthChangeService.exec(
+      time.monthRef,
+      timezone,
+      shouldDecrease
+    )
+    return { ...time, ...newTimeValue }
+  }
+
+  const onPrevMonth = () => {
+    setTime(() => changeMonth(true))
+  }
+  const onNextMonth = () => {
+    setTime(() => changeMonth())
+  }
 
   useEffect(() => {
     if (props.sideMenuContext.isOpen) document.body.classList.add('no-scroll')
@@ -69,6 +99,23 @@ function AppCalendar<T extends CalendarEventEntity>(
         </div>
       )}
 
+      <div className="calendar-header">
+        <div className="date-info">
+          <h3>
+            {firstLetterOnUpperCase(format(time.monthRef, 'MMMM', { locale }))}{' '}
+            de {format(time.monthRef, 'yyyy')}
+          </h3>
+          <div>
+            <AppButtonActionRect icon={<FaAngleLeft />} onClick={onPrevMonth} />
+            <AppButtonActionRect
+              icon={<FaAngleRight />}
+              onClick={onNextMonth}
+            />
+          </div>
+        </div>
+
+        {props.header}
+      </div>
       <div className="calendar-days">
         {props.daysWeek.map((day) => (
           <p key={uuid()}>{day}</p>
@@ -77,16 +124,16 @@ function AppCalendar<T extends CalendarEventEntity>(
 
       <table>
         <tbody>
-          {Array.from({ length: availableRows }).map((_, rowIndex) => (
+          {Array.from({ length: time.availableRows }).map((_, rowIndex) => (
             <tr key={uuid()}>
               {props.daysWeek.map((_, dayIndex) => {
                 const dayInMonthIndex =
-                  dayIndex + rowIndex * 7 - firstWeekMonthDay
-                const hasMoreThan32Days =
-                  dayInMonthIndex > daysInTheMonth.length - 1
-                if (hasMoreThan32Days) {
-                  return <td key={uuid()} className="empty-day"></td>
-                }
+                  dayIndex + rowIndex * 7 - time.firstWeekMonthDay
+                const node = AvoidDayOverflowService.exec(
+                  dayInMonthIndex,
+                  time.daysInTheMonth.length - 1
+                )
+                if (node) return node
 
                 const isFirstRow = rowIndex === 0
                 const isFirstDayWeek = dayIndex === 0
@@ -118,7 +165,7 @@ function AppCalendar<T extends CalendarEventEntity>(
                   : {}
 
                 const daysOnThePreviousMonth =
-                  firstWeekMonthDay > dayIndex + rowIndex * 7
+                  time.firstWeekMonthDay > dayIndex + rowIndex * 7
                 if (daysOnThePreviousMonth)
                   return (
                     <td
@@ -133,24 +180,19 @@ function AppCalendar<T extends CalendarEventEntity>(
                     ></td>
                   )
 
-                const collectionOfEvents = props.list[dayInMonthIndex]
+                const dayInTheMonth = time.daysInTheMonth[dayInMonthIndex]
+                const collectionOfEvents = GetQuantityEventsService.exec(
+                  props.list,
+                  dayInTheMonth
+                )
                 const availableEvents = collectionOfEvents?.events?.length ?? 0
 
-                let displayText: string
-                if (props.messageBuilder) {
-                  displayText = props.messageBuilder(availableEvents)
-                } else {
-                  displayText =
-                    availableEvents > 0
-                      ? `Você tem ${
-                          availableEvents > 10 ? '+10' : availableEvents
-                        } compromisso${availableEvents > 1 ? 's' : ''}`
-                      : ''
-                }
+                const displayText = props.messageBuilder
+                  ? props.messageBuilder(availableEvents)
+                  : BuildDefaultDayMessageService.exec(availableEvents)
 
                 const isActualDay =
-                  actualDay.getDate() === daysInTheMonth[dayInMonthIndex]
-
+                  time.actualDay.getTime() === dayInTheMonth.getTime()
                 return (
                   <td
                     key={uuid()}
@@ -183,7 +225,7 @@ function AppCalendar<T extends CalendarEventEntity>(
                       className={`available-events-btn ${availableEvents > 0 ? 'btn-enabled' : 'btn-disabled'}`}
                     >
                       <small className="day-number">
-                        {daysInTheMonth[dayInMonthIndex]}
+                        {dayInTheMonth.getDate()}
                       </small>
                       <p className="day-text">
                         {displayText.length > 0 ? displayText : ''}
