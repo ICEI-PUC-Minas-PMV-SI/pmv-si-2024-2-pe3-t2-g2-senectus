@@ -1,6 +1,7 @@
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'
 import { TrainingPlanEntity } from '@core/models/TrainingPlanEntity'
+import { format } from 'date-fns'
 
 export enum CalendarCreationStrategy {
   EXERCISE_STACK = 'EXERCISE_STACK',
@@ -12,15 +13,8 @@ export class CreateCalendarCollectionByPlanService {
     plan: TrainingPlanEntity,
     strategy: CalendarCreationStrategy = CalendarCreationStrategy.EXERCISE_STACK
   ) {
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
     const collections: CollectionEventsOnDay<ExerciseEntity>[] = []
-    for (let day = 0; day < 31; day++) {
-      collections.push(
-        new CollectionEventsOnDay<ExerciseEntity>({
-          monthDay: day + 1,
-          events: []
-        })
-      )
-    }
 
     if (strategy === CalendarCreationStrategy.EXERCISE_STACK)
       plan.exerciseStacks.map((stack) => {
@@ -30,23 +24,63 @@ export class CreateCalendarCollectionByPlanService {
             clone.dateInMilli = milli
             return clone
           })
-          const date = new Date(milli)
-          const monthDay = date.getDate()
-          if (!collections[monthDay - 1].events)
-            collections[monthDay - 1].events = exercises
-          else collections[monthDay - 1].events.push(...exercises)
+          CreateCalendarCollectionByPlanService.pushByExerciseStackToCollection(
+            collections,
+            exercises
+          )
         })
       })
     else {
-      plan.exerciseList.map((exercise) => {
-        const date = new Date(exercise.dateInMilli)
-        const monthDay = date.getDate()
-        if (!collections[monthDay - 1].events)
-          collections[monthDay - 1].events = [exercise]
-        else collections[monthDay - 1].events.push(exercise)
-      })
+      CreateCalendarCollectionByPlanService.pushExerciseToCollection(
+        collections,
+        plan.exerciseList,
+        timezone
+      )
     }
 
     return collections
+  }
+
+  private static pushExerciseToCollection(
+    collection: CollectionEventsOnDay<ExerciseEntity>[],
+    exercises: ExerciseEntity[],
+    timezone: string
+  ) {
+    if (exercises.length <= 0) return
+
+    const exerciseListByDate: Record<string, ExerciseEntity[]> = {}
+    for (let i = 0; i < exercises.length; i++) {
+      const item = exercises[i]
+      const time = format(new Date(item.dateInMilli), 'yyyy-MM-dd')
+      if (exerciseListByDate[time]) exerciseListByDate[time].push(item)
+      else exerciseListByDate[time] = [item]
+    }
+
+    for (const key in exerciseListByDate) {
+      const date = new Date(key + ` (${timezone})`)
+      const newCollection = new CollectionEventsOnDay({
+        monthDay: date.getDate(),
+        month: date.getMonth(),
+        year: date.getFullYear(),
+        events: exerciseListByDate[key]
+      })
+      collection.push(newCollection)
+    }
+  }
+
+  private static pushByExerciseStackToCollection(
+    collection: CollectionEventsOnDay<ExerciseEntity>[],
+    exercise: ExerciseEntity[]
+  ) {
+    if (exercise.length <= 0) return
+
+    const date = new Date(exercise[0].dateInMilli)
+    const newCollection = new CollectionEventsOnDay({
+      monthDay: date.getDate(),
+      month: date.getMonth(),
+      year: date.getFullYear(),
+      events: exercise
+    })
+    collection.push(newCollection)
   }
 }

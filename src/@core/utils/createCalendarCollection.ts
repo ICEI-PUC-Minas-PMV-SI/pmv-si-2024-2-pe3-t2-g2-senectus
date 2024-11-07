@@ -1,32 +1,33 @@
 import { CalendarEventEntity } from '@core/models/CalendarEventEntity'
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
-import { getDaysInMonth } from 'date-fns'
 
 export function createCalendarCollection<T extends CalendarEventEntity>(
   events: T[]
 ): CollectionEventsOnDay<T>[] {
-  const now = Date.now()
-
   const collection: CollectionEventsOnDay<T>[] = []
-  for (let day = 1; day <= getDaysInMonth(now); ++day)
+  for (let i = 0; i < events.length; i++) {
+    const date = new Date(events[i].dateInMilli)
+    const rangeTime = {
+      monthDay: date.getDate(),
+      month: date.getMonth(),
+      year: date.getFullYear()
+    }
+
+    const eventsWithSameTime = events.filter((event) => {
+      const eventTime = new Date(event.dateInMilli)
+      return (
+        eventTime.getDate() === rangeTime.monthDay &&
+        eventTime.getMonth() === rangeTime.month &&
+        eventTime.getFullYear() === rangeTime.year
+      )
+    })
+
     collection.push(
       new CollectionEventsOnDay({
-        monthDay: day,
-        events: []
+        ...rangeTime,
+        events: eventsWithSameTime
       })
     )
-
-  const eventsPerDay: Record<string, T[]> = {}
-  events.forEach((item) => {
-    const date = new Date(item.dateInMilli)
-    const monthDay = date.getDate()
-    if (eventsPerDay[monthDay]) eventsPerDay[monthDay].push(item)
-    else eventsPerDay[monthDay] = [item]
-  })
-
-  for (const key in eventsPerDay) {
-    const events = eventsPerDay[key]
-    collection[parseInt(key) - 1].events = events
   }
 
   return collection

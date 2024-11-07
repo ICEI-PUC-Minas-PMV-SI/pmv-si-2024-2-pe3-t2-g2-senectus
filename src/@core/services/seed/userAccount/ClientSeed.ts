@@ -14,7 +14,6 @@ import { ProfessionalListSeed } from '../professionals/ProfessionalListSeed'
 
 export class ClientSeed {
   static exec() {
-    debugger
     const user = UsersRepo.findByEmailWithoutType('dianadoe@email.com')
     if (user) return
 

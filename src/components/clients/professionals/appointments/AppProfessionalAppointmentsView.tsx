@@ -129,25 +129,21 @@ export function AppProfessionalAppointmentsView() {
         onCancelAction={modalController.onClose}
         controller={modalController}
       />
-      <div id="calendar-actions">
-        {state === 'accepted' ? (
-          <AppButtonActionRect text="Solicitações" onClick={changeToPendent} />
-        ) : (
-          <AppButtonActionRectOutline text="Solicitações" disabled />
-        )}
-        <span className="separator"></span>
-        {state === 'pendent' ? (
-          <AppButtonActionRect text="Agendadas" onClick={changeToAccepted} />
-        ) : (
-          <AppButtonActionRectOutline text="Agendadas" disabled />
-        )}
-      </div>
-
       {state === 'accepted' && (
         <AppResponsiveCalendar
           list={acceptedAppointments}
           sideMenuContext={desktopMenuContext}
           setSideMenuContext={setDesktopMenuContext}
+          header={
+            <div id="calendar-actions">
+              <AppButtonActionRect
+                text="Solicitações"
+                onClick={changeToPendent}
+              />
+              <span className="separator"></span>
+              <AppButtonActionRectOutline text="Agendadas" disabled />
+            </div>
+          }
           onOpenMenu={(appointments) => (
             <AppProfessionalAppointmentsMenu
               appointments={appointments}
@@ -168,6 +164,16 @@ export function AppProfessionalAppointmentsView() {
           list={pendentAppointments}
           sideMenuContext={desktopMenuContext}
           setSideMenuContext={setDesktopMenuContext}
+          header={
+            <div id="calendar-actions">
+              <AppButtonActionRectOutline text="Solicitações" disabled />
+              <span className="separator"></span>
+              <AppButtonActionRect
+                text="Agendadas"
+                onClick={changeToAccepted}
+              />
+            </div>
+          }
           onOpenMenu={(appointments) => (
             <AppProfessionalAppointmentsMenu
               appointments={appointments}
