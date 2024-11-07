@@ -61,10 +61,6 @@ export function AppDatePicker(props: AppDatePickerProps) {
         hourCycle={24}
         classNames={{ calendar: 'calendar' }}
         onFocus={tryTranslateCalendar}
-        isDateUnavailable={(value) => {
-          if (value.month !== date.month) return true
-          return false
-        }}
         hideTimeZone
         onChange={(value) => setDate(value)}
         style={{

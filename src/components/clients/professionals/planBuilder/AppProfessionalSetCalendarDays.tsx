@@ -91,6 +91,11 @@ export function AppProfessionalSetCalendarDays(
             fullWidth
             isInvalid={isInvalid.state}
             errorMessage={isInvalid.message}
+            isDateUnavailable={(date) => {
+              const now = new Date()
+              if (date.toDate(timezone) < now) return true
+              return false
+            }}
             onChange={(date) => {
               setSelectedDate(date)
             }}
