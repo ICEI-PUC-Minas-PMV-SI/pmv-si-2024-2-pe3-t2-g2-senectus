@@ -30,16 +30,10 @@ export const Card = styled.div`
     margin: 10px 0;
   }
 
-  .interest-info {
+  .info {
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 1.25rem;
-    color: #333;
-
-    .eye-icon {
-      width: 18px;
-      height: 18px;
-    }
   }
 `

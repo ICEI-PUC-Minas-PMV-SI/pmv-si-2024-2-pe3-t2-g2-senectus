@@ -23,6 +23,8 @@ export class GetPlanProgressService {
     })
     const progress = (finished * 100) / totalExercises
 
+    const progress = (finished * 100) / totalExercises
+
     return {
       finished,
       skipped,

@@ -13,6 +13,7 @@ import { Sidebar } from '@components/blogs/details/SidebarStyle'
 import { Card } from '@components/blogs/details/CardStyle'
 import '../../globals.css'
 import Image from 'next/image'
+import { FaCheck, FaEye } from 'react-icons/fa6'
 
 const posts = [
   {
@@ -118,6 +119,7 @@ export default function BlogPostDetailsPage({
                   alt={post.title}
                   width={100}
                   height={100}
+                  priority
                 />
                 <hr />
                 <div className="description">
@@ -127,16 +129,13 @@ export default function BlogPostDetailsPage({
 
               <Sidebar>
                 <Card>
-                  <p>✓ {post.trustLevel}</p>
+                  <div className="info">
+                    <FaCheck />
+                    <p>{post.trustLevel}</p>
+                  </div>
                   <div className="separator"></div>
-                  <div className="interest-info">
-                    <svg
-                      className="eye-icon"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 5C7 5 2.73 8.11 1 12c1.73 3.89 6 7 11 7s9.27-3.11 11-7c-1.73-3.89-6-7-11-7zm0 12c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
-                    </svg>
+                  <div className="info">
+                    <FaEye />
                     <p>{post.viewsCount}</p>
                   </div>
                 </Card>
