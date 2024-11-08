@@ -22,7 +22,10 @@ export class ValidateUpdateProfessionalUserBodyService {
     props: UpdateProfessionalUserForm
   ): ValidateJobInfosReturn {
     const schema = z.object({
-      job: z.string().min(1, 'Selecione alguma profissão'),
+      job: z
+        .string()
+        .min(1, 'Selecione alguma profissão')
+        .max(60, 'Profissão deve conter no máximo 60 caracteres'),
       startAtInMilli: z.number().gt(0, 'Selecione uma data')
     })
 
@@ -42,7 +45,10 @@ export class ValidateUpdateProfessionalUserBodyService {
     props: ValidateServiceInfoInput
   ): ValidateServiceInfosReturn {
     const schema = z.object({
-      name: z.string().min(8, 'Nome deve conter no mínimo 8 caracteres'),
+      name: z
+        .string()
+        .min(8, 'Nome deve conter no mínimo 8 caracteres')
+        .max(60, 'Serviço deve conter no máximo 60 caracteres'),
       price: z.number().gt(0, 'Preço deve ser maior que zero')
     })
 

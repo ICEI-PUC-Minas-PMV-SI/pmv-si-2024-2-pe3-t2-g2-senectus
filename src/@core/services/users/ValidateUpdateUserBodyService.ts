@@ -14,9 +14,18 @@ export class ValidateUpdateUserBodyService {
       .string()
       .min(14, 'Número de telefone inválido')
       .max(15, 'Número de telefone inválido')
-    const state = z.string().min(1, 'Estado precisa ser selecionado')
-    const city = z.string().min(1, 'Cidade precisa ser informada')
-    const address = z.string().min(1, 'Endereço precisa ser informado')
+    const state = z
+      .string()
+      .min(1, 'Estado precisa ser selecionado')
+      .max(60, 'Estado precisa ter no máximo 60 caracteres')
+    const city = z
+      .string()
+      .min(1, 'Cidade precisa ser informada')
+      .max(60, 'Cidade precisa ter no máximo 60 caracteres')
+    const address = z
+      .string()
+      .min(1, 'Endereço precisa ser informado')
+      .max(70, 'Endereço precisa ter no máximo 60 caracteres')
 
     const schema = z.object({
       name: z
