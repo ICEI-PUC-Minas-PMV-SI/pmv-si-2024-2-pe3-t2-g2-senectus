@@ -22,13 +22,15 @@ export class GetPlanProgressService {
       } else if (exercise.state === ExerciseState.PENDING) ++remaining
     })
 
+    const progress = (finished * 100) / totalExercises
+
     return {
       finished,
       skipped,
       remaining,
       spentHoursInMilli,
       totalExercises,
-      progress: plan.progress
+      progress
     }
   }
 }
