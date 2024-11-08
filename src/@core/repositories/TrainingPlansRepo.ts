@@ -131,7 +131,7 @@ export class TrainingPlansRepo {
   }
 
   private static makeExercisesPersistentFriendly(plan: TrainingPlanEntity) {
-    const exerciseList: ExerciseEntity[] = []
+    let exerciseList: ExerciseEntity[] = []
 
     plan.exerciseStacks.forEach((stack) => {
       stack.dateInMilliList.forEach((date) => {
@@ -148,6 +148,17 @@ export class TrainingPlansRepo {
       })
     })
 
-    plan.exerciseList = exerciseList
+    exerciseList = exerciseList.filter((exercise) => {
+      const search = plan.exerciseList.find(
+        (item) =>
+          item.name === exercise.name &&
+          item.dateInMilli === exercise.dateInMilli &&
+          item.durationInMilli === exercise.durationInMilli &&
+          item.level === exercise.level
+      )
+      return !Boolean(search)
+    })
+
+    plan.exerciseList = [...plan.exerciseList, ...exerciseList]
   }
 }
