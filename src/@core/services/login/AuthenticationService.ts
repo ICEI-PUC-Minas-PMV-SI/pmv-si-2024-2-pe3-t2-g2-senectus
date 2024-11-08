@@ -23,7 +23,7 @@ export class AuthenticationService {
     return jwt.token
   }
 
-  private static genJWT(user: UserEntity) {
+  static genJWT(user: UserEntity) {
     const header = JSON.stringify({ alg: 'none', typ: 'JWT' })
     const payload: JWTTokenType = {
       type: user.type,

@@ -1,6 +1,6 @@
 import { AppSearchAndFilter } from '@components/common/Inputs/SearchAndFilter/AppSearchAndFilter'
 import { AppPagination } from '@components/common/Pagination/AppPagination'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { AppSearchNotFound } from '@components/common/SearchPlaceholders/AppSearchNotFound'
 import {
   AppointmentSolicitationPaginationStyle,
@@ -11,9 +11,14 @@ import { ProfessionalCard } from '../professionalCard/ProfessionalCard'
 import { ProfessionalListSeed } from '@core/services/seed/professionals/ProfessionalListSeed'
 import { SearchOnProfessionalListService } from '@core/services/users/SearchOnProfessionalListService'
 import { JobConstant } from '@core/models/ProfessionalEntity'
+import { GetAllActiveProfessionalsService } from '@core/services/users/GetAllActiveProfessionalsService'
 
 export function AppAppointmentsSolicitation() {
-  const professionals = ProfessionalListSeed.staticProfessionals
+  const professionals = useMemo(() => {
+    const arr = ProfessionalListSeed.staticProfessionals
+    const activeProfessionals = GetAllActiveProfessionalsService.exec()
+    return [...arr, ...activeProfessionals]
+  }, [])
   const [search, setSearch] = useState(professionals)
   const [query, setQuery] = useState({
     key: '',

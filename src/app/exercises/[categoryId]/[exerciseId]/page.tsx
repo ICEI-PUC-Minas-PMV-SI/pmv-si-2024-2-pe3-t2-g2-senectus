@@ -12,7 +12,6 @@ import { LoginProvider } from '@context/LoginProvider'
 import { useEffect, useMemo, useState } from 'react'
 import { GetTrainingPlanAsClientService } from '@core/services/plan/crud/GetTrainingPlanAsClientService'
 import { ProfessionalListSeed } from '@core/services/seed/professionals/ProfessionalListSeed'
-import { ClientSeed } from '@core/services/seed/userAccount/ClientSeed'
 
 interface SearchExerciseScreen {
   params: {
@@ -35,7 +34,6 @@ export default function SearchExerciseScreen({ params }: SearchExerciseScreen) {
 
   useEffect(() => {
     ProfessionalListSeed.exec()
-    ClientSeed.exec()
     if (params.exerciseId.length !== 36)
       return setNotFoundPersistentExercise(true)
 

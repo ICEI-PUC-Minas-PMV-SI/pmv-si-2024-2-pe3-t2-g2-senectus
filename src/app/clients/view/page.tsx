@@ -12,14 +12,8 @@ import { AppInternalContainer } from '@components/common/InternalContainer/AppIn
 import { FaAngleLeft } from 'react-icons/fa6'
 import { LoginProvider } from '../../../context/LoginProvider'
 import { UserEntityTypeEnum } from '@core/models/UserEntity'
-import { useEffect } from 'react'
-import { ProfessionalSeed } from '@core/services/seed/userAccount/ProfessionalSeed'
 
 export default function ClientsScreen() {
-  useEffect(() => {
-    ProfessionalSeed.exec()
-  }, [])
-
   return (
     <ThemeProvider theme={theme}>
       <NextUIProvider className="default">

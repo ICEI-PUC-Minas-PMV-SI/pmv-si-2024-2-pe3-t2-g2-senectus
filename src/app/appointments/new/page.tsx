@@ -11,12 +11,10 @@ import { LoginProvider } from '@context/LoginProvider'
 import { UserEntityTypeEnum } from '@core/models/UserEntity'
 import { useEffect } from 'react'
 import { ProfessionalListSeed } from '@core/services/seed/professionals/ProfessionalListSeed'
-import { ClientSeed } from '@core/services/seed/userAccount/ClientSeed'
 
 export default function AppointmentsSolicitationScreen() {
   useEffect(() => {
     ProfessionalListSeed.exec()
-    ClientSeed.exec()
   }, [])
 
   return (

@@ -18,7 +18,6 @@ import {
   CreateCalendarCollectionByPlanService
 } from '@core/services/plan/builder/CreateCalendarCollectionByPlanService'
 import { ProfessionalListSeed } from '@core/services/seed/professionals/ProfessionalListSeed'
-import { ClientSeed } from '@core/services/seed/userAccount/ClientSeed'
 
 function ExerciseContent() {
   const plan = useMemo(() => {
@@ -54,7 +53,6 @@ function ExerciseContent() {
 export default function ExercisesScreen() {
   useEffect(() => {
     ProfessionalListSeed.exec()
-    ClientSeed.exec()
   }, [])
 
   return (

@@ -54,6 +54,19 @@ export abstract class UserEntity implements EntityTemplate<UserEntity> {
   get id() {
     return this._props.id
   }
+  get formattedName() {
+    if (this._props.name.length > 18) {
+      const slices = this._props.name.split(' ')
+      const initialLetters = slices.slice(1, slices.length).map((slice) => {
+        return slice[0]
+      })
+      const formattedName = `${slices[0]} ${initialLetters.join().replaceAll(',', '.')}`
+      if (formattedName.length > 18)
+        return formattedName.substring(0, 15) + '...'
+      else return formattedName
+    }
+    return this._props.name
+  }
   get name() {
     return this._props.name
   }

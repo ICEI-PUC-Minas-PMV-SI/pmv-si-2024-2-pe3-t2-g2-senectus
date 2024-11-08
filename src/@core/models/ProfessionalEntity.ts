@@ -60,7 +60,23 @@ export class ProfessionalEntity
   }
 
   serialize() {
-    return JSON.stringify({ ...this.props, ...this.userProps })
+    const data: SerializedProfessionalEntityProps = {
+      type: this.props.type,
+      id: this.props.id ?? this.userProps.id,
+      name: this.userProps.name,
+      email: this.userProps.email,
+      password: this.userProps.password,
+      createdAtInMilli: this.userProps.createdAtInMilli,
+      phoneNumber: this.userProps.phoneNumber,
+      city: this.userProps.city,
+      state: this.userProps.state,
+      address: this.userProps.address,
+      job: this.props.job,
+      startedAtInMilli: this.props.startedAtInMilli,
+      services: this.props.services,
+      clientIdList: this.props.clientIdList
+    }
+    return JSON.stringify(data)
   }
 
   get job(): string | undefined {
@@ -69,10 +85,10 @@ export class ProfessionalEntity
   set job(value: JobConstant | undefined) {
     this.props.job = value
   }
-  get startedAtInMilli() {
+  get startedAtInMilli(): number | undefined {
     return this.props.startedAtInMilli
   }
-  set startAtInMilli(value: number) {
+  set startedAtInMilli(value: number) {
     this.props.startedAtInMilli = value
   }
   get clientIdList() {
