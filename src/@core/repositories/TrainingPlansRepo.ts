@@ -10,8 +10,9 @@ export class TrainingPlansRepo {
   private static trainingPlanCollectionId = 'trainingPlans'
   static set(plan: TrainingPlanEntity) {
     const trainingPlans = TrainingPlansRepo.getSource()
+    TrainingPlansRepo.makeExercisesPersistentFriendly(plan)
+
     if (trainingPlans.length <= 0) {
-      TrainingPlansRepo.makeExercisesPersistentFriendly(plan)
       const collection: TrainingPlansCollection = {
         trainingPlans: [plan.serialize()]
       }
@@ -27,7 +28,6 @@ export class TrainingPlansRepo {
     if (searchedTrainingPlanIndex >= 0)
       trainingPlans[searchedTrainingPlanIndex] = plan
     else {
-      TrainingPlansRepo.makeExercisesPersistentFriendly(plan)
       trainingPlans.push(plan)
     }
 
