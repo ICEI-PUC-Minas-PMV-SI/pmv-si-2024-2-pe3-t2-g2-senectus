@@ -1,11 +1,32 @@
 import { UpdateUserForm } from '@components/configuration/AppConfigurationForm'
+import { UserEntity, UserEntityTypeEnum } from '@core/models/UserEntity'
 import { formatZodError } from '@core/utils/formatError'
 import { z, ZodError } from 'zod'
 
 type ValidateUpdateUserBodyReturnProps = UpdateUserForm & { isError?: boolean }
 
 export class ValidateUpdateUserBodyService {
-  static exec(props: UpdateUserForm): ValidateUpdateUserBodyReturnProps {
+  static exec(
+    user: UserEntity,
+    props: UpdateUserForm
+  ): ValidateUpdateUserBodyReturnProps {
+    const phone = z
+      .string()
+      .min(14, 'Número de telefone inválido')
+      .max(15, 'Número de telefone inválido')
+    const state = z
+      .string()
+      .min(1, 'Estado precisa ser selecionado')
+      .max(60, 'Estado precisa ter no máximo 60 caracteres')
+    const city = z
+      .string()
+      .min(1, 'Cidade precisa ser informada')
+      .max(60, 'Cidade precisa ter no máximo 60 caracteres')
+    const address = z
+      .string()
+      .min(1, 'Endereço precisa ser informado')
+      .max(70, 'Endereço precisa ter no máximo 60 caracteres')
+
     const schema = z.object({
       name: z
         .string()
@@ -16,18 +37,25 @@ export class ValidateUpdateUserBodyService {
         .email('Email inválido')
         .min(3, 'Email precisa ter no mínimo 2 caracteres')
         .max(320, 'Email precisa ter no máximo 320 caracteres'),
-      phone: z
-        .string()
-        .min(14, 'Número de telefone inválido')
-        .max(15, 'Número de telefone inválido'),
-      state: z.string().min(1, 'Estado precisa ser selecionado'),
-      city: z.string().min(1, 'Cidade precisa ser informada'),
-      address: z.string().min(1, 'Endereço precisa ser informado')
+      phone:
+        user.type === UserEntityTypeEnum.CLIENT ? z.optional(phone) : phone,
+      state:
+        user.type === UserEntityTypeEnum.CLIENT ? z.optional(state) : state,
+      city: user.type === UserEntityTypeEnum.CLIENT ? z.optional(city) : city,
+      address:
+        user.type === UserEntityTypeEnum.CLIENT ? z.optional(address) : address
     })
 
     try {
-      const res = schema.parse(props)
-      return res
+      const clone = {
+        ...props,
+        phone: props.phone.length <= 0 ? undefined : props.phone,
+        state: props.state.length <= 0 ? undefined : props.state,
+        city: props.city.length <= 0 ? undefined : props.city,
+        address: props.address.length <= 0 ? undefined : props.address
+      }
+      schema.parse(clone)
+      return props
     } catch (e) {
       const formattedError = formatZodError(props, e as ZodError)
       return {

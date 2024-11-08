@@ -21,6 +21,7 @@ export class GetPlanProgressService {
         ++skipped
       } else if (exercise.state === ExerciseState.PENDING) ++remaining
     })
+    const progress = (finished * 100) / totalExercises
 
     return {
       finished,
@@ -28,7 +29,7 @@ export class GetPlanProgressService {
       remaining,
       spentHoursInMilli,
       totalExercises,
-      progress: plan.progress
+      progress
     }
   }
 }

@@ -13,6 +13,9 @@ import { LoginProvider } from '@context/LoginProvider'
 import { UserEntityTypeEnum } from '@core/models/UserEntity'
 import { useEffect } from 'react'
 import { ProfessionalListSeed } from '@core/services/seed/professionals/ProfessionalListSeed'
+import { AppInternalContainer } from '@components/common/InternalContainer/AppInternalContainer'
+import { AppButtonLinkRectOutline } from '@components/common/Buttons/AppButtonLinkRectOutline'
+import { FaAngleLeft } from 'react-icons/fa6'
 
 interface SearchExerciseScreen {
   params: {
@@ -37,11 +40,18 @@ export default function SearchExerciseScreen({ params }: SearchExerciseScreen) {
 
         <LoginProvider userType={UserEntityTypeEnum.CLIENT}>
           <AppContainer style={{ justifyContent: 'start' }}>
-            <AppSearchExerciseInitialText categoryName={categoryName} />
-            <AppExerciseList
-              categoryId={params.categoryId}
-              exercises={exercises}
+            <AppButtonLinkRectOutline
+              href="/exercises"
+              text="Voltar"
+              icon={<FaAngleLeft />}
             />
+            <AppInternalContainer>
+              <AppSearchExerciseInitialText categoryName={categoryName} />
+              <AppExerciseList
+                categoryId={params.categoryId}
+                exercises={exercises}
+              />
+            </AppInternalContainer>
           </AppContainer>
         </LoginProvider>
       </NextUIProvider>

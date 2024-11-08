@@ -10,15 +10,17 @@ export class TrainingPlansRepo {
   private static trainingPlanCollectionId = 'trainingPlans'
   static set(plan: TrainingPlanEntity) {
     const trainingPlans = TrainingPlansRepo.getSource()
+    TrainingPlansRepo.makeExercisesPersistentFriendly(plan)
+
     if (trainingPlans.length <= 0) {
-      TrainingPlansRepo.makeExercisesPersistentFriendly(plan)
       const collection: TrainingPlansCollection = {
         trainingPlans: [plan.serialize()]
       }
-      return localStorage.setItem(
+      localStorage.setItem(
         TrainingPlansRepo.trainingPlanCollectionId,
         JSON.stringify(collection)
       )
+      return plan
     }
 
     const searchedTrainingPlanIndex = trainingPlans.findIndex(
@@ -27,7 +29,6 @@ export class TrainingPlansRepo {
     if (searchedTrainingPlanIndex >= 0)
       trainingPlans[searchedTrainingPlanIndex] = plan
     else {
-      TrainingPlansRepo.makeExercisesPersistentFriendly(plan)
       trainingPlans.push(plan)
     }
 
@@ -41,6 +42,8 @@ export class TrainingPlansRepo {
       TrainingPlansRepo.trainingPlanCollectionId,
       JSON.stringify(collection)
     )
+
+    return plan
   }
 
   static deleteById(id: string) {
@@ -131,7 +134,7 @@ export class TrainingPlansRepo {
   }
 
   private static makeExercisesPersistentFriendly(plan: TrainingPlanEntity) {
-    const exerciseList: ExerciseEntity[] = []
+    let exerciseList: ExerciseEntity[] = []
 
     plan.exerciseStacks.forEach((stack) => {
       stack.dateInMilliList.forEach((date) => {
@@ -148,6 +151,17 @@ export class TrainingPlansRepo {
       })
     })
 
-    plan.exerciseList = exerciseList
+    exerciseList = exerciseList.filter((exercise) => {
+      const search = plan.exerciseList.find(
+        (item) =>
+          item.name === exercise.name &&
+          item.dateInMilli === exercise.dateInMilli &&
+          item.durationInMilli === exercise.durationInMilli &&
+          item.level === exercise.level
+      )
+      return !Boolean(search)
+    })
+
+    plan.exerciseList = [...plan.exerciseList, ...exerciseList]
   }
 }
