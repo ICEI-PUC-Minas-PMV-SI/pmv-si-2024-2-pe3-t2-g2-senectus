@@ -28,7 +28,7 @@ interface ProviderProps {
 
 interface LoginProviderProps {
   children: ReactNode
-  userType: UserEntityTypeEnum
+  userType?: UserEntityTypeEnum
 }
 
 export const LoginContext = createContext({} as ProviderProps)
@@ -41,7 +41,7 @@ export function LoginProvider({ children, userType }: LoginProviderProps) {
     if (!window) return
 
     const token = TokenRepo.get()
-    if (!token || token.type !== userType) {
+    if (!token || (userType && token.type !== userType)) {
       NotificationService.dispatch(
         NotificationTypeEnum.ERROR,
         'A sua conta não pode realizar esta ação.'
@@ -51,7 +51,7 @@ export function LoginProvider({ children, userType }: LoginProviderProps) {
     }
 
     setAuth({ token })
-  }, [setAuth, userType])
+  }, [setAuth, userType, router])
 
   if (!auth?.token)
     return (

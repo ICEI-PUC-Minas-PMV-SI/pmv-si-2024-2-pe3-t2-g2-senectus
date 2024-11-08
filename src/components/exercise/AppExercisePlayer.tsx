@@ -1,21 +1,51 @@
-import { ExerciseEntity } from '@core/models/ExerciseEntity'
+import { ExerciseEntity, ExerciseState } from '@core/models/ExerciseEntity'
 import { ExercisePlayerStyle } from './ExercisePlayerStyle'
 import { format } from 'date-fns'
 import { FaClock, FaDumbbell } from 'react-icons/fa6'
 import { v4 as uuid } from 'uuid'
-import { AppButtonLinkRect } from '@components/common/Buttons/AppButtonLinkRect'
 import { AppButtonLinkRectOutline } from '@components/common/Buttons/AppButtonLinkRectOutline'
+import { LoginContext } from '@context/LoginProvider'
+import { useContext } from 'react'
+import { UserEntityTypeEnum } from '@core/models/UserEntity'
+import { GetTrainingPlanAsClientService } from '@core/services/plan/crud/GetTrainingPlanAsClientService'
+import { useRouter } from 'next/navigation'
+import { UpdateTrainingPlanService } from '@core/services/plan/crud/UpdateTrainingPlanService'
+import { AppButtonActionRect } from '@components/common/Buttons/AppButtonActionRect'
+import { GetPlanProgressService } from '@core/services/plan/crud/GetPlanProgressService'
 
 interface AppExercisePlayerProps {
   exercise: ExerciseEntity
 }
 
 export function AppExercisePlayer({ exercise }: AppExercisePlayerProps) {
+  const router = useRouter()
+  const { auth } = useContext(LoginContext)
+
+  const onFinish = () => {
+    const plan = GetTrainingPlanAsClientService.exec()
+    if (!plan) {
+      router.push('/exercises')
+      return
+    }
+
+    for (let i = 0; i < plan.exerciseList.length; i++) {
+      const item = plan.exerciseList[i]
+      if (item.id === exercise.id) {
+        item.state = ExerciseState.DONE
+        const { progress } = GetPlanProgressService.exec(plan)
+        plan.progress = progress
+        UpdateTrainingPlanService.exec({ trainingPlan: plan })
+      }
+    }
+
+    router.push('/exercises')
+  }
+
   return (
     <ExercisePlayerStyle>
       <div id="video">
         <iframe
-          src="https://www.youtube.com/embed/28kE5vLW4vM"
+          src={exercise.video.src}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
           allowFullScreen
         ></iframe>
@@ -41,15 +71,23 @@ export function AppExercisePlayer({ exercise }: AppExercisePlayerProps) {
           ))}
         </ul>
 
-        <div id="instructions-actions">
-          <AppButtonLinkRect id="finish" href="/exercises" text="Concluído" />
-          <span></span>
-          <AppButtonLinkRectOutline
-            id="cancel"
-            href="/exercises"
-            text="Desistir"
-          />
-        </div>
+        {auth?.token?.type === UserEntityTypeEnum.CLIENT && (
+          <div id="instructions-actions">
+            <AppButtonActionRect
+              id="finish"
+              href="/exercises"
+              text="Concluído"
+              onClick={onFinish}
+              style={{ width: '75vw', maxWidth: '7.44rem' }}
+            />
+            <span></span>
+            <AppButtonLinkRectOutline
+              id="cancel"
+              href="/exercises"
+              text="Desistir"
+            />
+          </div>
+        )}
       </div>
     </ExercisePlayerStyle>
   )

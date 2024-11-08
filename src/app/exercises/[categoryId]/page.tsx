@@ -9,6 +9,11 @@ import { AppSearchExerciseInitialText } from '@components/searchExercises/AppSea
 import { AppExerciseList } from '@components/searchExercises/AppExerciseList'
 import { ExerciseRepo } from '@core/repositories/ExerciseRepo'
 import NotFound from '../../not-found'
+import { LoginProvider } from '@context/LoginProvider'
+import { UserEntityTypeEnum } from '@core/models/UserEntity'
+import { useEffect } from 'react'
+import { ProfessionalListSeed } from '@core/services/seed/professionals/ProfessionalListSeed'
+import { ClientSeed } from '@core/services/seed/userAccount/ClientSeed'
 
 interface SearchExerciseScreen {
   params: {
@@ -20,6 +25,11 @@ export default function SearchExerciseScreen({ params }: SearchExerciseScreen) {
   const categoryName = ExerciseRepo.getCategoryNameById(params.categoryId)
   const exercises = ExerciseRepo.getExercisesByCategoryId(params.categoryId)
 
+  useEffect(() => {
+    ProfessionalListSeed.exec()
+    ClientSeed.exec()
+  }, [])
+
   if (!categoryName || exercises.length <= 0) return NotFound()
 
   return (
@@ -27,13 +37,15 @@ export default function SearchExerciseScreen({ params }: SearchExerciseScreen) {
       <NextUIProvider className="default">
         <AppHeader />
 
-        <AppContainer style={{ justifyContent: 'start' }}>
-          <AppSearchExerciseInitialText categoryName={categoryName} />
-          <AppExerciseList
-            categoryId={params.categoryId}
-            exercises={exercises}
-          />
-        </AppContainer>
+        <LoginProvider userType={UserEntityTypeEnum.CLIENT}>
+          <AppContainer style={{ justifyContent: 'start' }}>
+            <AppSearchExerciseInitialText categoryName={categoryName} />
+            <AppExerciseList
+              categoryId={params.categoryId}
+              exercises={exercises}
+            />
+          </AppContainer>
+        </LoginProvider>
       </NextUIProvider>
     </ThemeProvider>
   )

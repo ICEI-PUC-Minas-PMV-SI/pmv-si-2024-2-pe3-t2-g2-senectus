@@ -1,4 +1,6 @@
+import { ExerciseEntity } from '@core/models/ExerciseEntity'
 import { TrainingPlanEntity } from '@core/models/TrainingPlanEntity'
+import { v4 as uuid } from 'uuid'
 
 interface TrainingPlansCollection {
   trainingPlans: string[]
@@ -9,6 +11,7 @@ export class TrainingPlansRepo {
   static set(plan: TrainingPlanEntity) {
     const trainingPlans = TrainingPlansRepo.getSource()
     if (trainingPlans.length <= 0) {
+      TrainingPlansRepo.makeExercisesPersistentFriendly(plan)
       const collection: TrainingPlansCollection = {
         trainingPlans: [plan.serialize()]
       }
@@ -23,7 +26,10 @@ export class TrainingPlansRepo {
     )
     if (searchedTrainingPlanIndex >= 0)
       trainingPlans[searchedTrainingPlanIndex] = plan
-    else trainingPlans.push(plan)
+    else {
+      TrainingPlansRepo.makeExercisesPersistentFriendly(plan)
+      trainingPlans.push(plan)
+    }
 
     const serializedTrainingPlans = trainingPlans.map((item) =>
       item.serialize()
@@ -122,5 +128,26 @@ export class TrainingPlansRepo {
         TrainingPlanEntity.deserialize(item)
       )
     return trainingPlans
+  }
+
+  private static makeExercisesPersistentFriendly(plan: TrainingPlanEntity) {
+    const exerciseList: ExerciseEntity[] = []
+
+    plan.exerciseStacks.forEach((stack) => {
+      stack.dateInMilliList.forEach((date) => {
+        stack.exercises.forEach((exercise) => {
+          const clone = exercise.clone()
+          clone.id = uuid()
+          const hrefArr = clone.href!.split('/')
+          hrefArr.pop()
+          clone.dateInMilli = date
+          clone.href = `${hrefArr.join().replaceAll(',', '/')}/${clone.id}`
+
+          exerciseList.push(clone)
+        })
+      })
+    })
+
+    plan.exerciseList = exerciseList
   }
 }

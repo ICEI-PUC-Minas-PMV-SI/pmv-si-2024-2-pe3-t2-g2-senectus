@@ -67,7 +67,7 @@ export function AppProfessionalAppointmentsMenu({
                   <b>Tipo de serviço</b>: {item.serviceType}
                 </p>
 
-                {item.dateInMilli < Date.now() - 1000 * 60 * 5 && (
+                {item.dateInMilli > Date.now() - 1000 * 60 * 5 && (
                   <div className="appointment-item-actions">
                     <AppButtonActionRect
                       text={positiveButtonTitle}

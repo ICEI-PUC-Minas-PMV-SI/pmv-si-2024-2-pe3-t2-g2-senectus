@@ -128,9 +128,17 @@ export class ProfessionalSeed {
       UsersRepo.set(user)
 
       const rand = Math.floor(Math.min(Math.random() * 11, 10))
-      if (rand > 5) ProfessionalSeed.createTrainingPlan(user.id, professionalId)
-
-      ProfessionalSeed.createRandomAppointments(user.id, professionalId)
+      const appointments = ProfessionalSeed.createRandomAppointments(
+        user.id,
+        professionalId
+      )
+      if (rand > 5) {
+        ProfessionalSeed.createTrainingPlan(user.id, professionalId)
+        appointments.forEach((item) => {
+          item.state = AppointmentStateEnum.DONE
+          AppointmentsRepo.set(item)
+        })
+      }
 
       clientsId.push(user.id)
     }
@@ -176,5 +184,7 @@ export class ProfessionalSeed {
     for (let i = 0; i < appointments.length; i++) {
       AppointmentsRepo.set(appointments[i])
     }
+
+    return appointments
   }
 }
