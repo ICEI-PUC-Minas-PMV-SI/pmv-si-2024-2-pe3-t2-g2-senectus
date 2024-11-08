@@ -16,10 +16,11 @@ export class TrainingPlansRepo {
       const collection: TrainingPlansCollection = {
         trainingPlans: [plan.serialize()]
       }
-      return localStorage.setItem(
+      localStorage.setItem(
         TrainingPlansRepo.trainingPlanCollectionId,
         JSON.stringify(collection)
       )
+      return plan
     }
 
     const searchedTrainingPlanIndex = trainingPlans.findIndex(
@@ -41,6 +42,8 @@ export class TrainingPlansRepo {
       TrainingPlansRepo.trainingPlanCollectionId,
       JSON.stringify(collection)
     )
+
+    return plan
   }
 
   static deleteById(id: string) {

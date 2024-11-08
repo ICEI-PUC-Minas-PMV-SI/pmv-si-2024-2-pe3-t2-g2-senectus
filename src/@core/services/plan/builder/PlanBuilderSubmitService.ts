@@ -8,10 +8,12 @@ export class PlanBuilderSubmitService {
     const clone = plan.clone()
     clone.stackHolderRef = undefined
 
-    const { progress } = GetPlanProgressService.exec(clone)
-    clone.progress = progress // Recalcula o progresso no plano de treino que o usuário fez, caso o mesmo já exista
+    const newPlan = TrainingPlansRepo.set(clone)
 
-    TrainingPlansRepo.set(clone)
+    const { progress } = GetPlanProgressService.exec(clone)
+    newPlan.progress = progress // Recalcula o progresso no plano de treino que o usuário fez, caso o mesmo já exista
+    TrainingPlansRepo.set(newPlan)
+
     router.push('/clients', { scroll: true })
   }
 }
