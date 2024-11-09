@@ -629,7 +629,148 @@
             "src": "/img/exercises/img_elderly_seated_in_char_with_elastic_2.jpg",
             "alt": "Pessoa idosa realizando fortalecimento de abdutores do quadril"
           }
-        }        
+        },
+        {
+          "name": "Marcha estacionária levantando bastante o MS contralateral - Treino para marcha, equilíbrio, mobilidade e força de MMII",
+          "repeat": 2,
+          "repetitions": "2x10",
+          "durationInMilli": 26000,
+          "level": "EASY",
+          "instructions": [
+            "Procure um lugar que tenha algo fixo que você consiga ficar próximo para se segurar, caso você desequilibre.",
+            "Na postura em pé, faça a marcha sem sair do lugar.",
+            "Ao levantar a perna direita, levante a mão esquerda até a altura do ombro.",
+            "Ao levantar a perna esquerda, levante a mão direita até a altura do ombro.",
+            "Faça 10 repetições alternadas.",
+            "Descanse de 15 a 30 segundos entre cada série."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/pmqWqd-E76E?start=297"
+          },
+          "image": {
+            "src": "/img/exercises/imimg_elderly_marching.jpg",
+            "alt": "Pessoa idosa realizando marcha estacionária com elevação dos membros superiores, vestindo roupa roxa"
+          }
+        },
+        {
+          "name": "Marcha estacionária com alcance MS contralateral - Treino para marcha, equilíbrio, mobilidade e força de MMII",
+          "repeat": 2,
+          "repetitions": "2x10",
+          "durationInMilli": 26000,
+          "level": "EASY",
+          "instructions": [
+            "Procure um lugar que tenha algo fixo que você consiga ficar próximo para se segurar, caso você desequilibre.",
+            "Na postura em pé, faça a marcha sem sair do lugar.",
+            "Ao levantar a perna direita, encoste a mão esquerda no joelho direito.",
+            "Ao levantar a perna esquerda, encoste a mão direita no joelho esquerdo.",
+            "Faça 10 repetições alternadas.",
+            "Descanse de 15 a 30 segundos entre cada série."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/pmqWqd-E76E?start=103"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_marching_2.jpg",
+            "alt": "Pessoa idosa realizando marcha estacionária com elevação dos membros superiores, vestindo roupa roxa"
+          }
+        },
+        {
+          "name": "Abdução e adução horizontal de ombro e coordenação motora - Treino para mobilidade e coordenação",
+          "repeat": 1,
+          "repetitions": "1x10",
+          "durationInMilli": 17000,
+          "level": "EASY",
+          "instructions": [
+            "Sente-se numa cadeira com os braços esticados à frente na altura dos ombros, segurando a bola no centro com ambas as mãos.",
+            "Leve a bola para o lado direito usando o braço direito até a linha do ombro direito.",
+            "Retorne a bola para o centro e passe-a para a mão esquerda.",
+            "Leve a bola para o lado esquerdo usando o braço esquerdo até a linha do ombro esquerdo.",
+            "Retorne à posição inicial e repita o movimento para cada lado, realizando 10 repetições para cada lado."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=188"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_passing_ball.jpg",
+            "alt": "Pessoa idosa sentada em uma cadeira realizando abdução e adução de ombro com uma bola"
+          }
+        },
+        {
+          "name": "Flexão de ombro - Treino para mobilidade de ombro",
+          "repeat": 1,
+          "repetitions": "1x10",
+          "durationInMilli": 14000,
+          "level": "EASY",
+          "instructions": [
+            "Sente-se em uma cadeira com os braços esticados à frente na altura dos ombros, segurando uma bola com ambas as mãos.",
+            "Eleve os braços até a altura dos olhos, mantendo os braços esticados.",
+            "Retorne à posição inicial e repita o movimento, realizando 10 repetições."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=168"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_holding_ball.jpg",
+            "alt": "Pessoa idosa sentada em uma cadeira realizando flexão de ombro com uma bola"
+          }
+        },
+        {
+          "name": "Adução de ombro",
+          "repeat": 1,
+          "repetitions": "1x10",
+          "durationInMilli": 10000,
+          "level": "EASY",
+          "instructions": [
+            "Sente-se em uma cadeira com os braços esticados à frente na altura dos ombros, segurando uma bola com ambas as mãos.",
+            "Faça uma pressão na bola enquanto mantém os braços esticados.",
+            "Repita o movimento por 10 repetições."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=158"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_holding_ball_2.jpg",
+            "alt": "Idoso sentado em uma cadeira realizando adução de ombro com uma bola, usando roupas roxas"
+          }
+        },
+        {
+          "name": "Quatro apoios (cintura escapular, equilíbrio, coordenação motora)",
+          "repeat": 1,
+          "repetitions": "1x10 cada lado",
+          "durationInMilli": 20000,
+          "level": "MEDIUM",
+          "instructions": [
+            "Fique na postura de quatro apoios, com as mãos e joelhos no chão.",
+            "Coloque uma bola abaixo da mão direita e faça uma pressão na bola, realizando 10 repetições.",
+            "Em seguida, troque para a mão esquerda e repita o movimento por 10 repetições."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=137"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_four_support.jpg",
+            "alt": "Idoso em posição de quatro apoios, pressionando uma bola com a mão direita, usando roupas roxas"
+          }
+        },
+        {
+          "name": "Mobilidade do tornozelo, joelho e quadril",
+          "repeat": 1,
+          "repetitions": "1x10 cada lado",
+          "durationInMilli": 15000,
+          "level": "EASY",
+          "instructions": [
+            "Deite-se de barriga para cima, com os braços ao lado do corpo e os joelhos dobrados, com os pés apoiados no chão.",
+            "Coloque uma bola abaixo do pé direito, estique a perna direita e depois dobre-a, realizando 10 repetições.",
+            "Em seguida, troque para a perna esquerda e repita o movimento por 10 repetições."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=84"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_pressing_ball_2.jpg",
+            "alt": "Idoso deitado de barriga para cima, pressionando uma bola com o pé direito enquanto estica e dobra a perna, usando roupas roxas"
+          }
+        }                                
       ]
     }
   ]
