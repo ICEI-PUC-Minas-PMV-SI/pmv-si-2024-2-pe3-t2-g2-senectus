@@ -1,7 +1,7 @@
 import { AppDefaultInput } from '@components/common/Inputs/DefaultInput/AppDefaultInput'
 import { FaCity, FaEnvelope, FaPhone, FaRoad, FaTag } from 'react-icons/fa6'
 import { Container, FullWidthContainer, Grid } from './ConfigurationFormStyle'
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState, useMemo } from 'react'
 import { AppSelectOutline } from '@components/common/Selects/AppSelectOutline'
 import { GetUserInfoService } from '@core/services/users/GetUserInfoService'
 import { FormatPhoneNumber } from '@core/utils/FormatPhoneNumber'
@@ -50,6 +50,10 @@ const states = [
 
 export function AppConfigurationForm() {
   const [user, setUser] = useState(GetUserInfoService.exec())
+  const isProfessional = useMemo(
+    () => user?.type === UserEntityTypeEnum.PROFESSIONAL,
+    []
+  )
 
   const [form, setForm] = useState<UpdateUserForm>({
     email: user?.email ?? '',
@@ -173,7 +177,7 @@ export function AppConfigurationForm() {
           icon={<FaPhone />}
           value={form.phone}
           onChange={onChangePhoneNumber}
-          isRequired={user?.type === UserEntityTypeEnum.PROFESSIONAL}
+          isRequired={isProfessional}
           isInvalid={Boolean(formError.phone)}
           errorMessage={formError.phone}
         />
@@ -194,7 +198,7 @@ export function AppConfigurationForm() {
           icon={<FaCity />}
           options={states}
           value={form.state}
-          isRequired={user?.type === UserEntityTypeEnum.PROFESSIONAL}
+          isRequired={isProfessional}
           onChange={onChangeState}
           isInvalid={Boolean(formError.state)}
           errorMessage={formError.state}
@@ -207,7 +211,7 @@ export function AppConfigurationForm() {
           icon={<FaCity />}
           value={form.city}
           validationBehavior="native"
-          isRequired={user?.type === UserEntityTypeEnum.PROFESSIONAL}
+          isRequired={isProfessional}
           onChange={onChangeCity}
           isInvalid={Boolean(formError.city)}
           errorMessage={formError.city}
@@ -220,7 +224,7 @@ export function AppConfigurationForm() {
             label="Insira seu endereço"
             icon={<FaRoad />}
             value={form.address}
-            isRequired={user?.type === UserEntityTypeEnum.PROFESSIONAL}
+            isRequired={isProfessional}
             onChange={onChangeAddress}
             isInvalid={Boolean(formError.address)}
             errorMessage={formError.address}
