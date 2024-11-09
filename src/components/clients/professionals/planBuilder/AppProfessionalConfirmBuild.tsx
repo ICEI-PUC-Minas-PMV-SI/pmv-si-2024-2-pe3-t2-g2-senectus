@@ -40,6 +40,7 @@ export function AppProfessionalConfirmBuild({
   onMoreExercises
 }: AppProfessionalConfirmBuildProps) {
   const router = useRouter()
+  const [isLoading, setIsLoading] = useState(false)
   const [menuType, setMenuType] = useState<MenuTypeProps>({ type: 'main' })
   const [desktopMenuContext, setDesktopMenuContext] = useState<
     CalendarContextProps<ExerciseEntity>
@@ -64,7 +65,7 @@ export function AppProfessionalConfirmBuild({
   }
 
   const onSubmit = () => {
-    PlanBuilderSubmitService.exec(router, planContext.payload)
+    PlanBuilderSubmitService.exec(router, planContext.payload, setIsLoading)
   }
 
   useEffect(() => {
@@ -129,11 +130,13 @@ export function AppProfessionalConfirmBuild({
         <AppButtonActionRectOutline
           text="Mais exercícios"
           onClick={onMoreExercises}
+          isLoading={isLoading}
           fullWidth
         />
         <AppButtonActionRect
           id="finish-creation"
           text="Finalizar"
+          isLoading={isLoading}
           onClick={onSubmit}
           fullWidth
         />

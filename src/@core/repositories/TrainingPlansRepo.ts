@@ -1,5 +1,7 @@
-import { ExerciseEntity } from '@core/models/ExerciseEntity'
-import { TrainingPlanEntity } from '@core/models/TrainingPlanEntity'
+import {
+  TrainingPlanEntity,
+  TrainingPlanExercise
+} from '@core/models/TrainingPlanEntity'
 import { v4 as uuid } from 'uuid'
 
 interface TrainingPlansCollection {
@@ -8,7 +10,7 @@ interface TrainingPlansCollection {
 
 export class TrainingPlansRepo {
   private static trainingPlanCollectionId = 'trainingPlans'
-  static set(plan: TrainingPlanEntity) {
+  static async set(plan: TrainingPlanEntity) {
     const trainingPlans = TrainingPlansRepo.getSource()
     TrainingPlansRepo.makeExercisesPersistentFriendly(plan)
 
@@ -134,7 +136,7 @@ export class TrainingPlansRepo {
   }
 
   private static makeExercisesPersistentFriendly(plan: TrainingPlanEntity) {
-    let exerciseList: ExerciseEntity[] = []
+    const exerciseList: TrainingPlanExercise[] = []
 
     plan.exerciseStacks.forEach((stack) => {
       stack.dateInMilliList.forEach((date) => {
@@ -146,22 +148,29 @@ export class TrainingPlansRepo {
           clone.dateInMilli = date
           clone.href = `${hrefArr.join().replaceAll(',', '/')}/${clone.id}`
 
-          exerciseList.push(clone)
+          exerciseList.push({
+            inMemoryPath: exercise.id,
+            content: clone
+          })
         })
       })
     })
 
-    exerciseList = exerciseList.filter((exercise) => {
+    exerciseList.forEach((exercise) => {
       const search = plan.exerciseList.find(
         (item) =>
-          item.name === exercise.name &&
-          item.dateInMilli === exercise.dateInMilli &&
-          item.durationInMilli === exercise.durationInMilli &&
-          item.level === exercise.level
+          item.inMemoryPath === exercise.inMemoryPath &&
+          item.content.dateInMilli === exercise.content.dateInMilli
       )
-      return !Boolean(search)
+      if (!search) return
+
+      exercise.content.state = search.content.state
+      exercise.content.id = search.content.id
+      const hrefArr = exercise.content.href!.split('/')
+      hrefArr.pop()
+      exercise.content.href = `${hrefArr.join().replaceAll(',', '/')}/${exercise.content.id}`
     })
 
-    plan.exerciseList = [...plan.exerciseList, ...exerciseList]
+    plan.exerciseList = exerciseList
   }
 }

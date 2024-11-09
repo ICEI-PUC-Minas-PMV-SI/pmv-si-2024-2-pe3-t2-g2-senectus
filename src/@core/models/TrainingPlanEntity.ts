@@ -3,8 +3,13 @@ import {
   SerializedExerciseStackEntityProps
 } from './ExerciseStackEntity'
 import { EntityTemplate } from './EntityTemplate'
-import { ExerciseEntity } from './ExerciseEntity'
+import { ExerciseEntity, SerializedExerciseEntityProps } from './ExerciseEntity'
 import { v4 as uuid } from 'uuid'
+
+export interface TrainingPlanExercise {
+  inMemoryPath: string
+  content: ExerciseEntity
+}
 
 interface TrainingPlanEntityProps {
   id: string
@@ -13,7 +18,7 @@ interface TrainingPlanEntityProps {
   progress: number
   stackHolderRef?: ExerciseStackEntity // referência da pilha de exercícios que está sendo modificada na criação do plano
   exerciseStacks: ExerciseStackEntity[] // pilha de referência de exercícios armazenados em memória focada em facilitar o processo de edição
-  exerciseList: ExerciseEntity[]
+  exerciseList: TrainingPlanExercise[]
   createdAtInMilli: number
 }
 
@@ -22,6 +27,10 @@ export type SerializedTrainingPlanEntityProps = Replace<
   {
     stackHolderRef?: SerializedExerciseStackEntityProps
     exerciseStacks: SerializedExerciseStackEntityProps[]
+    exerciseList: Array<{
+      inMemoryPath: string
+      content: SerializedExerciseEntityProps
+    }>
   }
 >
 
@@ -31,7 +40,7 @@ export type TrainingPlanEntityInputProps = Replace<
     id?: string
     progress?: number
     createdAtInMilli?: number
-    exerciseList?: ExerciseEntity[]
+    exerciseList?: TrainingPlanExercise[]
   }
 >
 
@@ -53,9 +62,15 @@ export class TrainingPlanEntity implements EntityTemplate<TrainingPlanEntity> {
   }
 
   serialize(): string {
-    const exerciseList = this.props.exerciseList.map((item) =>
-      JSON.parse(item.serialize())
-    )
+    const exerciseList = this.props.exerciseList.map((item) => {
+      const exercise = JSON.parse(item.content.serialize())
+      return JSON.parse(
+        JSON.stringify({
+          inMemoryPath: item.inMemoryPath,
+          content: exercise
+        })
+      )
+    })
     const exerciseStacks = this.props.exerciseStacks.map((item) =>
       JSON.parse(item.serialize())
     )
@@ -76,9 +91,10 @@ export class TrainingPlanEntity implements EntityTemplate<TrainingPlanEntity> {
   }
   static deserialize(json: string): TrainingPlanEntity {
     const objt: SerializedTrainingPlanEntityProps = JSON.parse(json)
-    const exerciseList = objt.exerciseList.map(
-      (item) => new ExerciseEntity(item)
-    )
+    const exerciseList = objt.exerciseList.map((item) => {
+      const exercise = new ExerciseEntity(item.content)
+      return { inMemoryPath: item.inMemoryPath, content: exercise }
+    })
     const exerciseStacks = objt.exerciseStacks.map((item) => {
       const exercises = item.exercises.map((props) => new ExerciseEntity(props))
       return new ExerciseStackEntity({ ...item, exercises })
@@ -136,7 +152,7 @@ export class TrainingPlanEntity implements EntityTemplate<TrainingPlanEntity> {
   get exerciseList() {
     return this.props.exerciseList
   }
-  set exerciseList(value: ExerciseEntity[]) {
+  set exerciseList(value: TrainingPlanExercise[]) {
     this.props.exerciseList = value
   }
 
