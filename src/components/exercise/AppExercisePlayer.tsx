@@ -11,7 +11,6 @@ import { GetTrainingPlanAsClientService } from '@core/services/plan/crud/GetTrai
 import { useRouter } from 'next/navigation'
 import { UpdateTrainingPlanService } from '@core/services/plan/crud/UpdateTrainingPlanService'
 import { AppButtonActionRect } from '@components/common/Buttons/AppButtonActionRect'
-import { GetPlanProgressService } from '@core/services/plan/crud/GetPlanProgressService'
 
 interface AppExercisePlayerProps {
   exercise: ExerciseEntity
@@ -29,11 +28,9 @@ export function AppExercisePlayer({ exercise }: AppExercisePlayerProps) {
     }
 
     for (let i = 0; i < plan.exerciseList.length; i++) {
-      const item = plan.exerciseList[i]
+      const item = plan.exerciseList[i].content
       if (item.id === exercise.id) {
         item.state = ExerciseState.DONE
-        const { progress } = GetPlanProgressService.exec(plan)
-        plan.progress = progress
         UpdateTrainingPlanService.exec({ trainingPlan: plan })
       }
     }

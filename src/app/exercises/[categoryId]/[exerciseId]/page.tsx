@@ -42,7 +42,8 @@ export default function SearchExerciseScreen({ params }: SearchExerciseScreen) {
 
     for (let i = 0; i < plan.exerciseList.length; i++) {
       const item = plan.exerciseList[i]
-      if (item.id === params.exerciseId) return setPersistentExercise(item)
+      if (item.content.id === params.exerciseId)
+        return setPersistentExercise(item.content)
     }
 
     return setNotFoundPersistentExercise(true)

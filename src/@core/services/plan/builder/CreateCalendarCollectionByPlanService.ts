@@ -1,6 +1,9 @@
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
 import { ExerciseEntity } from '@core/models/ExerciseEntity'
-import { TrainingPlanEntity } from '@core/models/TrainingPlanEntity'
+import {
+  TrainingPlanEntity,
+  TrainingPlanExercise
+} from '@core/models/TrainingPlanEntity'
 import { format } from 'date-fns'
 
 export enum CalendarCreationStrategy {
@@ -43,14 +46,14 @@ export class CreateCalendarCollectionByPlanService {
 
   private static pushExerciseToCollection(
     collection: CollectionEventsOnDay<ExerciseEntity>[],
-    exercises: ExerciseEntity[],
+    exercises: TrainingPlanExercise[],
     timezone: string
   ) {
     if (exercises.length <= 0) return
 
     const exerciseListByDate: Record<string, ExerciseEntity[]> = {}
     for (let i = 0; i < exercises.length; i++) {
-      const item = exercises[i]
+      const item = exercises[i].content
       const time = format(new Date(item.dateInMilli), 'yyyy-MM-dd')
       if (exerciseListByDate[time]) exerciseListByDate[time].push(item)
       else exerciseListByDate[time] = [item]
