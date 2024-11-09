@@ -3,13 +3,13 @@
 O módulo de exercícios possui a responsabilidade de gerenciar todo o fluxo de exercícios do profissional, permitindo-o fazer uso dos planos de treino e da biblioteca de exercícios, segue abaixo as telas do protótipo de alta fidelidade deste módulo:
 
 ## Tela inicial dos exercícios
-<img alt="Tela inicial dos exercícios" src="../../.github/img/telas/exercise/training-plan.png" width="600"/>
-<img alt="Tela inicial dos exercícios" src="../../.github/img/telas/exercise/exercise-home-menu.png" width="600"/>
+<img alt="Tela inicial dos exercícios" src="../../.github/img/telas/exercise/exercise-home.png" width="600"/>
+<img alt="Tela inicial dos exercícios com menu aberto" src="../../.github/img/telas/exercise/exercise-home-menu.png" width="600"/>
 
 ## Fluxo de pesquisa de exercícios da biblioteca
-<img alt="Tela de pesquisa de exercício" src="../../.github/img/telas/exercise/exercise-list.png" width="600"/>
+<img alt="Tela de pesquisa de exercício" src="../../.github/img/telas/exercise/exercise-search.png" width="600"/>
 
-<img alt="Tela de instruções do exercício" src="../../.github/img/telas/exercise/exercice-player.png" width="800"/>
+<img alt="Tela de instruções do exercício" src="../../.github/img/telas/exercise/exercise-player.png" width="800"/>
 
 > Esta página também é acessível quando o usuário clica em próximo exercício ou em algum dos exercícios presentes no seu plano de treino
 
