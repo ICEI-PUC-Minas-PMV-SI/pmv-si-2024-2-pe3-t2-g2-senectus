@@ -12,8 +12,8 @@ O módulo de consultas possui a responsabilidade de gerenciar o fluxo de consult
 ## Fluxo do profissional
 ### Tela inicial
 <img alt="Tela de inicial do profissional" src="../../.github/img/telas/appointment/appointments-professional-home.png" width="800"/>
-<img alt="Tela de inicial do profissional" src="../../.github/img/telas/appointment/appointments-plan-actions.png" width="800"/>
-<img alt="Tela de inicial do profissional" src="../../.github/img/telas/appointment/appointments-plan-cancel-modal.png" width="800"/>
+<img alt="Tela de inicial do profissional com menu de ações aberto" src="../../.github/img/telas/appointment/appointments-plan-actions.png" width="800"/>
+<img alt="Tela de inicial do profissional com modal de remoção de plano aberto" src="../../.github/img/telas/appointment/appointments-plan-cancel-modal.png" width="800"/>
 
 
 ### Tela de visualização de clientes
@@ -54,6 +54,6 @@ O módulo de consultas possui a responsabilidade de gerenciar o fluxo de consult
 
 Ao observar o componente de consulta e pós-consultas, nota-se que o mesmo segue determinadas regras de ouro, assim como os outros componentes, existe uma alta valorização da consistência e reaproveitamento de componentes já existentes para deixar o usuário mais familiarizado com o sistema em si. Além disso, nota-se também a presença de modals de confirmação de ações que não podem facilmente ser revertidas, como o cancelamento de consultas e a remoção de um plano de treino de um cliente.
 
-Adiante, percebe-se que a houve uma seleção de ícones compatíveis com as recomendações ergonômicas, tentando sempre trazer um mapeamento direto, como no card da página inicial do profissional de "Novas consultas", onde o mesmo é representado por um ícone "+" dentro de um quadrado, indicando a adição de um novo plano.
+Adiante, percebe-se que houve uma seleção de ícones compatíveis com as recomendações ergonômicas, tentando sempre trazer um mapeamento direto, como no card da página inicial do profissional de "Novas consultas", onde o mesmo é representado por um ícone "+" dentro de um quadrado, indicando a adição de um novo plano.
 
 Por fim, é perceptível a abordagem de princípios Gestálticos de região comum, como, por exemplo, na pesquisa de um profissional, onde o texto é visivelmente separado tanto da barra de pesquisa e filtro e a própria organização dos cards dos profissionais, que também buscam seguir o princípio de simetria, buscando sempre ocupar lados iguais, tanto no conteúdo interno dos cards quanto quando são agrupados em 8 unidades por página de maneira uniforme e simétrica.
