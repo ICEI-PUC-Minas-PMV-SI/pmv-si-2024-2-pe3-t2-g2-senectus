@@ -7,8 +7,8 @@ export const LoginLoadingStyle = styled.div`
   align-items: center;
   text-align: center;
   gap: 0.5rem;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 
   & .load {
     font-size: 6rem;

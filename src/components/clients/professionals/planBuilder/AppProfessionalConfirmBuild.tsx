@@ -105,6 +105,8 @@ export function AppProfessionalConfirmBuild({
                   exercises={
                     new CollectionEventsOnDay({
                       monthDay: exercise.monthDay,
+                      month: exercise.month,
+                      year: exercise.year,
                       events: menuType.context
                     })
                   }
