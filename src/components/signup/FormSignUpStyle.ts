@@ -32,7 +32,6 @@ export const FormSignUpStyle = styled.div`
     & #form-content {
       display: flex;
       flex-direction: column;
-      max-width: 40rem;
       & h1 {
         margin-bottom: 0.5rem;
       }
@@ -54,6 +53,7 @@ export const FormSignUpStyle = styled.div`
         width: 100%;
         place-self: center;
         & a {
+          margin-bottom: 4rem;
           margin-left: 0.25rem;
           outline-color: ${({ theme }) => theme.color.primaryColor};
           outline-offset: 0.25rem;

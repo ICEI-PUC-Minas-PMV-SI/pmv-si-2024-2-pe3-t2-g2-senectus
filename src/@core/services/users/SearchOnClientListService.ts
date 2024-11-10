@@ -99,17 +99,11 @@ export class SearchOnClientListService {
     const clone = [...inMemoryClients]
     if (filter.toString() === 'Conclusão (decrescente)')
       clone.sort((c1, c2) =>
-        sortInDesc(
-          c1.totalAppointments as object,
-          c2.totalAppointments as object
-        )
+        sortInDesc(c1.totalAppointments, c2.totalAppointments)
       )
     else
       clone.sort((c1, c2) =>
-        sortInAsc(
-          c1.totalAppointments as object,
-          c2.totalAppointments as object
-        )
+        sortInAsc(c1.totalAppointments, c2.totalAppointments)
       )
     return clone
   }

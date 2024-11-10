@@ -56,15 +56,15 @@ export const FormPostSignUpStyle = styled.div`
       }
 
       & label:nth-child(3) {
-        grid-area: 2;
-      }
-
-      & label:nth-child(4) {
         grid-area: 3;
       }
 
-      & label:nth-child(5) {
+      & label:nth-child(4) {
         grid-area: 1;
+      }
+
+      & label:nth-child(5) {
+        grid-area: 2;
       }
 
       @media (max-width: 1000px) {

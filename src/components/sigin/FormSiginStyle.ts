@@ -32,7 +32,6 @@ export const FormSiginStyle = styled.div`
     & #form-content {
       display: flex;
       flex-direction: column;
-      max-width: 40rem;
 
       & h1 {
         margin-bottom: 0.5rem;
@@ -50,6 +49,7 @@ export const FormSiginStyle = styled.div`
       }
 
       & #create-account-link {
+        margin-bottom: 4rem;
         display: flex;
         justify-content: center;
         width: 100%;
