@@ -135,23 +135,23 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 3. O idoso seleciona uma das operações: cadastrar, visualizar, editar e excluir.
 4. Se o idoso deseja continuar com suas operações de gerenciamento de seu perfil, o caso de uso retorna para o passo 2, caso contrário o caso de uso se encerra aqui.
 
-#### Fluxo Alternativo (4a): Cadastro
+#### Fluxo Alternativo (3a): Cadastro
 1. O idoso requisita o cadastro de seu perfil.
 2. O sistema retorna um formulário com os seguintes campos: nome, email, senha e confirmar senha.
 3. O idoso preenche suas informações no formulário e confirma envio.
 4. O sistema valida as informações, caso sejam válidas ele deve salvar a conta do usuário, caso contrário ele deve disparar uma mensagem informando que algum campo foi preenchido incorretamente.
 
-#### Fluxo Alternativo (4b): Leitura
+#### Fluxo Alternativo (3b): Leitura
 1. O idoso opta por visualizar as informações de seu perfil.
 2. O sistema retorna todas as informações cadastradas na sua conta.
 
-#### Fluxo Alternativo (4c): Edição
+#### Fluxo Alternativo (3c): Edição
 1. O idoso requisita a edição de seu perfil.
 2. O sistema verifica se o idoso já está conectado na plataforma, caso esteja, ele retorna um formulário contendo os campos de nome de usuário, email (não editável), sua localização e número de telefone, caso o idoso não esteja autenticado corretamente na plataforma o sistema redireciona o usuário para a tela de login para permitir que o usuário se conecte e encerra o fluxo de edição.
 3. O idoso insere suas informações ou altera aquelas que já foram inseridas anteriormente e confirma ação.
 4. O sistema valida informações, caso estejam corretas ele realiza as alterações com sucesso na sua conta, caso contrário ele retorna uma mensagem informando que algum campo está preenchido incorretamente.
 
-#### Fluxo Alternativo (4d): Exclusão
+#### Fluxo Alternativo (3d): Exclusão
 1. O idoso requisita a exclusão de seu perfil.
 2. O sistema solicita a confirmação por meio de um modal.
 3. O idoso confirma ação.
