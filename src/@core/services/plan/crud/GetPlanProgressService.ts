@@ -9,7 +9,8 @@ export class GetPlanProgressService {
     let spentHoursInMilli = 0
     const totalExercises = plan.exerciseList.length
 
-    plan.exerciseList.forEach((exercise) => {
+    plan.exerciseList.forEach((item) => {
+      const exercise = item.content
       const nowMinus30Minutes = Date.now() - 1000 * 60 * 30
       if (exercise.state === ExerciseState.DONE) {
         ++finished
@@ -21,7 +22,6 @@ export class GetPlanProgressService {
         ++skipped
       } else if (exercise.state === ExerciseState.PENDING) ++remaining
     })
-
     const progress = (finished * 100) / totalExercises
 
     return {

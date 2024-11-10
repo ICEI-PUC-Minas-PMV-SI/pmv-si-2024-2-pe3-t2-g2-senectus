@@ -1,5 +1,9 @@
 export class FormatPhoneNumber {
   static format(rawInput: string) {
+    if (rawInput.length === 2 && rawInput[0] === '(') return ''
+    if (rawInput.length === 3 && rawInput.startsWith('('))
+      return `(${rawInput[1]})`
+
     const input = `${FormatPhoneNumber.getRaw(rawInput)}`
     if (input.length <= 2) {
       return `(${input})`

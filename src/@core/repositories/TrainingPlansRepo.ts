@@ -1,5 +1,7 @@
-import { ExerciseEntity } from '@core/models/ExerciseEntity'
-import { TrainingPlanEntity } from '@core/models/TrainingPlanEntity'
+import {
+  TrainingPlanEntity,
+  TrainingPlanExercise
+} from '@core/models/TrainingPlanEntity'
 import { v4 as uuid } from 'uuid'
 
 interface TrainingPlansCollection {
@@ -8,17 +10,19 @@ interface TrainingPlansCollection {
 
 export class TrainingPlansRepo {
   private static trainingPlanCollectionId = 'trainingPlans'
-  static set(plan: TrainingPlanEntity) {
+  static async set(plan: TrainingPlanEntity) {
     const trainingPlans = TrainingPlansRepo.getSource()
+    TrainingPlansRepo.makeExercisesPersistentFriendly(plan)
+
     if (trainingPlans.length <= 0) {
-      TrainingPlansRepo.makeExercisesPersistentFriendly(plan)
       const collection: TrainingPlansCollection = {
         trainingPlans: [plan.serialize()]
       }
-      return localStorage.setItem(
+      localStorage.setItem(
         TrainingPlansRepo.trainingPlanCollectionId,
         JSON.stringify(collection)
       )
+      return plan
     }
 
     const searchedTrainingPlanIndex = trainingPlans.findIndex(
@@ -27,7 +31,6 @@ export class TrainingPlansRepo {
     if (searchedTrainingPlanIndex >= 0)
       trainingPlans[searchedTrainingPlanIndex] = plan
     else {
-      TrainingPlansRepo.makeExercisesPersistentFriendly(plan)
       trainingPlans.push(plan)
     }
 
@@ -41,6 +44,8 @@ export class TrainingPlansRepo {
       TrainingPlansRepo.trainingPlanCollectionId,
       JSON.stringify(collection)
     )
+
+    return plan
   }
 
   static deleteById(id: string) {
@@ -131,7 +136,7 @@ export class TrainingPlansRepo {
   }
 
   private static makeExercisesPersistentFriendly(plan: TrainingPlanEntity) {
-    const exerciseList: ExerciseEntity[] = []
+    const exerciseList: TrainingPlanExercise[] = []
 
     plan.exerciseStacks.forEach((stack) => {
       stack.dateInMilliList.forEach((date) => {
@@ -143,9 +148,27 @@ export class TrainingPlansRepo {
           clone.dateInMilli = date
           clone.href = `${hrefArr.join().replaceAll(',', '/')}/${clone.id}`
 
-          exerciseList.push(clone)
+          exerciseList.push({
+            inMemoryPath: exercise.id,
+            content: clone
+          })
         })
       })
+    })
+
+    exerciseList.forEach((exercise) => {
+      const search = plan.exerciseList.find(
+        (item) =>
+          item.inMemoryPath === exercise.inMemoryPath &&
+          item.content.dateInMilli === exercise.content.dateInMilli
+      )
+      if (!search) return
+
+      exercise.content.state = search.content.state
+      exercise.content.id = search.content.id
+      const hrefArr = exercise.content.href!.split('/')
+      hrefArr.pop()
+      exercise.content.href = `${hrefArr.join().replaceAll(',', '/')}/${exercise.content.id}`
     })
 
     plan.exerciseList = exerciseList

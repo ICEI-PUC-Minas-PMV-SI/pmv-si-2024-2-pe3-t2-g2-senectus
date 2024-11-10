@@ -39,6 +39,13 @@ export function AppHeader(props: AppHeaderProps) {
     setUser(GetUserInfoService.exec())
   }, [])
 
+  useEffect(() => {
+    if (isOpen) document.body.classList.add('no-scroll')
+    else document.body.classList.remove('no-scroll')
+
+    return () => document.body.classList.remove('no-scroll')
+  }, [isOpen, setIsOpen])
+
   return (
     <HeaderStyle>
       <Link href="/" id="header-logo">
@@ -67,8 +74,9 @@ export function AppHeader(props: AppHeaderProps) {
             </li>
           ))}
 
-        {(user?.type === UserEntityTypeEnum.PROFESSIONAL ||
-          props.isProfessional) &&
+        {user &&
+          (user.type === UserEntityTypeEnum.PROFESSIONAL ||
+            props.isProfessional) &&
           options.professional.map((option) => (
             <li
               key={uuid()}
@@ -100,7 +108,7 @@ export function AppHeader(props: AppHeaderProps) {
             className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
             style={!isOpen ? { display: 'none' } : {}}
           >
-            <AppButtonLinkRect href="/sigin" text="Conectar" />
+            <AppButtonLinkRect href="/login" text="Conectar" />
           </li>
         )}
       </ul>
@@ -123,7 +131,7 @@ export function AppHeader(props: AppHeaderProps) {
         </AppInternalLink>
       )}
       {!user && (
-        <AppButtonLinkRect id="btn-connect" href="/sigin" text="Conectar" />
+        <AppButtonLinkRect id="btn-connect" href="/login" text="Conectar" />
       )}
     </HeaderStyle>
   )

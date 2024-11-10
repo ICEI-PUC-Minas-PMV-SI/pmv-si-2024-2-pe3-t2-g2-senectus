@@ -1,12 +1,13 @@
 import { AppDefaultInput } from '@components/common/Inputs/DefaultInput/AppDefaultInput'
 import { FaCity, FaEnvelope, FaPhone, FaRoad, FaTag } from 'react-icons/fa6'
 import { Container, FullWidthContainer, Grid } from './ConfigurationFormStyle'
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState, useMemo } from 'react'
 import { AppSelectOutline } from '@components/common/Selects/AppSelectOutline'
 import { GetUserInfoService } from '@core/services/users/GetUserInfoService'
 import { FormatPhoneNumber } from '@core/utils/FormatPhoneNumber'
 import { UpdateUserService } from '@core/services/users/UpdateUserService'
 import { ValidateUpdateUserBodyService } from '@core/services/users/ValidateUpdateUserBodyService'
+import { UserEntityTypeEnum } from '@core/models/UserEntity'
 
 export interface UpdateUserForm {
   email: string
@@ -49,6 +50,10 @@ const states = [
 
 export function AppConfigurationForm() {
   const [user, setUser] = useState(GetUserInfoService.exec())
+  const isProfessional = useMemo(
+    () => user?.type === UserEntityTypeEnum.PROFESSIONAL,
+    []
+  )
 
   const [form, setForm] = useState<UpdateUserForm>({
     email: user?.email ?? '',
@@ -71,7 +76,7 @@ export function AppConfigurationForm() {
     const newForm = { ...form, name: e.target.value }
     setForm(newForm)
 
-    const res = ValidateUpdateUserBodyService.exec(newForm)
+    const res = ValidateUpdateUserBodyService.exec(user!, newForm)
     if (res.isError && Boolean(res.name))
       setFormError((prev) => ({ ...prev, name: res.name }))
     else setFormError((prev) => ({ ...prev, name: '' }))
@@ -82,7 +87,7 @@ export function AppConfigurationForm() {
     const newForm = { ...form, phone: phoneNumber }
     setForm(newForm)
 
-    const res = ValidateUpdateUserBodyService.exec(newForm)
+    const res = ValidateUpdateUserBodyService.exec(user!, newForm)
     if (res.isError && Boolean(res.phone))
       setFormError((prev) => ({ ...prev, phone: res.phone }))
     else setFormError((prev) => ({ ...prev, phone: '' }))
@@ -92,7 +97,7 @@ export function AppConfigurationForm() {
     const newForm = { ...form, state: value }
     setForm(newForm)
 
-    const res = ValidateUpdateUserBodyService.exec(newForm)
+    const res = ValidateUpdateUserBodyService.exec(user!, newForm)
     if (res.isError && Boolean(res.state))
       setFormError((prev) => ({ ...prev, state: res.state }))
     else setFormError((prev) => ({ ...prev, state: '' }))
@@ -102,7 +107,7 @@ export function AppConfigurationForm() {
     const newForm = { ...form, city: e.target.value }
     setForm(newForm)
 
-    const res = ValidateUpdateUserBodyService.exec(newForm)
+    const res = ValidateUpdateUserBodyService.exec(user!, newForm)
     if (res.isError && Boolean(res.city))
       setFormError((prev) => ({ ...prev, city: res.city }))
     else setFormError((prev) => ({ ...prev, city: '' }))
@@ -112,7 +117,7 @@ export function AppConfigurationForm() {
     const newForm = { ...form, address: e.target.value }
     setForm(newForm)
 
-    const res = ValidateUpdateUserBodyService.exec(newForm)
+    const res = ValidateUpdateUserBodyService.exec(user!, newForm)
     if (res.isError && Boolean(res.address))
       setFormError((prev) => ({ ...prev, address: res.address }))
     else setFormError((prev) => ({ ...prev, address: '' }))
@@ -172,7 +177,7 @@ export function AppConfigurationForm() {
           icon={<FaPhone />}
           value={form.phone}
           onChange={onChangePhoneNumber}
-          isRequired
+          isRequired={isProfessional}
           isInvalid={Boolean(formError.phone)}
           errorMessage={formError.phone}
         />
@@ -193,7 +198,7 @@ export function AppConfigurationForm() {
           icon={<FaCity />}
           options={states}
           value={form.state}
-          isRequired
+          isRequired={isProfessional}
           onChange={onChangeState}
           isInvalid={Boolean(formError.state)}
           errorMessage={formError.state}
@@ -206,7 +211,7 @@ export function AppConfigurationForm() {
           icon={<FaCity />}
           value={form.city}
           validationBehavior="native"
-          isRequired
+          isRequired={isProfessional}
           onChange={onChangeCity}
           isInvalid={Boolean(formError.city)}
           errorMessage={formError.city}
@@ -219,7 +224,7 @@ export function AppConfigurationForm() {
             label="Insira seu endereço"
             icon={<FaRoad />}
             value={form.address}
-            isRequired
+            isRequired={isProfessional}
             onChange={onChangeAddress}
             isInvalid={Boolean(formError.address)}
             errorMessage={formError.address}

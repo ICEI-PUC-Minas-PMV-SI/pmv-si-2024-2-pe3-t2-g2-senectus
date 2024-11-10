@@ -6,11 +6,7 @@ import { NextUIProvider } from '@nextui-org/react'
 import { AppHeader } from '@components/common/Header/AppHeader'
 import { AppContainer } from '@components/common/Container/AppContainer'
 import { AppDashboardHeader } from '@components/common/DashboardHeader/AppDashboardHeader'
-import {
-  FaMagnifyingGlass,
-  FaSquarePlus,
-  FaHandshakeAngle
-} from 'react-icons/fa6'
+import { FaMagnifyingGlass, FaSquarePlus, FaFile } from 'react-icons/fa6'
 import { AppProfessionalPlanSearchList } from '@components/clients/professionals/home/AppProfessionalPlanSearchList'
 import { AppInitialText } from '@components/common/Text/AppInitialText'
 import { LoginProvider } from '../../context/LoginProvider'
@@ -36,7 +32,7 @@ export default function ClientsScreen() {
                   name: 'Consultas',
                   description: 'Gerencie suas consultas',
                   href: '/clients/appointments',
-                  icon: <FaHandshakeAngle />
+                  icon: <FaFile />
                 },
                 {
                   name: 'Clientes',
