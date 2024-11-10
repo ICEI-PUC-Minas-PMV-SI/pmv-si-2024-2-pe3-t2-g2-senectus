@@ -770,7 +770,108 @@
             "src": "/img/exercises/img_elderly_pressing_ball_2.jpg",
             "alt": "Idoso deitado de barriga para cima, pressionando uma bola com o pé direito enquanto estica e dobra a perna, usando roupas roxas"
           }
-        }                                
+        },
+        {
+          "name": "Marcha est",
+          "repeat": 1,
+          "repetitions": "5 minutos",
+          "durationInMilli": 13000,
+          "level": "EASY",
+          "instructions": [
+            "Fique em pé, mantendo uma postura ereta.",
+            "Simule uma caminhada no lugar, movimentando as pernas como se estivesse marchando.",
+            "Mova os braços para cima e para baixo enquanto marcha."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=83"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_marching_3jpg",
+            "alt": "Idoso em pé, simulando uma marcha no lugar com braços levantando e abaixando, vestindo roupas confortáveis."
+          }
+        },
+        {
+          "name": "Escapular Mobilidade",
+          "repeat": 2,
+          "repetitions": "2x10 repetições",
+          "durationInMilli": 63000,
+          "level": "EASY",
+          "instructions": [
+            "Fique em pé com uma postura ereta, braços ao lado do corpo e polegares voltados para frente.",
+            "Suba os braços até a altura dos ombros.",
+            "Abra os braços para os lados como se estivesse formando uma cruz.",
+            "Volte os braços para o centro e depois desça-os de volta para os lados do corpo.",
+            "Repita o movimento conforme as repetições indicadas."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/Kb3D2Cr-wrw?start=326"
+          },
+          "image": {
+            "src": "/img/exercises/img_scapular_mobility.jpg",
+            "alt": "Idoso em pé, realizando exercício de mobilidade escapular com braços abertos em forma de cruz."
+          }
+        },
+        {
+          "name": "Along Posterior Mesa",
+          "repeat": 2,
+          "repetitions": "2x de 20 segundos",
+          "durationInMilli": 20000,
+          "level": "EASY",
+          "instructions": [
+            "Posicione uma cadeira com a parte do assento encostada na parede.",
+            "Fique em pé atrás da cadeira e apoie as mãos no encosto.",
+            "Desça o tronco para baixo, esticando as costas como se estivesse formando uma mesa.",
+            "Mantenha essa posição por 20 segundos."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/oYjSm-6u0b4?start=688"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_stretching_in_char.jpg",
+            "alt": "Idoso em pé, realizando alongamento de cadeia posterior com as mãos apoiadas no encosto de uma cadeira."
+          }
+        },
+        {
+          "name": "Along Lateral Tronco",
+          "repeat": 2,
+          "repetitions": "2x de 20 segundos",
+          "durationInMilli": 20000,
+          "level": "EASY",
+          "instructions": [
+            "Fique ao lado de uma cadeira com os pés afastados.",
+            "Apoie a mão direita na cadeira e estenda a mão esquerda por cima da cabeça.",
+            "Incline o tronco para a direita e mantenha a posição por 20 segundos.",
+            "Volte à posição inicial e, em seguida, faça o movimento apoiando a mão esquerda."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/oYjSm-6u0b4?start=613"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_stretching_in_char_2.jpg",
+            "alt": "Idoso ao lado de uma cadeira, realizando alongamento lateral de tronco com uma das mãos estendida sobre a cabeça."
+          }
+        },
+        {
+          "name": "Movimento de Tronco",
+          "repeat": 1,
+          "repetitions": "1x de 20 segundos",
+          "durationInMilli": 20000,
+          "level": "EASY",
+          "instructions": [
+            "Sente-se em uma cadeira, com o bumbum bem apoiado e os pés firmes no chão.",
+            "Gire o corpo para a direita, tentando segurar o encosto da cadeira.",
+            "Sinta a coluna alongar e rotacionar e mantenha a posição por 20 segundos.",
+            "Volte à posição inicial e, em seguida, repita o movimento para o lado esquerdo."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/oYjSm-6u0b4?start=444"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_doing_tronk_movement.jpg",
+            "alt": "Idoso sentado em uma cadeira, realizando movimento de tronco com rotação para o lado."
+          }
+        }
+                                 
       ]
     }
   ]
