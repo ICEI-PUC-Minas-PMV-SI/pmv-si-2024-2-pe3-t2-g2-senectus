@@ -10,9 +10,8 @@ export class ValidateFormService {
     const schema = z.object({
       name: z
         .string()
-        .email('Nome inválido')
         .min(2, 'Nome precisa ter no mínimo 2 caracteres')
-        .max(80, 'Nome precisa ter no máximo 80 caracteres'),  
+        .max(80, 'Nome precisa ter no máximo 80 caracteres'),
       email: z
         .string()
         .email('Email inválido')
@@ -21,14 +20,25 @@ export class ValidateFormService {
       password: z
         .string()
         .min(6, 'Senha precisa ter no mínimo 6 caracteres')
+        .max(50, 'Senha precisa ter no máximo 50 caracteres'),
+      confirmPassword: z
+        .string()
+        .min(6, 'Senha precisa ter no mínimo 6 caracteres')
         .max(50, 'Senha precisa ter no máximo 50 caracteres')
+        .superRefine((value, ctx) => {
+          if (value !== objt.password)
+            ctx.addIssue({
+              code: z.ZodIssueCode.custom,
+              path: ['confirmPassword'],
+              message: 'As senhas devem ser iguais'
+            })
+        })
     })
 
     try {
       const res = schema.parse(objt)
       return res
     } catch (e) {
-      // formatZodError vai coletar os erros definidos no esquema acima
       const formattedError = formatZodError(objt, e as ZodError)
       return {
         ...formattedError,

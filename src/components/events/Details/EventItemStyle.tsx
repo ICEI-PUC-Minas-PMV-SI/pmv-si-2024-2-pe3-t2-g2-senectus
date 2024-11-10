@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import Link from 'next/link';
+import styled from 'styled-components'
+import Link from 'next/link'
 
 export const EventItem = styled(Link)`
   display: flex;
@@ -11,11 +11,11 @@ export const EventItem = styled(Link)`
   text-decoration: none;
   color: inherit;
   transition: transform 0.2s ease-in-out;
-  width: 100%; 
-  max-width: 100%; 
+  width: 100%;
+  max-width: 100%;
   min-height: 120px;
 
   &:hover {
     transform: scale(1.02);
   }
-`;
+`

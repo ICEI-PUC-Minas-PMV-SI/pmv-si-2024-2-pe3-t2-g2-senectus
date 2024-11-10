@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import Link from 'next/link';
+import styled from 'styled-components'
+import Link from 'next/link'
 
 export const BlogsItemContainer = styled(Link)`
   display: flex;
@@ -18,4 +18,4 @@ export const BlogsItemContainer = styled(Link)`
     transform: scale(1.02);
     background-color: #f0f0f0;
   }
-`;
+`

@@ -3,14 +3,23 @@ import {
   SerializedExerciseStackEntityProps
 } from './ExerciseStackEntity'
 import { EntityTemplate } from './EntityTemplate'
-import { ExerciseEntity } from './ExerciseEntity'
+import { ExerciseEntity, SerializedExerciseEntityProps } from './ExerciseEntity'
+import { v4 as uuid } from 'uuid'
+
+export interface TrainingPlanExercise {
+  inMemoryPath: string
+  content: ExerciseEntity
+}
 
 interface TrainingPlanEntityProps {
   id: string
   client: string
   owner: string
+  progress: number
   stackHolderRef?: ExerciseStackEntity // referência da pilha de exercícios que está sendo modificada na criação do plano
-  exerciseStacks: ExerciseStackEntity[]
+  exerciseStacks: ExerciseStackEntity[] // pilha de referência de exercícios armazenados em memória focada em facilitar o processo de edição
+  exerciseList: TrainingPlanExercise[]
+  createdAtInMilli: number
 }
 
 export type SerializedTrainingPlanEntityProps = Replace<
@@ -18,34 +27,50 @@ export type SerializedTrainingPlanEntityProps = Replace<
   {
     stackHolderRef?: SerializedExerciseStackEntityProps
     exerciseStacks: SerializedExerciseStackEntityProps[]
+    exerciseList: Array<{
+      inMemoryPath: string
+      content: SerializedExerciseEntityProps
+    }>
+  }
+>
+
+export type TrainingPlanEntityInputProps = Replace<
+  TrainingPlanEntityProps,
+  {
+    id?: string
+    progress?: number
+    createdAtInMilli?: number
+    exerciseList?: TrainingPlanExercise[]
   }
 >
 
 export class TrainingPlanEntity implements EntityTemplate<TrainingPlanEntity> {
-  private static nextId = 0
   private props: TrainingPlanEntityProps
 
-  constructor(props: Replace<TrainingPlanEntityProps, { id?: string }>) {
+  constructor(props: TrainingPlanEntityInputProps) {
     this.props = {
       ...props,
-      id: props.id ?? `training-plan-${TrainingPlanEntity.nextId}`
+      id: props.id ?? uuid(),
+      progress: props.progress ?? 0,
+      exerciseList: props.exerciseList ?? [],
+      createdAtInMilli: props.createdAtInMilli ?? Date.now()
     }
-    ++TrainingPlanEntity.nextId
   }
 
-  clone() {
-    const stackHolderRef = this.props.stackHolderRef?.clone()
-    const exerciseStacks = this.props.exerciseStacks.map((item) => item.clone())
-    return new TrainingPlanEntity({
-      id: this.props.id,
-      client: this.props.client,
-      owner: this.props.owner,
-      stackHolderRef,
-      exerciseStacks
-    })
+  clone(): TrainingPlanEntity {
+    return this.deserialize(this.serialize())
   }
 
   serialize(): string {
+    const exerciseList = this.props.exerciseList.map((item) => {
+      const exercise = JSON.parse(item.content.serialize())
+      return JSON.parse(
+        JSON.stringify({
+          inMemoryPath: item.inMemoryPath,
+          content: exercise
+        })
+      )
+    })
     const exerciseStacks = this.props.exerciseStacks.map((item) =>
       JSON.parse(item.serialize())
     )
@@ -53,7 +78,12 @@ export class TrainingPlanEntity implements EntityTemplate<TrainingPlanEntity> {
       ? JSON.parse(this.props.stackHolderRef.serialize())
       : undefined
 
-    return JSON.stringify({ ...this.props, stackHolderRef, exerciseStacks })
+    return JSON.stringify({
+      ...this.props,
+      stackHolderRef,
+      exerciseStacks,
+      exerciseList
+    })
   }
 
   deserialize(json: string): TrainingPlanEntity {
@@ -61,6 +91,10 @@ export class TrainingPlanEntity implements EntityTemplate<TrainingPlanEntity> {
   }
   static deserialize(json: string): TrainingPlanEntity {
     const objt: SerializedTrainingPlanEntityProps = JSON.parse(json)
+    const exerciseList = objt.exerciseList.map((item) => {
+      const exercise = new ExerciseEntity(item.content)
+      return { inMemoryPath: item.inMemoryPath, content: exercise }
+    })
     const exerciseStacks = objt.exerciseStacks.map((item) => {
       const exercises = item.exercises.map((props) => new ExerciseEntity(props))
       return new ExerciseStackEntity({ ...item, exercises })
@@ -76,7 +110,12 @@ export class TrainingPlanEntity implements EntityTemplate<TrainingPlanEntity> {
       })
     }
 
-    return new TrainingPlanEntity({ ...objt, stackHolderRef, exerciseStacks })
+    return new TrainingPlanEntity({
+      ...objt,
+      stackHolderRef,
+      exerciseStacks,
+      exerciseList
+    })
   }
 
   get id() {
@@ -96,11 +135,32 @@ export class TrainingPlanEntity implements EntityTemplate<TrainingPlanEntity> {
     this.props.owner = value
   }
 
+  get progress() {
+    return this.props.progress
+  }
+  set progress(value: number) {
+    this.props.progress = value
+  }
+
   get stackHolderRef(): ExerciseStackEntity | undefined {
     return this.props.stackHolderRef
   }
   set stackHolderRef(value: ExerciseStackEntity | undefined) {
     this.props.stackHolderRef = value
+  }
+
+  get exerciseList() {
+    return this.props.exerciseList
+  }
+  set exerciseList(value: TrainingPlanExercise[]) {
+    this.props.exerciseList = value
+  }
+
+  get createdAtInMilli() {
+    return this.props.createdAtInMilli
+  }
+  set createdAtInMilli(value: number) {
+    this.props.createdAtInMilli = value
   }
 
   get exerciseStacks() {

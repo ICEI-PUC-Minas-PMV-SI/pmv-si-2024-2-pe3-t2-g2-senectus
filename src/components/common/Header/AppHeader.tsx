@@ -3,10 +3,12 @@ import Image from 'next/image'
 import { HeaderStyle } from './HeaderStyle'
 import { AppInternalLink } from '../InternalLink/AppInternalLink'
 import { MenuButtonStyle } from './MenuButtonStyle'
-import { FaBars, FaXmark } from 'react-icons/fa6'
+import { FaBars, FaGear, FaXmark } from 'react-icons/fa6'
 import { useEffect, useState } from 'react'
 import { AppButtonLinkRect } from '../Buttons/AppButtonLinkRect'
 import { v4 as uuid } from 'uuid'
+import { GetUserInfoService } from '@core/services/users/GetUserInfoService'
+import { UserEntity, UserEntityTypeEnum } from '@core/models/UserEntity'
 
 const options = {
   client: [
@@ -28,12 +30,21 @@ interface AppHeaderProps {
 
 export function AppHeader(props: AppHeaderProps) {
   const [isOpen, setIsOpen] = useState<boolean | null>(null)
+  const [user, setUser] = useState<UserEntity | undefined>()
 
   useEffect(() => {
     addEventListener('resize', () => {
       setIsOpen(null)
     })
+    setUser(GetUserInfoService.exec())
   }, [])
+
+  useEffect(() => {
+    if (isOpen) document.body.classList.add('no-scroll')
+    else document.body.classList.remove('no-scroll')
+
+    return () => document.body.classList.remove('no-scroll')
+  }, [isOpen, setIsOpen])
 
   return (
     <HeaderStyle>
@@ -50,7 +61,8 @@ export function AppHeader(props: AppHeaderProps) {
       <ul
         className={`${isOpen ? 'open grow-animation' : isOpen === false ? 'closed shrink-animation' : ''}`}
       >
-        {!props.isProfessional &&
+        {(!user ||
+          (user.type === UserEntityTypeEnum.CLIENT && !props.isProfessional)) &&
           options.client.map((option) => (
             <li
               key={uuid()}
@@ -62,7 +74,9 @@ export function AppHeader(props: AppHeaderProps) {
             </li>
           ))}
 
-        {props.isProfessional &&
+        {user &&
+          (user.type === UserEntityTypeEnum.PROFESSIONAL ||
+            props.isProfessional) &&
           options.professional.map((option) => (
             <li
               key={uuid()}
@@ -74,19 +88,29 @@ export function AppHeader(props: AppHeaderProps) {
             </li>
           ))}
 
-        <li
-          className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
-        >
-          <AppInternalLink href="/configuration">Configurações</AppInternalLink>
-        </li>
-
-        <li
-          id="menu-btn-connect"
-          className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
-          style={!isOpen ? { display: 'none' } : {}}
-        >
-          <AppButtonLinkRect href="/sigin" text="Conectar" />
-        </li>
+        {user && (
+          <li
+            id="menu-btn-config"
+            className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
+            style={!isOpen ? { display: 'none' } : {}}
+          >
+            <AppInternalLink href="/configuration">
+              <span className="icon">
+                <FaGear />
+              </span>
+              {`Olá, ${user.formattedName}!`}
+            </AppInternalLink>
+          </li>
+        )}
+        {!user && (
+          <li
+            id="menu-btn-connect"
+            className={`${isOpen ? 'appear-animation' : isOpen === false ? 'disappear-animation' : ''}`}
+            style={!isOpen ? { display: 'none' } : {}}
+          >
+            <AppButtonLinkRect href="/login" text="Conectar" />
+          </li>
+        )}
       </ul>
 
       <MenuButtonStyle
@@ -98,7 +122,17 @@ export function AppHeader(props: AppHeaderProps) {
         <FaXmark id="btn-menu-close" />
       </MenuButtonStyle>
 
-      <AppButtonLinkRect id="btn-connect" href="/sigin" text="Conectar" />
+      {user && (
+        <AppInternalLink href="/configuration" id="btn-config">
+          <span className="icon">
+            <FaGear />
+          </span>
+          {`Olá, ${user.formattedName}!`}
+        </AppInternalLink>
+      )}
+      {!user && (
+        <AppButtonLinkRect id="btn-connect" href="/login" text="Conectar" />
+      )}
     </HeaderStyle>
   )
 }

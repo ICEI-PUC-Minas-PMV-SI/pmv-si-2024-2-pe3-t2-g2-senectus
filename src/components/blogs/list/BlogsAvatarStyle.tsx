@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const BlogsAvatar = styled.div`
-  background-color: #7D4ED0;
+  background-color: #7d4ed0;
   color: white;
   width: 50px;
   height: 50px;
@@ -11,4 +11,4 @@ export const BlogsAvatar = styled.div`
   align-items: center;
   font-size: 24px;
   margin-right: 15px;
-`;
+`

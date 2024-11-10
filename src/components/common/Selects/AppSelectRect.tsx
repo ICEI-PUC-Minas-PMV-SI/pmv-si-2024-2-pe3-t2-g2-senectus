@@ -1,4 +1,4 @@
-import { Select, SelectItem } from '@nextui-org/select'
+import { Select, SelectItem, SelectProps } from '@nextui-org/select'
 import { theme } from '@themes/theme'
 import { useEffect, useState, ComponentProps } from 'react'
 import { AppSelectRectStyle } from './AppSelectRectStyle'
@@ -17,10 +17,14 @@ export interface AppSelectRectProps {
   ariaLabel: string
   onChange: (value: string) => void
   divWrapperProps?: ComponentProps<'div'>
+  buttonProps?: ComponentProps<'button'>
+  selectProps?: Partial<SelectProps>
 }
 
 export function AppSelectRect({
   divWrapperProps,
+  buttonProps,
+  selectProps,
   placeholder,
   options,
   onChange,
@@ -50,7 +54,7 @@ export function AppSelectRect({
     <AppSelectRectStyle {...divWrapperProps}>
       {isTabletScreenOrLess && (
         <>
-          <button className="mobile" onClick={onOpen}>
+          <button className="mobile" onClick={onOpen} {...buttonProps}>
             {!Boolean(value.length) ? 'Filtrar' : value}
           </button>
           <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="bottom">
@@ -94,6 +98,7 @@ export function AppSelectRect({
           placeholder={placeholder}
           popover="manual"
           fullWidth
+          {...selectProps}
         >
           {options.map((item) => (
             <SelectItem key={item}>{item}</SelectItem>

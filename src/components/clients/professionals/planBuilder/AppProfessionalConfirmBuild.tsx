@@ -18,10 +18,10 @@ import { AppButtonActionRectOutline } from '@components/common/Buttons/AppButton
 import { FaAngleLeft } from 'react-icons/fa6'
 import { ProfessionalConfirmBuilderStyle } from './ProfessionalConfirmBuilderStyle'
 import { AppButtonActionRect } from '@components/common/Buttons/AppButtonActionRect'
-import { CreateCalendarCollectionByPlanService } from '@core/services/plan/professional/CreateCalendarCollectionByPlanService'
+import { CreateCalendarCollectionByPlanService } from '@core/services/plan/builder/CreateCalendarCollectionByPlanService'
 import { PlanBuildStageContextProps } from '../sharedProps/PlanBuilderStage'
 import { useRouter } from 'next/navigation'
-import { PlanBuilderSubmitService } from '@core/services/plan/professional/PlanBuilderSubmitService'
+import { PlanBuilderSubmitService } from '@core/services/plan/builder/PlanBuilderSubmitService'
 
 interface AppProfessionalConfirmBuildProps {
   planContext: PlanBuildStageContextProps
@@ -40,6 +40,7 @@ export function AppProfessionalConfirmBuild({
   onMoreExercises
 }: AppProfessionalConfirmBuildProps) {
   const router = useRouter()
+  const [isLoading, setIsLoading] = useState(false)
   const [menuType, setMenuType] = useState<MenuTypeProps>({ type: 'main' })
   const [desktopMenuContext, setDesktopMenuContext] = useState<
     CalendarContextProps<ExerciseEntity>
@@ -64,7 +65,7 @@ export function AppProfessionalConfirmBuild({
   }
 
   const onSubmit = () => {
-    PlanBuilderSubmitService.exec(router, planContext.payload)
+    PlanBuilderSubmitService.exec(router, planContext.payload, setIsLoading)
   }
 
   useEffect(() => {
@@ -105,6 +106,8 @@ export function AppProfessionalConfirmBuild({
                   exercises={
                     new CollectionEventsOnDay({
                       monthDay: exercise.monthDay,
+                      month: exercise.month,
+                      year: exercise.year,
                       events: menuType.context
                     })
                   }
@@ -127,11 +130,13 @@ export function AppProfessionalConfirmBuild({
         <AppButtonActionRectOutline
           text="Mais exercícios"
           onClick={onMoreExercises}
+          isLoading={isLoading}
           fullWidth
         />
         <AppButtonActionRect
           id="finish-creation"
           text="Finalizar"
+          isLoading={isLoading}
           onClick={onSubmit}
           fullWidth
         />

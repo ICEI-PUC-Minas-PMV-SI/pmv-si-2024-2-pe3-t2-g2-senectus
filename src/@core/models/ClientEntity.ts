@@ -1,30 +1,30 @@
 import { EntityTemplate } from './EntityTemplate'
+import { UserEntity, UserEntityInputProps } from './UserEntity'
 
-interface ClientEntityProps {
-  id: string
-  name: string
-  conclusionRate: number
-  totalAppointments: number
-  lastAppointmentInMilli: number
-  createdAtInMilli: number
+interface ClientEntityProps extends UserEntityInputProps {
+  professionalIdList: string[]
 }
 
-export class ClientEntity implements EntityTemplate<ClientEntity> {
-  private static nextId = 0
+export type ClientEntityInputProps = Replace<
+  ClientEntityProps,
+  { professionalIdList?: string[] }
+> &
+  UserEntityInputProps
+
+export type SerializedClientEntityProps = ClientEntityProps
+
+export class ClientEntity
+  extends UserEntity
+  implements EntityTemplate<ClientEntity>
+{
   private props: ClientEntityProps
 
-  constructor(
-    props: Replace<
-      ClientEntityProps,
-      { createdAtInMilli?: number; id?: string }
-    >
-  ) {
+  constructor(props: ClientEntityInputProps) {
+    super(props)
     this.props = {
       ...props,
-      id: props.id ?? `client-${ClientEntity.nextId}`,
-      createdAtInMilli: props.createdAtInMilli ?? Date.now()
+      professionalIdList: props.professionalIdList ?? []
     }
-    ++ClientEntity.nextId
   }
 
   clone() {
@@ -36,29 +36,34 @@ export class ClientEntity implements EntityTemplate<ClientEntity> {
   }
 
   static deserialize(json: string): ClientEntity {
-    return new ClientEntity(JSON.parse(json))
+    return new ClientEntity({ ...JSON.parse(json) })
   }
 
   serialize() {
-    return JSON.stringify(this.props)
+    const data: SerializedClientEntityProps = {
+      type: this.props.type,
+      id: this.userProps.id ?? this.props.id,
+      name: this.userProps.name,
+      email: this.userProps.email,
+      password: this.userProps.password,
+      createdAtInMilli: this.userProps.createdAtInMilli,
+      phoneNumber: this.userProps.phoneNumber,
+      city: this.userProps.city,
+      state: this.userProps.state,
+      address: this.userProps.address,
+      professionalIdList: this.props.professionalIdList
+    }
+    return JSON.stringify(data)
   }
 
-  get id() {
-    return this.props.id
+  get location() {
+    if (!this.userProps.address || !this.userProps.city) return
+    return `${this.userProps.address} - ${this.userProps.city}`
   }
-  get name() {
-    return this.props.name
+  get professionalIdList() {
+    return this.props.professionalIdList
   }
-  get totalAppointments() {
-    return this.props.totalAppointments
-  }
-  get lastAppointmentInMilli() {
-    return this.props.lastAppointmentInMilli
-  }
-  get conclusionRate() {
-    return this.props.conclusionRate
-  }
-  get createdAtInMilli() {
-    return this.props.createdAtInMilli
+  set professionalIdList(value: string[]) {
+    this.props.professionalIdList = value
   }
 }

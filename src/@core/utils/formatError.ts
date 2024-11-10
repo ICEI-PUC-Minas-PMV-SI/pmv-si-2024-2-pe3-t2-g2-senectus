@@ -1,4 +1,5 @@
 import { ZodError } from 'zod'
+import { ReplaceAll } from '../../types/ReplaceAll'
 
 export function formatZodError<T extends object>(
   expectedObject: T,

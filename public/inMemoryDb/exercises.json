@@ -117,7 +117,7 @@
           }
         },
         {
-          "name": "Flexão ant rotação",
+          "name": "Flexão anterior com rotação",
           "repetitions": "3x20",
           "durationInMilli": 53000,
           "level": "easy",
@@ -172,25 +172,6 @@
             "src": "/img/exercises/img_elderly_stretching_in_char.jpg",
             "alt": "Idoso em pé, realizando alongamento de cadeia posterior com as mãos apoiadas no encosto de uma cadeira."
           }
-        },
-        {
-          "name": "Movimento de Tronco",
-          "repetitions": "1x de 20 segundos",
-          "durationInMilli": 20000,
-          "level": "easy",
-          "instructions": [
-            "Sente-se em uma cadeira, com o bumbum bem apoiado e os pés firmes no chão.",
-            "Gire o corpo para a direita, tentando segurar o encosto da cadeira.",
-            "Sinta a coluna alongar e rotacionar e mantenha a posição por 20 segundos.",
-            "Volte à posição inicial e, em seguida, repita o movimento para o lado esquerdo."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/oYjSm-6u0b4?start=444"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_doing_tronk_movement.jpg",
-            "alt": "Idoso sentado em uma cadeira, realizando movimento de tronco com rotação para o lado."
-          }
         }
       ]
     },
@@ -239,7 +220,6 @@
         },
         {
           "name": "Passo lado c/ peso",
-          "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 46000,
           "level": "easy",
@@ -258,7 +238,6 @@
         },
         {
           "name": "Passo frente c/ peso",
-          "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 46000,
           "level": "easy",
@@ -276,7 +255,7 @@
           }
         },
         {
-          "name": "Marc est MS",
+          "name": "Marcha estacionária levantando o MS contralateral",
           "repetitions": "2x10",
           "durationInMilli": 26000,
           "level": "easy",
@@ -297,7 +276,7 @@
           }
         },
         {
-          "name": "Marc est alc MS",
+          "name": "Marcha estacionária com alcance MS contralateral",
           "repetitions": "2x10",
           "durationInMilli": 26000,
           "level": "easy",
@@ -336,7 +315,7 @@
           }
         },
         {
-          "name": "Abdu/aduc h ombro",
+          "name": "Abdução e adução horizontal de ombro",
           "repetitions": "1x10",
           "durationInMilli": 17000,
           "level": "easy",
@@ -356,7 +335,7 @@
           }
         },
         {
-          "name": "Torno joelh e quad",
+          "name": "Tornozelo, joelho e quadril",
           "repetitions": "1x10 cada lado",
           "durationInMilli": 15000,
           "level": "easy",
@@ -785,26 +764,7 @@
           }
         },
         {
-          "name": "Marcha est",
-          "repetitions": "5 minutos",
-          "durationInMilli": 13000,
-          "level": "easy",
-          "instructions": [
-            "Fique em pé, mantendo uma postura ereta.",
-            "Simule uma caminhada no lugar, movimentando as pernas como se estivesse marchando.",
-            "Mova os braços para cima e para baixo enquanto marcha."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=83"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_marching_3.jpg",
-            "alt": "Idoso em pé, simulando uma marcha no lugar com braços levantando e abaixando, vestindo roupas confortáveis."
-          }
-        },
-        {
           "name": "Movimento de Tronco",
-          "repeat": 1,
           "repetitions": "1x de 20 segundos",
           "durationInMilli": 20000,
           "level": "easy",
@@ -824,7 +784,6 @@
         },
         {
           "name": "Elevação Quadril",
-          "repeat": 1,
           "repetitions": "10 repetições",
           "durationInMilli": 17000,
           "level": "easy",
@@ -844,7 +803,6 @@
         },
         {
           "name": "Adução Quadril",
-          "repeat": 1,
           "repetitions": "10 repetições",
           "durationInMilli": 18000,
           "level": "easy",

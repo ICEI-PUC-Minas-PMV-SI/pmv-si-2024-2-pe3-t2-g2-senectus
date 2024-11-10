@@ -12,8 +12,26 @@ import {
   Title,
   WarningText
 } from './DangerZoneStyle'
+import { DeleteUserService } from '@core/services/users/DeleteUserService'
+import { useRouter } from 'next/navigation'
+import { useDisclosure } from '@nextui-org/modal'
+import { LogoutService } from '@core/services/login/LogoutService'
+import { AppDeleteAccountModal } from './AppDeleteAccountModal'
 
 export function AppDangerZone() {
+  const deleteAccountModalController = useDisclosure()
+  const router = useRouter()
+  const onDeleteAccount = () => {
+    DeleteUserService.exec()
+    router.push('/')
+    deleteAccountModalController.onClose()
+  }
+
+  const onLogout = () => {
+    LogoutService.exec()
+    router.push('/')
+  }
+
   return (
     <Container>
       <Card>
@@ -27,7 +45,10 @@ export function AppDangerZone() {
             <SectionTitle>Desconectar</SectionTitle>
             <Text>Esta ação vai te desconectar da plataforma:</Text>
 
-            <AppButtonActionRectOutline text="Sair da conta" />
+            <AppButtonActionRectOutline
+              text="Sair da conta"
+              onClick={onLogout}
+            />
           </div>
 
           <AppDivider />
@@ -38,7 +59,10 @@ export function AppDangerZone() {
               <WarningText>Atenção:</WarningText> esta ação é irreversível:
             </Text>
 
-            <AppButtonActionRectOutline text="Excluir conta" />
+            <AppButtonActionRectOutline
+              text="Excluir conta"
+              onClick={deleteAccountModalController.onOpen}
+            />
           </div>
         </Content>
 
@@ -48,6 +72,12 @@ export function AppDangerZone() {
           </Icon>
         </IconContainer>
       </Card>
+
+      <AppDeleteAccountModal
+        controller={deleteAccountModalController}
+        onCancel={deleteAccountModalController.onClose}
+        onDelete={onDeleteAccount}
+      />
     </Container>
   )
 }

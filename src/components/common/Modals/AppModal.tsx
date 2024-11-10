@@ -6,6 +6,7 @@ import {
   ModalBody,
   useDisclosure
 } from '@nextui-org/modal'
+import { AppModalCloseButton } from './AppModalCloseButton'
 
 export interface ModalControllerProps {
   isOpen: boolean
@@ -36,6 +37,7 @@ function AppInternalModal({
       <Modal
         isOpen={controller.isOpen}
         onOpenChange={controller.onOpenChange}
+        closeButton={<AppModalCloseButton onClick={controller.onClose} />}
         placement="bottom-center"
         size="xs"
       >

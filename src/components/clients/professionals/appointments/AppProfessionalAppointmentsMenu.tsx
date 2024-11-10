@@ -8,14 +8,17 @@ import { AppButtonActionRectOutline } from '@components/common/Buttons/AppButton
 import { useRef, useState, useEffect } from 'react'
 import { AppPagination } from '@components/common/Pagination/AppPagination'
 import { ProfessionalAppointmentsMenuStyle } from './ProfessionalAppointmentsMenuStyle'
+import { GetUserByIdService } from '@core/services/users/GetUserByIdService'
+import { ClientEntity } from '@core/models/ClientEntity'
+import { UserEntityTypeEnum } from '@core/models/UserEntity'
 
 interface AppProfessionalAppointmentsMenuProps {
   appointments: CollectionEventsOnDay<AppointmentsEntity>
   title: string
   positiveButtonTitle: string
   negativeButtonTitle: string
-  onPositiveButtonClick: () => void
-  onNegativeButtonClick: () => void
+  onPositiveButtonClick: (appointment: AppointmentsEntity) => void
+  onNegativeButtonClick: (appointment: AppointmentsEntity) => void
 }
 
 export function AppProfessionalAppointmentsMenu({
@@ -41,12 +44,16 @@ export function AppProfessionalAppointmentsMenu({
       <div id="list-container">
         <ul id="appointments-list">
           {appointments.events.slice(page * 5, (page + 1) * 5).map((item) => {
+            const client = GetUserByIdService.exec(
+              item.client,
+              UserEntityTypeEnum.CLIENT
+            ) as ClientEntity
             const date = new Date(item.dateInMilli)
 
             return (
               <li key={uuid()} className="li-item">
                 <p>
-                  <b>Nome</b>: {item.client}
+                  <b>Nome</b>: {client.name}
                 </p>
                 <p>
                   <b>Data</b>: {format(date, 'dd')} de{' '}
@@ -54,22 +61,24 @@ export function AppProfessionalAppointmentsMenu({
                   às {format(date, 'HH:mm')}
                 </p>
                 <p>
-                  <b>Descrição</b>: {item.description}
+                  <b>Descrição</b>: {item.description ?? 'Não foi fornecido.'}
                 </p>
                 <p>
                   <b>Tipo de serviço</b>: {item.serviceType}
                 </p>
 
-                <div className="appointment-item-actions">
-                  <AppButtonActionRect
-                    text={positiveButtonTitle}
-                    onClick={onPositiveButtonClick}
-                  />
-                  <AppButtonActionRectOutline
-                    text={negativeButtonTitle}
-                    onClick={onNegativeButtonClick}
-                  />
-                </div>
+                {item.dateInMilli > Date.now() - 1000 * 60 * 5 && (
+                  <div className="appointment-item-actions">
+                    <AppButtonActionRect
+                      text={positiveButtonTitle}
+                      onClick={() => onPositiveButtonClick(item)}
+                    />
+                    <AppButtonActionRectOutline
+                      text={negativeButtonTitle}
+                      onClick={() => onNegativeButtonClick(item)}
+                    />
+                  </div>
+                )}
               </li>
             )
           })}

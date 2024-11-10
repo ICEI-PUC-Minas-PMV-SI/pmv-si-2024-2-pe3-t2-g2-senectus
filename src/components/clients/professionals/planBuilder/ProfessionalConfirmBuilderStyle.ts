@@ -45,10 +45,13 @@ export const ProfessionalConfirmBuilderStyle = styled.div`
     @media (min-width: 400px) {
       flex-direction: row;
       justify-content: space-between;
-      padding-left: 1rem;
-      padding-right: 1rem;
       gap: 4rem;
       margin-top: 1rem;
+    }
+
+    @media (min-width: 1000px) {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 `

@@ -1,15 +1,21 @@
 import { Input, InputProps } from '@nextui-org/input'
 import { DefaultInputStyle } from './DefaultInputStyle'
-import { ReactNode } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 
 interface AppDefaultInput extends Omit<InputProps, 'label'> {
   label: string
   icon?: ReactNode
+  wrapperStyle?: CSSProperties
 }
 
-export function AppDefaultInput({ label, icon, ...props }: AppDefaultInput) {
+export function AppDefaultInput({
+  label,
+  icon,
+  wrapperStyle,
+  ...props
+}: AppDefaultInput) {
   return (
-    <DefaultInputStyle>
+    <DefaultInputStyle style={wrapperStyle}>
       <Input
         radius="sm"
         labelPlacement="outside"

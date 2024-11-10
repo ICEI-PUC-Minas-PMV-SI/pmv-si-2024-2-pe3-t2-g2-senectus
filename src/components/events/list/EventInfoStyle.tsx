@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const EventInfo = styled.div`
   display: flex;
@@ -39,8 +39,8 @@ export const EventInfo = styled.div`
     font-size: 1rem;
     font-weight: bold;
     margin-top: 5px;
-    color: #007BFF; 
-    text-decoration: none; 
+    color: #007bff;
+    text-decoration: none;
   }
 
   .description {
@@ -55,4 +55,4 @@ export const EventInfo = styled.div`
     color: #999;
     margin-top: -3px;
   }
-`;
+`

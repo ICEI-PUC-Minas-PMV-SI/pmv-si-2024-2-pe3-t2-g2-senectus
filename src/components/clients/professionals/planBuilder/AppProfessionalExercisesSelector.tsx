@@ -13,7 +13,7 @@ import { useState, useEffect } from 'react'
 import { AppSearchNotFound } from '@components/common/SearchPlaceholders/AppSearchNotFound'
 import { ExerciseSearchService } from '@core/services/exercises/ExerciseSearchService'
 import { SelectedExerciseSearchService } from '@core/services/exercises/SelectedExerciseSearchService'
-import { SelectSingleExerciseService } from '@core/services/plan/professional/SelectSingleExerciseService'
+import { SelectSingleExerciseService } from '@core/services/plan/builder/SelectSingleExerciseService'
 
 interface AppProfessionalExerciseSelectorProps {
   preSelectedExercises?: ExerciseEntity[]

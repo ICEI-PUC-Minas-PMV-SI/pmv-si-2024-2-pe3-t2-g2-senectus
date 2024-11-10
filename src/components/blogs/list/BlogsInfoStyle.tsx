@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const BlogsInfo = styled.div`
   display: flex;
@@ -46,4 +46,4 @@ export const BlogsInfo = styled.div`
     color: #999;
     margin-top: -3px;
   }
-`;
+`

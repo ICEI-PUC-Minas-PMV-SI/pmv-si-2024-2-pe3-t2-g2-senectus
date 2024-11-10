@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Card = styled.div`
   background-color: #fff;
@@ -16,7 +16,7 @@ export const Card = styled.div`
     content: '';
     width: calc(100% + 2px);
     height: 5px;
-    background-color: #7D4ED0;
+    background-color: #7d4ed0;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     position: absolute;
@@ -30,16 +30,10 @@ export const Card = styled.div`
     margin: 10px 0;
   }
 
-  .interest-info {
+  .info {
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 1.25rem;
-    color: #333;
-
-    .eye-icon {
-      width: 18px;
-      height: 18px;
-    }
   }
-`;
+`

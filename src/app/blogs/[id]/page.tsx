@@ -1,25 +1,28 @@
-"use client";
+'use client'
 
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../../themes/theme';
-import { NextUIProvider } from '@nextui-org/react';
-import { AppHeader } from '@components/common/Header/AppHeader';
-import { AppContainer } from '@components/common/Container/AppContainer';
-import { PageContainer } from '@components/blogs/details/PageContainerStyle';
-import { HeaderSection } from '@components/blogs/details/HeaderSectionStyle';
-import { ContentSection } from '@components/blogs/details/ContentSectionStyle';
-import { PostInfo } from '@components/blogs/details/PostInfoStyle';
-import { Sidebar } from '@components/blogs/details/SidebarStyle';
-import { Card } from '@components/blogs/details/CardStyle';
-import '../../globals.css';
+import { ThemeProvider } from 'styled-components'
+import { theme } from '../../../themes/theme'
+import { NextUIProvider } from '@nextui-org/react'
+import { AppHeader } from '@components/common/Header/AppHeader'
+import { AppContainer } from '@components/common/Container/AppContainer'
+import { PageContainer } from '@components/blogs/details/PageContainerStyle'
+import { HeaderSection } from '@components/blogs/details/HeaderSectionStyle'
+import { ContentSection } from '@components/blogs/details/ContentSectionStyle'
+import { PostInfo } from '@components/blogs/details/PostInfoStyle'
+import { Sidebar } from '@components/blogs/details/SidebarStyle'
+import { Card } from '@components/blogs/details/CardStyle'
+import '../../globals.css'
+import Image from 'next/image'
+import { FaCheck, FaEye } from 'react-icons/fa6'
 
 const posts = [
   {
-    id: "1",
-    title: "Como a Atividade Física Melhora a Qualidade de Vida na Terceira Idade",
-    image: "/img/blogs/Post-1.jpg",
-    trustLevel: "Confiável",
-    viewsCount: "2K visualizações",
+    id: '1',
+    title:
+      'Como a Atividade Física Melhora a Qualidade de Vida na Terceira Idade',
+    image: '/img/blogs/Post-1.jpg',
+    trustLevel: 'Confiável',
+    viewsCount: '2K visualizações',
     description: `
       A prática regular de atividades físicas é essencial para o envelhecimento saudável. Estudos mostram que o exercício físico pode ajudar a prevenir doenças crônicas como diabetes, hipertensão e problemas cardíacos. Além disso, a atividade física melhora o humor, combate a depressão e a ansiedade, promovendo uma sensação de bem-estar geral.
 
@@ -29,11 +32,11 @@ const posts = [
     `
   },
   {
-    id: "2",
-    title: "Caminhada: O Exercício Ideal para Idosos",
-    image: "/img/blogs/Post-2.jpg",
-    trustLevel: "Confiável",
-    viewsCount: "1.5K visualizações",
+    id: '2',
+    title: 'Caminhada: O Exercício Ideal para Idosos',
+    image: '/img/blogs/Post-2.jpg',
+    trustLevel: 'Confiável',
+    viewsCount: '1.5K visualizações',
     description: `
       A caminhada é uma das atividades físicas mais acessíveis e benéficas para idosos. Por ser uma atividade de baixo impacto, é uma excelente escolha para manter a saúde cardiovascular sem exigir grande esforço físico. Caminhar regularmente ajuda a fortalecer o coração, melhorar a circulação sanguínea e controlar a pressão arterial.
 
@@ -43,11 +46,11 @@ const posts = [
     `
   },
   {
-    id: "3",
-    title: "Dicas de Exercícios Adaptados para Idosos",
-    image: "/img/blogs/Post-3.jpg",
-    trustLevel: "Confiável",
-    viewsCount: "1.3K visualizações",
+    id: '3',
+    title: 'Dicas de Exercícios Adaptados para Idosos',
+    image: '/img/blogs/Post-3.jpg',
+    trustLevel: 'Confiável',
+    viewsCount: '1.3K visualizações',
     description: `
       Exercícios adaptados são fundamentais para atender às necessidades físicas de idosos, proporcionando segurança e eficácia. Alongamentos, fortalecimento muscular e exercícios de equilíbrio são especialmente úteis para melhorar a mobilidade e reduzir o risco de quedas, um problema comum nessa fase da vida.
 
@@ -57,11 +60,11 @@ const posts = [
     `
   },
   {
-    id: "4",
-    title: "Importância do Acompanhamento Médico na Terceira Idade",
-    image: "/img/blogs/Post-4.jpg",
-    trustLevel: "Confiável",
-    viewsCount: "1.2K visualizações",
+    id: '4',
+    title: 'Importância do Acompanhamento Médico na Terceira Idade',
+    image: '/img/blogs/Post-4.jpg',
+    trustLevel: 'Confiável',
+    viewsCount: '1.2K visualizações',
     description: `
       O acompanhamento médico regular é essencial para garantir a saúde e o bem-estar na terceira idade. Consultas frequentes ajudam a identificar precocemente doenças comuns, como osteoporose, problemas cardíacos e diabetes, permitindo tratamentos mais eficazes.
 
@@ -71,11 +74,11 @@ const posts = [
     `
   },
   {
-    id: "5",
-    title: "Dicas de Alimentação Saudável para Idosos",
-    image: "/img/blogs/Post-5.jpg",
-    trustLevel: "Confiável",
-    viewsCount: "1.8K visualizações",
+    id: '5',
+    title: 'Dicas de Alimentação Saudável para Idosos',
+    image: '/img/blogs/Post-5.jpg',
+    trustLevel: 'Confiável',
+    viewsCount: '1.8K visualizações',
     description: `
       Uma alimentação saudável é crucial para manter a saúde e a energia na terceira idade. Nessa fase, é importante consumir alimentos ricos em nutrientes, como frutas, legumes, proteínas magras e grãos integrais, que fornecem vitaminas e minerais essenciais para o corpo.
 
@@ -84,16 +87,19 @@ const posts = [
       Evitar alimentos processados, açúcares refinados e excesso de sódio é fundamental para o controle de condições como hipertensão e diabetes. Pequenas mudanças na alimentação, com a ajuda de um nutricionista, podem fazer uma grande diferença na qualidade de vida e bem-estar diário dos idosos.
     `
   }
-];
+]
 
+export default function BlogPostDetailsPage({
+  params
+}: {
+  params: { id: string }
+}) {
+  const { id } = params
 
-export default function BlogPostDetailsPage({ params }: { params: { id: string } }) {
-  const { id } = params;
-  
-  const post = posts.find((post) => post.id === id);
+  const post = posts.find((post) => post.id === id)
 
   if (!post) {
-    return <p>Postagem não encontrada.</p>;
+    return <p>Postagem não encontrada.</p>
   }
 
   return (
@@ -108,7 +114,13 @@ export default function BlogPostDetailsPage({ params }: { params: { id: string }
 
             <ContentSection>
               <PostInfo>
-                <img src={post.image} alt={post.title} />
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={100}
+                  height={100}
+                  priority
+                />
                 <hr />
                 <div className="description">
                   <p>{post.description}</p>
@@ -117,12 +129,13 @@ export default function BlogPostDetailsPage({ params }: { params: { id: string }
 
               <Sidebar>
                 <Card>
-                  <p>✓ {post.trustLevel}</p>
+                  <div className="info">
+                    <FaCheck />
+                    <p>{post.trustLevel}</p>
+                  </div>
                   <div className="separator"></div>
-                  <div className="interest-info">
-                    <svg className="eye-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                      <path d="M12 5C7 5 2.73 8.11 1 12c1.73 3.89 6 7 11 7s9.27-3.11 11-7c-1.73-3.89-6-7-11-7zm0 12c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-                    </svg>
+                  <div className="info">
+                    <FaEye />
                     <p>{post.viewsCount}</p>
                   </div>
                 </Card>
@@ -132,5 +145,5 @@ export default function BlogPostDetailsPage({ params }: { params: { id: string }
         </AppContainer>
       </NextUIProvider>
     </ThemeProvider>
-  );
+  )
 }

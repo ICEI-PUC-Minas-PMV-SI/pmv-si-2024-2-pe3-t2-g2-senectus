@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const HeaderSection = styled.div`
   display: flex;
@@ -19,4 +19,4 @@ export const HeaderSection = styled.div`
     font-size: 1.1rem;
     color: #666;
   }
-`;
+`

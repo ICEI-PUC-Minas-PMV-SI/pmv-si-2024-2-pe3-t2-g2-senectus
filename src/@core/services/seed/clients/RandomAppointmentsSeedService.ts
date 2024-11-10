@@ -1,14 +1,17 @@
-import { format, getDaysInMonth } from 'date-fns'
+import { format } from 'date-fns'
 import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
 import {
   AppointmentsEntity,
   AppointmentStateEnum
 } from '@core/models/AppointmentsEntity'
+import { getDaysInTheMonth } from '@core/utils/getDaysInTheMonth'
 
 export class RandomAppointmentsSeedService {
   static exec(
     maxOfCollections: number,
-    appointmentState: AppointmentStateEnum
+    appointmentState: AppointmentStateEnum,
+    hostId?: string,
+    clientId?: string
   ): CollectionEventsOnDay<AppointmentsEntity>[] {
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
     const now = new Date(format(new Date(), 'yyyy-MM-dd') + ` (${timezone})`)
@@ -16,10 +19,8 @@ export class RandomAppointmentsSeedService {
     const monthTarget = RandomAppointmentsSeedService.formatCalendarNumber(
       now.getMonth() + 1
     )
-    const dayList: Record<string, AppointmentsEntity[]> = {}
-
-    const daysInTheMonth: number[] = []
-    for (let i = 1; i <= getDaysInMonth(now); i++) daysInTheMonth.push(i)
+    const daysInTheMonth = getDaysInTheMonth(now, timezone)
+    const collections: CollectionEventsOnDay<AppointmentsEntity>[] = []
 
     for (let i = 0; i < maxOfCollections; i++) {
       const randomDayMonth =
@@ -28,51 +29,37 @@ export class RandomAppointmentsSeedService {
         ]
       const randomDate = new Date(
         `${now.getFullYear()}-${monthTarget}-${RandomAppointmentsSeedService.formatCalendarNumber(
-          randomDayMonth
+          randomDayMonth.getDate()
         )} ${format(
           new Date(Date.now() + Math.floor(Math.random() * 82800000)),
           'HH:mm'
         )}:00 (${timezone})`
       )
 
-      const dayArr: AppointmentsEntity[] = []
+      const appointments: AppointmentsEntity[] = []
       for (let i = 0; i < Math.min(Math.floor(Math.random() * 5), 4); i++) {
         const day = new AppointmentsEntity({
-          host: 'John Doe',
-          client: 'Diana Doe',
+          host: hostId ?? 'John Doe',
+          client: clientId ?? 'Diana Doe',
           serviceType: 'Tratamento de coluna',
           state: appointmentState,
           description:
             'Lorem ipsum dolor sit amet, consectur adipiscing elit. Nunc interdum aliquet risus et commodo. Ut eu scelerisque enim.',
           dateInMilli: randomDate.getTime()
         })
-
-        dayArr.push(day)
+        appointments.push(day)
       }
 
-      const randomlySelectedDayOnMonth = `${randomDate.getDate()}`
-      dayList[randomlySelectedDayOnMonth] = [
-        ...(dayList[randomlySelectedDayOnMonth] ?? []),
-        ...dayArr
-      ]
-      dayList[randomlySelectedDayOnMonth].sort((i1, i2) => {
-        if (i1.dateInMilli < i2.dateInMilli) return -1
-        if (i1.dateInMilli > i2.dateInMilli) return 1
-        return 0
+      const collection = new CollectionEventsOnDay({
+        month: randomDate.getMonth(),
+        monthDay: randomDate.getDate(),
+        year: randomDate.getFullYear(),
+        events: appointments
       })
+      collections.push(collection)
     }
 
-    const orderedDays: CollectionEventsOnDay<AppointmentsEntity>[] = []
-    for (let day = 0; day < 31; day++) {
-      orderedDays.push(
-        new CollectionEventsOnDay({
-          events: dayList[`${day + 1}`],
-          monthDay: day + 1
-        })
-      )
-    }
-
-    return orderedDays
+    return collections
   }
 
   private static formatCalendarNumber(num: number) {

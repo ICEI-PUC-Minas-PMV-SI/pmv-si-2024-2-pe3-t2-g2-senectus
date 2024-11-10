@@ -1,18 +1,14 @@
 import { AppResponsiveCalendar } from '@components/common/Calendar/AppResponsiveCalendar'
 import { TrainingPlanStyle } from './TrainingPlanStyle'
-import { RandomExercisesSeedService } from '@core/services/seed/exercises/RandomExercisesSeedService'
-import { useEffect } from 'react'
-import { useCalendar } from '../../hooks/useCalendar'
-import { ExerciseEntity } from '@core/models/ExerciseEntity'
 import { AppTrainingMenuPlan } from './AppTrainingMenuPlan'
+import { ExerciseEntity } from '@core/models/ExerciseEntity'
+import { CollectionEventsOnDay } from '@core/models/CollectionEventsOnDay'
 
-export function AppTrainingPlan() {
-  const [day, setDays] = useCalendar<ExerciseEntity>()
+interface AppTrainingPlanProps {
+  exercises: CollectionEventsOnDay<ExerciseEntity>[]
+}
 
-  useEffect(() => {
-    setDays(RandomExercisesSeedService.exec(100))
-  }, [setDays])
-
+export function AppTrainingPlan({ exercises }: AppTrainingPlanProps) {
   return (
     <TrainingPlanStyle>
       <h2>Plano de treino</h2>
@@ -20,8 +16,10 @@ export function AppTrainingPlan() {
         Consulte o seu plano de treino criado pelo seu profissional favorito!
       </p>
       <AppResponsiveCalendar
-        list={day}
-        onOpenMenu={(item) => <AppTrainingMenuPlan exercises={item} />}
+        list={exercises}
+        onOpenMenu={(exercises) => (
+          <AppTrainingMenuPlan exercises={exercises} />
+        )}
       />
     </TrainingPlanStyle>
   )

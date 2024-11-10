@@ -14,7 +14,7 @@ import {
   NotificationTypeEnum
 } from '@core/services/notifications/NotificationService'
 import { PlanBuildStageContextProps } from '../sharedProps/PlanBuilderStage'
-import { SelectSingleDateService } from '@core/services/plan/professional/SelectSingleDateService'
+import { SelectSingleDateService } from '@core/services/plan/builder/SelectSingleDateService'
 
 interface ErrorStateProps {
   state: boolean
@@ -91,6 +91,11 @@ export function AppProfessionalSetCalendarDays(
             fullWidth
             isInvalid={isInvalid.state}
             errorMessage={isInvalid.message}
+            isDateUnavailable={(date) => {
+              const now = new Date()
+              if (date.toDate(timezone) < now) return true
+              return false
+            }}
             onChange={(date) => {
               setSelectedDate(date)
             }}

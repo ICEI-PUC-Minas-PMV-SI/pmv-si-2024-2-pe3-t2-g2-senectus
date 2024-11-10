@@ -1,12 +1,12 @@
-import { LoginFormProps } from '@components/login/AppFormLogin'
+import { SiginFormProps } from '@components/sigin/AppFormSigin'
 import { formatZodError } from '@core/utils/formatError'
 import { z, ZodError } from 'zod'
 
 // Agrega-se todos os dados do formulário junto com o atributo isError
-type LoginFormPropsReturn = LoginFormProps & { isError?: boolean }
+type LoginFormPropsReturn = SiginFormProps & { isError?: boolean }
 
 export class ValidateFormService {
-  static exec(objt: LoginFormProps): LoginFormPropsReturn {
+  static exec(objt: SiginFormProps): LoginFormPropsReturn {
     const schema = z.object({
       email: z
         .string()

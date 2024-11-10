@@ -45,8 +45,9 @@ export class ExerciseRepo {
         new ExerciseCategoryEntity({
           name: item.name,
           image: item.image,
-          exercises: item.exercises.flatMap((exercise) => {
+          exercises: item.exercises.flatMap((exercise, index) => {
             const props = {
+              id: `exerecise-${index}`,
               name: exercise.name,
               durationInMilli: exercise.durationInMilli,
               level: exercise.level,
@@ -92,6 +93,10 @@ export class ExerciseRepo {
 
   static getAllExercises() {
     return ExerciseRepo.exercises.flatMap((item) => item.exercises)
+  }
+
+  static getByExerciseId(id: string) {
+    return ExerciseRepo.getAllExercises().find((item) => item.id === id)
   }
 
   static getRandomExercise() {
