@@ -1,15 +1,104 @@
 {
   "categories": [
     {
-      "name": "Alongamento Cervical",
+      "name": "Alongamento",
       "image": {
-        "src": "/img/exercises/img_elderly_making_neck_up_down.jpg",
-        "alt": "Pessoa idosa realizando alongamento cervical, movendo o pescoço para cima e para baixo"
-      },
+        "src": "/img/exercises/stretching-exercise.png",
+        "alt": "Imagem de uma pessoa caminhando"
+      },      
       "exercises": [
         {
+          "name": "Isquiotibiais",
+          "repetitions": "3x20",
+          "durationInMilli": 58000,
+          "level": "easy",
+          "instructions": [
+            "Na postura sentado na cadeira, posicione mais um pouca a frente da cadeira, mas com segurança",
+            "Estenda a perna direita a frente e deixe a ponta do pé voltada para cima",
+            "Agora incline o tronco a frente deslizando a mão sobre a perna direita até sentir esticando atrás da coxa direita."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=667"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_seated_in_char_4.jpg",
+            "alt": "Pessoa idosa realizando alongamento de isquiotibiais"
+          }
+        },
+        {
+          "name": "Membros Superiores",
+          "repetitions": "2x20",
+          "durationInMilli": 67000,
+          "level": "easy",
+          "instructions": [
+            "Na postura em pé, entrelace as mãos e estique os braços acima da cabeça",
+            "Respirando bem fundo, puxe e solte esticando todo o corpo, mantenha por 20 segundos."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/vCU9UBlpuEE?start=117"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_stretching_arms.jpg",
+            "alt": "Pessoa idosa realizando alongamento de membros superiores"
+          }
+        },
+        {
+          "name": "Braços",
+          "repetitions": "2x20",
+          "durationInMilli": 116000,
+          "level": "easy",
+          "instructions": [
+            "Em pé, eleve o braço direito deixando-o estendido com o polegar para cima.",
+            "Coloque a mão esquerda no cotovelo direito, gire o braço direito para a esquerda e sinta o alongamento no braço direito. Mantenha por 20 segundos.",
+            "Repita o movimento com o braço esquerdo."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/xfF6WV_cDgU?start=150"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_making_lateral_flexing_4.jpg",
+            "alt": "Pessoa idosa realizando adução horizontal de ombro"
+          }
+        },
+        {
+          "name": "Quadríceps",
+          "repetitions": "3x20",
+          "durationInMilli": 38000,
+          "level": "easy",
+          "instructions": [
+            "Na postura de pé e atrás de uma cadeira, deixe uma mão apoiada na cadeira e a outra mão segure o pé direito.",
+            "Sinta esticar a parte da frente da coxa direita, mantendo a posição por 20 segundos.",
+            "Retorne à postura inicial e repita com a perna esquerda."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=755"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_elevating_leg.jpg",
+            "alt": "Pessoa idosa realizando alongamento de quadríceps, apoiada na cadeira"
+          }
+        },
+        {
+          "name": "Panturrilha",
+          "repetitions": "2x20",
+          "durationInMilli": 65000,
+          "level": "easy",
+          "instructions": [
+            "Atrás da cadeira, com os pés alinhados para frente",
+            "Estender a perna direita para o mais atrás possível, e manter a perna esquerda a frente",
+            "Devagar dobrar o joelho que está à frente, sinta esticando a panturrilha da perna que está atrás",
+            "Mantenha a posição por 20 segundos e depois troque de perna."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/oYjSm-6u0b4?start=863"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_seated_in_char_5.jpg",
+            "alt": "Pessoa idosa realizando alongamento de panturrilha"
+          }
+        },
+        {
           "name": "Flexão lateral",
-          "repeat": 3,
           "repetitions": "3x20",
           "durationInMilli": 52000,
           "level": "easy",
@@ -28,8 +117,7 @@
           }
         },
         {
-          "name": "Flexão ant c/ rot",
-          "repeat": 3,
+          "name": "Flexão ant rotação",
           "repetitions": "3x20",
           "durationInMilli": 53000,
           "level": "easy",
@@ -49,7 +137,6 @@
         },
         {
           "name": "Flexão anterior",
-          "repeat": 3,
           "repetitions": "3x20",
           "durationInMilli": 34000,
           "level": "easy",
@@ -68,434 +155,72 @@
           }
         },
         {
-          "name": "Pescoço cima/baixo",
-          "repeat": 3,
-          "repetitions": "1x10",
-          "durationInMilli": 27000,
+          "name": "Alongamento posterior",
+          "repetitions": "2x de 20 segundos",
+          "durationInMilli": 20000,
           "level": "easy",
           "instructions": [
-            "Na postura de pé, fazer o movimento no pescoço devagar, olhando para cima e para baixo"
+            "Posicione uma cadeira com a parte do assento encostada na parede.",
+            "Fique em pé atrás da cadeira e apoie as mãos no encosto.",
+            "Desça o tronco para baixo, esticando as costas como se estivesse formando uma mesa.",
+            "Mantenha essa posição por 20 segundos."
           ],
           "video": {
-            "src": "https://www.youtube.com/embed/xfF6WV_cDgU?start=245"
+            "src": "https://www.youtube.com/embed/oYjSm-6u0b4?start=688"
           },
           "image": {
-            "src": "/img/exercises/img_elderly_making_neck_up_down.jpg",
-            "alt": "Pessoa idosa movimentando o pescoço para cima e para baixo"
+            "src": "/img/exercises/img_elderly_stretching_in_char.jpg",
+            "alt": "Idoso em pé, realizando alongamento de cadeia posterior com as mãos apoiadas no encosto de uma cadeira."
           }
         },
         {
-          "name": "Mob esc elev",
-          "repeat": 3,
-          "repetitions": "10x",
-          "durationInMilli": 74000,
+          "name": "Movimento de Tronco",
+          "repetitions": "1x de 20 segundos",
+          "durationInMilli": 20000,
           "level": "easy",
           "instructions": [
-            "Na postura de pé, braços ao lado do corpo, realizar movimentos de subir e descer os ombros"
+            "Sente-se em uma cadeira, com o bumbum bem apoiado e os pés firmes no chão.",
+            "Gire o corpo para a direita, tentando segurar o encosto da cadeira.",
+            "Sinta a coluna alongar e rotacionar e mantenha a posição por 20 segundos.",
+            "Volte à posição inicial e, em seguida, repita o movimento para o lado esquerdo."
           ],
           "video": {
-            "src": "https://www.youtube.com/embed/Kb3D2Cr-wrw?start=230"
+            "src": "https://www.youtube.com/embed/oYjSm-6u0b4?start=444"
           },
           "image": {
-            "src": "/img/exercises/img_elderly_elevating_shoulders.jpg",
-            "alt": "Pessoa idosa realizando elevação de ombro"
+            "src": "/img/exercises/img_elderly_doing_tronk_movement.jpg",
+            "alt": "Idoso sentado em uma cadeira, realizando movimento de tronco com rotação para o lado."
           }
         }
       ]
     },
     {
-      "name": "Mobilidade escapular",
+      "name": "Equilíbrio",
       "image": {
-        "src": "/img/exercises/img_elderly_rotating_shoulders_2.jpg",
-        "alt": "Pessoa idosa realizando movimentos rotacionais para mobilidade escapular"
-      },
+        "src": "/img/exercises/balance-exercise.png",
+        "alt": "Imagem de uma pessoa caminhando"
+      },      
       "exercises": [
         {
-          "name": "Mob esc root.",
-          "repeat": 3,
-          "repetitions": "10x para cada direção",
-          "durationInMilli": 120000,
-          "level": "easy",
+          "name": "Quatro apoios",
+          "repetitions": "1x10 cada lado",
+          "durationInMilli": 20000,
+          "level": "medium",
           "instructions": [
-            "Na postura de pé, enrolar os ombros para frente e depois para trás, realizando 10 movimentos para cada direção"
+            "Fique na postura de quatro apoios, com as mãos e joelhos no chão.",
+            "Coloque uma bola abaixo da mão direita e faça uma pressão na bola, realizando 10 repetições.",
+            "Em seguida, troque para a mão esquerda e repita o movimento por 10 repetições."
           ],
           "video": {
-            "src": "https://www.youtube.com/embed/Kb3D2Cr-wrw?start=281"
+            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=137"
           },
           "image": {
-            "src": "/img/exercises/img_elderly_rotating_shoulders.jpg",
-            "alt": "Pessoa idosa realizando movimentos rotacionais de ombro"
+            "src": "/img/exercises/img_elderly_four_support.jpg",
+            "alt": "Idoso em posição de quatro apoios, pressionando uma bola com a mão direita, usando roupas roxas"
           }
         },
         {
-          "name": "Fortal rot ext",
-          "repeat": 3,
-          "repetitions": "2x10",
-          "durationInMilli": 65000,
-          "level": "easy",
-          "instructions": [
-            "Na postura de pé, com cotovelos apoiados no tronco, gire os braços para fora. Pode usar resistência elástica, segurando uma faixa elástica e esticando-a ao girar os braços"
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/A68yj4oYWfo?start=281"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_strengthening_shoulders_2.jpg",
-            "alt": "Pessoa idosa fortalecendo rotadores externos do ombro com elástico"
-          }
-        },
-        {
-          "name": "Fortal abd ombro",
-          "repeat": 3,
-          "repetitions": "2x10",
-          "durationInMilli": 58000,
-          "level": "easy",
-          "instructions": [
-            "Na postura de pé, levante os braços com uma abertura de 30° a 45° graus em relação ao tronco",
-            "Levante até a altura dos ombros",
-            "Pode realizar com carga, utilizando uma garrafa de água de 500ml"
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/A68yj4oYWfo?start=437"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_strengthening_shoulders.jpg",
-            "alt": "Pessoa idosa realizando fortalecimento de abdutores de ombro"
-          }
-        },
-        {
-          "name": "Fortal rot int",
-          "repeat": 3,
-          "repetitions": "2x10",
-          "durationInMilli": 90000,
-          "level": "easy",
-          "instructions": [
-            "Deitada de barriga para cima, com cotovelos apoiados no tronco",
-            "Gire os braços para fora e retorne à posição inicial",
-            "Pode realizar com carga leve, utilizando uma garrafa de água de 500ml"
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/A68yj4oYWfo?start=533"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_rotating_shoulders_in_bed.jpg",
-            "alt": "Pessoa idosa deitada fortalecendo os rotadores internos do ombro"
-          }
-        }
-      ]
-    },
-    {
-      "name": "Mobilidade Inferior",
-      "image": {
-        "src": "/img/exercises/img_elderly_perfoming_hamstring.jpg",
-        "alt": "Pessoa idosa realizando alongamento"
-      },
-      "exercises": [
-        {
-          "name": "Along Isquiotibiais",
-          "repeat": 3,
-          "repetitions": "3x20",
-          "durationInMilli": 59000,
-          "level": "easy",
-          "instructions": [
-            "Na postura de pé e atrás de uma cadeira, coloque o pé direito sobre a cadeira.",
-            "Incline o tronco para frente, como se fosse pegar o pé que está na cadeira.",
-            "Mantenha a posição por 20 segundos.",
-            "Retorne à postura inicial e repita com a perna esquerda.",
-            "Caso seja necessário, pode apoiar na parede."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/oYjSm-6u0b4?start=524"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_perfoming_hamstring",
-            "alt": "Pessoa idosa realizando alongamento de isquiotibiais, com o pé sobre a cadeira"
-          }
-        },
-        {
-          "name": "Along Quadríceps",
-          "repeat": 3,
-          "repetitions": "3x20",
-          "durationInMilli": 38000,
-          "level": "easy",
-          "instructions": [
-            "Na postura de pé e atrás de uma cadeira, deixe uma mão apoiada na cadeira e a outra mão segure o pé direito.",
-            "Sinta esticar a parte da frente da coxa direita, mantendo a posição por 20 segundos.",
-            "Retorne à postura inicial e repita com a perna esquerda."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=755"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_elevating_leg.jpg",
-            "alt": "Pessoa idosa realizando alongamento de quadríceps, apoiada na cadeira"
-          }
-        },
-        {
-          "name": "Fortal ext joelho",
-          "repeat": 3,
-          "repetitions": "3x15",
-          "durationInMilli": 52000,
-          "level": "easy",
-          "instructions": [
-            "Sentado na cadeira com os pés apoiados no chão",
-            "Levante a perna direita estendendo o joelho, depois volte à posição inicial",
-            "Faça 10 movimentos depois faça com a perna esquerda"
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/7ZQB9Smmu9E?start=755"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_elevating_leg_2.jpg",
-            "alt": "Pessoa idosa realizando flexão de joelho, sentada na cadeira"
-          }
-        },
-        {
-          "name": "Fortal flex joelho.",
-          "repeat": 3,
-          "repetitions": "3x15",
-          "durationInMilli": 61000,
-          "level": "easy",
-          "instructions": [
-            "Na postura de pé e atrás de uma cadeira, mãos apoiadas no encosto da cadeira",
-            "Dobre o joelho da perna direita levando o pé em direção ao bumbum e retorne a posição inicial",
-            "Faça 15 movimentos",
-            "Depois faça com a perna esquerda."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/7ZQB9Smmu9E?start=690"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_flexing_leg.jpg",
-            "alt": "Pessoa idosa realizando fortalecimento de flexores de joelho, apoiada na cadeira"
-          }
-        },
-        {
-          "name": "Fortal flex quadril",
-          "repeat": 3,
-          "repetitions": "2X10",
-          "durationInMilli": 60000,
-          "level": "easy",
-          "instructions": [
-            "Deitado de barriga para cima com braços estendidos ao lado do corpo",
-            "A perna esquerda fica dobrada com o pé apoiado no chão e a perna direita deve ficar esticada no chão",
-            "Subir e descer a perna direita 10 vezes, depois faça o outro lado."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/X04UWMfVK00?start=367"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_flexing_leg_2.jpg",
-            "alt": "Pessoa idosa realizando fortalecimento de flexores de quadril, deitada"
-          }
-        },
-        {
-          "name": "Elevação pélvica",
-          "repeat": 3,
-          "repetitions": "1x15",
-          "durationInMilli": 71000,
-          "level": "easy",
-          "instructions": [
-            "Deitado de barriga para cima, braços ao lado do corpo e joelhos dobrados com os pés apoiados no chão",
-            "Vai levantar o bumbum para cima e voltar a posição inicial."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/7ZQB9Smmu9E?start=562"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_elevating_pelve.jpg",
-            "alt": "Pessoa idosa realizando elevação pélvica"
-          }
-        },
-        {
-          "name": "Marcha estacionária",
-          "repeat": 3,
-          "repetitions": "1x10",
-          "durationInMilli": 18000,
-          "level": "easy",
-          "instructions": [
-            "Na postura em pé, fazer a marcha sem sair do lugar, tentando levantar o joelho até a altura do quadril"
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/pmqWqd-E76E?start=92"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_walking.jpg",
-            "alt": "Pessoa idosa realizando elevação pélvica"
-          }
-        },
-        {
-          "name": "Mobilidade pélvica",
-          "repeat": 3,
-          "repetitions": "1x10",
-          "durationInMilli": 67000,
-          "level": "easy",
-          "instructions": [
-            "Na postura em pé, com os pés afastados na largura do quadril",
-            "Girar o quadril como se estivesse fazendo um rebolado",
-            "Fazer 10 movimentos para cada lado."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/vCU9UBlpuEE?start=380 "
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_rotating_pelve.jpg",
-            "alt": "Pessoa idosa realizando mobilidade pélvica"
-          }
-        }
-      ]
-    },
-    {
-      "name": "Along. membros sup.",
-      "image": {
-        "src": "/img/exercises/img_elderly_rotating_shoulders_3.jpg",
-        "alt": "Pessoa idosa realizando alongamento"
-      },
-      "exercises": [
-        {
-          "name": "Along membros sup",
-          "repeat": 3,
-          "repetitions": "2x20",
-          "durationInMilli": 67000,
-          "level": "easy",
-          "instructions": [
-            "Na postura em pé, entrelace as mãos e estique os braços acima da cabeça",
-            "Respirando bem fundo, puxe e solte esticando todo o corpo, mantenha por 20 segundos."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/vCU9UBlpuEE?start=117"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_stretching_armsjpg",
-            "alt": "Pessoa idosa realizando alongamento de membros superiores"
-          }
-        },
-        {
-          "name": "Along Braços(Adução)",
-          "repeat": 2,
-          "repetitions": "2x20",
-          "durationInMilli": 116000,
-          "level": "easy",
-          "instructions": [
-            "Em pé, eleve o braço direito deixando-o estendido com o polegar para cima.",
-            "Coloque a mão esquerda no cotovelo direito, gire o braço direito para a esquerda e sinta o alongamento no braço direito. Mantenha por 20 segundos.",
-            "Repita o movimento com o braço esquerdo."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/xfF6WV_cDgU?start=150"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_making_lateral_flexing_4.jpg",
-            "alt": "Pessoa idosa realizando adução horizontal de ombro"
-          }
-        },
-        {
-          "name": "Fortal flex. ombro",
-          "repeat": 2,
-          "repetitions": "2x10",
-          "durationInMilli": 80000,
-          "level": "easy",
-          "instructions": [
-            "Na postura sentado na cadeira, posicione os braços apoiados nas pernas",
-            "Levante os braços até a altura do olhar, e retorne para a posição inicial",
-            "Faça 10 movimentos e descanse."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/Dmol3aGr11s?start=404"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_seated_in_char_2.jpg",
-            "alt": "Pessoa idosa realizando fortalecimento de flexores de ombro"
-          }
-        },
-        {
-          "name": "Fortal peitoral/braços",
-          "repeat": 2,
-          "repetitions": "2x10",
-          "durationInMilli": 31000,
-          "level": "easy",
-          "instructions": [
-            "Na postura sentado na cadeira, posicione a parte central da faixa elástica nas costas e na altura da axilas",
-            "Próxima essa região segura as extremidades da faixa",
-            "Inicie o movimento de empurrar a faixa para frente, fazendo força com os braços"
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=304"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_seated_in_char_with_elastic.jpg",
-            "alt": "Pessoa idosa realizando fortalecimento de peitoral e braços com elástico"
-          }
-        },
-        {
-          "name": "Fortal costas/braços",
-          "repeat": 2,
-          "repetitions": "2x10",
-          "durationInMilli": 28000,
-          "level": "easy",
-          "instructions": [
-            "Na postura sentado na cadeira",
-            "Posicione a parte central da faixa elástica sob os pés",
-            "Deixe eles levemente inclinado a frente para sua segurança, segura as extremidades da faixa e puxe aproximando do seu tronco."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=345"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_seated_in_char_3.jpg",
-            "alt": "Pessoa idosa realizando fortalecimento de costas e braços com elástico"
-          }
-        },
-        {
-          "name": "Along isquiotibiais",
-          "repeat": 2,
-          "repetitions": "3x20",
-          "durationInMilli": 58000,
-          "level": "easy",
-          "instructions": [
-            "Na postura sentado na cadeira, posicione mais um pouca a frente da cadeira, mas com segurança",
-            "Estenda a perna direita a frente e deixe a ponta do pé voltada para cima",
-            "Agora incline o tronco a frente deslizando a mão sobre a perna direita até sentir esticando atrás da coxa direita."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=667"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_seated_in_char_4.jpg",
-            "alt": "Pessoa idosa realizando alongamento de isquiotibiais"
-          }
-        }
-      ]
-    },
-    {
-      "name": "Fortal Membros Inf",
-      "image": {
-        "src": "/img/exercises/img_elderly_strengthening_legs.jpg",
-        "alt": "Pessoa idosa realizando fortalecimento de membros inferiores"
-      },
-      "exercises": [
-        {
-          "name": "Sentar/Levantar cadeira",
-          "repeat": 2,
-          "repetitions": "1x15",
-          "durationInMilli": 74000,
-          "level": "easy",
-          "instructions": [
-            "Coloque uma cadeira apoiada na parede",
-            "Mantendo os cotovelos dobrados a 90° ao lado do corpo",
-            "Sentar e levantar da cadeira sem usar as mãos."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/7ZQB9Smmu9E?start=751"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_seated_in_char.jpg",
-            "alt": "Pessoa idosa sentando e levantando da cadeira"
-          }
-        },
-        {
-          "name": "Passo p/ trás c/ peso",
-          "repeat": 2,
+          "name": "Passo para trás c/ peso",
           "repetitions": "2x10",
           "durationInMilli": 45000,
           "level": "easy",
@@ -551,88 +276,7 @@
           }
         },
         {
-          "name": "Fort pantu",
-          "repeat": 2,
-          "repetitions": "3x10",
-          "durationInMilli": 36000,
-          "level": "easy",
-          "instructions": [
-            "Na postura de pé e atrás de uma cadeira",
-            "Deixe as mãos apoiadas no encosto da cadeira",
-            "Fique na ponta dos pés subindo e descendo lentamente",
-            "Faça 10 movimentos."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/LFC7Jvu8P8g?start=606"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_doing_calf_exercise.jpg",
-            "alt": "Pessoa idosa realizando rotação de tronco"
-          }
-        },
-        {
-          "name": "Along pantu",
-          "repeat": 2,
-          "repetitions": "2x20",
-          "durationInMilli": 65000,
-          "level": "easy",
-          "instructions": [
-            "Atrás da cadeira, com os pés alinhados para frente",
-            "Estender a perna direita para o mais atrás possível, e manter a perna esquerda a frente",
-            "Devagar dobrar o joelho que está à frente, sinta esticando a panturrilha da perna que está atrás",
-            "Mantenha a posição por 20 segundos e depois troque de perna."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/oYjSm-6u0b4?start=863"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_seated_in_char_5.jpg",
-            "alt": "Pessoa idosa realizando alongamento de panturrilha"
-          }
-        },
-        {
-          "name": "Fortal flex quad",
-          "repeat": 2,
-          "repetitions": "2x10",
-          "durationInMilli": 26000,
-          "level": "easy",
-          "instructions": [
-            "Na postura sentado na cadeira",
-            "Passe a parte central da faixa elástica debaixo de ambas as coxas e cruze as extremidades por cima delas",
-            "Segure as extremidades fazendo força para baixo",
-            "Eleve um coxa de cada vez, alternando os lados."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=200"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_seated_in_char_6.jpg",
-            "alt": "Pessoa idosa realizando fortalecimento de flexores do quadril"
-          }
-        },
-        {
-          "name": "Fortal abd quad",
-          "repeat": 2,
-          "repetitions": "2x10",
-          "durationInMilli": 26000,
-          "level": "easy",
-          "instructions": [
-            "Na postura sentada na cadeira, passe a parte central da faixa elástica debaixo de ambas as coxas e cruze as extremidades por cima delas.",
-            "Segure as extremidades fazendo força para baixo.",
-            "Mantendo os pés juntos, faça força para os lados afastando os joelhos.",
-            "Descanse de 15 a 30 segundos entre cada série."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?=start=264"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_seated_in_char_with_elastic_2.jpg",
-            "alt": "Pessoa idosa realizando fortalecimento de abdutores do quadril"
-          }
-        },
-        {
-          "name": "Marcha lev MS",
-          "repeat": 2,
+          "name": "Marc est MS",
           "repetitions": "2x10",
           "durationInMilli": 26000,
           "level": "easy",
@@ -648,13 +292,12 @@
             "src": "https://www.youtube.com/embed/pmqWqd-E76E?start=297"
           },
           "image": {
-            "src": "/img/exercises/imimg_elderly_marching.jpg",
+            "src": "/img/exercises/img_elderly_marching.jpg",
             "alt": "Pessoa idosa realizando marcha estacionária com elevação dos membros superiores, vestindo roupa roxa"
           }
         },
         {
-          "name": "Marcha est MS",
-          "repeat": 2,
+          "name": "Marc est alc MS",
           "repetitions": "2x10",
           "durationInMilli": 26000,
           "level": "easy",
@@ -675,8 +318,25 @@
           }
         },
         {
-          "name": "Abd/Adc ombro",
-          "repeat": 1,
+          "name": "Marcha estacionária",
+          "repetitions": "5 minutos",
+          "durationInMilli": 13000,
+          "level": "easy",
+          "instructions": [
+            "Fique em pé, mantendo uma postura ereta.",
+            "Simule uma caminhada no lugar, movimentando as pernas como se estivesse marchando.",
+            "Mova os braços para cima e para baixo enquanto marcha."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=83"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_marching_3.jpg",
+            "alt": "Idoso em pé, simulando uma marcha no lugar com braços levantando e abaixando, vestindo roupas confortáveis."
+          }
+        },
+        {
+          "name": "Abdu/aduc h ombro",
           "repetitions": "1x10",
           "durationInMilli": 17000,
           "level": "easy",
@@ -696,8 +356,398 @@
           }
         },
         {
-          "name": "Flex ombro",
-          "repeat": 1,
+          "name": "Torno joelh e quad",
+          "repetitions": "1x10 cada lado",
+          "durationInMilli": 15000,
+          "level": "easy",
+          "instructions": [
+            "Deite-se de barriga para cima, com os braços ao lado do corpo e os joelhos dobrados, com os pés apoiados no chão.",
+            "Coloque uma bola abaixo do pé direito, estique a perna direita e depois dobre-a, realizando 10 repetições.",
+            "Em seguida, troque para a perna esquerda e repita o movimento por 10 repetições."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=84"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_pressing_ball_2.jpg",
+            "alt": "Idoso deitado de barriga para cima, pressionando uma bola com o pé direito enquanto estica e dobra a perna, usando roupas roxas"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fortalecimento",
+      "image": {
+        "src": "/img/exercises/strengthening-exercise.png",
+        "alt": "Imagem de uma pessoa caminhando"
+      },      
+      "exercises": [
+        {
+          "name": "Exercício da cadeira",
+          "repetitions": "1x15",
+          "durationInMilli": 74000,
+          "level": "easy",
+          "instructions": [
+            "Coloque uma cadeira apoiada na parede",
+            "Mantendo os cotovelos dobrados a 90° ao lado do corpo",
+            "Sentar e levantar da cadeira sem usar as mãos."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/7ZQB9Smmu9E?start=751"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_seated_in_char.jpg",
+            "alt": "Pessoa idosa sentando e levantando da cadeira"
+          }
+        },
+        {
+          "name": "Rotadores",
+          "repetitions": "2x10",
+          "durationInMilli": 65000,
+          "level": "easy",
+          "instructions": [
+            "Na postura de pé, com cotovelos apoiados no tronco, gire os braços para fora.",
+            "Pode usar resistência elástica, segurando uma faixa elástica e esticando-a ao girar os braços"
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/A68yj4oYWfo?start=281"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_strengthening_shoulders_2.jpg",
+            "alt": "Pessoa idosa fortalecendo rotadores externos do ombro com elástico"
+          }
+        },
+        {
+          "name": "Abdutores de ombro",
+          "repetitions": "2x10",
+          "durationInMilli": 58000,
+          "level": "easy",
+          "instructions": [
+            "Na postura de pé, levante os braços com uma abertura de 30° a 45° graus em relação ao tronco",
+            "Levante até a altura dos ombros",
+            "Pode realizar com carga, utilizando uma garrafa de água de 500ml"
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/A68yj4oYWfo?start=437"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_strengthening_shoulders.jpg",
+            "alt": "Pessoa idosa realizando fortalecimento de abdutores de ombro"
+          }
+        },
+        {
+          "name": "Rotadores do ombro",
+          "repetitions": "2x10",
+          "durationInMilli": 90000,
+          "level": "easy",
+          "instructions": [
+            "Deitada de barriga para cima, com cotovelos apoiados no tronco",
+            "Gire os braços para fora e retorne à posição inicial",
+            "Pode realizar com carga leve, utilizando uma garrafa de água de 500ml"
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/A68yj4oYWfo?start=533"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_rotating_shoulders_in_bed.jpg",
+            "alt": "Pessoa idosa deitada fortalecendo os rotadores internos do ombro"
+          }
+        },
+        {
+          "name": "Extensores de joelho",
+          "repetitions": "3x15",
+          "durationInMilli": 52000,
+          "level": "easy",
+          "instructions": [
+            "Sentado na cadeira com os pés apoiados no chão",
+            "Levante a perna direita estendendo o joelho, depois volte à posição inicial",
+            "Faça 10 movimentos depois faça com a perna esquerda"
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/7ZQB9Smmu9E?start=755"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_elevating_leg_2.jpg",
+            "alt": "Pessoa idosa realizando flexão de joelho, sentada na cadeira"
+          }
+        },
+        {
+          "name": "Flexores de joelho",
+          "repetitions": "3x15",
+          "durationInMilli": 61000,
+          "level": "easy",
+          "instructions": [
+            "Na postura de pé e atrás de uma cadeira, mãos apoiadas no encosto da cadeira",
+            "Dobre o joelho da perna direita levando o pé em direção ao bumbum e retorne a posição inicial",
+            "Faça 15 movimentos",
+            "Depois faça com a perna esquerda."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/7ZQB9Smmu9E?start=690"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_flexing_leg.jpg",
+            "alt": "Pessoa idosa realizando fortalecimento de flexores de joelho, apoiada na cadeira"
+          }
+        },
+        {
+          "name": "Flexores de quadril",
+          "repetitions": "2X10",
+          "durationInMilli": 60000,
+          "level": "easy",
+          "instructions": [
+            "Deitado de barriga para cima com braços estendidos ao lado do corpo",
+            "A perna esquerda fica dobrada com o pé apoiado no chão e a perna direita deve ficar esticada no chão",
+            "Subir e descer a perna direita 10 vezes, depois faça o outro lado."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/X04UWMfVK00?start=367"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_flexing_leg_2.jpg",
+            "alt": "Pessoa idosa realizando fortalecimento de flexores de quadril, deitada"
+          }
+        },
+        {
+          "name": "Flexores de ombro",
+          "repetitions": "2x10",
+          "durationInMilli": 80000,
+          "level": "easy",
+          "instructions": [
+            "Na postura sentado na cadeira, posicione os braços apoiados nas pernas",
+            "Levante os braços até a altura do olhar, e retorne para a posição inicial",
+            "Faça 10 movimentos e descanse."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/Dmol3aGr11s?start=404"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_seated_in_char_2.jpg",
+            "alt": "Pessoa idosa realizando fortalecimento de flexores de ombro"
+          }
+        },
+        {
+          "name": "Peitoral e braços",
+          "repetitions": "2x10",
+          "durationInMilli": 31000,
+          "level": "easy",
+          "instructions": [
+            "Na postura sentado na cadeira, posicione a parte central da faixa elástica nas costas e na altura da axilas",
+            "Próxima essa região segura as extremidades da faixa",
+            "Inicie o movimento de empurrar a faixa para frente, fazendo força com os braços"
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=304"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_seated_in_char_with_elastic.jpg",
+            "alt": "Pessoa idosa realizando fortalecimento de peitoral e braços com elástico"
+          }
+        },
+        {
+          "name": "Costas e braços",
+          "repetitions": "2x10",
+          "durationInMilli": 28000,
+          "level": "easy",
+          "instructions": [
+            "Na postura sentado na cadeira",
+            "Posicione a parte central da faixa elástica sob os pés",
+            "Deixe eles levemente inclinado a frente para sua segurança",
+            "segura as extremidades da faixa e puxe aproximando do seu tronco."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=345"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_seated_in_char_3.jpg",
+            "alt": "Pessoa idosa realizando fortalecimento de costas e braços com elástico"
+          }
+        },
+        {
+          "name": "Panturrilha",
+          "repetitions": "3x10",
+          "durationInMilli": 36000,
+          "level": "easy",
+          "instructions": [
+            "Na postura de pé e atrás de uma cadeira",
+            "Deixe as mãos apoiadas no encosto da cadeira",
+            "Fique na ponta dos pés subindo e descendo lentamente",
+            "Faça 10 movimentos."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/LFC7Jvu8P8g?start=606"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_doing_calf_exercise.jpg",
+            "alt": "Pessoa idosa realizando rotação de tronco"
+          }
+        }, 
+        {
+          "name": "Flexores do quadril",
+          "repetitions": "2x10",
+          "durationInMilli": 26000,
+          "level": "easy",
+          "instructions": [
+            "Na postura sentado na cadeira",
+            "Passe a parte central da faixa elástica debaixo de ambas as coxas e cruze as extremidades por cima delas",
+            "Segure as extremidades fazendo força para baixo",
+            "Eleve um coxa de cada vez, alternando os lados."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=200"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_seated_in_char_6.jpg",
+            "alt": "Pessoa idosa realizando fortalecimento de flexores do quadril"
+          }
+        },
+        {
+          "name": "Abdutores do quadril",
+          "repetitions": "2x10",
+          "durationInMilli": 26000,
+          "level": "easy",
+          "instructions": [
+            "Na postura sentada na cadeira, passe a parte central da faixa elástica debaixo de ambas as coxas e cruze as extremidades por cima delas.",
+            "Segure as extremidades fazendo força para baixo.",
+            "Mantendo os pés juntos, faça força para os lados afastando os joelhos.",
+            "Descanse de 15 a 30 segundos entre cada série."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?=start=264"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_seated_in_char_with_elastic_2.jpg",
+            "alt": "Pessoa idosa realizando fortalecimento de abdutores do quadril"
+          }
+        },
+        {
+          "name": "Adução de ombro",
+          "repetitions": "1x10",
+          "durationInMilli": 10000,
+          "level": "easy",
+          "instructions": [
+            "Sente-se em uma cadeira com os braços esticados à frente na altura dos ombros, segurando uma bola com ambas as mãos.",
+            "Faça uma pressão na bola enquanto mantém os braços esticados.",
+            "Repita o movimento por 10 repetições."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=158"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_holding_ball_2.jpg",
+            "alt": "Idoso sentado em uma cadeira realizando adução de ombro com uma bola, usando roupas roxas"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mobilidade",
+      "image": {
+        "src": "/img/exercises/walking-exercise.png",
+        "alt": "Imagem de uma pessoa caminhando"
+      },
+      "exercises": [
+        {
+          "name": "Movimentar o pescoço",
+          "repetitions": "1x10",
+          "durationInMilli": 27000,
+          "level": "easy",
+          "instructions": [
+            "Na postura de pé, fazer o movimento no pescoço devagar, olhando para cima e para baixo"
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/xfF6WV_cDgU?start=245"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_making_neck_up_down.jpg",
+            "alt": "Pessoa idosa movimentando o pescoço para cima e para baixo"
+          }
+        },
+        {
+          "name": "Elevação de ombro",
+          "repetitions": "10x",
+          "durationInMilli": 74000,
+          "level": "easy",
+          "instructions": [
+            "Na postura de pé, braços ao lado do corpo, realizar movimentos de subir e descer os ombros"
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/Kb3D2Cr-wrw?start=230"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_elevating_shoulders.jpg",
+            "alt": "Pessoa idosa realizando elevação de ombro"
+          }
+        },
+        {
+          "name": "Escapular rotacional",
+          "repetitions": "10x para cada direção",
+          "durationInMilli": 120000,
+          "level": "easy",
+          "instructions": [
+            "Na postura de pé, enrolar os ombros para frente e depois para trás, realizando 10 movimentos para cada direção"
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/Kb3D2Cr-wrw?start=281"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_rotating_shoulders.jpg",
+            "alt": "Pessoa idosa realizando movimentos rotacionais de ombro"
+          }
+        },
+        {
+          "name": "Elevação pélvica",
+          "repetitions": "1x15",
+          "durationInMilli": 71000,
+          "level": "easy",
+          "instructions": [
+            "Deitado de barriga para cima, braços ao lado do corpo e joelhos dobrados com os pés apoiados no chão",
+            "Vai levantar o bumbum para cima e voltar a posição inicial."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/7ZQB9Smmu9E?start=562"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_elevating_pelve.jpg",
+            "alt": "Pessoa idosa realizando elevação pélvica"
+          }
+        },
+        {
+          "name": "Marcha estacionária",
+          "repetitions": "1x10",
+          "durationInMilli": 18000,
+          "level": "easy",
+          "instructions": [
+            "Na postura em pé, fazer a marcha sem sair do lugar, tentando levantar o joelho até a altura do quadril"
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/pmqWqd-E76E?start=92"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_walking.jpg",
+            "alt": "Pessoa idosa realizando elevação pélvica"
+          }
+        },
+        {
+          "name": "Mobilidade pélvica",
+          "repetitions": "1x10",
+          "durationInMilli": 67000,
+          "level": "easy",
+          "instructions": [
+            "Na postura em pé, com os pés afastados na largura do quadril",
+            "Girar o quadril como se estivesse fazendo um rebolado",
+            "Fazer 10 movimentos para cada lado."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/vCU9UBlpuEE?start=380 "
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_rotating_pelve.jpg",
+            "alt": "Pessoa idosa realizando mobilidade pélvica"
+          }
+        },
+        {
+          "name": "Flexão de ombro",
           "repetitions": "1x10",
           "durationInMilli": 14000,
           "level": "easy",
@@ -715,85 +765,8 @@
           }
         },
         {
-          "name": "Aduc ombro",
-          "repeat": 1,
-          "repetitions": "1x10",
-          "durationInMilli": 10000,
-          "level": "easy",
-          "instructions": [
-            "Sente-se em uma cadeira com os braços esticados à frente na altura dos ombros, segurando uma bola com ambas as mãos.",
-            "Faça uma pressão na bola enquanto mantém os braços esticados.",
-            "Repita o movimento por 10 repetições."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=158"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_holding_ball_2.jpg",
-            "alt": "Idoso sentado em uma cadeira realizando adução de ombro com uma bola, usando roupas roxas"
-          }
-        },
-        {
-          "name": "Quatro apoios",
-          "repeat": 1,
-          "repetitions": "1x10 cada lado",
-          "durationInMilli": 20000,
-          "level": "MEDIUM",
-          "instructions": [
-            "Fique na postura de quatro apoios, com as mãos e joelhos no chão.",
-            "Coloque uma bola abaixo da mão direita e faça uma pressão na bola, realizando 10 repetições.",
-            "Em seguida, troque para a mão esquerda e repita o movimento por 10 repetições."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=137"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_four_support.jpg",
-            "alt": "Idoso em posição de quatro apoios, pressionando uma bola com a mão direita, usando roupas roxas"
-          }
-        },
-        {
-          "name": "Mob pernas",
-          "repeat": 1,
-          "repetitions": "1x10 cada lado",
-          "durationInMilli": 15000,
-          "level": "easy",
-          "instructions": [
-            "Deite-se de barriga para cima, com os braços ao lado do corpo e os joelhos dobrados, com os pés apoiados no chão.",
-            "Coloque uma bola abaixo do pé direito, estique a perna direita e depois dobre-a, realizando 10 repetições.",
-            "Em seguida, troque para a perna esquerda e repita o movimento por 10 repetições."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=84"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_pressing_ball_2.jpg",
-            "alt": "Idoso deitado de barriga para cima, pressionando uma bola com o pé direito enquanto estica e dobra a perna, usando roupas roxas"
-          }
-        },
-        {
-          "name": "Marcha est",
-          "repeat": 1,
-          "repetitions": "5 minutos",
-          "durationInMilli": 13000,
-          "level": "easy",
-          "instructions": [
-            "Fique em pé, mantendo uma postura ereta.",
-            "Simule uma caminhada no lugar, movimentando as pernas como se estivesse marchando.",
-            "Mova os braços para cima e para baixo enquanto marcha."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=83"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_marching_3jpg",
-            "alt": "Idoso em pé, simulando uma marcha no lugar com braços levantando e abaixando, vestindo roupas confortáveis."
-          }
-        },
-        {
           "name": "Escapular Mobilidade",
-          "repeat": 2,
-          "repetitions": "2x10 repetições",
+          "repetitions": "2x10",
           "durationInMilli": 63000,
           "level": "easy",
           "instructions": [
@@ -812,43 +785,21 @@
           }
         },
         {
-          "name": "Along Posterior Mesa",
-          "repeat": 2,
-          "repetitions": "2x de 20 segundos",
-          "durationInMilli": 20000,
+          "name": "Marcha est",
+          "repetitions": "5 minutos",
+          "durationInMilli": 13000,
           "level": "easy",
           "instructions": [
-            "Posicione uma cadeira com a parte do assento encostada na parede.",
-            "Fique em pé atrás da cadeira e apoie as mãos no encosto.",
-            "Desça o tronco para baixo, esticando as costas como se estivesse formando uma mesa.",
-            "Mantenha essa posição por 20 segundos."
+            "Fique em pé, mantendo uma postura ereta.",
+            "Simule uma caminhada no lugar, movimentando as pernas como se estivesse marchando.",
+            "Mova os braços para cima e para baixo enquanto marcha."
           ],
           "video": {
-            "src": "https://www.youtube.com/embed/oYjSm-6u0b4?start=688"
+            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=83"
           },
           "image": {
-            "src": "/img/exercises/img_elderly_stretching_in_char.jpg",
-            "alt": "Idoso em pé, realizando alongamento de cadeia posterior com as mãos apoiadas no encosto de uma cadeira."
-          }
-        },
-        {
-          "name": "Along Lateral Tronco",
-          "repeat": 2,
-          "repetitions": "2x de 20 segundos",
-          "durationInMilli": 20000,
-          "level": "easy",
-          "instructions": [
-            "Fique ao lado de uma cadeira com os pés afastados.",
-            "Apoie a mão direita na cadeira e estenda a mão esquerda por cima da cabeça.",
-            "Incline o tronco para a direita e mantenha a posição por 20 segundos.",
-            "Volte à posição inicial e, em seguida, faça o movimento apoiando a mão esquerda."
-          ],
-          "video": {
-            "src": "https://www.youtube.com/embed/oYjSm-6u0b4?start=613"
-          },
-          "image": {
-            "src": "/img/exercises/img_elderly_stretching_in_char_2.jpg",
-            "alt": "Idoso ao lado de uma cadeira, realizando alongamento lateral de tronco com uma das mãos estendida sobre a cabeça."
+            "src": "/img/exercises/img_elderly_marching_3.jpg",
+            "alt": "Idoso em pé, simulando uma marcha no lugar com braços levantando e abaixando, vestindo roupas confortáveis."
           }
         },
         {
