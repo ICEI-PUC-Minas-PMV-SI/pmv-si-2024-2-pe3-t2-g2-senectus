@@ -153,6 +153,25 @@
             "src": "/img/exercises/img_elderly_making_lateral_flexing.jpg",
             "alt": "Pessoa idosa realizando flexão anterior do pescoço"
           }
+        },
+        {
+          "name": "Alongamento posterior",
+          "repetitions": "2x de 20 segundos",
+          "durationInMilli": 20000,
+          "level": "easy",
+          "instructions": [
+            "Posicione uma cadeira com a parte do assento encostada na parede.",
+            "Fique em pé atrás da cadeira e apoie as mãos no encosto.",
+            "Desça o tronco para baixo, esticando as costas como se estivesse formando uma mesa.",
+            "Mantenha essa posição por 20 segundos."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/oYjSm-6u0b4?start=688"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_stretching_in_char.jpg",
+            "alt": "Idoso em pé, realizando alongamento de cadeia posterior com as mãos apoiadas no encosto de uma cadeira."
+          }
         }
       ]
     },
@@ -182,7 +201,7 @@
           }
         },
         {
-          "name": "Passo para trás com deslocamento do peso para a perna movimentada",
+          "name": "Passo para trás c/ peso",
           "repetitions": "2x10",
           "durationInMilli": 45000,
           "level": "easy",
@@ -200,7 +219,7 @@
           }
         },
         {
-          "name": "Passo para o lado com deslocamento do peso para a perna movimentada",
+          "name": "Passo lado c/ peso",
           "repetitions": "2x10",
           "durationInMilli": 46000,
           "level": "easy",
@@ -218,7 +237,7 @@
           }
         },
         {
-          "name": "Passo para frente com deslocamento do peso para a perna movimentada",
+          "name": "Passo frente c/ peso",
           "repetitions": "2x10",
           "durationInMilli": 46000,
           "level": "easy",
@@ -236,7 +255,7 @@
           }
         },
         {
-          "name": "Marcha estacionária levantando bastante o MS contralateral",
+          "name": "Marcha estacionária levantando o MS contralateral",
           "repetitions": "2x10",
           "durationInMilli": 26000,
           "level": "easy",
@@ -257,7 +276,7 @@
           }
         },
         {
-          "name": "Marcha estacionária com alcance MS contralateral - Treino para marcha, equilíbrio, mobilidade e força de MMII",
+          "name": "Marcha estacionária com alcance MS contralateral",
           "repetitions": "2x10",
           "durationInMilli": 26000,
           "level": "easy",
@@ -278,7 +297,25 @@
           }
         },
         {
-          "name": "Abdução e adução horizontal de ombro e coordenação motora - Treino para mobilidade e coordenação",
+          "name": "Marcha estacionária",
+          "repetitions": "5 minutos",
+          "durationInMilli": 13000,
+          "level": "easy",
+          "instructions": [
+            "Fique em pé, mantendo uma postura ereta.",
+            "Simule uma caminhada no lugar, movimentando as pernas como se estivesse marchando.",
+            "Mova os braços para cima e para baixo enquanto marcha."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/B3CL6fwWE8g?start=83"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_marching_3.jpg",
+            "alt": "Idoso em pé, simulando uma marcha no lugar com braços levantando e abaixando, vestindo roupas confortáveis."
+          }
+        },
+        {
+          "name": "Abdução e adução horizontal de ombro",
           "repetitions": "1x10",
           "durationInMilli": 17000,
           "level": "easy",
@@ -705,7 +742,84 @@
             "src": "/img/exercises/img_elderly_holding_ball.jpg",
             "alt": "Pessoa idosa sentada em uma cadeira realizando flexão de ombro com uma bola"
           }
-        }
+        },
+        {
+          "name": "Escapular Mobilidade",
+          "repetitions": "2x10",
+          "durationInMilli": 63000,
+          "level": "easy",
+          "instructions": [
+            "Fique em pé com uma postura ereta, braços ao lado do corpo e polegares voltados para frente.",
+            "Suba os braços até a altura dos ombros.",
+            "Abra os braços para os lados como se estivesse formando uma cruz.",
+            "Volte os braços para o centro e depois desça-os de volta para os lados do corpo.",
+            "Repita o movimento conforme as repetições indicadas."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/Kb3D2Cr-wrw?start=326"
+          },
+          "image": {
+            "src": "/img/exercises/img_scapular_mobility.jpg",
+            "alt": "Idoso em pé, realizando exercício de mobilidade escapular com braços abertos em forma de cruz."
+          }
+        },
+        {
+          "name": "Movimento de Tronco",
+          "repetitions": "1x de 20 segundos",
+          "durationInMilli": 20000,
+          "level": "easy",
+          "instructions": [
+            "Sente-se em uma cadeira, com o bumbum bem apoiado e os pés firmes no chão.",
+            "Gire o corpo para a direita, tentando segurar o encosto da cadeira.",
+            "Sinta a coluna alongar e rotacionar e mantenha a posição por 20 segundos.",
+            "Volte à posição inicial e, em seguida, repita o movimento para o lado esquerdo."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/oYjSm-6u0b4?start=444"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_doing_tronk_movement.jpg",
+            "alt": "Idoso sentado em uma cadeira, realizando movimento de tronco com rotação para o lado."
+          }
+        },
+        {
+          "name": "Elevação Quadril",
+          "repetitions": "10 repetições",
+          "durationInMilli": 17000,
+          "level": "easy",
+          "instructions": [
+            "Deite-se de barriga para cima com os braços ao lado do corpo.",
+            "Dobre os joelhos e mantenha os pés apoiados no chão, com uma bola entre os joelhos.",
+            "Levante o quadril para cima, contraindo os glúteos.",
+            "Volte à posição inicial e repita o movimento por 10 repetições."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=38"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_hip_lift_with_ball.jpg",
+            "alt": "Idoso deitado de barriga para cima, com uma bola entre os joelhos, levantando o quadril para cima."
+          }
+        },
+        {
+          "name": "Adução Quadril",
+          "repetitions": "10 repetições",
+          "durationInMilli": 18000,
+          "level": "easy",
+          "instructions": [
+            "Deite-se de barriga para cima, com os braços ao lado do corpo.",
+            "Dobre os joelhos e mantenha os pés apoiados no chão, com uma bola entre os joelhos.",
+            "Aperte a bola com os joelhos, criando resistência.",
+            "Volte à posição inicial e repita o movimento por 10 repetições."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=58"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_hip_adduction_with_ball.jpg",
+            "alt": "Idoso deitado de barriga para cima, com uma bola entre os joelhos, realizando adução de quadril apertando a bola."
+          }
+        }             
       ]
     }
   ]
