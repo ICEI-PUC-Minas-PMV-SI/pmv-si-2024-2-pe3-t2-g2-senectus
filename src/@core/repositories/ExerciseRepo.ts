@@ -45,8 +45,9 @@ export class ExerciseRepo {
         new ExerciseCategoryEntity({
           name: item.name,
           image: item.image,
-          exercises: item.exercises.flatMap((exercise) => {
+          exercises: item.exercises.flatMap((exercise, index) => {
             const props = {
+              id: `exerecise-${index}`,
               name: exercise.name,
               durationInMilli: exercise.durationInMilli,
               level: exercise.level,

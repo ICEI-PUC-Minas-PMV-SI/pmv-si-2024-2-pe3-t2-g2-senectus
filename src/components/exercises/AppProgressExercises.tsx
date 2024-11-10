@@ -51,15 +51,6 @@ export function AppProgressExercises(props: AppProgressExercisesProps) {
             </div>
           </li>
           <li id="next-exercise" className="medium-card">
-            <Image
-              src={
-                nextExercise?.image?.src ??
-                '/img/exercises/stretching-exercise.png'
-              }
-              alt={nextExercise?.image?.alt ?? 'Pessoa fazendo exercício'}
-              width={100}
-              height={100}
-            />
             {!nextExercise && (
               <div id="next-exercise-btn">
                 <h3>Próximo</h3>
@@ -67,10 +58,21 @@ export function AppProgressExercises(props: AppProgressExercisesProps) {
               </div>
             )}
             {nextExercise && (
-              <Link href={nextExercise.href!} id="next-exercise-btn">
-                <h3>Próximo</h3>
-                <small>{nextExercise.levelInPtBr}</small>
-              </Link>
+              <>
+                <Image
+                  src={
+                    nextExercise?.image?.src ??
+                    '/img/exercises/stretching-exercise.png'
+                  }
+                  alt={nextExercise?.image?.alt ?? 'Pessoa fazendo exercício'}
+                  width={100}
+                  height={100}
+                />
+                <Link href={nextExercise.href!} id="next-exercise-btn">
+                  <h3>Próximo</h3>
+                  <small>{nextExercise.levelInPtBr}</small>
+                </Link>
+              </>
             )}
           </li>
         </ul>

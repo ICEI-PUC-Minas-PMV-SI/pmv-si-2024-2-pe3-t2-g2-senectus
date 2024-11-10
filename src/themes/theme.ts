@@ -9,7 +9,7 @@ export const theme = {
     bgOfPrimaryColor: '#E6E2F7',
     onHoverBgOfPrimaryColor: '#F3F4FC',
     primaryBgColor: '#FDFDFD',
-    primaryBgColorOp: 'rgba(253, 253, 253, 0.55)',
+    primaryBgColorOp: 'rgba(253, 253, 253, 0.60)',
     onHoverPrimaryBgColor: '#EDEDED',
     secondaryBgColor: '#F3F4FC',
     secondaryBgColorOp: 'rgba(243, 244, 252, 0.45)',
