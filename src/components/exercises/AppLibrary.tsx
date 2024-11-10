@@ -37,7 +37,9 @@ export function AppLibrary() {
             />
             <div className="text">
               <span></span>
-              <p>{categories[1].name}</p>
+              <p style={{
+                "textOverflow": "ellipsis",
+              }}>{categories[1].name}</p>
             </div>
           </Link>
 
@@ -51,7 +53,9 @@ export function AppLibrary() {
             />
             <div className="text">
               <span></span>
-              <p>{categories[2].name}</p>
+              <p style={{
+                "textOverflow": "ellipsis",
+              }}>{categories[2].name}</p>
             </div>
           </Link>
         </div>
@@ -66,7 +70,9 @@ export function AppLibrary() {
           />
           <div className="text">
             <span></span>
-            <p>{categories[3].name}</p>
+            <p style={{
+              "textOverflow": "ellipsis",
+            }}>{categories[3].name}</p>
           </div>
         </Link>
       </div>
