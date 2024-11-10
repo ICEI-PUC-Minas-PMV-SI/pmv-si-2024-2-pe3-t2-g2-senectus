@@ -12,9 +12,6 @@ export const TrainingPlanMenuStyle = styled.div`
   }
 
   & .pagination {
-    display: flex;
-    width: 40vw;
-    justify-content: center;
     place-self: center;
   }
 
@@ -23,20 +20,22 @@ export const TrainingPlanMenuStyle = styled.div`
     flex-direction: column;
     gap: 1rem;
     height: 26rem;
-    & li a {
+
+    & li .exercise-card:hover {
+      background-color: ${({ theme }) => theme.color.onHoverSecondaryBgColor};
+    }
+
+    & li .exercise-card,
+    & li.exercise-card {
       display: flex;
       gap: 1rem;
       width: 100%;
-      height: 5.5rem;
+      height: 5.85rem;
       text-align: start;
       margin: 0;
       padding: 0;
       background-color: ${({ theme }) => theme.color.secondaryBgColor};
       transition: background-color 0.2s;
-
-      &:hover {
-        background-color: ${({ theme }) => theme.color.onHoverSecondaryBgColor};
-      }
 
       & span {
         width: 1rem;
@@ -53,17 +52,25 @@ export const TrainingPlanMenuStyle = styled.div`
         }
       }
 
-      & div {
+      & .content {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
         padding: 1rem;
+        width: 100%;
+        height: 100%;
+        overflow-y: hidden;
 
         & h3 {
           font-size: 1rem;
         }
-        & p {
+        & .text-content {
+          width: 100%;
+          height: 100%;
           font-size: ${({ theme }) => theme.font.sm};
+          & small.pending {
+            color: ${({ theme }) => theme.color.levels.hard};
+          }
         }
       }
     }

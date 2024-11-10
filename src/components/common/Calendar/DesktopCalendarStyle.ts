@@ -23,6 +23,7 @@ export const DesktopCalendarStyle = styled.div`
       grid-template-rows: 5rem 1fr;
       padding: 5rem 2rem 1rem 2rem;
       width: 50vw;
+      max-width: 29rem;
       height: 100vh;
       background-color: white;
       box-shadow: ${({ theme }) => theme.shadow.md};
@@ -36,6 +37,23 @@ export const DesktopCalendarStyle = styled.div`
         display: flex;
         justify-content: end;
         font-size: 1.2rem;
+      }
+    }
+  }
+
+  & .calendar-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    & .date-info {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & div {
+        display: flex;
+        gap: 1rem;
       }
     }
   }

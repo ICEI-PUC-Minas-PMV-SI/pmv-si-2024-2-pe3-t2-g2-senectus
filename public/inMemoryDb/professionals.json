@@ -1,0 +1,175 @@
+{
+  "professionals": [
+    {
+      "id": "1",
+      "role": "Personal Trainer",
+      "name": "Alice Smith",
+      "email": "alice.smith@example.com",
+      "phone": "+55-11-5551-1234",
+      "city": "São Paulo",
+      "state": "SP",
+      "streetAddress": "Rua das Flores, 123",
+      "services": [
+        { "name": "Treinamento personalizado", "price": 150.0 },
+        { "name": "Acompanhamento físico e nutricional", "price": 200.0 },
+        { "name": "Consultoria em perda de peso", "price": 180.0 },
+        { "name": "Treinamento para terceira idade", "price": 160.0 },
+        { "name": "Avaliação física e definição de metas", "price": 100.0 }
+      ]
+    },
+    {
+      "id": "2",
+      "role": "Nutricionista",
+      "name": "João Silva",
+      "email": "joao.silva@example.com",
+      "phone": "+55-21-5555-5678",
+      "city": "Rio de Janeiro",
+      "state": "RJ",
+      "streetAddress": "Avenida Atlântica, 456",
+      "services": [
+        { "name": "Planejamento alimentar", "price": 220.0 },
+        { "name": "Orientação para emagrecimento", "price": 200.0 },
+        { "name": "Acompanhamento de hipertrofia", "price": 190.0 },
+        { "name": "Consultoria em nutrição esportiva", "price": 210.0 },
+        { "name": "Avaliação nutricional completa", "price": 230.0 }
+      ]
+    },
+    {
+      "id": "3",
+      "role": "Nutricionista",
+      "name": "Maria Oliveira",
+      "email": "maria.oliveira@example.com",
+      "phone": "+55-31-5555-8765",
+      "city": "Belo Horizonte",
+      "state": "MG",
+      "streetAddress": "Rua da Harmonia, 789",
+      "services": [
+        { "name": "Planejamento de dietas personalizadas", "price": 250.0 },
+        { "name": "Suporte para controle de diabetes", "price": 240.0 },
+        { "name": "Consultoria em nutrição vegetariana", "price": 200.0 },
+        { "name": "Acompanhamento de transtornos alimentares", "price": 260.0 },
+        { "name": "Educação alimentar para famílias", "price": 210.0 }
+      ]
+    },
+    {
+      "id": "4",
+      "role": "Personal Trainer",
+      "name": "Carlos Souza",
+      "email": "carlos.souza@example.com",
+      "phone": "+55-41-5555-4321",
+      "city": "Curitiba",
+      "state": "PR",
+      "streetAddress": "Rua das Palmeiras, 101",
+      "services": [
+        { "name": "Treinamento funcional", "price": 180.0 },
+        { "name": "Programas de condicionamento físico", "price": 160.0 },
+        { "name": "Preparação física para atletas", "price": 220.0 },
+        { "name": "Consultoria em flexibilidade e mobilidade", "price": 170.0 },
+        { "name": "Reabilitação pós-lesão", "price": 200.0 }
+      ]
+    },
+    {
+      "id": "5",
+      "role": "Quiroprata",
+      "name": "Sofia Santos",
+      "email": "sofia.santos@example.com",
+      "phone": "+55-71-5555-3456",
+      "city": "Salvador",
+      "state": "BA",
+      "streetAddress": "Avenida Sete de Setembro, 202",
+      "services": [
+        { "name": "Ajustes vertebrais", "price": 150.0 },
+        { "name": "Terapia de dor lombar", "price": 130.0 },
+        { "name": "Tratamento de desalinhamento postural", "price": 140.0 },
+        { "name": "Massagem terapêutica", "price": 120.0 },
+        { "name": "Reabilitação musculoesquelética", "price": 160.0 }
+      ]
+    },
+    {
+      "id": "6",
+      "role": "Fisioterapeuta",
+      "name": "Pedro Almeida",
+      "email": "pedro.almeida@example.com",
+      "phone": "+55-85-5555-7890",
+      "city": "Fortaleza",
+      "state": "CE",
+      "streetAddress": "Rua do Sol, 303",
+      "services": [
+        { "name": "Reabilitação pós-cirúrgica", "price": 210.0 },
+        { "name": "Fisioterapia ortopédica", "price": 200.0 },
+        { "name": "Tratamento para dor crônica", "price": 190.0 },
+        { "name": "Alongamento e mobilidade", "price": 170.0 },
+        { "name": "Reabilitação esportiva", "price": 230.0 }
+      ]
+    },
+    {
+      "id": "7",
+      "role": "Nutricionista",
+      "name": "Lucas Ribeiro",
+      "email": "lucas.ribeiro@example.com",
+      "phone": "+55-61-5555-2468",
+      "city": "Brasília",
+      "state": "DF",
+      "streetAddress": "Esplanada dos Ministérios, 404",
+      "services": [
+        { "name": "Avaliação nutricional avançada", "price": 240.0 },
+        { "name": "Dieta para controle de hipertensão", "price": 200.0 },
+        { "name": "Nutrição clínica para idosos", "price": 210.0 },
+        { "name": "Educação em alimentação saudável", "price": 190.0 },
+        { "name": "Suplementação alimentar", "price": 220.0 }
+      ]
+    },
+    {
+      "id": "8",
+      "role": "Quiroprata",
+      "name": "Camila Costa",
+      "email": "camila.costa@example.com",
+      "phone": "+55-51-5555-1357",
+      "city": "Porto Alegre",
+      "state": "RS",
+      "streetAddress": "Rua do Parque, 505",
+      "services": [
+        { "name": "Alinhamento da coluna vertebral", "price": 160.0 },
+        { "name": "Terapia manual para dor cervical", "price": 150.0 },
+        { "name": "Massagem para relaxamento muscular", "price": 130.0 },
+        { "name": "Tratamento de dores nas articulações", "price": 140.0 },
+        { "name": "Ajustes e manipulação espinhal", "price": 170.0 }
+      ]
+    },
+    {
+      "id": "9",
+      "role": "Personal Trainer",
+      "name": "Thiago Pereira",
+      "email": "thiago.pereira@example.com",
+      "phone": "+55-19-5555-9753",
+      "city": "Campinas",
+      "state": "SP",
+      "streetAddress": "Rua das Palmeiras, 606",
+      "services": [
+        { "name": "Treinamento de resistência", "price": 190.0 },
+        { "name": "Acompanhamento de hipertrofia", "price": 180.0 },
+        { "name": "Treinamento de alta intensidade", "price": 210.0 },
+        { "name": "Condicionamento físico para idosos", "price": 160.0 },
+        { "name": "Avaliação e monitoramento físico", "price": 120.0 }
+      ]
+    },
+    {
+      "id": "10",
+      "role": "Nutricionista",
+      "name": "Helena Lima",
+      "email": "helena.lima@example.com",
+      "phone": "+55-27-5555-6423",
+      "city": "Vitória",
+      "state": "ES",
+      "streetAddress": "Avenida Vitória, 707",
+      "services": [
+        { "name": "Planejamento de dietas para emagrecimento", "price": 220.0 },
+        { "name": "Acompanhamento de dietas low carb", "price": 200.0 },
+        { "name": "Nutrição esportiva para amadores", "price": 210.0 },
+        { "name": "Dieta para pacientes com colesterol alto", "price": 190.0 },
+        { "name": "Educação nutricional para grupos", "price": 180.0 }
+      ]
+    }
+  ]
+}
+

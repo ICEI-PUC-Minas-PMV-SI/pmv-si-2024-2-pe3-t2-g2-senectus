@@ -1,7 +1,15 @@
 import { CalendarEventEntity } from './CalendarEventEntity'
+import { EntityTemplate } from './EntityTemplate'
 
-interface Props {
+export enum ExerciseState {
+  DONE = 'DONE',
+  PENDING = 'PENDING'
+}
+
+interface ExerciseEntityProps {
+  state?: ExerciseState
   id: string
+  exerciseStackId?: string
   name: string
   level: 'hard' | 'medium' | 'easy'
   instructions: string[]
@@ -17,25 +25,67 @@ interface Props {
   }
 }
 
-export class ExerciseEntity extends CalendarEventEntity {
-  private readonly props: Props
+export type SerializedExerciseEntityProps = ExerciseEntityProps
 
-  constructor(props: Replace<Props, { dateInMilli?: number; id?: string }>) {
+export class ExerciseEntity
+  extends CalendarEventEntity
+  implements EntityTemplate<ExerciseEntity>
+{
+  private static nextId = 0
+  private readonly props: ExerciseEntityProps
+
+  constructor(
+    props: Replace<ExerciseEntityProps, { dateInMilli?: number; id?: string }>
+  ) {
     super({ dateInMilli: props.dateInMilli ?? 0 })
     this.props = {
       ...props,
-      id: props.id ?? this.makeUrlFriend(props.name),
+      id: props.id ?? `exercise-${ExerciseEntity.nextId}`,
+      state: props.state ?? ExerciseState.PENDING,
       dateInMilli: props.dateInMilli ?? 0
     }
+
+    ++ExerciseEntity.nextId
   }
 
-  private makeUrlFriend(input: string) {
-    return encodeURIComponent(input.replaceAll(' ', '_').toLowerCase())
+  clone() {
+    return this.deserialize(this.serialize())
+  }
+
+  deserialize(json: string): ExerciseEntity {
+    return new ExerciseEntity({ ...JSON.parse(json) })
+  }
+
+  static deserialize(json: string): ExerciseEntity {
+    return ExerciseEntity.deserialize(json)
+  }
+
+  serialize() {
+    return JSON.stringify(this.props)
   }
 
   get id() {
     return this.props.id
   }
+  set id(value: string) {
+    this.props.id = value
+  }
+
+  get state(): ExerciseState | undefined {
+    return this.props.state
+  }
+  set state(value: ExerciseState | undefined) {
+    this.props.state = value
+  }
+
+  get exerciseStackId(): string | undefined {
+    return this.props.exerciseStackId
+  }
+
+  set exerciseStackId(value: string | undefined) {
+    this.props.exerciseStackId = value
+  }
+
   get name() {
     return this.props.name
   }
@@ -45,6 +95,7 @@ export class ExerciseEntity extends CalendarEventEntity {
   get level() {
     return this.props.level
   }
+
   get levelInPtBr() {
     switch (this.props.level) {
       case 'hard':
@@ -71,5 +122,11 @@ export class ExerciseEntity extends CalendarEventEntity {
   }
   get image() {
     return this.props.image
+  }
+  get dateInMilli() {
+    return this.props.dateInMilli
+  }
+  set dateInMilli(value: number) {
+    this.props.dateInMilli = value
   }
 }

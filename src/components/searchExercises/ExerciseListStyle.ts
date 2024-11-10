@@ -41,7 +41,7 @@ export const ExerciseListStyle = styled.div`
         width: 100%;
         height: 100%;
         position: absolute;
-        object-fit: contain;
+        object-fit: cover;
       }
 
       & .text {
@@ -58,6 +58,9 @@ export const ExerciseListStyle = styled.div`
 
         & small {
           font-size: 0.7rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         & span {
           height: 1.2rem;
