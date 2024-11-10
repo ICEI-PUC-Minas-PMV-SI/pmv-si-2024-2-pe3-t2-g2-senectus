@@ -19,7 +19,7 @@ export function AppProfessionalExerciseListItem({
 
   return (
     <li>
-      <Link href={exercise.href!} className="exercise-card">
+      <Link href={exercise.href!} target="blank" className="exercise-card">
         <Image
           src={exercise.image.src}
           alt={exercise.image.alt}

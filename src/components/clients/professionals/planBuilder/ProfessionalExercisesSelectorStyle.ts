@@ -72,7 +72,7 @@ export const ProfessionalExercisesSelectorStyle = styled.div`
           width: 100%;
           height: 100%;
           position: absolute;
-          object-fit: contain;
+          object-fit: cover;
         }
 
         & .content {
@@ -93,8 +93,11 @@ export const ProfessionalExercisesSelectorStyle = styled.div`
             gap: 0.48rem;
             height: 1rem;
 
-            & small {
+            & p {
               font-size: 0.7rem;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
             & span {
               height: 100%;
