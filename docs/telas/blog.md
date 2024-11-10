@@ -4,13 +4,17 @@ O módulo de blog possui a responsabilidade de gerenciar o fluxo de leitura e cr
 
 ## Fluxo de usuário comum
 <img alt="Tela de lista de artigos" src="../../.github/img/telas/blog/blog-pesquisa.png" width="600"/>
+<img alt="Tela de lista de artigos mas com resultado de not found" src="../../.github/img/telas/blog/blog-search-not-found.png" width="600"/>
 <img alt="Tela de leitura de artigo" src="../../.github/img/telas/blog/blog-artigo.png" width="600"/>
 
 ## Fluxo do profissional
 <img alt="Tela de inicial do profissional" src="../../.github/img/telas/blog/blog-professional-home.png" width="600"/>
+<img alt="Tela de inicial do profissional mas com resultado de not found" src="../../.github/img/telas/blog/blog-professional-search-not-found.png" width="600"/>
+<img alt="Tela de pesquisa de artigos públicos" src="../../.github/img/telas/blog/blog-professional-public-blog-search.png" width="600"/>
+<img alt="Tela de pesquisa de artigos públicos mas com resultado de not found" src="../../.github/img/telas/blog/blog-professional-public-blog-search-not-found.png" width="600"/>
 <img alt="Tela de criação de artigo" src="../../.github/img/telas/blog/blog-professional-nova-postagem.png" width="600"/>
 <img alt="Tela de edição de artigo" src="../../.github/img/telas/blog/blog-professional-editar-postagem.png" width="600"/>
-<img alt="Tela de pesquisa de artigos públicos" src="../../.github/img/telas/blog/blog-professional-public-blog-search.png" width="600"/>
+<img alt="Tela de edição de artigo" src="../../.github/img/telas/blog/blog-professional-editar-postagem-delete-modal.png" width="600"/>
 
 <br/>
 <br/>
