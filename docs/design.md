@@ -47,4 +47,4 @@ Mapa da Empatia é um material utilizado para conhecer melhor o seu cliente. A p
 | Blogs | Módulo dedicado a gerenciar o fluxo de blog do sistema | [Link](./telas/blog.md) |
 | Eventos | Módulo dedicado a gerenciar o fluxo de eventos do sistema | [Link](./telas/events.md) |
 | Configuração | Módulo dedicado a gerenciar as configurações do perfil de usuário | [Link](./telas/configuracao.md) |
-
+| Comportamentos padrões | Lista de comportamento global em todo o sistema | [Link](./telas/comportamento-padrao.md) |

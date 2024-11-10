@@ -4,13 +4,17 @@ O módulo de eventos possui a responsabilidade de gerenciar o fluxo de eventos p
 
 ## Fluxo do usuário comum
 <img alt="Tela inicial da lista de eventos" src="../../.github/img/telas/event/events-public.png" width="600"/>
+<img alt="Tela inicial da lista de eventos mas com o resultado de not found" src="../../.github/img/telas/event/events-public-search-not-found.png" width="600"/>
 <img alt="Tela da postagem do evento" src="../../.github/img/telas/event/events-post.png" width="600"/>
 
 ## Fluxo do profissional
 <img alt="Tela inicial do profissional" src="../../.github/img/telas/event/events-professional-home.png" width="600"/>
-<img alt="Tela de eventos publicados no site" src="../../.github/img/telas/event/events-professional-public-events.png" width="600"/>
+<img alt="Tela inicial do profissional" src="../../.github/img/telas/event/events-professional-search-not-found.png" width="600"/>
+<img alt="Tela inicial do profissional mas com o resultado de not found" src="../../.github/img/telas/event/telas/event/events-professional-public-events.png" width="600"/>
+<img alt="Tela de eventos publicados no site" src="../../.github/img/telas/event/events-professional-public-events-search-not-found.png" width="600"/>
 <img alt="Tela de criação de eventos" src="../../.github/img/telas/event/events-professional-new.png" width="600"/>
 <img alt="Tela de edição de eventos" src="../../.github/img/telas/event/events-professional-edit.png" width="600"/>
+<img alt="Tela de edição de eventos com modal de confirmar remoção aberto" src="../../.github/img/telas/event/events-professional-edit-delete-modal.png" width="600"/>
 
 <br/>
 <br/>

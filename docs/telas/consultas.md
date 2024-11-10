@@ -7,6 +7,7 @@ O módulo de consultas possui a responsabilidade de gerenciar o fluxo de consult
 <img alt="Tela de inicial do idoso com menu aberto" src="../../.github/img/telas/appointment/appointments-home-menu.png" width="800"/>
 <img alt="Tela de inicial do idoso com o modal de confirmação de cancelamento aberto" src="../../.github/img/telas/appointment/appointments-home-menu-cancel-modal.png" width="800"/>
 <img alt="Tela de seleção do profissional para consulta" src="../../.github/img/telas/appointment/appointments-search.png" width="600"/>
+<img alt="Tela de seleção do profissional para consulta mas com conteúdo que não foi encontrado" src="../../.github/img/telas/appointment/appointments-search-not-found.png" width="600"/>
 <img alt="Tela de preenchimento de formulário" src="../../.github/img/telas/appointment/appointments-form.png" width="600"/>
 
 ## Fluxo do profissional

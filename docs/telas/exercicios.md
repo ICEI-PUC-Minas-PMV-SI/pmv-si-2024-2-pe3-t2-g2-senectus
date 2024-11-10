@@ -8,8 +8,10 @@ O módulo de exercícios possui a responsabilidade de gerenciar todo o fluxo de 
 
 ## Fluxo de pesquisa de exercícios da biblioteca
 <img alt="Tela de pesquisa de exercício" src="../../.github/img/telas/exercise/exercise-search.png" width="600"/>
+<img alt="Tela de pesquisa de exercício mas com conteúdo que não foi encontrado" src="../../.github/img/telas/exercise/exercise-search-not-found.png" width="600"/>
 
 <img alt="Tela de instruções do exercício" src="../../.github/img/telas/exercise/exercise-player.png" width="800"/>
+
 
 > Esta página também é acessível quando o usuário clica em próximo exercício ou em algum dos exercícios presentes no seu plano de treino
 
