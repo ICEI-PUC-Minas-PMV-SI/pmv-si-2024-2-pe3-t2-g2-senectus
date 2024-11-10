@@ -12,7 +12,7 @@
           "repeat": 3,
           "repetitions": "3x20",
           "durationInMilli": 52000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Mantenha a coluna reta, com a mão sobre a cabeça",
             "Puxe a cabeça para o lado direito, sentindo esticar toda a região do pescoço à esquerda",
@@ -32,7 +32,7 @@
           "repeat": 3,
           "repetitions": "3x20",
           "durationInMilli": 53000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Comece com a cabeça alinhada no centro",
             "Rode a cabeça 45° à direita e depois incline a cabeça para baixo, sentindo esticar a região de trás do pescoço",
@@ -52,7 +52,7 @@
           "repeat": 3,
           "repetitions": "3x20",
           "durationInMilli": 34000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Comece com a cabeça alinhada no centro",
             "Coloque as mãos na nuca, feche o cotovelo e incline a cabeça para baixo, sentindo esticar a região de trás do pescoço",
@@ -72,7 +72,7 @@
           "repeat": 3,
           "repetitions": "1x10",
           "durationInMilli": 27000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura de pé, fazer o movimento no pescoço devagar, olhando para cima e para baixo"
           ],
@@ -89,7 +89,7 @@
           "repeat": 3,
           "repetitions": "10x",
           "durationInMilli": 74000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura de pé, braços ao lado do corpo, realizar movimentos de subir e descer os ombros"
           ],
@@ -115,7 +115,7 @@
           "repeat": 3,
           "repetitions": "10x para cada direção",
           "durationInMilli": 120000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura de pé, enrolar os ombros para frente e depois para trás, realizando 10 movimentos para cada direção"
           ],
@@ -132,7 +132,7 @@
           "repeat": 3,
           "repetitions": "2x10",
           "durationInMilli": 65000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura de pé, com cotovelos apoiados no tronco, gire os braços para fora. Pode usar resistência elástica, segurando uma faixa elástica e esticando-a ao girar os braços"
           ],
@@ -149,7 +149,7 @@
           "repeat": 3,
           "repetitions": "2x10",
           "durationInMilli": 58000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura de pé, levante os braços com uma abertura de 30° a 45° graus em relação ao tronco",
             "Levante até a altura dos ombros",
@@ -168,7 +168,7 @@
           "repeat": 3,
           "repetitions": "2x10",
           "durationInMilli": 90000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Deitada de barriga para cima, com cotovelos apoiados no tronco",
             "Gire os braços para fora e retorne à posição inicial",
@@ -196,7 +196,7 @@
           "repeat": 3,
           "repetitions": "3x20",
           "durationInMilli": 59000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura de pé e atrás de uma cadeira, coloque o pé direito sobre a cadeira.",
             "Incline o tronco para frente, como se fosse pegar o pé que está na cadeira.",
@@ -217,7 +217,7 @@
           "repeat": 3,
           "repetitions": "3x20",
           "durationInMilli": 38000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura de pé e atrás de uma cadeira, deixe uma mão apoiada na cadeira e a outra mão segure o pé direito.",
             "Sinta esticar a parte da frente da coxa direita, mantendo a posição por 20 segundos.",
@@ -236,7 +236,7 @@
           "repeat": 3,
           "repetitions": "3x15",
           "durationInMilli": 52000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Sentado na cadeira com os pés apoiados no chão",
             "Levante a perna direita estendendo o joelho, depois volte à posição inicial",
@@ -255,7 +255,7 @@
           "repeat": 3,
           "repetitions": "3x15",
           "durationInMilli": 61000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura de pé e atrás de uma cadeira, mãos apoiadas no encosto da cadeira",
             "Dobre o joelho da perna direita levando o pé em direção ao bumbum e retorne a posição inicial",
@@ -275,7 +275,7 @@
           "repeat": 3,
           "repetitions": "2X10",
           "durationInMilli": 60000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Deitado de barriga para cima com braços estendidos ao lado do corpo",
             "A perna esquerda fica dobrada com o pé apoiado no chão e a perna direita deve ficar esticada no chão",
@@ -294,7 +294,7 @@
           "repeat": 3,
           "repetitions": "1x15",
           "durationInMilli": 71000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Deitado de barriga para cima, braços ao lado do corpo e joelhos dobrados com os pés apoiados no chão",
             "Vai levantar o bumbum para cima e voltar a posição inicial."
@@ -312,7 +312,7 @@
           "repeat": 3,
           "repetitions": "1x10",
           "durationInMilli": 18000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura em pé, fazer a marcha sem sair do lugar, tentando levantar o joelho até a altura do quadril"
           ],
@@ -329,7 +329,7 @@
           "repeat": 3,
           "repetitions": "1x10",
           "durationInMilli": 67000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura em pé, com os pés afastados na largura do quadril",
             "Girar o quadril como se estivesse fazendo um rebolado",
@@ -357,7 +357,7 @@
           "repeat": 3,
           "repetitions": "2x20",
           "durationInMilli": 67000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura em pé, entrelace as mãos e estique os braços acima da cabeça",
             "Respirando bem fundo, puxe e solte esticando todo o corpo, mantenha por 20 segundos."
@@ -375,7 +375,7 @@
           "repeat": 2,
           "repetitions": "2x20",
           "durationInMilli": 116000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Em pé, eleve o braço direito deixando-o estendido com o polegar para cima.",
             "Coloque a mão esquerda no cotovelo direito, gire o braço direito para a esquerda e sinta o alongamento no braço direito. Mantenha por 20 segundos.",
@@ -394,7 +394,7 @@
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 80000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura sentado na cadeira, posicione os braços apoiados nas pernas",
             "Levante os braços até a altura do olhar, e retorne para a posição inicial",
@@ -413,7 +413,7 @@
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 31000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura sentado na cadeira, posicione a parte central da faixa elástica nas costas e na altura da axilas",
             "Próxima essa região segura as extremidades da faixa",
@@ -432,7 +432,7 @@
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 28000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura sentado na cadeira",
             "Posicione a parte central da faixa elástica sob os pés",
@@ -451,7 +451,7 @@
           "repeat": 2,
           "repetitions": "3x20",
           "durationInMilli": 58000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura sentado na cadeira, posicione mais um pouca a frente da cadeira, mas com segurança",
             "Estenda a perna direita a frente e deixe a ponta do pé voltada para cima",
@@ -479,7 +479,7 @@
           "repeat": 2,
           "repetitions": "1x15",
           "durationInMilli": 74000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Coloque uma cadeira apoiada na parede",
             "Mantendo os cotovelos dobrados a 90° ao lado do corpo",
@@ -498,7 +498,7 @@
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 45000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Procure um lugar que tenha algo fixo que você consiga ficar próximo para se segurar, caso você desequilibre.",
             "Na postura de pé, pés alinhados, leve a perna direita para trás como se fosse dá um passo para atrás e volta a posição inicial",
@@ -517,7 +517,7 @@
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 46000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Procure um lugar que tenha algo fixo que você consiga ficar próximo para se segurar, caso você desequilibre.",
             "Na postura de pé, pés alinhados, leve a perna direita para o lado como se fosse dá um passo para o lado e volta a posição inicial",
@@ -536,7 +536,7 @@
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 46000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura de pé, pés alinhados, mãos na cintura",
             "Dê um passo para frente com a perna direita e volte a posição inicial",
@@ -555,7 +555,7 @@
           "repeat": 2,
           "repetitions": "3x10",
           "durationInMilli": 36000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura de pé e atrás de uma cadeira",
             "Deixe as mãos apoiadas no encosto da cadeira",
@@ -575,7 +575,7 @@
           "repeat": 2,
           "repetitions": "2x20",
           "durationInMilli": 65000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Atrás da cadeira, com os pés alinhados para frente",
             "Estender a perna direita para o mais atrás possível, e manter a perna esquerda a frente",
@@ -595,7 +595,7 @@
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 26000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura sentado na cadeira",
             "Passe a parte central da faixa elástica debaixo de ambas as coxas e cruze as extremidades por cima delas",
@@ -615,7 +615,7 @@
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 26000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Na postura sentada na cadeira, passe a parte central da faixa elástica debaixo de ambas as coxas e cruze as extremidades por cima delas.",
             "Segure as extremidades fazendo força para baixo.",
@@ -635,7 +635,7 @@
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 26000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Procure um lugar que tenha algo fixo que você consiga ficar próximo para se segurar, caso você desequilibre.",
             "Na postura em pé, faça a marcha sem sair do lugar.",
@@ -657,7 +657,7 @@
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 26000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Procure um lugar que tenha algo fixo que você consiga ficar próximo para se segurar, caso você desequilibre.",
             "Na postura em pé, faça a marcha sem sair do lugar.",
@@ -679,7 +679,7 @@
           "repeat": 1,
           "repetitions": "1x10",
           "durationInMilli": 17000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Sente-se numa cadeira com os braços esticados à frente na altura dos ombros, segurando a bola no centro com ambas as mãos.",
             "Leve a bola para o lado direito usando o braço direito até a linha do ombro direito.",
@@ -700,7 +700,7 @@
           "repeat": 1,
           "repetitions": "1x10",
           "durationInMilli": 14000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Sente-se em uma cadeira com os braços esticados à frente na altura dos ombros, segurando uma bola com ambas as mãos.",
             "Eleve os braços até a altura dos olhos, mantendo os braços esticados.",
@@ -719,7 +719,7 @@
           "repeat": 1,
           "repetitions": "1x10",
           "durationInMilli": 10000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Sente-se em uma cadeira com os braços esticados à frente na altura dos ombros, segurando uma bola com ambas as mãos.",
             "Faça uma pressão na bola enquanto mantém os braços esticados.",
@@ -757,7 +757,7 @@
           "repeat": 1,
           "repetitions": "1x10 cada lado",
           "durationInMilli": 15000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Deite-se de barriga para cima, com os braços ao lado do corpo e os joelhos dobrados, com os pés apoiados no chão.",
             "Coloque uma bola abaixo do pé direito, estique a perna direita e depois dobre-a, realizando 10 repetições.",
@@ -776,7 +776,7 @@
           "repeat": 1,
           "repetitions": "5 minutos",
           "durationInMilli": 13000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Fique em pé, mantendo uma postura ereta.",
             "Simule uma caminhada no lugar, movimentando as pernas como se estivesse marchando.",
@@ -795,7 +795,7 @@
           "repeat": 2,
           "repetitions": "2x10 repetições",
           "durationInMilli": 63000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Fique em pé com uma postura ereta, braços ao lado do corpo e polegares voltados para frente.",
             "Suba os braços até a altura dos ombros.",
@@ -816,7 +816,7 @@
           "repeat": 2,
           "repetitions": "2x de 20 segundos",
           "durationInMilli": 20000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Posicione uma cadeira com a parte do assento encostada na parede.",
             "Fique em pé atrás da cadeira e apoie as mãos no encosto.",
@@ -836,7 +836,7 @@
           "repeat": 2,
           "repetitions": "2x de 20 segundos",
           "durationInMilli": 20000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Fique ao lado de uma cadeira com os pés afastados.",
             "Apoie a mão direita na cadeira e estenda a mão esquerda por cima da cabeça.",
@@ -856,7 +856,7 @@
           "repeat": 1,
           "repetitions": "1x de 20 segundos",
           "durationInMilli": 20000,
-          "level": "EASY",
+          "level": "easy",
           "instructions": [
             "Sente-se em uma cadeira, com o bumbum bem apoiado e os pés firmes no chão.",
             "Gire o corpo para a direita, tentando segurar o encosto da cadeira.",
@@ -870,8 +870,47 @@
             "src": "/img/exercises/img_elderly_doing_tronk_movement.jpg",
             "alt": "Idoso sentado em uma cadeira, realizando movimento de tronco com rotação para o lado."
           }
-        }
-                                 
+        },
+        {
+          "name": "Elevação Quadril",
+          "repeat": 1,
+          "repetitions": "10 repetições",
+          "durationInMilli": 17000,
+          "level": "easy",
+          "instructions": [
+            "Deite-se de barriga para cima com os braços ao lado do corpo.",
+            "Dobre os joelhos e mantenha os pés apoiados no chão, com uma bola entre os joelhos.",
+            "Levante o quadril para cima, contraindo os glúteos.",
+            "Volte à posição inicial e repita o movimento por 10 repetições."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=38"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_hip_lift_with_ball.jpg",
+            "alt": "Idoso deitado de barriga para cima, com uma bola entre os joelhos, levantando o quadril para cima."
+          }
+        },
+        {
+          "name": "Adução Quadril",
+          "repeat": 1,
+          "repetitions": "10 repetições",
+          "durationInMilli": 18000,
+          "level": "easy",
+          "instructions": [
+            "Deite-se de barriga para cima, com os braços ao lado do corpo.",
+            "Dobre os joelhos e mantenha os pés apoiados no chão, com uma bola entre os joelhos.",
+            "Aperte a bola com os joelhos, criando resistência.",
+            "Volte à posição inicial e repita o movimento por 10 repetições."
+          ],
+          "video": {
+            "src": "https://www.youtube.com/embed/DczeQ0XQEaE?start=58"
+          },
+          "image": {
+            "src": "/img/exercises/img_elderly_hip_adduction_with_ball.jpg",
+            "alt": "Idoso deitado de barriga para cima, com uma bola entre os joelhos, realizando adução de quadril apertando a bola."
+          }
+        }             
       ]
     }
   ]
