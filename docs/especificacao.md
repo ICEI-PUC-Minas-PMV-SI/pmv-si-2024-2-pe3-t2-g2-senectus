@@ -206,13 +206,13 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 #### Pré-condições: O usuário deve estar autenticado na plataforma
 
 #### Fluxo Principal:
-1. O usuário acessa a seção de biblioteca de exercícios na aba de plano de treino.
+1. O usuário acessa a seção de biblioteca de exercícios na área "Exercícios".
 2. O usuário seleciona categória de exercícios.
 3. O usuário seleciona um exercício.
 4. O sistema exibe informações instrucionais do exercício.
 
 #### Fluxo Alternativo (5a):
-1. O usuário seleciona a aba de plano de treino.
+1. O usuário seleciona a aba de "Exercícios".
 2. O sistema exibe um calendário de exercícios.
 3. O usuário seleciona um dos exercícios do dia.
 4. O sistema exibe informações instrucionais do exercício.
@@ -482,15 +482,13 @@ Senectus apesar de fornecer os meios de contatos e informações de eventos, nã
 
 #### Fluxo Alternativo (14a): Leitura
 1. O idoso opta por realizar a leitura de uma de suas consultas.
-2. O sistema exibe as consultas mais recentes em forma de calendário, com duas opções de filtro, sendo elas: "Agendadas" e "Solicitações".
-3. O idoso seleciona o filtro que deseja.
-4. O sistema retorna um calendário contendo os dias e as respectivas consultas.
+2. O sistema exibe as consultas mais recentes em forma de calendário.
 
 #### Fluxo Alternativo (14b): Solicitação
 1. O idoso requisita a solicitação de uma consulta.
 2. O sistema redireciona idoso para a seção de busca de profissionais e retorna uma lista de profissionais disponíveis com seus respectivos dias de consultas.
-3. O idoso seleciona o profissional e o dia que deseja realizar a consulta.
-4. O sistema abre um formulário e solicita o preenchimento das seguintes informações: descrição da solicitação e o tipo de consulta.
+3. O idoso seleciona o profissional.
+4. O sistema abre um formulário e solicita o preenchimento das seguintes informações: descrição da solicitação e o tipo de serviço, localização e data da consulta.
 5. O idoso preenche as informações e confirma o envio.
 6. O sistema valida as informações do formulário e caso estejam corretas ele cria a solicitação na base de dados, caso não esteja, ele dispara uma mensagem alertando que algum campo foi preenchido incorretamente.
 
