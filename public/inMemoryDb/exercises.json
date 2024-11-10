@@ -28,7 +28,7 @@
           }
         },
         {
-          "name": "Flexão anterior com rotação",
+          "name": "Flexão ant c/ rot",
           "repeat": 3,
           "repetitions": "3x20",
           "durationInMilli": 53000,
@@ -68,7 +68,7 @@
           }
         },
         {
-          "name": "Movimentar o pescoço para cima e para baixo",
+          "name": "Pescoço cima/baixo",
           "repeat": 3,
           "repetitions": "1x10",
           "durationInMilli": 27000,
@@ -85,7 +85,7 @@
           }
         },
         {
-          "name": "Mobilidade escapular - Elevação de ombro",
+          "name": "Mob esc elev",
           "repeat": 3,
           "repetitions": "10x",
           "durationInMilli": 74000,
@@ -111,7 +111,7 @@
       },
       "exercises": [
         {
-          "name": "Mobilidade escapular - Movimentos rotacionais para frente e para trás",
+          "name": "Mob esc root.",
           "repeat": 3,
           "repetitions": "10x para cada direção",
           "durationInMilli": 120000,
@@ -128,7 +128,7 @@
           }
         },
         {
-          "name": "Fortalecimento dos rotadores externos de ombro associado à escápula",
+          "name": "Fortal rot ext",
           "repeat": 3,
           "repetitions": "2x10",
           "durationInMilli": 65000,
@@ -145,7 +145,7 @@
           }
         },
         {
-          "name": "Fortalecimento de abdutores de ombro",
+          "name": "Fortal abd ombro",
           "repeat": 3,
           "repetitions": "2x10",
           "durationInMilli": 58000,
@@ -164,7 +164,7 @@
           }
         },
         {
-          "name": "Fortalecimento dos rotadores internos de ombro",
+          "name": "Fortal rot int",
           "repeat": 3,
           "repetitions": "2x10",
           "durationInMilli": 90000,
@@ -192,7 +192,7 @@
       },
       "exercises": [
         {
-          "name": "Alongamento de Isquiotibiais",
+          "name": "Along Isquiotibiais",
           "repeat": 3,
           "repetitions": "3x20",
           "durationInMilli": 59000,
@@ -213,7 +213,7 @@
           }
         },
         {
-          "name": "Alongamento de Quadríceps",
+          "name": "Along Quadríceps",
           "repeat": 3,
           "repetitions": "3x20",
           "durationInMilli": 38000,
@@ -232,7 +232,7 @@
           }
         },
         {
-          "name": "Fortalecimento De Extensores De Joelho",
+          "name": "Fortal ext joelho",
           "repeat": 3,
           "repetitions": "3x15",
           "durationInMilli": 52000,
@@ -251,7 +251,7 @@
           }
         },
         {
-          "name": "Fortalecimento De Flexores De Joelho",
+          "name": "Fortal flex joelho.",
           "repeat": 3,
           "repetitions": "3x15",
           "durationInMilli": 61000,
@@ -271,7 +271,7 @@
           }
         },
         {
-          "name": "Fortalecimento De Flexores De Quadril",
+          "name": "Fortal flex quadril",
           "repeat": 3,
           "repetitions": "2X10",
           "durationInMilli": 60000,
@@ -346,14 +346,14 @@
       ]
     },
     {
-      "name": "Alongamento Membros Superiores",
+      "name": "Along. membros sup.",
       "image": {
         "src": "/img/exercises/img_elderly_rotating_shoulders_3.jpg",
         "alt": "Pessoa idosa realizando alongamento"
       },
       "exercises": [
         {
-          "name": "Alongamento de Membros Superiores",
+          "name": "Along membros sup",
           "repeat": 3,
           "repetitions": "2x20",
           "durationInMilli": 67000,
@@ -371,7 +371,7 @@
           }
         },
         {
-          "name": "Alongamento dos Braços (Adução Horizontal de Ombro)",
+          "name": "Along Braços(Adução)",
           "repeat": 2,
           "repetitions": "2x20",
           "durationInMilli": 116000,
@@ -390,7 +390,7 @@
           }
         },
         {
-          "name": "Fortalecimento de flexores de ombro",
+          "name": "Fortal flex. ombro",
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 80000,
@@ -409,7 +409,7 @@
           }
         },
         {
-          "name": "Fortalecimento dos músculos peitoral e braços",
+          "name": "Fortal peitoral/braços",
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 31000,
@@ -428,7 +428,7 @@
           }
         },
         {
-          "name": "Fortalecimento dos músculos das costas e braços",
+          "name": "Fortal costas/braços",
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 28000,
@@ -447,7 +447,7 @@
           }
         },
         {
-          "name": "Alongamento dos isquiotibiais",
+          "name": "Along isquiotibiais",
           "repeat": 2,
           "repetitions": "3x20",
           "durationInMilli": 58000,
@@ -468,14 +468,14 @@
       ]
     },
     {
-      "name": "Fortalecimento Membros Inferiores",
+      "name": "Fortal Membros Inf",
       "image": {
         "src": "/img/exercises/img_elderly_strengthening_legs.jpg",
         "alt": "Pessoa idosa realizando fortalecimento de membros inferiores"
       },
       "exercises": [
         {
-          "name": "Sentar e Levantar Da Cadeira ",
+          "name": "Sentar/Levantar cadeira",
           "repeat": 2,
           "repetitions": "1x15",
           "durationInMilli": 74000,
@@ -494,7 +494,7 @@
           }
         },
         {
-          "name": "Passo para trás com deslocamento do peso para a perna movimentada  ",
+          "name": "Passo p/ trás c/ peso",
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 45000,
@@ -513,7 +513,7 @@
           }
         },
         {
-          "name": "Passo para o lado com deslocamento do peso para a perna movimentada",
+          "name": "Passo lado c/ peso",
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 46000,
@@ -532,7 +532,7 @@
           }
         },
         {
-          "name": "Passo para frente com deslocamento do peso para a perna movimentada",
+          "name": "Passo frente c/ peso",
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 46000,
@@ -551,7 +551,7 @@
           }
         },
         {
-          "name": "Fortalecimento de panturrilha",
+          "name": "Fort pantu",
           "repeat": 2,
           "repetitions": "3x10",
           "durationInMilli": 36000,
@@ -571,7 +571,7 @@
           }
         },
         {
-          "name": "Alongamento da panturrilha",
+          "name": "Along pantu",
           "repeat": 2,
           "repetitions": "2x20",
           "durationInMilli": 65000,
@@ -591,7 +591,7 @@
           }
         },
         {
-          "name": "Fortalecimento de flexores do quadril",
+          "name": "Fortal flex quad",
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 26000,
@@ -611,7 +611,7 @@
           }
         },
         {
-          "name": "Fortalecimento de abdutores do quadril",
+          "name": "Fortal abd quad",
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 26000,
@@ -631,7 +631,7 @@
           }
         },
         {
-          "name": "Marcha estacionária levantando bastante o MS contralateral - Treino para marcha, equilíbrio, mobilidade e força de MMII",
+          "name": "Marcha lev MS",
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 26000,
@@ -653,7 +653,7 @@
           }
         },
         {
-          "name": "Marcha estacionária com alcance MS contralateral - Treino para marcha, equilíbrio, mobilidade e força de MMII",
+          "name": "Marcha est MS",
           "repeat": 2,
           "repetitions": "2x10",
           "durationInMilli": 26000,
@@ -675,7 +675,7 @@
           }
         },
         {
-          "name": "Abdução e adução horizontal de ombro e coordenação motora - Treino para mobilidade e coordenação",
+          "name": "Abd/Adc ombro",
           "repeat": 1,
           "repetitions": "1x10",
           "durationInMilli": 17000,
@@ -696,7 +696,7 @@
           }
         },
         {
-          "name": "Flexão de ombro - Treino para mobilidade de ombro",
+          "name": "Flex ombro",
           "repeat": 1,
           "repetitions": "1x10",
           "durationInMilli": 14000,
@@ -715,7 +715,7 @@
           }
         },
         {
-          "name": "Adução de ombro",
+          "name": "Aduc ombro",
           "repeat": 1,
           "repetitions": "1x10",
           "durationInMilli": 10000,
@@ -734,7 +734,7 @@
           }
         },
         {
-          "name": "Quatro apoios (cintura escapular, equilíbrio, coordenação motora)",
+          "name": "Quatro apoios",
           "repeat": 1,
           "repetitions": "1x10 cada lado",
           "durationInMilli": 20000,
@@ -753,7 +753,7 @@
           }
         },
         {
-          "name": "Mobilidade do tornozelo, joelho e quadril",
+          "name": "Mob pernas",
           "repeat": 1,
           "repetitions": "1x10 cada lado",
           "durationInMilli": 15000,
