@@ -12,7 +12,7 @@
     "lint:fix": "eslint --fix",
     "prepare": "husky",
     "commit": "cz",
-    "validate:exercises": "node ./utils/validateExerciseSchema.mjs"
+    "validate:exercises": "node ./utils/validateExerciseSchema.cjs"
   },
   "husky": {
     "hooks": {
