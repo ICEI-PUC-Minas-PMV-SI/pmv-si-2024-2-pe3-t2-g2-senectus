@@ -37,11 +37,11 @@ export const HeaderStyle = styled.header`
   }
 
   & #btn-config {
+    width: 100%;
     & .icon {
       color: ${({ theme }) => theme.color.primaryColor};
     }
 
-    width: 100%;
     & a {
       display: flex;
       align-items: center;
@@ -112,6 +112,10 @@ export const HeaderStyle = styled.header`
 
     & #header-logo {
       z-index: 101;
+      & img {
+        height: 75px;
+        width: 95px;
+      }
     }
 
     & #btn-connect,
