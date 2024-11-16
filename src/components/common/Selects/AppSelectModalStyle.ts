@@ -8,6 +8,8 @@ export const AppSelectModalStyle = styled.div`
     flex-direction: column;
     margin-top: 0.5rem;
     gap: 0.25rem;
+    max-height: 24rem;
+    overflow-y: scroll;
     align-items: start;
 
     & button {
