@@ -47,13 +47,15 @@ export const FormSignUpStyle = styled.div`
         }
       }
 
-      & #create-account-link {
+      & #login-account-link {
         display: flex;
+        margin-bottom: 4rem;
         justify-content: center;
         width: 100%;
         place-self: center;
+        align-items: center;
+
         & a {
-          margin-bottom: 4rem;
           margin-left: 0.25rem;
           outline-color: ${({ theme }) => theme.color.primaryColor};
           outline-offset: 0.25rem;
@@ -65,6 +67,11 @@ export const FormSignUpStyle = styled.div`
           &:hover {
             color: ${({ theme }) => theme.color.onHoverPrimaryColor};
           }
+        }
+
+        @media (max-width: 300px) {
+          display: inline-block;
+          text-align: center;
         }
       }
     }

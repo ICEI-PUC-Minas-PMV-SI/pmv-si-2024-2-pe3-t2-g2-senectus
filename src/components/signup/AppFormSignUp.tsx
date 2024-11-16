@@ -102,14 +102,16 @@ export function AppFormSignUp() {
       <NotificationContainer />
       <FormSignUpStyle>
         <div id="forms">
-          <Image
-            src="/img/common/logo.png"
-            alt="Logotipo do Senectus"
-            height={90}
-            width={60}
-            style={{ width: 'auto', height: 'auto' }}
-            priority
-          />
+          <Link href="/">
+            <Image
+              src="/img/common/logo.png"
+              alt="Logotipo do Senectus"
+              height={90}
+              width={60}
+              style={{ width: 'auto', height: 'auto' }}
+              priority
+            />
+          </Link>
 
           <div id="form-content">
             <form>
@@ -163,10 +165,10 @@ export function AppFormSignUp() {
               />
             </form>
 
-            <p id="create-account-link">
-              Já tem uma conta?
-              <Link href="/login">Clique aqui</Link>.
-            </p>
+            <div id="login-account-link">
+              <p>Já tem uma conta?</p>
+              <Link href="/login">Clique aqui</Link>
+            </div>
           </div>
         </div>
         <div id="wallpaper">

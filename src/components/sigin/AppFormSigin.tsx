@@ -81,14 +81,16 @@ export function AppFormSigin() {
       <NotificationContainer />
       <FormSiginStyle>
         <div id="forms">
-          <Image
-            src="/img/common/logo.png"
-            alt="Logotipo do Senectus"
-            height={90}
-            width={60}
-            style={{ width: 'auto', height: 'auto' }}
-            priority
-          />
+          <Link href="/">
+            <Image
+              src="/img/common/logo.png"
+              alt="Logotipo do Senectus"
+              height={90}
+              width={60}
+              style={{ width: 'auto', height: 'auto' }}
+              priority
+            />
+          </Link>
 
           <div id="form-content">
             <form>
@@ -122,10 +124,10 @@ export function AppFormSigin() {
               />
             </form>
 
-            <p id="create-account-link">
-              Não tem uma conta?
-              <Link href="/signup">Clique aqui</Link>.
-            </p>
+            <div id="create-account-link">
+              <p>Não tem uma conta?</p>
+              <Link href="/signup">Clique aqui</Link>
+            </div>
           </div>
         </div>
         <div id="wallpaper">
