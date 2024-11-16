@@ -13,14 +13,14 @@ import { AppSelectOutline } from '@components/common/Selects/AppSelectOutline'
 import { ValidateUpdateProfessionalUserBodyService } from '@core/services/users/ValidateUpdateProfessionalUserBodyService'
 import { DateValue } from '@nextui-org/react'
 import { AppConfigurationServiceInputs } from './AppConfigurationServiceInputs'
-import { now, fromDate } from '@internationalized/date'
+import { fromDate } from '@internationalized/date'
 import { UpdateUserService } from '@core/services/users/UpdateUserService'
 
 type JobConstantInput = JobConstant | ''
 export interface UpdateProfessionalUserForm {
   job: JobConstantInput
   startAtInMilli: number
-  services: ServiceProps
+  services: { name: string; price?: number }[]
 }
 export interface UpdateProfessionalUserErrorForm {
   job: string
@@ -40,10 +40,7 @@ export function AppConfigurationFormProfessional() {
   const [form, setForm] = useState<UpdateProfessionalUserForm>({
     job: (user?.job ?? '') as JobConstantInput,
     startAtInMilli: user?.startedAtInMilli ?? 0,
-    services:
-      user && user.services.length > 0
-        ? user.services
-        : [{ name: '', price: 0 }]
+    services: user && user.services.length > 0 ? user.services : [{ name: '' }]
   })
   const [formError, setFormError] = useState<UpdateProfessionalUserErrorForm>({
     job: '',
@@ -59,7 +56,7 @@ export function AppConfigurationFormProfessional() {
   const handleAddService = () => {
     setForm((prev) => ({
       ...prev,
-      services: [...prev.services, { name: '', price: 0 }]
+      services: [...prev.services, { name: '' }]
     }))
   }
 
@@ -132,11 +129,11 @@ export function AppConfigurationFormProfessional() {
       user.job = form.job as JobConstant
       user.startedAtInMilli = form.startAtInMilli
       user.services = form.services.filter(
-        (item) => item.name.length > 0 && item.price > 0
-      )
+        (item) => item.name.length > 0 && item.price! > 0
+      ) as ServiceProps
 
       UpdateUserService.exec(user)
-    }, 1500)
+    }, 500)
 
     return () => {
       clearTimeout(timer)
@@ -181,7 +178,7 @@ export function AppConfigurationFormProfessional() {
             value={
               form.startAtInMilli > 0
                 ? fromDate(new Date(form.startAtInMilli), timezone)
-                : now(timezone)
+                : undefined
             }
             isInvalid={Boolean(formError.startAtInMilli)}
             errorMessage={formError.startAtInMilli}

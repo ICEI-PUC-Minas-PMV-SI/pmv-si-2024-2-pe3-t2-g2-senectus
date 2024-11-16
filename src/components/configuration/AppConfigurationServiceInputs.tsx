@@ -36,22 +36,24 @@ export function AppConfigurationServiceInputs(
     if (res.isError && Boolean(res.name))
       props.setFormError((prev) => {
         const clone = [...prev.services]
-        const newItem = (clone[props.index] = { name: '', price: '' })
-        newItem.name = res.name
+        clone[props.index] = { ...res, price: res.price as string }
         return { ...prev, services: clone }
       })
     else
       props.setFormError((prev) => {
         const clone = [...prev.services]
-        const newItem = (clone[props.index] = { name: '', price: '' })
-        newItem.name = ''
+        clone[props.index] = {
+          price: clone[props.index]?.price ?? '',
+          name: ''
+        }
         return { ...prev, services: clone }
       })
   }
 
   const onChangePrice = (e: ChangeEvent<HTMLInputElement>) => {
     const clone = [...props.form.services]
-    clone[props.index].price = Number(e.target.value)
+    clone[props.index].price =
+      e.target.value?.length > 0 ? Number(e.target.value) : undefined
     const newForm = {
       ...props.form,
       services: clone
@@ -64,15 +66,16 @@ export function AppConfigurationServiceInputs(
     if (res.isError && Boolean(res.price))
       props.setFormError((prev) => {
         const clone = [...prev.services]
-        const newItem = (clone[props.index] = { name: '', price: '' })
-        newItem.price = String(res.price)
+        clone[props.index] = {
+          name: clone[props.index]?.name ?? '',
+          price: res.price as string
+        }
         return { ...prev, services: clone }
       })
     else
       props.setFormError((prev) => {
         const clone = [...prev.services]
-        const newItem = (clone[props.index] = { name: '', price: '' })
-        newItem.price = ''
+        clone[props.index] = { name: clone[props.index]?.name ?? '', price: '' }
         return { ...prev, services: clone }
       })
   }
@@ -100,7 +103,11 @@ export function AppConfigurationServiceInputs(
           wrapperStyle={{ height: '100%' }}
           icon={<FaSackDollar />}
           type="number"
-          value={String(props.form.services[props.index]?.price)}
+          value={
+            props.form.services[props.index]?.price !== undefined
+              ? String(props.form.services[props.index]?.price)
+              : ''
+          }
           isRequired
           onChange={onChangePrice}
           isInvalid={Boolean(props.formError.services[props.index]?.price)}
