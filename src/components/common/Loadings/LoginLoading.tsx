@@ -6,7 +6,7 @@ export function LoginLoading() {
     <LoginLoadingStyle>
       <SpinnerLoading className="load" />
       <h3>Aguarde!</h3>
-      <p>Acessando a sua conta...</p>
+      <p>Carregando o sistema...</p>
     </LoginLoadingStyle>
   )
 }

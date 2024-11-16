@@ -115,7 +115,7 @@ export function AppFormSignUp() {
 
           <div id="form-content">
             <form>
-              <h1>Criar Conta</h1>
+              <h1>Criar conta</h1>
               <AppDefaultInput
                 type="name"
                 label="Insira seu nome completo"
