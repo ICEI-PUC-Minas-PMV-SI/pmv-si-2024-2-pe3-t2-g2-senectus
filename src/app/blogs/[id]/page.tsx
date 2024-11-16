@@ -14,6 +14,7 @@ import { Card } from '@components/blogs/details/CardStyle'
 import '../../globals.css'
 import Image from 'next/image'
 import { FaCheck, FaEye } from 'react-icons/fa6'
+import NotFound from '../../not-found'
 
 const posts = [
   {
@@ -97,10 +98,7 @@ export default function BlogPostDetailsPage({
   const { id } = params
 
   const post = posts.find((post) => post.id === id)
-
-  if (!post) {
-    return <p>Postagem não encontrada.</p>
-  }
+  if (!post) return <NotFound />
 
   return (
     <ThemeProvider theme={theme}>
