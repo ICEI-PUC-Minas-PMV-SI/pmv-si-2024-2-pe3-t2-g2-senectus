@@ -38,6 +38,8 @@ export const HeaderStyle = styled.header`
 
   & #btn-config {
     width: 100%;
+    display: flex;
+    align-items: center;
     & .icon {
       color: ${({ theme }) => theme.color.primaryColor};
     }
@@ -82,6 +84,9 @@ export const HeaderStyle = styled.header`
       }
 
       & #menu-btn-config {
+        display: flex;
+        align-items: center;
+
         & .icon {
           color: ${({ theme }) => theme.color.primaryColor};
         }
