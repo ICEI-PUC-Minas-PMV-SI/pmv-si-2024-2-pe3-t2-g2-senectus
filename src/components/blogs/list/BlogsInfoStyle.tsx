@@ -15,12 +15,11 @@ export const BlogsInfo = styled.div`
   .name-and-role {
     display: flex;
     flex-direction: column;
-    margin-left: -5px;
   }
 
   h3 {
-    font-size: 1.2rem;
     margin: 0;
+    font-weight: bold;
   }
 
   .role {
@@ -45,5 +44,7 @@ export const BlogsInfo = styled.div`
     font-size: 0.8rem;
     color: #999;
     margin-top: -3px;
+    place-self: center;
+    margin-bottom: 0.5rem;
   }
 `

@@ -7,7 +7,7 @@ export const Sidebar = styled.aside`
   width: 14rem;
   gap: 20px;
 
-  & button {
-    width: 14rem;
+  @media (max-width: 800px) {
+    width: 100%;
   }
 `

@@ -7,12 +7,10 @@ export const Card = styled.div`
   padding: 20px;
   border-radius: 8px;
   max-height: 150px;
-  width: 14rem;
+  width: 100%;
   height: fit-content;
   position: relative;
-  font-size: 1.25rem;
   line-height: 1.4;
-
   &::before {
     content: '';
     width: calc(100% + 2px);
@@ -35,7 +33,6 @@ export const Card = styled.div`
     display: flex;
     align-items: center;
     gap: 5px;
-    font-size: 1.25rem;
   }
 
   .title {
