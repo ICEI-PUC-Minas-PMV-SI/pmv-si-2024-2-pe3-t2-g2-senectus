@@ -52,8 +52,8 @@ export function AppHeader(props: AppHeaderProps) {
         <Image
           src="/img/common/logo-tipo.png"
           alt="Logotipo do Senectus"
-          height={90}
-          width={110}
+          height={75}
+          width={95}
           style={{ width: 'auto', height: 'auto' }}
         />
       </Link>

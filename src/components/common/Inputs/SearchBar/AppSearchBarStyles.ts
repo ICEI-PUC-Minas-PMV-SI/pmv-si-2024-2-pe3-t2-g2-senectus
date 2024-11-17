@@ -36,7 +36,6 @@ export const AppSearchBarContainer = styled.div`
 
 export const AppSearchBarInput = styled.input`
   min-width: 100%;
-  font-size: 0.6rem;
   flex: 1;
   border: none;
   outline: none;
@@ -44,6 +43,7 @@ export const AppSearchBarInput = styled.input`
   border-radius: inherit;
   padding: 0.5rem 1rem;
   background-color: inherit;
+  font-size: 0.75rem;
 
   @media (min-width: 550px) {
     min-width: 18rem;

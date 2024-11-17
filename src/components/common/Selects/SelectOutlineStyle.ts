@@ -47,6 +47,7 @@ export const SelectOutlineStyle = styled.div`
       padding-left: 0.255rem;
       padding-bottom: 0.25rem;
       padding-top: 0.25rem;
+      font-size: 0.875rem;
 
       & span {
         padding-inline-end: 0.495rem;

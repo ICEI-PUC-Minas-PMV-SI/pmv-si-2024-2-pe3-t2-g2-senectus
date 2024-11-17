@@ -6,6 +6,10 @@ export const FormPostSignUpStyle = styled.div`
   height: 100vh;
   overflow: hidden;
 
+  #logo {
+    width: fit-content;
+  }
+
   #forms {
     display: grid;
     grid-template-rows: 10rem 28rem;
@@ -30,7 +34,7 @@ export const FormPostSignUpStyle = styled.div`
     flex-direction: column;
     width: 100%;
     margin-bottom: 4rem;
-    gap: 0.5rem;
+    gap: 0.25rem;
 
     & p {
       margin-bottom: 1.5rem;
@@ -41,10 +45,14 @@ export const FormPostSignUpStyle = styled.div`
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
-      grid-gap: 0.25rem;
+      grid-gap: 0.5rem;
 
       @media (min-width: 960px) {
-        font-size: 0.75rem !override;
+        font-size: 0.75rem !important;
+      }
+
+      & label {
+        max-width: 20.5rem;
       }
 
       & label:nth-child(1) {

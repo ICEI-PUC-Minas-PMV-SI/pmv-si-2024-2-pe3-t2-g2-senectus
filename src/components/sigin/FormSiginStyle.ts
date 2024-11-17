@@ -54,6 +54,7 @@ export const FormSiginStyle = styled.div`
         justify-content: center;
         width: 100%;
         place-self: center;
+        align-items: center;
 
         & a {
           margin-left: 0.25rem;
@@ -67,6 +68,11 @@ export const FormSiginStyle = styled.div`
           &:hover {
             color: ${({ theme }) => theme.color.onHoverPrimaryColor};
           }
+        }
+
+        @media (max-width: 300px) {
+          display: inline-block;
+          text-align: center;
         }
       }
     }

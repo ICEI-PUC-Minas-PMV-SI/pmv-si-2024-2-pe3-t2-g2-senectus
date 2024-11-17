@@ -5,4 +5,8 @@ export const ContentSection = styled.div`
   width: fit-content;
   gap: 20px;
   align-items: flex-start;
+
+  @media (max-width: 730px) {
+    flex-direction: column;
+  }
 `

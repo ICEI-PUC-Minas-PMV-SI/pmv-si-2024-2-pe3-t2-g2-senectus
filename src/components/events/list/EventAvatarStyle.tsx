@@ -11,4 +11,8 @@ export const EventAvatar = styled.div`
   align-items: center;
   font-size: 24px;
   margin-right: 15px;
+
+  @media (max-width: 380px) {
+    display: none;
+  }
 `

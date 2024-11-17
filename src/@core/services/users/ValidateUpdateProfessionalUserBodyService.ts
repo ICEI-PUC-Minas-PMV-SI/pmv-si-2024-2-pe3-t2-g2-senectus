@@ -9,12 +9,12 @@ type ValidateJobInfosReturn = {
 }
 type ValidateServiceInfosReturn = {
   name: string
-  price: string | number
+  price?: string | number
   isError?: boolean
 }
 interface ValidateServiceInfoInput {
   name: string
-  price: number
+  price?: number
 }
 
 export class ValidateUpdateProfessionalUserBodyService {
@@ -48,8 +48,10 @@ export class ValidateUpdateProfessionalUserBodyService {
       name: z
         .string()
         .min(8, 'Nome deve conter no mínimo 8 caracteres')
-        .max(60, 'Serviço deve conter no máximo 60 caracteres'),
-      price: z.number().gt(0, 'Preço deve ser maior que zero')
+        .max(60, 'Nome deve conter no máximo 60 caracteres'),
+      price: z
+        .number({ message: 'Preço deve ser maior que zero' })
+        .gt(0, 'Preço deve ser maior que zero')
     })
 
     try {

@@ -15,6 +15,7 @@ import { Card } from '@components/events/Details/CardStyle'
 import '../../globals.css'
 import Image from 'next/image'
 import { FaCheck, FaEye } from 'react-icons/fa6'
+import NotFound from '../../not-found'
 
 // Array de eventos com dados dinâmicos
 const eventsData = [
@@ -123,9 +124,7 @@ export default function EventDetailsPage({
   // Busca o evento correspondente pelo id
   const event = eventsData.find((event) => event.id === id)
 
-  if (!event) {
-    return <p>Evento não encontrado.</p>
-  }
+  if (!event) return <NotFound />
 
   return (
     <ThemeProvider theme={theme}>

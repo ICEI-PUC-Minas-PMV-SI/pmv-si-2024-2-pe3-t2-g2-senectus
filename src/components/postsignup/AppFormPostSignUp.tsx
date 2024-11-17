@@ -68,14 +68,16 @@ export function AppFormPostSignUp() {
       <FormPostSignUpStyle>
         <div id="forms">
           <div id="logo">
-            <Image
-              src="/img/common/logo.png"
-              alt="Logotipo do Senectus"
-              height={90}
-              width={60}
-              style={{ width: 'auto', height: 'auto' }}
-              priority
-            />
+            <Link href="/">
+              <Image
+                src="/img/common/logo.png"
+                alt="Logotipo do Senectus"
+                height={90}
+                width={60}
+                style={{ width: 'auto', height: 'auto' }}
+                priority
+              />
+            </Link>
           </div>
 
           <div id="form-content">
@@ -83,8 +85,8 @@ export function AppFormPostSignUp() {
 
             <div id="radio-content">
               <p>
-                Para finalizar o cadastro da sua conta, por favor nos informe o
-                que te trouxe aqui:
+                Para finalizar o cadastro da sua conta de usuário, por favor nos
+                informe o que te trouxe aqui:
               </p>
               <RadioGroup onValueChange={handleRadioChange} id="options">
                 <Radio value="professional-1" size="sm">

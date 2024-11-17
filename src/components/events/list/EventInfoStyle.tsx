@@ -25,8 +25,8 @@ export const EventInfo = styled.div`
   }
 
   h3 {
-    font-size: 1.2rem;
     margin: 0;
+    font-weight: bold;
   }
 
   .role {
@@ -47,12 +47,14 @@ export const EventInfo = styled.div`
     font-size: 0.9rem;
     color: #666;
     margin-top: 5px;
-    max-width: 600px;
+    max-width: 400px;
   }
 
   .timestamp {
     font-size: 0.8rem;
     color: #999;
     margin-top: -3px;
+    place-self: center;
+    margin-bottom: 0.5rem;
   }
 `

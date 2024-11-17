@@ -36,4 +36,20 @@ export const Card = styled.div`
     gap: 5px;
     font-size: 1.25rem;
   }
+
+  @media (max-width: 730px) and (min-width: 363px) {
+    display: flex;
+    flex-direction: reverse-row;
+    align-items: center;
+    justify-content: space-between;
+
+    & .separator {
+      height: 100%;
+      width: 1px;
+    }
+  }
+
+  @media (max-width: 730px) {
+    width: 100%;
+  }
 `

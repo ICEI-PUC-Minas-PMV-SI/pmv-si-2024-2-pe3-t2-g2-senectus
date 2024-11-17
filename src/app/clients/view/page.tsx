@@ -13,7 +13,7 @@ import { FaAngleLeft } from 'react-icons/fa6'
 import { LoginProvider } from '../../../context/LoginProvider'
 import { UserEntityTypeEnum } from '@core/models/UserEntity'
 
-export default function ClientsScreen() {
+export default function ClientsViewScreen() {
   return (
     <ThemeProvider theme={theme}>
       <NextUIProvider className="default">

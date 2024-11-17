@@ -2,7 +2,6 @@ import { theme } from '@themes/theme'
 import { DatePicker, DatePickerProps } from '@nextui-org/date-picker'
 import { FaCalendarDays } from 'react-icons/fa6'
 import { DatePickerStyle } from './DatePickerStyle'
-import { now } from '@internationalized/date'
 import { useState, useEffect, CSSProperties } from 'react'
 import { DateValue } from '@nextui-org/react'
 
@@ -18,9 +17,7 @@ function AppIcon() {
 const days = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S']
 
 export function AppDatePicker(props: AppDatePickerProps) {
-  const [date, setDate] = useState<DateValue>(
-    now(Intl.DateTimeFormat().resolvedOptions().timeZone)
-  )
+  const [date, setDate] = useState<DateValue | undefined>()
   const tryTranslateCalendar = () => {
     const calendars = document.querySelectorAll('[data-slot="calendar"]')
     for (let i = 0; i < calendars.length; i++) {

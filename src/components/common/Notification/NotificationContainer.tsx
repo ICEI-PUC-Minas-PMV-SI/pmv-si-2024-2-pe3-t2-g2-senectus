@@ -4,7 +4,7 @@ export function NotificationContainer() {
   return (
     <ToastContainer
       position="top-right"
-      autoClose={5000}
+      autoClose={8000}
       newestOnTop
       closeOnClick
       pauseOnHover

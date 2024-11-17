@@ -5,7 +5,7 @@ import { theme } from '../../themes/theme'
 import { NextUIProvider } from '@nextui-org/react'
 import { AppFormSignUp } from '@components/signup/AppFormSignUp'
 
-export default function ExercisesScreen() {
+export default function SignupScreen() {
   return (
     <ThemeProvider theme={theme}>
       <NextUIProvider className="default">

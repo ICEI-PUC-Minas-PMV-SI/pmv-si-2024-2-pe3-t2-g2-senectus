@@ -5,4 +5,8 @@ export const Sidebar = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 730px) {
+    width: 100%;
+  }
 `

@@ -3,7 +3,8 @@ import { toast } from 'react-toastify'
 export enum NotificationTypeEnum {
   WARN = 'warning',
   ERROR = 'error',
-  SUCCESS = 'success'
+  SUCCESS = 'success',
+  INFO = 'info'
 }
 
 export class NotificationService {
