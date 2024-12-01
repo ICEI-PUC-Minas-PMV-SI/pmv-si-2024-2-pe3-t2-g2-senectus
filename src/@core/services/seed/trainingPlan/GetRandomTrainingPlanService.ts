@@ -16,10 +16,12 @@ export class GetRandomTrainingPlanService {
     const daysInTheMonth = getDaysInTheMonth(now, timezone)
 
     const dateInMilliList: number[] = []
+    const remainingDays = daysInTheMonth.length - now.getDate()
+
     for (let i = 0; i < 5; i++) {
       const randomDayMonth =
         daysInTheMonth[
-          Math.floor(Math.random() * Math.max(daysInTheMonth.length - 1, 0))
+          now.getDate() + Math.floor(Math.random() * remainingDays) - 1
         ]
       const randomDate = new Date(
         `${now.getFullYear()}-${monthTarget}-${GetRandomTrainingPlanService.formatCalendarNumber(
