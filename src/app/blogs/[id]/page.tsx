@@ -115,9 +115,8 @@ export default function BlogPostDetailsPage({
                 <Image
                   src={post.image}
                   alt={post.title}
-                  width={100}
-                  height={100}
-                  priority
+                  width={300}
+                  height={300}
                 />
                 <hr />
                 <div className="description">

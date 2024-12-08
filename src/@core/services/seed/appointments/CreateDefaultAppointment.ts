@@ -3,6 +3,7 @@ import {
   AppointmentsEntity,
   AppointmentStateEnum
 } from '@core/models/AppointmentsEntity'
+import { ClientEntity } from '@core/models/ClientEntity'
 import { ProfessionalEntity } from '@core/models/ProfessionalEntity'
 import { UserEntity, UserEntityTypeEnum } from '@core/models/UserEntity'
 import { AppointmentsRepo } from '@core/repositories/AppointmentsRepo'
@@ -16,7 +17,8 @@ export class CreateDefaultAppointment {
 
     const client = CreateDefaultAppointment.createClient()
     const professional = user as ProfessionalEntity
-    CreateDefaultAppointment.createAppointment(professional, client)
+    if (!client.professionalIdList.find((item) => item === professional.id))
+      CreateDefaultAppointment.createAppointment(professional, client)
   }
 
   private static createClient() {
@@ -25,7 +27,7 @@ export class CreateDefaultAppointment {
       email,
       UserEntityTypeEnum.CLIENT
     )
-    if (searchedClient) return searchedClient
+    if (searchedClient) return searchedClient as ClientEntity
 
     const client = userEntityFactory({
       name: 'Pedro Almeida',
@@ -37,7 +39,7 @@ export class CreateDefaultAppointment {
       address: 'Rua da Harmonia, 789'
     })
     UsersRepo.set(client)
-    return client
+    return client as ClientEntity
   }
 
   private static createAppointment(
