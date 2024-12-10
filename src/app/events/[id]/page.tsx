@@ -142,9 +142,8 @@ export default function EventDetailsPage({
                 <Image
                   src={event.image}
                   alt={event.title}
-                  width={100}
-                  height={100}
-                  priority
+                  width={300}
+                  height={300}
                 />
                 <div className="description">
                   <h2>Descrição do evento</h2>

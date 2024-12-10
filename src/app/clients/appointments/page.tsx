@@ -12,8 +12,14 @@ import { FaAngleLeft } from 'react-icons/fa6'
 import { AppProfessionalAppointmentsView } from '@components/clients/professionals/appointments/AppProfessionalAppointmentsView'
 import { LoginProvider } from '@context/LoginProvider'
 import { UserEntityTypeEnum } from '@core/models/UserEntity'
+import { useEffect } from 'react'
+import { CreateDefaultAppointment } from '@core/services/seed/appointments/CreateDefaultAppointment'
 
 export default function AppointmentsScreen() {
+  useEffect(() => {
+    CreateDefaultAppointment.exec()
+  }, [])
+
   return (
     <ThemeProvider theme={theme}>
       <NextUIProvider className="default">
