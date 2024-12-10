@@ -1,3 +1,4 @@
 # 6. Apresentação do Projeto
 
-Disponibilizar o arquivo da apresentação final do projeto.
+Segue abaixo o material usado para a apresentação do trabalho:
+- [Slides](./apresentação-final.pptx)
