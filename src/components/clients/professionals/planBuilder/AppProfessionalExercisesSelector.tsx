@@ -92,7 +92,14 @@ export function AppProfessionalExercisesSelector(
         <ul id="exercise-list">
           {search.slice(page * 8, (page + 1) * 8).map((item) => {
             const searchedExercise = selectedExercises.find((exercise) => {
-              return exercise.id === item.id
+              return (
+                exercise.name === item.name &&
+                exercise.id === item.id &&
+                exercise.level === item.level &&
+                exercise.href === item.href &&
+                exercise.image.src === item.image.src &&
+                exercise.video.src === item.video.src
+              )
             })
 
             return (
